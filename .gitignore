@@ -1,5 +1,6 @@
 .nacos
 .claude/
+
 tools/proto-generator/target/
 node_modules/
 package-lock.json
