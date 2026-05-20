@@ -7,6 +7,7 @@ option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 import "ai/agentcard.proto";
 import "ai/agentendpoint.proto";
 import "ai/mcpendpointspec.proto";
+import "ai/mcpresourcespecification.proto";
 import "ai/mcpserverbasicinfo.proto";
 import "ai/mcptoolspecification.proto";
 
@@ -93,6 +94,7 @@ message ReleaseMcpServerRequest {
   string mcpName = 4;
   McpServerBasicInfo serverSpecification = 5;
   McpToolSpecification toolSpecification = 6;
+  McpResourceSpecification resourceSpecification = 9;
   McpEndpointSpec endpointSpecification = 7;
   reserved 8;
 }

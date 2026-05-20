@@ -9,5 +9,8 @@ option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 message AgentInterface {
   string url = 1;
   string transport = 2;
+  string protocolBinding = 6;
+  string protocolVersion = 7;
+  string tenant = 8;
   reserved 3, 4, 5;
 }
