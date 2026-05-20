@@ -159,8 +159,8 @@ jobs:
             echo "No changes detected, skipping PR."
             exit 0
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "cxhello"
+          git config user.email "caixiaohuichn@gmail.com"
           SHORT_SHA=$(echo "${{ steps.resolve.outputs.sha }}" | cut -c1-7)
           BRANCH="sync/nacos-${SHORT_SHA}"
           git checkout -b "$BRANCH"
