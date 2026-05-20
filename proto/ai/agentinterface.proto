@@ -2,14 +2,12 @@
 syntax = "proto3";
 package nacos.ai;
 
-option go_package = "github.com/cxhello/nacos-sdk-proto/go/ai";
+option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 
 // metadata.type = "AgentInterface"
 // Flattened from: AgentInterface
 message AgentInterface {
   string url = 1;
   string transport = 2;
-  string protocolBinding = 3;
-  string protocolVersion = 4;
-  string tenant = 5;
+  reserved 3, 4, 5;
 }

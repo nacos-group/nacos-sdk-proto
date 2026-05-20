@@ -2,7 +2,7 @@
 syntax = "proto3";
 package nacos.naming;
 
-option go_package = "github.com/cxhello/nacos-sdk-proto/go/naming";
+option go_package = "github.com/nacos-group/nacos-sdk-proto/go/naming";
 
 import "naming/serviceinfo.proto";
 

@@ -91,7 +91,7 @@ make verify            # Go 编译 + tsc --noEmit + 幂等性检查
 ### Go
 
 ```bash
-go get github.com/cxhello/nacos-sdk-proto/go@latest
+go get github.com/nacos-group/nacos-sdk-proto/go@latest
 ```
 
 ### Python

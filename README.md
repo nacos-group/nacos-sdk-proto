@@ -93,7 +93,7 @@ make verify            # Go build + tsc --noEmit + idempotency check
 ### Go
 
 ```bash
-go get github.com/cxhello/nacos-sdk-proto/go@latest
+go get github.com/nacos-group/nacos-sdk-proto/go@latest
 ```
 
 ### Python

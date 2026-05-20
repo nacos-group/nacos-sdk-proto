@@ -2,7 +2,7 @@
 syntax = "proto3";
 package nacos.ai;
 
-option go_package = "github.com/cxhello/nacos-sdk-proto/go/ai";
+option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 
 import "ai/mcptoolannotations.proto";
 import "google/protobuf/struct.proto";

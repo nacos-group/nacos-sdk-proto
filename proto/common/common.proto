@@ -2,7 +2,7 @@
 syntax = "proto3";
 package nacos.common;
 
-option go_package = "github.com/cxhello/nacos-sdk-proto/go/common";
+option go_package = "github.com/nacos-group/nacos-sdk-proto/go/common";
 
 // metadata.type = "ClientDetectionRequest"
 // Flattened from: ClientDetectionRequest -> ServerRequest -> Request

@@ -2,7 +2,7 @@
 syntax = "proto3";
 package nacos.ai;
 
-option go_package = "github.com/cxhello/nacos-sdk-proto/go/ai";
+option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 
 import "ai/agentcapabilities.proto";
 import "ai/agentinterface.proto";
@@ -24,16 +24,14 @@ message AgentCardDetailInfo {
   string url = 8;
   string preferredTransport = 9;
   repeated AgentInterface additionalInterfaces = 10;
-  repeated AgentInterface supportedInterfaces = 20;
   AgentProvider provider = 11;
   string documentationUrl = 12;
   map<string, SecurityScheme> securitySchemes = 13;
   repeated google.protobuf.Value security = 14;
-  repeated google.protobuf.Value securityRequirements = 21;
   repeated string defaultInputModes = 15;
   repeated string defaultOutputModes = 16;
   bool supportsAuthenticatedExtendedCard = 17;
-  repeated google.protobuf.Value signatures = 22;
   string registrationType = 18;
   bool latestVersion = 19;
+  reserved 20, 21, 22;
 }

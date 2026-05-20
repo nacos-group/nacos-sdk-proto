@@ -2,7 +2,7 @@
 syntax = "proto3";
 package nacos.config;
 
-option go_package = "github.com/cxhello/nacos-sdk-proto/go/config";
+option go_package = "github.com/nacos-group/nacos-sdk-proto/go/config";
 
 import "google/protobuf/struct.proto";
 

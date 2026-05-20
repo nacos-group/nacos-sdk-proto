@@ -14,4 +14,4 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/cxhello/nacos-sdk-proto"
+Repository = "https://github.com/nacos-group/nacos-sdk-proto"

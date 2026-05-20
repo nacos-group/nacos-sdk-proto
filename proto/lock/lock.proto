@@ -2,7 +2,7 @@
 syntax = "proto3";
 package nacos.lock;
 
-option go_package = "github.com/cxhello/nacos-sdk-proto/go/lock";
+option go_package = "github.com/nacos-group/nacos-sdk-proto/go/lock";
 
 import "google/protobuf/struct.proto";
 

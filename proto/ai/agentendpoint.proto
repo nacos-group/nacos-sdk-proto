@@ -2,7 +2,7 @@
 syntax = "proto3";
 package nacos.ai;
 
-option go_package = "github.com/cxhello/nacos-sdk-proto/go/ai";
+option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 
 // metadata.type = "AgentEndpoint"
 // Flattened from: AgentEndpoint
@@ -13,8 +13,7 @@ message AgentEndpoint {
   string path = 4;
   bool supportTls = 5;
   string version = 6;
-  string protocolVersion = 9;
-  string tenant = 10;
   string protocol = 7;
   string query = 8;
+  reserved 9, 10;
 }

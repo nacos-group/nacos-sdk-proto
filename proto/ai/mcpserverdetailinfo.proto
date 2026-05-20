@@ -2,11 +2,10 @@
 syntax = "proto3";
 package nacos.ai;
 
-option go_package = "github.com/cxhello/nacos-sdk-proto/go/ai";
+option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 
 import "ai/icon.proto";
 import "ai/mcpendpointinfo.proto";
-import "ai/mcpresourcespecification.proto";
 import "ai/mcpserverremoteserviceconfig.proto";
 import "ai/mcptoolspecification.proto";
 import "ai/package.proto";
@@ -37,6 +36,6 @@ message McpServerDetailInfo {
   repeated McpEndpointInfo backendEndpoints = 18;
   repeated McpEndpointInfo frontendEndpoints = 19;
   McpToolSpecification toolSpec = 20;
-  McpResourceSpecification resourceSpec = 22;
   repeated ServerVersionDetail allVersions = 21;
+  reserved 22;
 }

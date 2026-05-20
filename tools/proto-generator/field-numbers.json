@@ -20,11 +20,9 @@
         "supportTls" : 5,
         "version" : 6,
         "protocol" : 7,
-        "query" : 8,
-        "protocolVersion" : 9,
-        "tenant" : 10
+        "query" : 8
       },
-      "reserved" : [ ]
+      "reserved" : [ 9, 10 ]
     },
     "AgentEndpointResponse" : {
       "fields" : {
@@ -600,22 +598,18 @@
         "defaultOutputModes" : 16,
         "supportsAuthenticatedExtendedCard" : 17,
         "registrationType" : 18,
-        "latestVersion" : 19,
-        "supportedInterfaces" : 20,
-        "securityRequirements" : 21,
-        "signatures" : 22
+        "latestVersion" : 19
       },
-      "reserved" : [ ]
+      "reserved" : [ 20, 21, 22 ]
     },
     "AgentCapabilities" : {
       "fields" : {
         "streaming" : 1,
         "pushNotifications" : 2,
         "stateTransitionHistory" : 3,
-        "extensions" : 4,
-        "extendedAgentCard" : 5
+        "extensions" : 4
       },
-      "reserved" : [ ]
+      "reserved" : [ 5 ]
     },
     "AgentExtension" : {
       "fields" : {
@@ -641,12 +635,9 @@
     "AgentInterface" : {
       "fields" : {
         "url" : 1,
-        "transport" : 2,
-        "protocolBinding" : 3,
-        "protocolVersion" : 4,
-        "tenant" : 5
+        "transport" : 2
       },
-      "reserved" : [ ]
+      "reserved" : [ 3, 4, 5 ]
     },
     "AgentProvider" : {
       "fields" : {
@@ -704,10 +695,9 @@
         "backendEndpoints" : 18,
         "frontendEndpoints" : 19,
         "toolSpec" : 20,
-        "allVersions" : 21,
-        "resourceSpec" : 22
+        "allVersions" : 21
       },
-      "reserved" : [ ]
+      "reserved" : [ 22 ]
     },
     "Repository" : {
       "fields" : {
@@ -954,12 +944,9 @@
         "security" : 14,
         "defaultInputModes" : 15,
         "defaultOutputModes" : 16,
-        "supportsAuthenticatedExtendedCard" : 17,
-        "supportedInterfaces" : 18,
-        "securityRequirements" : 19,
-        "signatures" : 20
+        "supportsAuthenticatedExtendedCard" : 17
       },
-      "reserved" : [ ]
+      "reserved" : [ 18, 19, 20 ]
     },
     "ReleaseAgentCardResponse" : {
       "fields" : {
@@ -978,10 +965,9 @@
         "mcpName" : 4,
         "serverSpecification" : 5,
         "toolSpecification" : 6,
-        "endpointSpecification" : 7,
-        "resourceSpecification" : 8
+        "endpointSpecification" : 7
       },
-      "reserved" : [ ]
+      "reserved" : [ 8 ]
     },
     "McpServerBasicInfo" : {
       "fields" : {

@@ -2,7 +2,7 @@
         clean verify verify-build sync-go-mod migrate sync setup update-version
 
 # === 仓库配置（转移时只改这一行） ===
-REPO_OWNER     := cxhello
+REPO_OWNER     := nacos-group
 REPO_NAME      := nacos-sdk-proto
 GO_MODULE_BASE := github.com/$(REPO_OWNER)/$(REPO_NAME)/go
 
