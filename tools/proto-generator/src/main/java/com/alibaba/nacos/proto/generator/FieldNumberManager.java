@@ -63,6 +63,9 @@ public class FieldNumberManager {
                 maxNumber = Math.max(maxNumber, entry.getValue());
             }
             reserved.addAll(existing.reserved());
+            for (int r : reserved) {
+                maxNumber = Math.max(maxNumber, r);
+            }
         }
 
         for (String name : fieldNames) {
