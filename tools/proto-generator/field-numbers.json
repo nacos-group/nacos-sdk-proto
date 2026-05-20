@@ -20,7 +20,9 @@
         "supportTls" : 5,
         "version" : 6,
         "protocol" : 7,
-        "query" : 8
+        "query" : 8,
+        "protocolVersion" : 11,
+        "tenant" : 12
       },
       "reserved" : [ 9, 10 ]
     },
@@ -598,7 +600,10 @@
         "defaultOutputModes" : 16,
         "supportsAuthenticatedExtendedCard" : 17,
         "registrationType" : 18,
-        "latestVersion" : 19
+        "latestVersion" : 19,
+        "supportedInterfaces" : 23,
+        "securityRequirements" : 24,
+        "signatures" : 25
       },
       "reserved" : [ 20, 21, 22 ]
     },
@@ -607,7 +612,8 @@
         "streaming" : 1,
         "pushNotifications" : 2,
         "stateTransitionHistory" : 3,
-        "extensions" : 4
+        "extensions" : 4,
+        "extendedAgentCard" : 6
       },
       "reserved" : [ 5 ]
     },
@@ -635,7 +641,10 @@
     "AgentInterface" : {
       "fields" : {
         "url" : 1,
-        "transport" : 2
+        "transport" : 2,
+        "protocolBinding" : 6,
+        "protocolVersion" : 7,
+        "tenant" : 8
       },
       "reserved" : [ 3, 4, 5 ]
     },
@@ -695,7 +704,8 @@
         "backendEndpoints" : 18,
         "frontendEndpoints" : 19,
         "toolSpec" : 20,
-        "allVersions" : 21
+        "allVersions" : 21,
+        "resourceSpec" : 23
       },
       "reserved" : [ 22 ]
     },
@@ -944,7 +954,10 @@
         "security" : 14,
         "defaultInputModes" : 15,
         "defaultOutputModes" : 16,
-        "supportsAuthenticatedExtendedCard" : 17
+        "supportsAuthenticatedExtendedCard" : 17,
+        "supportedInterfaces" : 21,
+        "securityRequirements" : 22,
+        "signatures" : 23
       },
       "reserved" : [ 18, 19, 20 ]
     },
@@ -965,7 +978,8 @@
         "mcpName" : 4,
         "serverSpecification" : 5,
         "toolSpecification" : 6,
-        "endpointSpecification" : 7
+        "endpointSpecification" : 7,
+        "resourceSpecification" : 9
       },
       "reserved" : [ 8 ]
     },

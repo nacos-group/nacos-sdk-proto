@@ -12,6 +12,7 @@ message AgentCapabilities {
   bool streaming = 1;
   bool pushNotifications = 2;
   bool stateTransitionHistory = 3;
+  bool extendedAgentCard = 6;
   repeated AgentExtension extensions = 4;
   reserved 5;
 }
