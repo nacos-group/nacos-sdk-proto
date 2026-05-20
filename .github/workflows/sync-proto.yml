@@ -19,11 +19,18 @@ jobs:
       contents: write
       pull-requests: write
     steps:
+      - name: Generate app token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - name: Checkout nacos-sdk-proto
         uses: actions/checkout@v4
         with:
           path: nacos-sdk-proto
-          token: ${{ secrets.PAT_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Resolve nacos ref
         id: resolve
@@ -152,15 +159,15 @@ jobs:
       - name: Check diff and create PR
         if: steps.check.outputs.needed == 'true'
         env:
-          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           cd nacos-sdk-proto
           if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard)" ]; then
             echo "No changes detected, skipping PR."
             exit 0
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "nacos-sdk-proto-bot[bot]"
+          git config user.email "nacos-sdk-proto-bot[bot]@users.noreply.github.com"
           SHORT_SHA=$(echo "${{ steps.resolve.outputs.sha }}" | cut -c1-7)
           BRANCH="sync/nacos-${SHORT_SHA}"
           git checkout -b "$BRANCH"
