@@ -69,16 +69,21 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org
+      - name: Ensure npm supports OIDC
+        run: |
+          echo "node $(node -v)"
+          echo "npm $(npm -v)"
+          npm install -g npm@latest
+          echo "npm updated to $(npm -v)"
       - name: Publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: cd nodejs && npm publish --provenance
+        run: cd nodejs && npm publish
 
   github-release:
     needs: [check, push-tags, release-python, release-nodejs]
