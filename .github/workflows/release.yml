@@ -1,4 +1,4 @@
-name: Release
+name: Release Prepare
 on:
   workflow_dispatch:
     inputs:
@@ -9,7 +9,7 @@ on:
         description: 'Package version (defaults to nacos_tag)'
         required: false
       dry_run:
-        description: 'Dry run (skip actual publish)'
+        description: 'Dry run (skip PR creation)'
         type: boolean
         default: true
 
@@ -18,10 +18,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  generate:
+  prepare:
     runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.version.outputs.value }}
     steps:
       - name: Determine version
         id: version
@@ -127,127 +125,35 @@ jobs:
         run: |
           cd nacos-sdk-proto
           VER="${{ steps.version.outputs.value }}"
-          # Python
           sed -i "s/version = \".*\"/version = \"${VER}\"/" python/pyproject.toml
-          # Node.js
           sed -i "s/\"version\": \".*\"/\"version\": \"${VER}\"/" nodejs/package.json
           echo "Updated package versions to ${VER}"
 
-      - name: Prepare release commit
-        run: |
-          cd nacos-sdk-proto
-          git config user.name "nacos-sdk-proto-bot[bot]"
-          git config user.email "nacos-sdk-proto-bot[bot]@users.noreply.github.com"
-          git add -A
-          echo "=== Changes to be committed ==="
-          git diff --cached --stat
-
-      - name: Commit, tag and push
+      - name: Create release PR
         if: ${{ !inputs.dry_run }}
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           cd nacos-sdk-proto
-          VER="${{ steps.version.outputs.value }}"
-          if ! git diff --cached --quiet; then
-            BRANCH="release/v${VER}"
-            git checkout -b "$BRANCH"
-            git commit -m "release: v${VER} (nacos ${{ inputs.nacos_tag }})"
-            git tag "v${VER}"
-            git tag "go/v${VER}"
-            git push origin "$BRANCH" --tags
-            gh pr create \
-              --title "release: v${VER} (nacos ${{ inputs.nacos_tag }})" \
-              --body "Update VERSION and package versions for v${VER} release."
-          else
-            git tag "v${VER}"
-            git tag "go/v${VER}"
-            git push origin --tags
+          git config user.name "nacos-sdk-proto-bot[bot]"
+          git config user.email "nacos-sdk-proto-bot[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes detected, skipping PR."
+            exit 0
           fi
+          VER="${{ steps.version.outputs.value }}"
+          BRANCH="release/v${VER}"
+          git checkout -b "$BRANCH"
+          git commit -m "release: v${VER} (nacos ${{ inputs.nacos_tag }})"
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "release: v${VER} (nacos ${{ inputs.nacos_tag }})" \
+            --body "Update VERSION and package versions for v${VER} release. Merging this PR will trigger package publishing."
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: nacos-sdk-proto
-          path: nacos-sdk-proto/
-
-  release-go:
-    needs: generate
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Go release done via git tag go/v${{ needs.generate.outputs.version }}"
-
-  release-python:
-    needs: generate
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: nacos-sdk-proto
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - name: Build package
-        run: |
-          pip install build twine
-          cd python
-          python -m build
-      - name: Publish
-        if: ${{ !inputs.dry_run }}
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
-        run: cd python && twine upload dist/*
       - name: Dry-run report
         if: ${{ inputs.dry_run }}
-        run: ls -la python/dist/
-
-  release-nodejs:
-    needs: generate
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: nacos-sdk-proto
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          registry-url: https://registry.npmjs.org
-      - name: Build package
-        run: cd nodejs && npm pack
-      - name: Publish
-        if: ${{ !inputs.dry_run }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: cd nodejs && npm publish
-      - name: Dry-run report
-        if: ${{ inputs.dry_run }}
-        run: ls -la nodejs/*.tgz
-
-  github-release:
-    needs: [generate, release-go, release-python, release-nodejs]
-    if: ${{ !inputs.dry_run }}
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-      - name: Create GitHub Release
-        env:
-          GH_TOKEN: ${{ github.token }}
-          VER: ${{ needs.generate.outputs.version }}
-          NACOS_TAG: ${{ inputs.nacos_tag }}
         run: |
-          cat > /tmp/release-notes.md << EOF
-          ## nacos-sdk-proto v${VER}
-
-          Generated from [alibaba/nacos@${NACOS_TAG}](https://github.com/alibaba/nacos/tree/${NACOS_TAG})
-
-          ### Packages
-
-          | Language | Package | Version |
-          |----------|---------|---------|
-          | Go | \`github.com/nacos-group/nacos-sdk-proto/go\` | \`go/v${VER}\` |
-          | Python | [nacos-sdk-proto](https://pypi.org/project/nacos-sdk-proto/${VER}/) | ${VER} |
-          | Node.js | [@nacos-group/sdk-proto](https://www.npmjs.com/package/@nacos-group/sdk-proto/v/${VER}) | ${VER} |
-          EOF
-          gh release create "v${VER}" --title "v${VER}" --notes-file /tmp/release-notes.md
+          cd nacos-sdk-proto
+          echo "=== Changes that would be committed ==="
+          git diff --cached --stat

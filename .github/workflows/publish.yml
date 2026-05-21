@@ -1,0 +1,108 @@
+name: Publish
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      is_release: ${{ steps.check.outputs.is_release }}
+      version: ${{ steps.check.outputs.version }}
+    steps:
+      - name: Check if release commit
+        id: check
+        run: |
+          MSG="${{ github.event.head_commit.message }}"
+          if echo "$MSG" | grep -qP '^release: v[\d]'; then
+            VER=$(echo "$MSG" | sed 's/release: v\([^ ]*\).*/\1/')
+            echo "is_release=true" >> "$GITHUB_OUTPUT"
+            echo "version=$VER" >> "$GITHUB_OUTPUT"
+            echo "Detected release v${VER}"
+          else
+            echo "is_release=false" >> "$GITHUB_OUTPUT"
+            echo "Not a release commit, skipping."
+          fi
+
+  push-tags:
+    needs: check
+    if: needs.check.outputs.is_release == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Push tags
+        run: |
+          VER="${{ needs.check.outputs.version }}"
+          git tag "v${VER}"
+          git tag "go/v${VER}"
+          git push origin "v${VER}" "go/v${VER}"
+
+  release-python:
+    needs: [check, push-tags]
+    if: needs.check.outputs.is_release == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build package
+        run: |
+          pip install build twine
+          cd python
+          python -m build
+      - name: Publish
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+        run: cd python && twine upload dist/*
+
+  release-nodejs:
+    needs: [check, push-tags]
+    if: needs.check.outputs.is_release == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      - name: Publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: cd nodejs && npm publish
+
+  github-release:
+    needs: [check, push-tags, release-python, release-nodejs]
+    if: needs.check.outputs.is_release == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VER: ${{ needs.check.outputs.version }}
+        run: |
+          NACOS_REF=$(jq -r .nacos_ref proto/VERSION)
+          cat > /tmp/release-notes.md << EOF
+          ## nacos-sdk-proto v${VER}
+
+          Generated from [alibaba/nacos@${NACOS_REF}](https://github.com/alibaba/nacos/tree/${NACOS_REF})
+
+          ### Packages
+
+          | Language | Package | Version |
+          |----------|---------|---------|
+          | Go | \`github.com/nacos-group/nacos-sdk-proto/go\` | \`go/v${VER}\` |
+          | Python | [nacos-sdk-proto](https://pypi.org/project/nacos-sdk-proto/${VER}/) | ${VER} |
+          | Node.js | [@nacos-group/sdk-proto](https://www.npmjs.com/package/@nacos-group/sdk-proto/v/${VER}) | ${VER} |
+          EOF
+          gh release create "v${VER}" --title "v${VER}" --notes-file /tmp/release-notes.md
