@@ -144,15 +144,26 @@ jobs:
 
       - name: Commit, tag and push
         if: ${{ !inputs.dry_run }}
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           cd nacos-sdk-proto
           VER="${{ steps.version.outputs.value }}"
           if ! git diff --cached --quiet; then
+            BRANCH="release/v${VER}"
+            git checkout -b "$BRANCH"
             git commit -m "release: v${VER} (nacos ${{ inputs.nacos_tag }})"
+            git tag "v${VER}"
+            git tag "go/v${VER}"
+            git push origin "$BRANCH" --tags
+            gh pr create \
+              --title "release: v${VER} (nacos ${{ inputs.nacos_tag }})" \
+              --body "Update VERSION and package versions for v${VER} release."
+          else
+            git tag "v${VER}"
+            git tag "go/v${VER}"
+            git push origin --tags
           fi
-          git tag "v${VER}"
-          git tag "go/v${VER}"
-          git push origin main --tags
 
       - uses: actions/upload-artifact@v4
         with:
