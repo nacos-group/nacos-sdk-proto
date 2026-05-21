@@ -36,8 +36,10 @@ nacos-sdk-proto/
 ├── Makefile                        # Build orchestration (REPO_OWNER parameterized)
 ├── buf.yaml                        # Buf linter config
 └── .github/workflows/
-    ├── sync-proto.yml              # Weekly auto-sync from nacos develop branch
-    └── release.yml                 # Manual release with dry-run support
+    ├── ci.yml                      # PR verification (Go build + tsc)
+    ├── sync-proto.yml              # Weekly auto-sync from nacos develop → develop branch
+    ├── release.yml                 # Release prepare: generate + create PR
+    └── publish.yml                 # Auto-publish on release commit merge to main
 ```
 
 ## Message Types
@@ -112,26 +114,32 @@ npm install @nacos-group/sdk-proto   # after release to npm
 
 Use `protoc` with the appropriate language plugin. All proto files are under the `proto/` directory.
 
+## Branch Strategy
+
+- **main** — stable, only updated via release workflow (corresponds to a specific Nacos tag)
+- **develop** — latest, weekly auto-sync from Nacos develop branch
+
 ## CI/CD
 
 ### Automated Sync (`sync-proto.yml`)
 
-Runs weekly (Monday UTC 00:00) or manually via `workflow_dispatch`. Compares `proto/VERSION` commit SHA with Nacos develop HEAD — skips if unchanged.
+Runs weekly (Monday UTC 00:00) or manually via `workflow_dispatch`. Syncs from Nacos develop branch to the `develop` branch. Compares `proto/VERSION` commit SHA with Nacos develop HEAD — skips if unchanged.
 
-Flow: clone nacos → `mvn install -pl api` → `make clean` → `make generate-proto` → `make generate` → `make verify` (Go build + tsc + idempotency) → create PR if diff exists.
+Flow: clone nacos → `mvn install -pl api` → `make clean` → `make generate-proto` → `make generate` → `make verify-build` (Go build + tsc) → create PR targeting `develop` if diff exists.
 
-### Release (`release.yml`)
+### Release (`release.yml` + `publish.yml`)
 
-Manual trigger with inputs: `nacos_tag` (required), `version` (optional), `dry_run` (default: true).
+Two-phase release process:
 
-Generates from a specific Nacos release tag, commits, creates `v{version}` and `go/v{version}` tags, then publishes to PyPI and npm (skipped in dry-run mode).
+1. **Prepare** (`release.yml`): Manual trigger with inputs `nacos_tag` (required), `version` (optional), `dry_run` (default: true). Generates from a specific Nacos release tag, creates a PR with version bump.
+2. **Publish** (`publish.yml`): Automatically triggered when the release PR is merged to main. Pushes `v{version}` and `go/v{version}` tags, publishes to PyPI and npm (OIDC Trusted Publishing), and creates a GitHub Release.
 
 ## Repository Transfer
 
-The `REPO_OWNER` variable in `Makefile` controls all paths (go_package, module path, package URLs). To transfer to `nacos-group`:
+The `REPO_OWNER` variable in `Makefile` controls all paths (go_package, module path, package URLs). To fork and adapt:
 
 ```bash
-sed -i 's/REPO_OWNER     := cxhello/REPO_OWNER     := nacos-group/' Makefile
+sed -i 's/REPO_OWNER     := nacos-group/REPO_OWNER     := your-org/' Makefile
 make migrate
 ```
 

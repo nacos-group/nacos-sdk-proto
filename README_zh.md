@@ -34,8 +34,10 @@ nacos-sdk-proto/
 ├── Makefile                        # 构建编排（REPO_OWNER 参数化）
 ├── buf.yaml                        # Buf linter 配置
 └── .github/workflows/
-    ├── sync-proto.yml              # 每周自动同步 nacos develop 分支
-    └── release.yml                 # 手动发布（支持 dry-run）
+    ├── ci.yml                      # PR 验证（Go 编译 + tsc）
+    ├── sync-proto.yml              # 每周自动同步 nacos develop → develop 分支
+    ├── release.yml                 # 发布准备：生成代码 + 创建 PR
+    └── publish.yml                 # release commit 合并到 main 后自动发包
 ```
 
 ## 消息类型
@@ -110,26 +112,32 @@ npm install @nacos-group/sdk-proto   # 发布到 npm 后可用
 
 使用 `protoc` 配合对应语言插件即可，所有 proto 文件位于 `proto/` 目录下。
 
+## 分支策略
+
+- **main** — 稳定分支，仅通过 release 流程更新（对应特定的 Nacos tag）
+- **develop** — 最新代码，每周自动同步 Nacos develop 分支
+
 ## CI/CD
 
 ### 自动同步（`sync-proto.yml`）
 
-每周一 UTC 00:00 定时运行，也支持通过 `workflow_dispatch` 手动触发。运行时先比较 `proto/VERSION` 中的 commit SHA 与 Nacos develop HEAD，相同则跳过。
+每周一 UTC 00:00 定时运行，也支持通过 `workflow_dispatch` 手动触发。从 Nacos develop 分支同步到 `develop` 分支。运行时先比较 `proto/VERSION` 中的 commit SHA 与 Nacos develop HEAD，相同则跳过。
 
-流程：clone nacos → `mvn install -pl api` → `make clean` → `make generate-proto` → `make generate` → `make verify`（Go 编译 + tsc + 幂等性）→ 有 diff 则创建 PR。
+流程：clone nacos → `mvn install -pl api` → `make clean` → `make generate-proto` → `make generate` → `make verify-build`（Go 编译 + tsc）→ 有 diff 则创建 PR 到 `develop` 分支。
 
-### 发布（`release.yml`）
+### 发布（`release.yml` + `publish.yml`）
 
-手动触发，输入参数：`nacos_tag`（必填）、`version`（可选）、`dry_run`（默认 true）。
+两阶段发布流程：
 
-从指定 Nacos release tag 生成代码，commit 后创建 `v{version}` 和 `go/v{version}` 标签，再发布到 PyPI 和 npm（dry-run 模式下跳过实际发布）。
+1. **准备**（`release.yml`）：手动触发，输入参数 `nacos_tag`（必填）、`version`（可选）、`dry_run`（默认 true）。从指定 Nacos release tag 生成代码，创建包含版本更新的 PR。
+2. **发布**（`publish.yml`）：release PR 合并到 main 后自动触发。推送 `v{version}` 和 `go/v{version}` 标签，发布到 PyPI 和 npm（OIDC Trusted Publishing），并创建 GitHub Release。
 
 ## 仓库转移
 
-`Makefile` 中的 `REPO_OWNER` 变量控制所有路径（go_package、module path、包 URL）。转移到 `nacos-group` 时只需：
+`Makefile` 中的 `REPO_OWNER` 变量控制所有路径（go_package、module path、包 URL）。Fork 后修改：
 
 ```bash
-sed -i 's/REPO_OWNER     := cxhello/REPO_OWNER     := nacos-group/' Makefile
+sed -i 's/REPO_OWNER     := nacos-group/REPO_OWNER     := your-org/' Makefile
 make migrate
 ```
 
