@@ -79,7 +79,13 @@ jobs:
       - name: Publish
         run: |
           echo "node $(node -v), npm $(npm -v)"
-          cd nodejs && npm publish
+          cd nodejs
+          VER=$(node -p "require('./package.json').version")
+          if echo "$VER" | grep -q '-'; then
+            npm publish --tag beta
+          else
+            npm publish
+          fi
 
   github-release:
     needs: [check, push-tags, release-python, release-nodejs]
