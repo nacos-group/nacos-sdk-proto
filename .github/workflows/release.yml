@@ -211,3 +211,32 @@ jobs:
       - name: Dry-run report
         if: ${{ inputs.dry_run }}
         run: ls -la nodejs/*.tgz
+
+  github-release:
+    needs: [generate, release-go, release-python, release-nodejs]
+    if: ${{ !inputs.dry_run }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VER: ${{ needs.generate.outputs.version }}
+          NACOS_TAG: ${{ inputs.nacos_tag }}
+        run: |
+          cat > /tmp/release-notes.md << EOF
+          ## nacos-sdk-proto v${VER}
+
+          Generated from [alibaba/nacos@${NACOS_TAG}](https://github.com/alibaba/nacos/tree/${NACOS_TAG})
+
+          ### Packages
+
+          | Language | Package | Version |
+          |----------|---------|---------|
+          | Go | \`github.com/nacos-group/nacos-sdk-proto/go\` | \`go/v${VER}\` |
+          | Python | [nacos-sdk-proto](https://pypi.org/project/nacos-sdk-proto/${VER}/) | ${VER} |
+          | Node.js | [@nacos/sdk-proto](https://www.npmjs.com/package/@nacos/sdk-proto/v/${VER}) | ${VER} |
+          EOF
+          gh release create "v${VER}" --title "v${VER}" --notes-file /tmp/release-notes.md
