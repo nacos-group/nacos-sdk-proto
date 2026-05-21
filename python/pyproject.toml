@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nacos-sdk-proto"
-version = "1.0.0-beta.2"
+version = "1.0.0-beta.3"
 description = "Nacos SDK Protocol Buffers for Python"
 requires-python = ">=3.8"
 license = {text = "Apache-2.0"}
