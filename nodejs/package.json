@@ -1,6 +1,6 @@
 {
   "name": "@nacos-group/sdk-proto",
-  "version": "0.0.1-dev",
+  "version": "1.0.0-beta.1",
   "description": "Nacos SDK Protocol Buffers for Node.js",
   "main": "src/index.ts",
   "types": "src/index.ts",
