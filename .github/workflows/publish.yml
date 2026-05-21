@@ -17,9 +17,9 @@ jobs:
       - name: Check if release commit
         id: check
         run: |
-          MSG="${{ github.event.head_commit.message }}"
-          if echo "$MSG" | grep -qP '^release: v[\d]'; then
-            VER=$(echo "$MSG" | sed 's/release: v\([^ ]*\).*/\1/')
+          FIRST_LINE=$(echo "${{ github.event.head_commit.message }}" | head -1)
+          if echo "$FIRST_LINE" | grep -qP '^release: v[\d]'; then
+            VER=$(echo "$FIRST_LINE" | sed 's/release: v\([^ ]*\).*/\1/')
             echo "is_release=true" >> "$GITHUB_OUTPUT"
             echo "version=$VER" >> "$GITHUB_OUTPUT"
             echo "Detected release v${VER}"
