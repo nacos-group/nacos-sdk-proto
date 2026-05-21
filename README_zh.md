@@ -103,7 +103,7 @@ pip install nacos-sdk-proto    # 发布到 PyPI 后可用
 ### Node.js
 
 ```bash
-npm install @nacos/sdk-proto   # 发布到 npm 后可用
+npm install @nacos-group/sdk-proto   # 发布到 npm 后可用
 ```
 
 ### 其他语言

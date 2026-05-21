@@ -237,6 +237,6 @@ jobs:
           |----------|---------|---------|
           | Go | \`github.com/nacos-group/nacos-sdk-proto/go\` | \`go/v${VER}\` |
           | Python | [nacos-sdk-proto](https://pypi.org/project/nacos-sdk-proto/${VER}/) | ${VER} |
-          | Node.js | [@nacos/sdk-proto](https://www.npmjs.com/package/@nacos/sdk-proto/v/${VER}) | ${VER} |
+          | Node.js | [@nacos-group/sdk-proto](https://www.npmjs.com/package/@nacos-group/sdk-proto/v/${VER}) | ${VER} |
           EOF
           gh release create "v${VER}" --title "v${VER}" --notes-file /tmp/release-notes.md

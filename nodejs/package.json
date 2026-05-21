@@ -1,5 +1,5 @@
 {
-  "name": "@nacos/sdk-proto",
+  "name": "@nacos-group/sdk-proto",
   "version": "0.0.1-dev",
   "description": "Nacos SDK Protocol Buffers for Node.js",
   "main": "src/index.ts",
@@ -7,6 +7,9 @@
   "license": "Apache-2.0",
   "engines": {
     "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",

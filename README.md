@@ -105,7 +105,7 @@ pip install nacos-sdk-proto    # after release to PyPI
 ### Node.js
 
 ```bash
-npm install @nacos/sdk-proto   # after release to npm
+npm install @nacos-group/sdk-proto   # after release to npm
 ```
 
 ### Other Languages
