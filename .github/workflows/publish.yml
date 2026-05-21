@@ -67,6 +67,8 @@ jobs:
     needs: [check, push-tags]
     if: needs.check.outputs.is_release == 'true'
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -74,9 +76,7 @@ jobs:
           node-version: 22
           registry-url: https://registry.npmjs.org
       - name: Publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: cd nodejs && npm publish
+        run: cd nodejs && npm publish --provenance
 
   github-release:
     needs: [check, push-tags, release-python, release-nodejs]
