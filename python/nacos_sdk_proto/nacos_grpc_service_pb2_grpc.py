@@ -5,7 +5,7 @@ import warnings
 
 import nacos_grpc_service_pb2 as nacos__grpc__service__pb2
 
-GRPC_GENERATED_VERSION = '1.80.0'
+GRPC_GENERATED_VERSION = '1.81.0'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -25,7 +25,7 @@ if _version_not_supported:
     )
 
 
-class RequestStub(object):
+class RequestStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -41,7 +41,7 @@ class RequestStub(object):
                 _registered_method=True)
 
 
-class RequestServicer(object):
+class RequestServicer:
     """Missing associated documentation comment in .proto file."""
 
     def request(self, request, context):
@@ -67,7 +67,7 @@ def add_RequestServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Request(object):
+class Request:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -98,7 +98,7 @@ class Request(object):
             _registered_method=True)
 
 
-class BiRequestStreamStub(object):
+class BiRequestStreamStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -114,7 +114,7 @@ class BiRequestStreamStub(object):
                 _registered_method=True)
 
 
-class BiRequestStreamServicer(object):
+class BiRequestStreamServicer:
     """Missing associated documentation comment in .proto file."""
 
     def requestBiStream(self, request_iterator, context):
@@ -140,7 +140,7 @@ def add_BiRequestStreamServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class BiRequestStream(object):
+class BiRequestStream:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
