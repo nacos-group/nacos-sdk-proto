@@ -413,7 +413,10 @@
         "key" : 1,
         "expiredTime" : 2,
         "params" : 3,
-        "lockType" : 4
+        "lockType" : 4,
+        "owner" : 5,
+        "waitTime" : 6,
+        "waiterRetry" : 7
       },
       "reserved" : [ ]
     },
@@ -423,7 +426,8 @@
         "errorCode" : 2,
         "message" : 3,
         "requestId" : 4,
-        "result" : 5
+        "result" : 5,
+        "lockResult" : 6
       },
       "reserved" : [ ]
     },
@@ -1190,6 +1194,34 @@
         "resources" : 3,
         "resourceTemplates" : 4,
         "extensions" : 5
+      },
+      "reserved" : [ ]
+    },
+    "LockNotificationRequest" : {
+      "fields" : {
+        "requestId" : 1,
+        "lockKey" : 2,
+        "lockType" : 3,
+        "owner" : 4,
+        "notificationType" : 5
+      },
+      "reserved" : [ ]
+    },
+    "LockNotificationResponse" : {
+      "fields" : {
+        "resultCode" : 1,
+        "errorCode" : 2,
+        "message" : 3,
+        "requestId" : 4
+      },
+      "reserved" : [ ]
+    },
+    "LockResult" : {
+      "fields" : {
+        "success" : 1,
+        "reentrantCount" : 2,
+        "waitPosition" : 3,
+        "errorMessage" : 4
       },
       "reserved" : [ ]
     }

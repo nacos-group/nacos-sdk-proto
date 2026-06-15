@@ -6,6 +6,25 @@ option go_package = "github.com/nacos-group/nacos-sdk-proto/go/lock";
 
 import "google/protobuf/struct.proto";
 
+// metadata.type = "LockNotificationRequest"
+// Flattened from: LockNotificationRequest -> ServerRequest -> Request
+message LockNotificationRequest {
+  string requestId = 1;
+  string lockKey = 2;
+  string lockType = 3;
+  string owner = 4;
+  string notificationType = 5;
+}
+
+// metadata.type = "LockNotificationResponse"
+// Flattened from: LockNotificationResponse -> Response
+message LockNotificationResponse {
+  int32 resultCode = 1;
+  int32 errorCode = 2;
+  string message = 3;
+  string requestId = 4;
+}
+
 // metadata.type = "LockOperationRequest"
 // Flattened from: LockOperationRequest -> AbstractLockRequest -> Request
 message LockOperationRequest {
@@ -21,6 +40,9 @@ message LockInstance {
   int64 expiredTime = 2;
   map<string, google.protobuf.Value> params = 3;
   string lockType = 4;
+  string owner = 5;
+  int64 waitTime = 6;
+  bool waiterRetry = 7;
 }
 
 // metadata.type = "LockOperationResponse"
@@ -31,4 +53,14 @@ message LockOperationResponse {
   string message = 3;
   string requestId = 4;
   google.protobuf.Value result = 5;
+  LockResult lockResult = 6;
+}
+
+// metadata.type = "LockResult"
+// Flattened from: LockResult
+message LockResult {
+  bool success = 1;
+  int32 reentrantCount = 2;
+  int32 waitPosition = 3;
+  string errorMessage = 4;
 }
