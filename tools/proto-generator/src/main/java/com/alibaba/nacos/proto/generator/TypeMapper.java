@@ -11,11 +11,26 @@ public class TypeMapper {
 
     private Map<Class<?>, String> classToMessageName;
 
+    private Map<Type, String> genericMessageNames;
+
     public void setClassToMessageName(Map<Class<?>, String> classToMessageName) {
         this.classToMessageName = classToMessageName;
     }
 
+    public void setGenericMessageNames(Map<Type, String> genericMessageNames) {
+        this.genericMessageNames = genericMessageNames;
+    }
+
+    // Message name for a monomorphized generic instantiation (e.g. Page<McpTool> -> McpToolPage)
+    public String genericMessageName(Type genericType) {
+        if (genericMessageNames == null || genericType == null) return null;
+        return genericMessageNames.get(genericType);
+    }
+
     public String mapType(Class<?> javaType, Type genericType) {
+        String genericName = genericMessageName(genericType);
+        if (genericName != null) return genericName;
+
         if (javaType == String.class) return "string";
         if (javaType == int.class || javaType == Integer.class) return "int32";
         if (javaType == long.class || javaType == Long.class) return "int64";
@@ -53,6 +68,12 @@ public class TypeMapper {
         // Use registered message name if available (handles name collisions)
         if (classToMessageName != null && classToMessageName.containsKey(javaType)) {
             return classToMessageName.get(javaType);
+        }
+        // Registry is set during real generation: an unregistered type here means no message
+        // was generated for it, so the emitted proto would reference an undefined type.
+        if (classToMessageName != null) {
+            throw new IllegalStateException("No proto message generated for Java type "
+                + javaType.getName() + " — unsupported field type, extend the generator");
         }
         return javaType.getSimpleName();
     }
