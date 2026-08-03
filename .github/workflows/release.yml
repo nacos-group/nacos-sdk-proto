@@ -40,6 +40,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           path: nacos-sdk-proto
+          # Always release from develop, regardless of which branch the
+          # workflow_dispatch was triggered on: the release PR into main is
+          # main's only update channel, and it must carry develop's generator
+          # together with the artifacts it generated.
+          ref: develop
           token: ${{ steps.app-token.outputs.token }}
 
       # --- Java toolchain ---
