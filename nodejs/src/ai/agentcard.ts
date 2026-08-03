@@ -7,7 +7,7 @@
 /* eslint-disable */
 import { AgentCapabilities } from "./agentcapabilities";
 import { AgentInterface } from "./agentinterface";
-import { AgentProvider } from "./agentprovider";
+import { A2aAgentProvider } from "./agentprovider";
 import { AgentSkill } from "./agentskill";
 import { SecurityScheme } from "./securityscheme";
 
@@ -29,7 +29,7 @@ export interface AgentCard {
   preferredTransport: string;
   additionalInterfaces: AgentInterface[];
   supportedInterfaces: AgentInterface[];
-  provider: AgentProvider | undefined;
+  provider: A2aAgentProvider | undefined;
   documentationUrl: string;
   securitySchemes: { [key: string]: SecurityScheme };
   security: any[];
@@ -88,7 +88,7 @@ export const AgentCard: MessageFns<AgentCard> = {
       supportedInterfaces: globalThis.Array.isArray(object?.supportedInterfaces)
         ? object.supportedInterfaces.map((e: any) => AgentInterface.fromJSON(e))
         : [],
-      provider: isSet(object.provider) ? AgentProvider.fromJSON(object.provider) : undefined,
+      provider: isSet(object.provider) ? A2aAgentProvider.fromJSON(object.provider) : undefined,
       documentationUrl: isSet(object.documentationUrl) ? globalThis.String(object.documentationUrl) : "",
       securitySchemes: isObject(object.securitySchemes)
         ? (globalThis.Object.entries(object.securitySchemes) as [string, any][]).reduce(
@@ -152,7 +152,7 @@ export const AgentCard: MessageFns<AgentCard> = {
       obj.supportedInterfaces = message.supportedInterfaces.map((e) => AgentInterface.toJSON(e));
     }
     if (message.provider !== undefined) {
-      obj.provider = AgentProvider.toJSON(message.provider);
+      obj.provider = A2aAgentProvider.toJSON(message.provider);
     }
     if (message.documentationUrl !== "") {
       obj.documentationUrl = message.documentationUrl;
@@ -206,7 +206,7 @@ export const AgentCard: MessageFns<AgentCard> = {
     message.additionalInterfaces = object.additionalInterfaces?.map((e) => AgentInterface.fromPartial(e)) || [];
     message.supportedInterfaces = object.supportedInterfaces?.map((e) => AgentInterface.fromPartial(e)) || [];
     message.provider = (object.provider !== undefined && object.provider !== null)
-      ? AgentProvider.fromPartial(object.provider)
+      ? A2aAgentProvider.fromPartial(object.provider)
       : undefined;
     message.documentationUrl = object.documentationUrl ?? "";
     message.securitySchemes = (globalThis.Object.entries(object.securitySchemes ?? {}) as [string, SecurityScheme][])

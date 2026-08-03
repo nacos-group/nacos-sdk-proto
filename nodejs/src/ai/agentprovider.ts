@@ -13,26 +13,35 @@
  * Flattened from: AgentProvider
  */
 export interface AgentProvider {
+  name: string;
+  url: string;
+}
+
+/**
+ * metadata.type = "A2aAgentProvider"
+ * Flattened from: AgentProvider
+ */
+export interface A2aAgentProvider {
   organization: string;
   url: string;
 }
 
 function createBaseAgentProvider(): AgentProvider {
-  return { organization: "", url: "" };
+  return { name: "", url: "" };
 }
 
 export const AgentProvider: MessageFns<AgentProvider> = {
   fromJSON(object: any): AgentProvider {
     return {
-      organization: isSet(object.organization) ? globalThis.String(object.organization) : "",
+      name: isSet(object.name) ? globalThis.String(object.name) : "",
       url: isSet(object.url) ? globalThis.String(object.url) : "",
     };
   },
 
   toJSON(message: AgentProvider): unknown {
     const obj: any = {};
-    if (message.organization !== "") {
-      obj.organization = message.organization;
+    if (message.name !== "") {
+      obj.name = message.name;
     }
     if (message.url !== "") {
       obj.url = message.url;
@@ -45,6 +54,40 @@ export const AgentProvider: MessageFns<AgentProvider> = {
   },
   fromPartial<I extends Exact<DeepPartial<AgentProvider>, I>>(object: I): AgentProvider {
     const message = createBaseAgentProvider();
+    message.name = object.name ?? "";
+    message.url = object.url ?? "";
+    return message;
+  },
+};
+
+function createBaseA2aAgentProvider(): A2aAgentProvider {
+  return { organization: "", url: "" };
+}
+
+export const A2aAgentProvider: MessageFns<A2aAgentProvider> = {
+  fromJSON(object: any): A2aAgentProvider {
+    return {
+      organization: isSet(object.organization) ? globalThis.String(object.organization) : "",
+      url: isSet(object.url) ? globalThis.String(object.url) : "",
+    };
+  },
+
+  toJSON(message: A2aAgentProvider): unknown {
+    const obj: any = {};
+    if (message.organization !== "") {
+      obj.organization = message.organization;
+    }
+    if (message.url !== "") {
+      obj.url = message.url;
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<A2aAgentProvider>, I>>(base?: I): A2aAgentProvider {
+    return A2aAgentProvider.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<A2aAgentProvider>, I>>(object: I): A2aAgentProvider {
+    const message = createBaseA2aAgentProvider();
     message.organization = object.organization ?? "";
     message.url = object.url ?? "";
     return message;

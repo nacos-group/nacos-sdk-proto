@@ -654,10 +654,10 @@
     },
     "AgentProvider" : {
       "fields" : {
-        "organization" : 1,
-        "url" : 2
+        "url" : 2,
+        "name" : 3
       },
-      "reserved" : [ ]
+      "reserved" : [ 1 ]
     },
     "SecurityScheme" : {
       "fields" : {
@@ -1222,6 +1222,189 @@
         "reentrantCount" : 2,
         "waitPosition" : 3,
         "errorMessage" : 4
+      },
+      "reserved" : [ ]
+    },
+    "AgentDiscoveryResponse" : {
+      "fields" : {
+        "resultCode" : 1,
+        "errorCode" : 2,
+        "message" : 3,
+        "requestId" : 4,
+        "discoveryResult" : 5
+      },
+      "reserved" : [ ]
+    },
+    "AgentDiscoveryResult" : {
+      "fields" : {
+        "namespaceId" : 1,
+        "agentName" : 2,
+        "version" : 3,
+        "contentDigest" : 4,
+        "callInterfaces" : 5
+      },
+      "reserved" : [ ]
+    },
+    "AgentDiscoveryCallInterface" : {
+      "fields" : {
+        "protocol" : 1,
+        "protocolVersion" : 2,
+        "descriptorMediaType" : 3,
+        "nativeDescriptor" : 4,
+        "endpointSets" : 5
+      },
+      "reserved" : [ ]
+    },
+    "EndpointSet" : {
+      "fields" : {
+        "source" : 1,
+        "sourceRevision" : 2,
+        "endpoints" : 3
+      },
+      "reserved" : [ ]
+    },
+    "Endpoint" : {
+      "fields" : {
+        "uri" : 1,
+        "transport" : 2,
+        "priority" : 3,
+        "weight" : 4,
+        "metadata" : 5,
+        "healthy" : 6
+      },
+      "reserved" : [ ]
+    },
+    "AgentDiscoveryRpcRequest" : {
+      "fields" : {
+        "requestId" : 1,
+        "discoveryRequest" : 2
+      },
+      "reserved" : [ ]
+    },
+    "AgentDiscoveryRequest" : {
+      "fields" : {
+        "namespaceId" : 1,
+        "reference" : 2,
+        "filter" : 3
+      },
+      "reserved" : [ ]
+    },
+    "AgentReference" : {
+      "fields" : {
+        "agentName" : 1,
+        "version" : 2,
+        "label" : 3
+      },
+      "reserved" : [ ]
+    },
+    "AgentDiscoveryFilter" : {
+      "fields" : {
+        "protocols" : 1,
+        "protocolVersion" : 2,
+        "transports" : 3,
+        "endpointSources" : 4,
+        "metadataSelector" : 5
+      },
+      "reserved" : [ ]
+    },
+    "AgentEndpointDeregisterRpcRequest" : {
+      "fields" : {
+        "requestId" : 1,
+        "namespaceId" : 2,
+        "agentName" : 3,
+        "protocol" : 4
+      },
+      "reserved" : [ ]
+    },
+    "AgentEndpointOperationResponse" : {
+      "fields" : {
+        "resultCode" : 1,
+        "errorCode" : 2,
+        "message" : 3,
+        "requestId" : 4
+      },
+      "reserved" : [ ]
+    },
+    "AgentEndpointRegisterRpcRequest" : {
+      "fields" : {
+        "requestId" : 1,
+        "registrationBatch" : 2
+      },
+      "reserved" : [ ]
+    },
+    "AgentEndpointRegistrationBatch" : {
+      "fields" : {
+        "namespaceId" : 1,
+        "agentName" : 2,
+        "runtimeVersion" : 3,
+        "versionRange" : 4,
+        "protocol" : 5,
+        "endpoints" : 6
+      },
+      "reserved" : [ ]
+    },
+    "AgentSearchResponse" : {
+      "fields" : {
+        "resultCode" : 1,
+        "errorCode" : 2,
+        "message" : 3,
+        "requestId" : 4,
+        "page" : 5
+      },
+      "reserved" : [ ]
+    },
+    "AgentCatalogEntryPage" : {
+      "fields" : {
+        "totalCount" : 1,
+        "pageNumber" : 2,
+        "pagesAvailable" : 3,
+        "pageItems" : 4
+      },
+      "reserved" : [ ]
+    },
+    "AgentCatalogEntry" : {
+      "fields" : {
+        "agentName" : 1,
+        "displayName" : 2,
+        "description" : 3,
+        "iconUrl" : 4,
+        "provider" : 5,
+        "tags" : 6,
+        "latestVersion" : 7,
+        "versions" : 8
+      },
+      "reserved" : [ ]
+    },
+    "AgentCatalogVersion" : {
+      "fields" : {
+        "version" : 1,
+        "labels" : 2,
+        "protocols" : 3
+      },
+      "reserved" : [ ]
+    },
+    "AgentSearchRpcRequest" : {
+      "fields" : {
+        "requestId" : 1,
+        "searchRequest" : 2
+      },
+      "reserved" : [ ]
+    },
+    "AgentSearchRequest" : {
+      "fields" : {
+        "namespaceId" : 1,
+        "agentNameContains" : 2,
+        "tagsAll" : 3,
+        "protocolsAny" : 4,
+        "pageNo" : 5,
+        "pageSize" : 6
+      },
+      "reserved" : [ ]
+    },
+    "A2aAgentProvider" : {
+      "fields" : {
+        "organization" : 1,
+        "url" : 2
       },
       "reserved" : [ ]
     }
