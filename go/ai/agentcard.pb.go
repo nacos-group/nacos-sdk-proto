@@ -39,7 +39,7 @@ type AgentCard struct {
 	PreferredTransport                string                     `protobuf:"bytes,9,opt,name=preferredTransport,proto3" json:"preferredTransport,omitempty"`
 	AdditionalInterfaces              []*AgentInterface          `protobuf:"bytes,10,rep,name=additionalInterfaces,proto3" json:"additionalInterfaces,omitempty"`
 	SupportedInterfaces               []*AgentInterface          `protobuf:"bytes,21,rep,name=supportedInterfaces,proto3" json:"supportedInterfaces,omitempty"`
-	Provider                          *AgentProvider             `protobuf:"bytes,11,opt,name=provider,proto3" json:"provider,omitempty"`
+	Provider                          *A2AAgentProvider          `protobuf:"bytes,11,opt,name=provider,proto3" json:"provider,omitempty"`
 	DocumentationUrl                  string                     `protobuf:"bytes,12,opt,name=documentationUrl,proto3" json:"documentationUrl,omitempty"`
 	SecuritySchemes                   map[string]*SecurityScheme `protobuf:"bytes,13,rep,name=securitySchemes,proto3" json:"securitySchemes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	Security                          []*structpb.Value          `protobuf:"bytes,14,rep,name=security,proto3" json:"security,omitempty"`
@@ -159,7 +159,7 @@ func (x *AgentCard) GetSupportedInterfaces() []*AgentInterface {
 	return nil
 }
 
-func (x *AgentCard) GetProvider() *AgentProvider {
+func (x *AgentCard) GetProvider() *A2AAgentProvider {
 	if x != nil {
 		return x.Provider
 	}
@@ -226,7 +226,7 @@ var File_ai_agentcard_proto protoreflect.FileDescriptor
 
 const file_ai_agentcard_proto_rawDesc = "" +
 	"\n" +
-	"\x12ai/agentcard.proto\x12\bnacos.ai\x1a\x1aai/agentcapabilities.proto\x1a\x17ai/agentinterface.proto\x1a\x16ai/agentprovider.proto\x1a\x13ai/agentskill.proto\x1a\x17ai/securityscheme.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xf3\b\n" +
+	"\x12ai/agentcard.proto\x12\bnacos.ai\x1a\x1aai/agentcapabilities.proto\x1a\x17ai/agentinterface.proto\x1a\x16ai/agentprovider.proto\x1a\x13ai/agentskill.proto\x1a\x17ai/securityscheme.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xf6\b\n" +
 	"\tAgentCard\x12(\n" +
 	"\x0fprotocolVersion\x18\x01 \x01(\tR\x0fprotocolVersion\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
@@ -239,8 +239,8 @@ const file_ai_agentcard_proto_rawDesc = "" +
 	"\x12preferredTransport\x18\t \x01(\tR\x12preferredTransport\x12L\n" +
 	"\x14additionalInterfaces\x18\n" +
 	" \x03(\v2\x18.nacos.ai.AgentInterfaceR\x14additionalInterfaces\x12J\n" +
-	"\x13supportedInterfaces\x18\x15 \x03(\v2\x18.nacos.ai.AgentInterfaceR\x13supportedInterfaces\x123\n" +
-	"\bprovider\x18\v \x01(\v2\x17.nacos.ai.AgentProviderR\bprovider\x12*\n" +
+	"\x13supportedInterfaces\x18\x15 \x03(\v2\x18.nacos.ai.AgentInterfaceR\x13supportedInterfaces\x126\n" +
+	"\bprovider\x18\v \x01(\v2\x1a.nacos.ai.A2aAgentProviderR\bprovider\x12*\n" +
 	"\x10documentationUrl\x18\f \x01(\tR\x10documentationUrl\x12R\n" +
 	"\x0fsecuritySchemes\x18\r \x03(\v2(.nacos.ai.AgentCard.SecuritySchemesEntryR\x0fsecuritySchemes\x122\n" +
 	"\bsecurity\x18\x0e \x03(\v2\x16.google.protobuf.ValueR\bsecurity\x12J\n" +
@@ -274,7 +274,7 @@ var file_ai_agentcard_proto_goTypes = []any{
 	(*AgentCapabilities)(nil), // 2: nacos.ai.AgentCapabilities
 	(*AgentSkill)(nil),        // 3: nacos.ai.AgentSkill
 	(*AgentInterface)(nil),    // 4: nacos.ai.AgentInterface
-	(*AgentProvider)(nil),     // 5: nacos.ai.AgentProvider
+	(*A2AAgentProvider)(nil),  // 5: nacos.ai.A2aAgentProvider
 	(*structpb.Value)(nil),    // 6: google.protobuf.Value
 	(*SecurityScheme)(nil),    // 7: nacos.ai.SecurityScheme
 }
@@ -283,7 +283,7 @@ var file_ai_agentcard_proto_depIdxs = []int32{
 	3,  // 1: nacos.ai.AgentCard.skills:type_name -> nacos.ai.AgentSkill
 	4,  // 2: nacos.ai.AgentCard.additionalInterfaces:type_name -> nacos.ai.AgentInterface
 	4,  // 3: nacos.ai.AgentCard.supportedInterfaces:type_name -> nacos.ai.AgentInterface
-	5,  // 4: nacos.ai.AgentCard.provider:type_name -> nacos.ai.AgentProvider
+	5,  // 4: nacos.ai.AgentCard.provider:type_name -> nacos.ai.A2aAgentProvider
 	1,  // 5: nacos.ai.AgentCard.securitySchemes:type_name -> nacos.ai.AgentCard.SecuritySchemesEntry
 	6,  // 6: nacos.ai.AgentCard.security:type_name -> google.protobuf.Value
 	6,  // 7: nacos.ai.AgentCard.securityRequirements:type_name -> google.protobuf.Value

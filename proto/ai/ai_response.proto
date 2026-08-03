@@ -5,8 +5,29 @@ package nacos.ai;
 option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 
 import "ai/agentcarddetailinfo.proto";
+import "ai/agentcatalogentrypage.proto";
+import "ai/agentdiscoveryresult.proto";
 import "ai/mcpserverdetailinfo.proto";
 import "ai/prompt.proto";
+
+// metadata.type = "AgentDiscoveryResponse"
+// Flattened from: AgentDiscoveryResponse -> Response
+message AgentDiscoveryResponse {
+  int32 resultCode = 1;
+  int32 errorCode = 2;
+  string message = 3;
+  string requestId = 4;
+  AgentDiscoveryResult discoveryResult = 5;
+}
+
+// metadata.type = "AgentEndpointOperationResponse"
+// Flattened from: AgentEndpointOperationResponse -> Response
+message AgentEndpointOperationResponse {
+  int32 resultCode = 1;
+  int32 errorCode = 2;
+  string message = 3;
+  string requestId = 4;
+}
 
 // metadata.type = "AgentEndpointResponse"
 // Flattened from: AgentEndpointResponse -> Response
@@ -16,6 +37,16 @@ message AgentEndpointResponse {
   string message = 3;
   string requestId = 4;
   string type = 5;
+}
+
+// metadata.type = "AgentSearchResponse"
+// Flattened from: AgentSearchResponse -> Response
+message AgentSearchResponse {
+  int32 resultCode = 1;
+  int32 errorCode = 2;
+  string message = 3;
+  string requestId = 4;
+  AgentCatalogEntryPage page = 5;
 }
 
 // metadata.type = "McpServerEndpointResponse"

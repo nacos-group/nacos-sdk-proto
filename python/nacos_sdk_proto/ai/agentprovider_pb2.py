@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16\x61i/agentprovider.proto\x12\x08nacos.ai\"2\n\rAgentProvider\x12\x14\n\x0corganization\x18\x01 \x01(\t\x12\x0b\n\x03url\x18\x02 \x01(\tB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16\x61i/agentprovider.proto\x12\x08nacos.ai\"0\n\rAgentProvider\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0b\n\x03url\x18\x02 \x01(\tJ\x04\x08\x01\x10\x02\"5\n\x10\x41\x32\x61\x41gentProvider\x12\x14\n\x0corganization\x18\x01 \x01(\t\x12\x0b\n\x03url\x18\x02 \x01(\tB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,5 +33,7 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/nacos-group/nacos-sdk-proto/go/ai'
   _globals['_AGENTPROVIDER']._serialized_start=36
-  _globals['_AGENTPROVIDER']._serialized_end=86
+  _globals['_AGENTPROVIDER']._serialized_end=84
+  _globals['_A2AAGENTPROVIDER']._serialized_start=86
+  _globals['_A2AAGENTPROVIDER']._serialized_end=139
 # @@protoc_insertion_point(module_scope)

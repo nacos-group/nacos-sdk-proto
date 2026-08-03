@@ -5,11 +5,45 @@ package nacos.ai;
 option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 
 import "ai/agentcard.proto";
+import "ai/agentdiscoveryfilter.proto";
 import "ai/agentendpoint.proto";
+import "ai/agentendpointregistrationbatch.proto";
+import "ai/agentreference.proto";
 import "ai/mcpendpointspec.proto";
 import "ai/mcpresourcespecification.proto";
 import "ai/mcpserverbasicinfo.proto";
 import "ai/mcptoolspecification.proto";
+
+// metadata.type = "AgentDiscoveryRpcRequest"
+// Flattened from: AgentDiscoveryRpcRequest -> AbstractAgentClientRpcRequest -> Request
+message AgentDiscoveryRpcRequest {
+  string requestId = 1;
+  AgentDiscoveryRequest discoveryRequest = 2;
+}
+
+// metadata.type = "AgentDiscoveryRequest"
+// Flattened from: AgentDiscoveryRequest
+message AgentDiscoveryRequest {
+  string namespaceId = 1;
+  AgentReference reference = 2;
+  AgentDiscoveryFilter filter = 3;
+}
+
+// metadata.type = "AgentEndpointDeregisterRpcRequest"
+// Flattened from: AgentEndpointDeregisterRpcRequest -> AbstractAgentClientRpcRequest -> Request
+message AgentEndpointDeregisterRpcRequest {
+  string requestId = 1;
+  string namespaceId = 2;
+  string agentName = 3;
+  string protocol = 4;
+}
+
+// metadata.type = "AgentEndpointRegisterRpcRequest"
+// Flattened from: AgentEndpointRegisterRpcRequest -> AbstractAgentClientRpcRequest -> Request
+message AgentEndpointRegisterRpcRequest {
+  string requestId = 1;
+  AgentEndpointRegistrationBatch registrationBatch = 2;
+}
 
 // metadata.type = "AgentEndpointRequest"
 // Flattened from: AgentEndpointRequest -> AbstractAgentRequest -> Request
@@ -19,6 +53,24 @@ message AgentEndpointRequest {
   string agentName = 3;
   AgentEndpoint endpoint = 4;
   string type = 5;
+}
+
+// metadata.type = "AgentSearchRpcRequest"
+// Flattened from: AgentSearchRpcRequest -> AbstractAgentClientRpcRequest -> Request
+message AgentSearchRpcRequest {
+  string requestId = 1;
+  AgentSearchRequest searchRequest = 2;
+}
+
+// metadata.type = "AgentSearchRequest"
+// Flattened from: AgentSearchRequest
+message AgentSearchRequest {
+  string namespaceId = 1;
+  string agentNameContains = 2;
+  repeated string tagsAll = 3;
+  repeated string protocolsAny = 4;
+  int32 pageNo = 5;
+  int32 pageSize = 6;
 }
 
 // metadata.type = "BatchAgentEndpointRequest"

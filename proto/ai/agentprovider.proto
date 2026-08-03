@@ -7,6 +7,14 @@ option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 // metadata.type = "AgentProvider"
 // Flattened from: AgentProvider
 message AgentProvider {
+  string name = 3;
+  string url = 2;
+  reserved 1;
+}
+
+// metadata.type = "A2aAgentProvider"
+// Flattened from: AgentProvider
+message A2aAgentProvider {
   string organization = 1;
   string url = 2;
 }
