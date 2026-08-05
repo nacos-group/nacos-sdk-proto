@@ -100,7 +100,7 @@ message ConfigQueryResponse {
   string contentType = 7;
   string md5 = 8;
   int64 lastModified = 9;
-  bool isBeta = 10;
+  bool isBeta = 10 [json_name = "beta"];
   string tag = 11;
 }
 

@@ -127,7 +127,7 @@ export interface ConfigQueryResponse {
   contentType: string;
   md5: string;
   lastModified: number;
-  isBeta: boolean;
+  beta: boolean;
   tag: string;
 }
 
@@ -629,7 +629,7 @@ function createBaseConfigQueryResponse(): ConfigQueryResponse {
     contentType: "",
     md5: "",
     lastModified: 0,
-    isBeta: false,
+    beta: false,
     tag: "",
   };
 }
@@ -646,7 +646,11 @@ export const ConfigQueryResponse: MessageFns<ConfigQueryResponse> = {
       contentType: isSet(object.contentType) ? globalThis.String(object.contentType) : "",
       md5: isSet(object.md5) ? globalThis.String(object.md5) : "",
       lastModified: isSet(object.lastModified) ? globalThis.Number(object.lastModified) : 0,
-      isBeta: isSet(object.isBeta) ? globalThis.Boolean(object.isBeta) : false,
+      beta: isSet(object.beta)
+        ? globalThis.Boolean(object.beta)
+        : isSet(object.isBeta)
+        ? globalThis.Boolean(object.isBeta)
+        : false,
       tag: isSet(object.tag) ? globalThis.String(object.tag) : "",
     };
   },
@@ -680,8 +684,8 @@ export const ConfigQueryResponse: MessageFns<ConfigQueryResponse> = {
     if (message.lastModified !== 0) {
       obj.lastModified = Math.round(message.lastModified);
     }
-    if (message.isBeta !== false) {
-      obj.isBeta = message.isBeta;
+    if (message.beta !== false) {
+      obj.beta = message.beta;
     }
     if (message.tag !== "") {
       obj.tag = message.tag;
@@ -703,7 +707,7 @@ export const ConfigQueryResponse: MessageFns<ConfigQueryResponse> = {
     message.contentType = object.contentType ?? "";
     message.md5 = object.md5 ?? "";
     message.lastModified = object.lastModified ?? 0;
-    message.isBeta = object.isBeta ?? false;
+    message.beta = object.beta ?? false;
     message.tag = object.tag ?? "";
     return message;
   },

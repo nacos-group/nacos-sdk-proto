@@ -68,7 +68,7 @@ generate-nodejs:
 	find $(PROTO_DIR) -name '*.proto' -not -name 'nacos_grpc_service.proto' | xargs protoc \
 		--plugin=./node_modules/.bin/protoc-gen-ts_proto \
 		--ts_proto_out=$(NODEJS_OUT)/src \
-		--ts_proto_opt=outputJsonMethods=true,outputEncodeMethods=false,outputClientImpl=false,exportCommonSymbols=false \
+		--ts_proto_opt=outputJsonMethods=true,outputEncodeMethods=false,outputClientImpl=false,exportCommonSymbols=false,useJsonName=true \
 		--proto_path=$(PROTO_DIR)
 	cd $(NODEJS_OUT)/src && find . -name '*.ts' -not -name 'index.ts' | sort | \
 		sed 's|^\./||; s|\.ts$$||; s|^|export * from "./|; s|$$|";|' > index.ts
