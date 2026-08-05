@@ -5,12 +5,17 @@ import com.alibaba.nacos.api.remote.request.Request;
 import com.alibaba.nacos.api.remote.request.ServerRequest;
 import com.alibaba.nacos.api.remote.response.Response;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.BeanDescription;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.introspect.BeanPropertyDefinition;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.*;
 
 public class FieldExtractor {
+
+    private static final ObjectMapper JACKSON = new ObjectMapper();
 
     private static final Set<Class<?>> STOP_CLASSES = Set.of(
         Object.class, Request.class, Response.class,
@@ -24,6 +29,8 @@ public class FieldExtractor {
 
     public List<FieldInfo> extract(Class<?> clazz) {
         List<FieldInfo> allFields = new ArrayList<>();
+
+        JsonNameIndex jsonNames = introspectJsonNames(clazz);
 
         Set<String> seen = new HashSet<>();
         addBaseFields(clazz, allFields, seen);
@@ -44,7 +51,8 @@ public class FieldExtractor {
                 if (!shouldExclude(field)
                     && fieldOwnerClass.get(field.getName()) == level
                     && seen.add(field.getName())) {
-                    allFields.add(new FieldInfo(field.getName(), field.getType(), field.getGenericType()));
+                    allFields.add(new FieldInfo(field.getName(), field.getType(), field.getGenericType(),
+                        jsonNames.resolve(field)));
                 }
             }
         }
@@ -94,5 +102,46 @@ public class FieldExtractor {
         if (field.getName().equals("headers")) return true;
         if (field.getName().startsWith("_")) return true;
         return false;
+    }
+
+    /**
+     * Jackson wire names for a class, resolved via jackson-databind introspection so the
+     * proto json_name matches the server's Jackson serialization byte-for-byte.
+     */
+    private JsonNameIndex introspectJsonNames(Class<?> clazz) {
+        BeanDescription desc = JACKSON.getSerializationConfig()
+            .introspect(JACKSON.constructType(clazz));
+        Set<String> propertyNames = new HashSet<>();
+        Map<String, String> byFieldName = new HashMap<>();
+        for (BeanPropertyDefinition p : desc.findProperties()) {
+            propertyNames.add(p.getName());
+            if (p.getField() != null) {
+                byFieldName.put(p.getField().getName(), p.getName());
+            }
+        }
+        return new JsonNameIndex(propertyNames, byFieldName);
+    }
+
+    private record JsonNameIndex(Set<String> propertyNames, Map<String, String> byFieldName) {
+
+        String resolve(Field field) {
+            String linked = byFieldName.get(field.getName());
+            if (linked != null) {
+                return linked;
+            }
+            // Jackson treats `boolean isXxx` + is-getter as two implicit names: the field
+            // candidate ("isXxx", dropped as non-visible) and the getter property ("xxx",
+            // which survives with no linked field). Match the surviving property here.
+            if (field.getType() == boolean.class || field.getType() == Boolean.class) {
+                String n = field.getName();
+                if (n.length() > 2 && n.startsWith("is") && Character.isUpperCase(n.charAt(2))) {
+                    String stripped = Character.toLowerCase(n.charAt(2)) + n.substring(3);
+                    if (propertyNames.contains(stripped) && !propertyNames.contains(n)) {
+                        return stripped;
+                    }
+                }
+            }
+            return field.getName();
+        }
     }
 }
