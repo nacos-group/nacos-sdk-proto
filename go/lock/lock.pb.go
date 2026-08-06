@@ -243,7 +243,7 @@ const file_lock_lock_proto_rawDesc = "" +
 	"\x14LockOperationRequest\x12\x1c\n" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12<\n" +
 	"\flockInstance\x18\x02 \x01(\v2\x18.nacos.lock.LockInstanceR\flockInstance\x12,\n" +
-	"\x11lockOperationEnum\x18\x03 \x01(\tR\x11lockOperationEnum\"\xef\x01\n" +
+	"\x11lockOperationEnum\x18\x03 \x01(\tR\x11lockOperationEnum\"\x81\x02\n" +
 	"\fLockInstance\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12 \n" +
 	"\vexpiredTime\x18\x02 \x01(\x03R\vexpiredTime\x12<\n" +
@@ -251,7 +251,7 @@ const file_lock_lock_proto_rawDesc = "" +
 	"\blockType\x18\x04 \x01(\tR\blockType\x1aQ\n" +
 	"\vParamsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12,\n" +
-	"\x05value\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x05value:\x028\x01\"\xbd\x01\n" +
+	"\x05value\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x05value:\x028\x01J\x04\b\x05\x10\x06J\x04\b\x06\x10\aJ\x04\b\a\x10\b\"\xc3\x01\n" +
 	"\x15LockOperationResponse\x12\x1e\n" +
 	"\n" +
 	"resultCode\x18\x01 \x01(\x05R\n" +
@@ -259,7 +259,7 @@ const file_lock_lock_proto_rawDesc = "" +
 	"\terrorCode\x18\x02 \x01(\x05R\terrorCode\x12\x18\n" +
 	"\amessage\x18\x03 \x01(\tR\amessage\x12\x1c\n" +
 	"\trequestId\x18\x04 \x01(\tR\trequestId\x12.\n" +
-	"\x06result\x18\x05 \x01(\v2\x16.google.protobuf.ValueR\x06resultB0Z.github.com/nacos-group/nacos-sdk-proto/go/lockb\x06proto3"
+	"\x06result\x18\x05 \x01(\v2\x16.google.protobuf.ValueR\x06resultJ\x04\b\x06\x10\aB0Z.github.com/nacos-group/nacos-sdk-proto/go/lockb\x06proto3"
 
 var (
 	file_lock_lock_proto_rawDescOnce sync.Once

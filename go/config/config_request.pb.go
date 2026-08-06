@@ -297,7 +297,7 @@ type ConfigChangeClusterSyncRequest struct {
 	Tenant        string                 `protobuf:"bytes,4,opt,name=tenant,proto3" json:"tenant,omitempty"`
 	LastModified  int64                  `protobuf:"varint,5,opt,name=lastModified,proto3" json:"lastModified,omitempty"`
 	GrayName      string                 `protobuf:"bytes,6,opt,name=grayName,proto3" json:"grayName,omitempty"`
-	IsBeta        bool                   `protobuf:"varint,7,opt,name=isBeta,proto3" json:"isBeta,omitempty"`
+	IsBeta        bool                   `protobuf:"varint,7,opt,name=isBeta,json=beta,proto3" json:"isBeta,omitempty"`
 	Tag           string                 `protobuf:"bytes,8,opt,name=tag,proto3" json:"tag,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -529,7 +529,7 @@ type ConfigFuzzyWatchRequest struct {
 	GroupKeyPattern   string                 `protobuf:"bytes,2,opt,name=groupKeyPattern,proto3" json:"groupKeyPattern,omitempty"`
 	ReceivedGroupKeys []string               `protobuf:"bytes,3,rep,name=receivedGroupKeys,proto3" json:"receivedGroupKeys,omitempty"`
 	WatchType         string                 `protobuf:"bytes,4,opt,name=watchType,proto3" json:"watchType,omitempty"`
-	IsInitializing    bool                   `protobuf:"varint,5,opt,name=isInitializing,proto3" json:"isInitializing,omitempty"`
+	IsInitializing    bool                   `protobuf:"varint,5,opt,name=isInitializing,json=initializing,proto3" json:"isInitializing,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -1011,15 +1011,15 @@ const file_config_config_request_proto_rawDesc = "" +
 	"\x05group\x18\x01 \x01(\tR\x05group\x12\x10\n" +
 	"\x03md5\x18\x02 \x01(\tR\x03md5\x12\x16\n" +
 	"\x06dataId\x18\x03 \x01(\tR\x06dataId\x12\x16\n" +
-	"\x06tenant\x18\x04 \x01(\tR\x06tenant\"\xee\x01\n" +
+	"\x06tenant\x18\x04 \x01(\tR\x06tenant\"\xec\x01\n" +
 	"\x1eConfigChangeClusterSyncRequest\x12\x1c\n" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12\x16\n" +
 	"\x06dataId\x18\x02 \x01(\tR\x06dataId\x12\x14\n" +
 	"\x05group\x18\x03 \x01(\tR\x05group\x12\x16\n" +
 	"\x06tenant\x18\x04 \x01(\tR\x06tenant\x12\"\n" +
 	"\flastModified\x18\x05 \x01(\x03R\flastModified\x12\x1a\n" +
-	"\bgrayName\x18\x06 \x01(\tR\bgrayName\x12\x16\n" +
-	"\x06isBeta\x18\a \x01(\bR\x06isBeta\x12\x10\n" +
+	"\bgrayName\x18\x06 \x01(\tR\bgrayName\x12\x14\n" +
+	"\x06isBeta\x18\a \x01(\bR\x04beta\x12\x10\n" +
 	"\x03tag\x18\b \x01(\tR\x03tag\"\x7f\n" +
 	"\x19ConfigChangeNotifyRequest\x12\x1c\n" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12\x16\n" +
@@ -1031,13 +1031,13 @@ const file_config_config_request_proto_rawDesc = "" +
 	"\bgroupKey\x18\x02 \x01(\tR\bgroupKey\x12\x1e\n" +
 	"\n" +
 	"changeType\x18\x03 \x01(\tR\n" +
-	"changeType\"\xd5\x01\n" +
+	"changeType\"\xd3\x01\n" +
 	"\x17ConfigFuzzyWatchRequest\x12\x1c\n" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12(\n" +
 	"\x0fgroupKeyPattern\x18\x02 \x01(\tR\x0fgroupKeyPattern\x12,\n" +
 	"\x11receivedGroupKeys\x18\x03 \x03(\tR\x11receivedGroupKeys\x12\x1c\n" +
-	"\twatchType\x18\x04 \x01(\tR\twatchType\x12&\n" +
-	"\x0eisInitializing\x18\x05 \x01(\bR\x0eisInitializing\"\x93\x02\n" +
+	"\twatchType\x18\x04 \x01(\tR\twatchType\x12$\n" +
+	"\x0eisInitializing\x18\x05 \x01(\bR\finitializing\"\x93\x02\n" +
 	"\x1bConfigFuzzyWatchSyncRequest\x12\x1c\n" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12(\n" +
 	"\x0fgroupKeyPattern\x18\x02 \x01(\tR\x0fgroupKeyPattern\x12L\n" +

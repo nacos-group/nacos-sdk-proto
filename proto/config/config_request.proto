@@ -47,7 +47,7 @@ message ConfigChangeClusterSyncRequest {
   string tenant = 4;
   int64 lastModified = 5;
   string grayName = 6;
-  bool isBeta = 7;
+  bool isBeta = 7 [json_name = "beta"];
   string tag = 8;
 }
 
@@ -75,7 +75,7 @@ message ConfigFuzzyWatchRequest {
   string groupKeyPattern = 2;
   repeated string receivedGroupKeys = 3;
   string watchType = 4;
-  bool isInitializing = 5;
+  bool isInitializing = 5 [json_name = "initializing"];
 }
 
 // metadata.type = "ConfigFuzzyWatchSyncRequest"

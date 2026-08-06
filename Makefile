@@ -1,4 +1,4 @@
-.PHONY: generate generate-proto generate-go generate-python generate-nodejs \
+.PHONY: generate generate-proto generate-go generate-python generate-nodejs generate-version \
         clean verify verify-build sync-go-mod migrate sync setup update-version
 
 # === 仓库配置（转移时只改这一行） ===
@@ -46,7 +46,10 @@ generate-proto:
 		  --go-module-base $(GO_MODULE_BASE)"
 
 # === 各语言代码生成 ===
-generate: generate-go generate-nodejs generate-python
+generate: generate-version generate-go generate-nodejs generate-python
+
+generate-version:
+	./scripts/render-version.sh
 
 generate-go:
 	find $(PROTO_DIR) -name '*.proto' | xargs protoc \
@@ -68,7 +71,7 @@ generate-nodejs:
 	find $(PROTO_DIR) -name '*.proto' -not -name 'nacos_grpc_service.proto' | xargs protoc \
 		--plugin=./node_modules/.bin/protoc-gen-ts_proto \
 		--ts_proto_out=$(NODEJS_OUT)/src \
-		--ts_proto_opt=outputJsonMethods=true,outputEncodeMethods=false,outputClientImpl=false,exportCommonSymbols=false \
+		--ts_proto_opt=outputJsonMethods=true,outputEncodeMethods=false,outputClientImpl=false,exportCommonSymbols=false,useJsonName=true \
 		--proto_path=$(PROTO_DIR)
 	cd $(NODEJS_OUT)/src && find . -name '*.ts' -not -name 'index.ts' | sort | \
 		sed 's|^\./||; s|\.ts$$||; s|^|export * from "./|; s|$$|";|' > index.ts

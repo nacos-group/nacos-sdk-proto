@@ -32,7 +32,7 @@ type McpTool struct {
 	Description   string                     `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
 	InputSchema   map[string]*structpb.Value `protobuf:"bytes,3,rep,name=inputSchema,proto3" json:"inputSchema,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	OutputSchema  map[string]*structpb.Value `protobuf:"bytes,4,rep,name=outputSchema,proto3" json:"outputSchema,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Meta          map[string]*structpb.Value `protobuf:"bytes,5,rep,name=meta,proto3" json:"meta,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Meta          map[string]*structpb.Value `protobuf:"bytes,5,rep,name=meta,json=_meta,proto3" json:"meta,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	Annotations   *McpToolAnnotations        `protobuf:"bytes,6,opt,name=annotations,proto3" json:"annotations,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -114,13 +114,13 @@ var File_ai_mcptool_proto protoreflect.FileDescriptor
 
 const file_ai_mcptool_proto_rawDesc = "" +
 	"\n" +
-	"\x10ai/mcptool.proto\x12\bnacos.ai\x1a\x1bai/mcptoolannotations.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xc1\x04\n" +
+	"\x10ai/mcptool.proto\x12\bnacos.ai\x1a\x1bai/mcptoolannotations.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xc2\x04\n" +
 	"\aMcpTool\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12D\n" +
 	"\vinputSchema\x18\x03 \x03(\v2\".nacos.ai.McpTool.InputSchemaEntryR\vinputSchema\x12G\n" +
-	"\foutputSchema\x18\x04 \x03(\v2#.nacos.ai.McpTool.OutputSchemaEntryR\foutputSchema\x12/\n" +
-	"\x04meta\x18\x05 \x03(\v2\x1b.nacos.ai.McpTool.MetaEntryR\x04meta\x12>\n" +
+	"\foutputSchema\x18\x04 \x03(\v2#.nacos.ai.McpTool.OutputSchemaEntryR\foutputSchema\x120\n" +
+	"\x04meta\x18\x05 \x03(\v2\x1b.nacos.ai.McpTool.MetaEntryR\x05_meta\x12>\n" +
 	"\vannotations\x18\x06 \x01(\v2\x1c.nacos.ai.McpToolAnnotationsR\vannotations\x1aV\n" +
 	"\x10InputSchemaEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12,\n" +

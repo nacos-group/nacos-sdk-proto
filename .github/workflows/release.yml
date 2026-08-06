@@ -45,6 +45,7 @@ jobs:
           # main's only update channel, and it must carry develop's generator
           # together with the artifacts it generated.
           ref: develop
+          fetch-depth: 0
           token: ${{ steps.app-token.outputs.token }}
 
       # --- Java toolchain ---
@@ -106,13 +107,8 @@ jobs:
         run: cd nacos-sdk-proto && npm install
 
       # --- Generate and verify ---
-      - name: Generate and verify
-        run: |
-          cd nacos-sdk-proto
-          make clean
-          make generate-proto
-          make generate
-          make verify-build
+      - name: Clean
+        run: cd nacos-sdk-proto && make clean
 
       - name: Update VERSION
         run: |
@@ -126,6 +122,13 @@ jobs:
           }
           VEOF
 
+      - name: Generate and verify
+        run: |
+          cd nacos-sdk-proto
+          make generate-proto
+          make generate
+          make verify-build
+
       - name: Update package versions
         run: |
           cd nacos-sdk-proto
@@ -133,6 +136,12 @@ jobs:
           sed -i "s/version = \".*\"/version = \"${VER}\"/" python/pyproject.toml
           sed -i "s/\"version\": \".*\"/\"version\": \"${VER}\"/" nodejs/package.json
           echo "Updated package versions to ${VER}"
+
+      - name: Update compatibility table
+        run: |
+          cd nacos-sdk-proto
+          git fetch --tags -q
+          ./scripts/render-compat-table.sh "${{ steps.version.outputs.value }}"
 
       - name: Create release PR
         if: ${{ !inputs.dry_run }}
@@ -160,5 +169,6 @@ jobs:
         if: ${{ inputs.dry_run }}
         run: |
           cd nacos-sdk-proto
+          git add -A
           echo "=== Changes that would be committed ==="
           git diff --cached --stat

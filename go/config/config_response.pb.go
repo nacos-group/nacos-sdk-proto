@@ -675,7 +675,7 @@ type ConfigQueryResponse struct {
 	ContentType      string                 `protobuf:"bytes,7,opt,name=contentType,proto3" json:"contentType,omitempty"`
 	Md5              string                 `protobuf:"bytes,8,opt,name=md5,proto3" json:"md5,omitempty"`
 	LastModified     int64                  `protobuf:"varint,9,opt,name=lastModified,proto3" json:"lastModified,omitempty"`
-	IsBeta           bool                   `protobuf:"varint,10,opt,name=isBeta,proto3" json:"isBeta,omitempty"`
+	IsBeta           bool                   `protobuf:"varint,10,opt,name=isBeta,json=beta,proto3" json:"isBeta,omitempty"`
 	Tag              string                 `protobuf:"bytes,11,opt,name=tag,proto3" json:"tag,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
@@ -927,7 +927,7 @@ const file_config_config_response_proto_rawDesc = "" +
 	"resultCode\x12\x1c\n" +
 	"\terrorCode\x18\x02 \x01(\x05R\terrorCode\x12\x18\n" +
 	"\amessage\x18\x03 \x01(\tR\amessage\x12\x1c\n" +
-	"\trequestId\x18\x04 \x01(\tR\trequestId\"\xd3\x02\n" +
+	"\trequestId\x18\x04 \x01(\tR\trequestId\"\xd1\x02\n" +
 	"\x13ConfigQueryResponse\x12\x1e\n" +
 	"\n" +
 	"resultCode\x18\x01 \x01(\x05R\n" +
@@ -939,9 +939,9 @@ const file_config_config_response_proto_rawDesc = "" +
 	"\x10encryptedDataKey\x18\x06 \x01(\tR\x10encryptedDataKey\x12 \n" +
 	"\vcontentType\x18\a \x01(\tR\vcontentType\x12\x10\n" +
 	"\x03md5\x18\b \x01(\tR\x03md5\x12\"\n" +
-	"\flastModified\x18\t \x01(\x03R\flastModified\x12\x16\n" +
+	"\flastModified\x18\t \x01(\x03R\flastModified\x12\x14\n" +
 	"\x06isBeta\x18\n" +
-	" \x01(\bR\x06isBeta\x12\x10\n" +
+	" \x01(\bR\x04beta\x12\x10\n" +
 	"\x03tag\x18\v \x01(\tR\x03tag\"\x8c\x01\n" +
 	"\x14ConfigRemoveResponse\x12\x1e\n" +
 	"\n" +

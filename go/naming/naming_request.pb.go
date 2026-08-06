@@ -270,7 +270,7 @@ func (x *NamingFuzzyWatchChangeNotifyRequest) GetChangedType() string {
 type NamingFuzzyWatchRequest struct {
 	state             protoimpl.MessageState `protogen:"open.v1"`
 	RequestId         string                 `protobuf:"bytes,1,opt,name=requestId,proto3" json:"requestId,omitempty"`
-	IsInitializing    bool                   `protobuf:"varint,2,opt,name=isInitializing,proto3" json:"isInitializing,omitempty"`
+	IsInitializing    bool                   `protobuf:"varint,2,opt,name=isInitializing,json=initializing,proto3" json:"isInitializing,omitempty"`
 	Namespace         string                 `protobuf:"bytes,3,opt,name=namespace,proto3" json:"namespace,omitempty"`
 	GroupKeyPattern   string                 `protobuf:"bytes,4,opt,name=groupKeyPattern,proto3" json:"groupKeyPattern,omitempty"`
 	ReceivedGroupKeys []string               `protobuf:"bytes,5,rep,name=receivedGroupKeys,proto3" json:"receivedGroupKeys,omitempty"`
@@ -954,10 +954,10 @@ const file_naming_naming_request_proto_rawDesc = "" +
 	"\n" +
 	"serviceKey\x18\x03 \x01(\tR\n" +
 	"serviceKey\x12 \n" +
-	"\vchangedType\x18\x04 \x01(\tR\vchangedType\"\xf3\x01\n" +
+	"\vchangedType\x18\x04 \x01(\tR\vchangedType\"\xf1\x01\n" +
 	"\x17NamingFuzzyWatchRequest\x12\x1c\n" +
-	"\trequestId\x18\x01 \x01(\tR\trequestId\x12&\n" +
-	"\x0eisInitializing\x18\x02 \x01(\bR\x0eisInitializing\x12\x1c\n" +
+	"\trequestId\x18\x01 \x01(\tR\trequestId\x12$\n" +
+	"\x0eisInitializing\x18\x02 \x01(\bR\finitializing\x12\x1c\n" +
 	"\tnamespace\x18\x03 \x01(\tR\tnamespace\x12(\n" +
 	"\x0fgroupKeyPattern\x18\x04 \x01(\tR\x0fgroupKeyPattern\x12,\n" +
 	"\x11receivedGroupKeys\x18\x05 \x03(\tR\x11receivedGroupKeys\x12\x1c\n" +

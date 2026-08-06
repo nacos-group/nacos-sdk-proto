@@ -27,7 +27,7 @@ const (
 // Flattened from: AgentProvider
 type AgentProvider struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Organization  string                 `protobuf:"bytes,1,opt,name=organization,proto3" json:"organization,omitempty"`
+	Organization  string                 `protobuf:"bytes,4,opt,name=organization,proto3" json:"organization,omitempty"`
 	Url           string                 `protobuf:"bytes,2,opt,name=url,proto3" json:"url,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -81,10 +81,10 @@ var File_ai_agentprovider_proto protoreflect.FileDescriptor
 
 const file_ai_agentprovider_proto_rawDesc = "" +
 	"\n" +
-	"\x16ai/agentprovider.proto\x12\bnacos.ai\"E\n" +
+	"\x16ai/agentprovider.proto\x12\bnacos.ai\"Q\n" +
 	"\rAgentProvider\x12\"\n" +
-	"\forganization\x18\x01 \x01(\tR\forganization\x12\x10\n" +
-	"\x03url\x18\x02 \x01(\tR\x03urlB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3"
+	"\forganization\x18\x04 \x01(\tR\forganization\x12\x10\n" +
+	"\x03url\x18\x02 \x01(\tR\x03urlJ\x04\b\x03\x10\x04J\x04\b\x01\x10\x02B.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3"
 
 var (
 	file_ai_agentprovider_proto_rawDescOnce sync.Once

@@ -40,3 +40,4 @@ export * from "./naming/instance";
 export * from "./naming/naming_request";
 export * from "./naming/naming_response";
 export * from "./naming/serviceinfo";
+export * from "./version";

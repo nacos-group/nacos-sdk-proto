@@ -30,6 +30,10 @@ public class ProtoFileWriter {
         typeMapper.setClassToMessageName(classToMessageName);
     }
 
+    public void setGenericMessageNames(Map<Type, String> genericMessageNames) {
+        typeMapper.setGenericMessageNames(genericMessageNames);
+    }
+
     public void write(Path outputDir, Map<String, List<MessageDescriptor>> messagesByFile) throws IOException {
         if (goModuleBase == null || goModuleBase.isEmpty()) {
             throw new IllegalStateException("goModuleBase must be set before writing proto files. Use --go-module-base CLI arg.");
@@ -77,7 +81,11 @@ public class ProtoFileWriter {
                     String protoType = typeMapper.mapType(field.type(), field.genericType());
                     int number = msg.fieldNumbers().get(field.name());
                     sb.append("  ").append(protoType).append(" ").append(field.name())
-                      .append(" = ").append(number).append(";\n");
+                      .append(" = ").append(number);
+                    if (field.hasCustomJsonName()) {
+                        sb.append(" [json_name = \"").append(field.jsonName()).append("\"]");
+                    }
+                    sb.append(";\n");
                 }
 
                 if (!msg.reserved().isEmpty()) {
@@ -127,6 +135,13 @@ public class ProtoFileWriter {
         Set<String> types = new HashSet<>();
         Class<?> fieldType = field.type();
         Type genericType = field.genericType();
+
+        // Monomorphized generic instantiation (e.g. Page<McpTool> -> McpToolPage)
+        String genericName = typeMapper.genericMessageName(genericType);
+        if (genericName != null) {
+            types.add(genericName);
+            return types;
+        }
 
         if (Collection.class.isAssignableFrom(fieldType) && genericType instanceof ParameterizedType pt) {
             Type elemType = pt.getActualTypeArguments()[0];

@@ -42,7 +42,7 @@ message NamingFuzzyWatchChangeNotifyRequest {
 // Flattened from: NamingFuzzyWatchRequest -> Request
 message NamingFuzzyWatchRequest {
   string requestId = 1;
-  bool isInitializing = 2;
+  bool isInitializing = 2 [json_name = "initializing"];
   string namespace = 3;
   string groupKeyPattern = 4;
   repeated string receivedGroupKeys = 5;
