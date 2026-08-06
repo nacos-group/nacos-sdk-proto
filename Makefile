@@ -66,7 +66,7 @@ generate-python:
 		$$(find $(PROTO_DIR) -name '*.proto')
 	find $(PYTHON_OUT)/nacos_sdk_proto -type d -exec touch {}/__init__.py \;
 
-generate-nodejs:
+generate-nodejs: generate-version
 	mkdir -p $(NODEJS_OUT)/src
 	find $(PROTO_DIR) -name '*.proto' -not -name 'nacos_grpc_service.proto' | xargs protoc \
 		--plugin=./node_modules/.bin/protoc-gen-ts_proto \
@@ -113,9 +113,11 @@ verify-build:
 	cd $(NODEJS_OUT) && npx tsc --noEmit
 
 verify: verify-build
-	# 幂等性检查：重新生成 proto，不应有 diff
+	# 幂等性检查：重新生成 proto 与 version 元数据，不应有 diff
 	$(MAKE) generate-proto
-	git diff --exit-code -- $(PROTO_DIR)/ ':!$(PROTO_DIR)/VERSION'
+	$(MAKE) generate-version
+	git diff --exit-code -- $(PROTO_DIR)/ ':!$(PROTO_DIR)/VERSION' \
+		go/version.go nodejs/src/version.ts python/nacos_sdk_proto/version.py
 
 migrate:
 	$(MAKE) generate-proto
