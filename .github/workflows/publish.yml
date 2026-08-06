@@ -114,4 +114,4 @@ jobs:
           | Python | [nacos-sdk-proto](https://pypi.org/project/nacos-sdk-proto/${VER}/) | ${VER} |
           | Node.js | [@nacos-group/sdk-proto](https://www.npmjs.com/package/@nacos-group/sdk-proto/v/${VER}) | ${VER} |
           EOF
-          gh release create "v${VER}" --title "v${VER}" --notes-file /tmp/release-notes.md
+          gh release create "v${VER}" --title "v${VER} (nacos ${NACOS_REF})" --notes-file /tmp/release-notes.md

@@ -1,4 +1,4 @@
-.PHONY: generate generate-proto generate-go generate-python generate-nodejs \
+.PHONY: generate generate-proto generate-go generate-python generate-nodejs generate-version \
         clean verify verify-build sync-go-mod migrate sync setup update-version
 
 # === 仓库配置（转移时只改这一行） ===
@@ -46,7 +46,10 @@ generate-proto:
 		  --go-module-base $(GO_MODULE_BASE)"
 
 # === 各语言代码生成 ===
-generate: generate-go generate-nodejs generate-python
+generate: generate-version generate-go generate-nodejs generate-python
+
+generate-version:
+	./scripts/render-version.sh
 
 generate-go:
 	find $(PROTO_DIR) -name '*.proto' | xargs protoc \

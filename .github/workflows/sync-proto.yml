@@ -136,14 +136,9 @@ jobs:
         run: cd nacos-sdk-proto && npm install
 
       # --- Generate and verify ---
-      - name: Generate and verify
+      - name: Clean
         if: steps.check.outputs.needed == 'true'
-        run: |
-          cd nacos-sdk-proto
-          make clean
-          make generate-proto
-          make generate
-          make verify-build
+        run: cd nacos-sdk-proto && make clean
 
       - name: Update VERSION
         if: steps.check.outputs.needed == 'true'
@@ -156,6 +151,14 @@ jobs:
             "generated_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           }
           VEOF
+
+      - name: Generate and verify
+        if: steps.check.outputs.needed == 'true'
+        run: |
+          cd nacos-sdk-proto
+          make generate-proto
+          make generate
+          make verify-build
 
       - name: Check diff and create PR
         if: steps.check.outputs.needed == 'true'
