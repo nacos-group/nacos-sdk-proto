@@ -24,154 +24,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// metadata.type = "LockNotificationRequest"
-// Flattened from: LockNotificationRequest -> ServerRequest -> Request
-type LockNotificationRequest struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	RequestId        string                 `protobuf:"bytes,1,opt,name=requestId,proto3" json:"requestId,omitempty"`
-	LockKey          string                 `protobuf:"bytes,2,opt,name=lockKey,proto3" json:"lockKey,omitempty"`
-	LockType         string                 `protobuf:"bytes,3,opt,name=lockType,proto3" json:"lockType,omitempty"`
-	Owner            string                 `protobuf:"bytes,4,opt,name=owner,proto3" json:"owner,omitempty"`
-	NotificationType string                 `protobuf:"bytes,5,opt,name=notificationType,proto3" json:"notificationType,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
-}
-
-func (x *LockNotificationRequest) Reset() {
-	*x = LockNotificationRequest{}
-	mi := &file_lock_lock_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *LockNotificationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*LockNotificationRequest) ProtoMessage() {}
-
-func (x *LockNotificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_lock_lock_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use LockNotificationRequest.ProtoReflect.Descriptor instead.
-func (*LockNotificationRequest) Descriptor() ([]byte, []int) {
-	return file_lock_lock_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *LockNotificationRequest) GetRequestId() string {
-	if x != nil {
-		return x.RequestId
-	}
-	return ""
-}
-
-func (x *LockNotificationRequest) GetLockKey() string {
-	if x != nil {
-		return x.LockKey
-	}
-	return ""
-}
-
-func (x *LockNotificationRequest) GetLockType() string {
-	if x != nil {
-		return x.LockType
-	}
-	return ""
-}
-
-func (x *LockNotificationRequest) GetOwner() string {
-	if x != nil {
-		return x.Owner
-	}
-	return ""
-}
-
-func (x *LockNotificationRequest) GetNotificationType() string {
-	if x != nil {
-		return x.NotificationType
-	}
-	return ""
-}
-
-// metadata.type = "LockNotificationResponse"
-// Flattened from: LockNotificationResponse -> Response
-type LockNotificationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ResultCode    int32                  `protobuf:"varint,1,opt,name=resultCode,proto3" json:"resultCode,omitempty"`
-	ErrorCode     int32                  `protobuf:"varint,2,opt,name=errorCode,proto3" json:"errorCode,omitempty"`
-	Message       string                 `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
-	RequestId     string                 `protobuf:"bytes,4,opt,name=requestId,proto3" json:"requestId,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *LockNotificationResponse) Reset() {
-	*x = LockNotificationResponse{}
-	mi := &file_lock_lock_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *LockNotificationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*LockNotificationResponse) ProtoMessage() {}
-
-func (x *LockNotificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_lock_lock_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use LockNotificationResponse.ProtoReflect.Descriptor instead.
-func (*LockNotificationResponse) Descriptor() ([]byte, []int) {
-	return file_lock_lock_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *LockNotificationResponse) GetResultCode() int32 {
-	if x != nil {
-		return x.ResultCode
-	}
-	return 0
-}
-
-func (x *LockNotificationResponse) GetErrorCode() int32 {
-	if x != nil {
-		return x.ErrorCode
-	}
-	return 0
-}
-
-func (x *LockNotificationResponse) GetMessage() string {
-	if x != nil {
-		return x.Message
-	}
-	return ""
-}
-
-func (x *LockNotificationResponse) GetRequestId() string {
-	if x != nil {
-		return x.RequestId
-	}
-	return ""
-}
-
 // metadata.type = "LockOperationRequest"
 // Flattened from: LockOperationRequest -> AbstractLockRequest -> Request
 type LockOperationRequest struct {
@@ -185,7 +37,7 @@ type LockOperationRequest struct {
 
 func (x *LockOperationRequest) Reset() {
 	*x = LockOperationRequest{}
-	mi := &file_lock_lock_proto_msgTypes[2]
+	mi := &file_lock_lock_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -197,7 +49,7 @@ func (x *LockOperationRequest) String() string {
 func (*LockOperationRequest) ProtoMessage() {}
 
 func (x *LockOperationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_lock_lock_proto_msgTypes[2]
+	mi := &file_lock_lock_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -210,7 +62,7 @@ func (x *LockOperationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LockOperationRequest.ProtoReflect.Descriptor instead.
 func (*LockOperationRequest) Descriptor() ([]byte, []int) {
-	return file_lock_lock_proto_rawDescGZIP(), []int{2}
+	return file_lock_lock_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *LockOperationRequest) GetRequestId() string {
@@ -242,16 +94,13 @@ type LockInstance struct {
 	ExpiredTime   int64                      `protobuf:"varint,2,opt,name=expiredTime,proto3" json:"expiredTime,omitempty"`
 	Params        map[string]*structpb.Value `protobuf:"bytes,3,rep,name=params,proto3" json:"params,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	LockType      string                     `protobuf:"bytes,4,opt,name=lockType,proto3" json:"lockType,omitempty"`
-	Owner         string                     `protobuf:"bytes,5,opt,name=owner,proto3" json:"owner,omitempty"`
-	WaitTime      int64                      `protobuf:"varint,6,opt,name=waitTime,proto3" json:"waitTime,omitempty"`
-	WaiterRetry   bool                       `protobuf:"varint,7,opt,name=waiterRetry,proto3" json:"waiterRetry,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *LockInstance) Reset() {
 	*x = LockInstance{}
-	mi := &file_lock_lock_proto_msgTypes[3]
+	mi := &file_lock_lock_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -263,7 +112,7 @@ func (x *LockInstance) String() string {
 func (*LockInstance) ProtoMessage() {}
 
 func (x *LockInstance) ProtoReflect() protoreflect.Message {
-	mi := &file_lock_lock_proto_msgTypes[3]
+	mi := &file_lock_lock_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -276,7 +125,7 @@ func (x *LockInstance) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LockInstance.ProtoReflect.Descriptor instead.
 func (*LockInstance) Descriptor() ([]byte, []int) {
-	return file_lock_lock_proto_rawDescGZIP(), []int{3}
+	return file_lock_lock_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *LockInstance) GetKey() string {
@@ -307,27 +156,6 @@ func (x *LockInstance) GetLockType() string {
 	return ""
 }
 
-func (x *LockInstance) GetOwner() string {
-	if x != nil {
-		return x.Owner
-	}
-	return ""
-}
-
-func (x *LockInstance) GetWaitTime() int64 {
-	if x != nil {
-		return x.WaitTime
-	}
-	return 0
-}
-
-func (x *LockInstance) GetWaiterRetry() bool {
-	if x != nil {
-		return x.WaiterRetry
-	}
-	return false
-}
-
 // metadata.type = "LockOperationResponse"
 // Flattened from: LockOperationResponse -> Response
 type LockOperationResponse struct {
@@ -337,14 +165,13 @@ type LockOperationResponse struct {
 	Message       string                 `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
 	RequestId     string                 `protobuf:"bytes,4,opt,name=requestId,proto3" json:"requestId,omitempty"`
 	Result        *structpb.Value        `protobuf:"bytes,5,opt,name=result,proto3" json:"result,omitempty"`
-	LockResult    *LockResult            `protobuf:"bytes,6,opt,name=lockResult,proto3" json:"lockResult,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *LockOperationResponse) Reset() {
 	*x = LockOperationResponse{}
-	mi := &file_lock_lock_proto_msgTypes[4]
+	mi := &file_lock_lock_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -356,7 +183,7 @@ func (x *LockOperationResponse) String() string {
 func (*LockOperationResponse) ProtoMessage() {}
 
 func (x *LockOperationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_lock_lock_proto_msgTypes[4]
+	mi := &file_lock_lock_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -369,7 +196,7 @@ func (x *LockOperationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LockOperationResponse.ProtoReflect.Descriptor instead.
 func (*LockOperationResponse) Descriptor() ([]byte, []int) {
-	return file_lock_lock_proto_rawDescGZIP(), []int{4}
+	return file_lock_lock_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *LockOperationResponse) GetResultCode() int32 {
@@ -407,117 +234,24 @@ func (x *LockOperationResponse) GetResult() *structpb.Value {
 	return nil
 }
 
-func (x *LockOperationResponse) GetLockResult() *LockResult {
-	if x != nil {
-		return x.LockResult
-	}
-	return nil
-}
-
-// metadata.type = "LockResult"
-// Flattened from: LockResult
-type LockResult struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Success        bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
-	ReentrantCount int32                  `protobuf:"varint,2,opt,name=reentrantCount,proto3" json:"reentrantCount,omitempty"`
-	WaitPosition   int32                  `protobuf:"varint,3,opt,name=waitPosition,proto3" json:"waitPosition,omitempty"`
-	ErrorMessage   string                 `protobuf:"bytes,4,opt,name=errorMessage,proto3" json:"errorMessage,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
-}
-
-func (x *LockResult) Reset() {
-	*x = LockResult{}
-	mi := &file_lock_lock_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *LockResult) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*LockResult) ProtoMessage() {}
-
-func (x *LockResult) ProtoReflect() protoreflect.Message {
-	mi := &file_lock_lock_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use LockResult.ProtoReflect.Descriptor instead.
-func (*LockResult) Descriptor() ([]byte, []int) {
-	return file_lock_lock_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *LockResult) GetSuccess() bool {
-	if x != nil {
-		return x.Success
-	}
-	return false
-}
-
-func (x *LockResult) GetReentrantCount() int32 {
-	if x != nil {
-		return x.ReentrantCount
-	}
-	return 0
-}
-
-func (x *LockResult) GetWaitPosition() int32 {
-	if x != nil {
-		return x.WaitPosition
-	}
-	return 0
-}
-
-func (x *LockResult) GetErrorMessage() string {
-	if x != nil {
-		return x.ErrorMessage
-	}
-	return ""
-}
-
 var File_lock_lock_proto protoreflect.FileDescriptor
 
 const file_lock_lock_proto_rawDesc = "" +
 	"\n" +
 	"\x0flock/lock.proto\x12\n" +
-	"nacos.lock\x1a\x1cgoogle/protobuf/struct.proto\"\xaf\x01\n" +
-	"\x17LockNotificationRequest\x12\x1c\n" +
-	"\trequestId\x18\x01 \x01(\tR\trequestId\x12\x18\n" +
-	"\alockKey\x18\x02 \x01(\tR\alockKey\x12\x1a\n" +
-	"\blockType\x18\x03 \x01(\tR\blockType\x12\x14\n" +
-	"\x05owner\x18\x04 \x01(\tR\x05owner\x12*\n" +
-	"\x10notificationType\x18\x05 \x01(\tR\x10notificationType\"\x90\x01\n" +
-	"\x18LockNotificationResponse\x12\x1e\n" +
-	"\n" +
-	"resultCode\x18\x01 \x01(\x05R\n" +
-	"resultCode\x12\x1c\n" +
-	"\terrorCode\x18\x02 \x01(\x05R\terrorCode\x12\x18\n" +
-	"\amessage\x18\x03 \x01(\tR\amessage\x12\x1c\n" +
-	"\trequestId\x18\x04 \x01(\tR\trequestId\"\xa0\x01\n" +
+	"nacos.lock\x1a\x1cgoogle/protobuf/struct.proto\"\xa0\x01\n" +
 	"\x14LockOperationRequest\x12\x1c\n" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12<\n" +
 	"\flockInstance\x18\x02 \x01(\v2\x18.nacos.lock.LockInstanceR\flockInstance\x12,\n" +
-	"\x11lockOperationEnum\x18\x03 \x01(\tR\x11lockOperationEnum\"\xc3\x02\n" +
+	"\x11lockOperationEnum\x18\x03 \x01(\tR\x11lockOperationEnum\"\x81\x02\n" +
 	"\fLockInstance\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12 \n" +
 	"\vexpiredTime\x18\x02 \x01(\x03R\vexpiredTime\x12<\n" +
 	"\x06params\x18\x03 \x03(\v2$.nacos.lock.LockInstance.ParamsEntryR\x06params\x12\x1a\n" +
-	"\blockType\x18\x04 \x01(\tR\blockType\x12\x14\n" +
-	"\x05owner\x18\x05 \x01(\tR\x05owner\x12\x1a\n" +
-	"\bwaitTime\x18\x06 \x01(\x03R\bwaitTime\x12 \n" +
-	"\vwaiterRetry\x18\a \x01(\bR\vwaiterRetry\x1aQ\n" +
+	"\blockType\x18\x04 \x01(\tR\blockType\x1aQ\n" +
 	"\vParamsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12,\n" +
-	"\x05value\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x05value:\x028\x01\"\xf5\x01\n" +
+	"\x05value\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x05value:\x028\x01J\x04\b\x05\x10\x06J\x04\b\x06\x10\aJ\x04\b\a\x10\b\"\xc3\x01\n" +
 	"\x15LockOperationResponse\x12\x1e\n" +
 	"\n" +
 	"resultCode\x18\x01 \x01(\x05R\n" +
@@ -525,16 +259,7 @@ const file_lock_lock_proto_rawDesc = "" +
 	"\terrorCode\x18\x02 \x01(\x05R\terrorCode\x12\x18\n" +
 	"\amessage\x18\x03 \x01(\tR\amessage\x12\x1c\n" +
 	"\trequestId\x18\x04 \x01(\tR\trequestId\x12.\n" +
-	"\x06result\x18\x05 \x01(\v2\x16.google.protobuf.ValueR\x06result\x126\n" +
-	"\n" +
-	"lockResult\x18\x06 \x01(\v2\x16.nacos.lock.LockResultR\n" +
-	"lockResult\"\x96\x01\n" +
-	"\n" +
-	"LockResult\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess\x12&\n" +
-	"\x0ereentrantCount\x18\x02 \x01(\x05R\x0ereentrantCount\x12\"\n" +
-	"\fwaitPosition\x18\x03 \x01(\x05R\fwaitPosition\x12\"\n" +
-	"\ferrorMessage\x18\x04 \x01(\tR\ferrorMessageB0Z.github.com/nacos-group/nacos-sdk-proto/go/lockb\x06proto3"
+	"\x06result\x18\x05 \x01(\v2\x16.google.protobuf.ValueR\x06resultJ\x04\b\x06\x10\aB0Z.github.com/nacos-group/nacos-sdk-proto/go/lockb\x06proto3"
 
 var (
 	file_lock_lock_proto_rawDescOnce sync.Once
@@ -548,28 +273,24 @@ func file_lock_lock_proto_rawDescGZIP() []byte {
 	return file_lock_lock_proto_rawDescData
 }
 
-var file_lock_lock_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_lock_lock_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_lock_lock_proto_goTypes = []any{
-	(*LockNotificationRequest)(nil),  // 0: nacos.lock.LockNotificationRequest
-	(*LockNotificationResponse)(nil), // 1: nacos.lock.LockNotificationResponse
-	(*LockOperationRequest)(nil),     // 2: nacos.lock.LockOperationRequest
-	(*LockInstance)(nil),             // 3: nacos.lock.LockInstance
-	(*LockOperationResponse)(nil),    // 4: nacos.lock.LockOperationResponse
-	(*LockResult)(nil),               // 5: nacos.lock.LockResult
-	nil,                              // 6: nacos.lock.LockInstance.ParamsEntry
-	(*structpb.Value)(nil),           // 7: google.protobuf.Value
+	(*LockOperationRequest)(nil),  // 0: nacos.lock.LockOperationRequest
+	(*LockInstance)(nil),          // 1: nacos.lock.LockInstance
+	(*LockOperationResponse)(nil), // 2: nacos.lock.LockOperationResponse
+	nil,                           // 3: nacos.lock.LockInstance.ParamsEntry
+	(*structpb.Value)(nil),        // 4: google.protobuf.Value
 }
 var file_lock_lock_proto_depIdxs = []int32{
-	3, // 0: nacos.lock.LockOperationRequest.lockInstance:type_name -> nacos.lock.LockInstance
-	6, // 1: nacos.lock.LockInstance.params:type_name -> nacos.lock.LockInstance.ParamsEntry
-	7, // 2: nacos.lock.LockOperationResponse.result:type_name -> google.protobuf.Value
-	5, // 3: nacos.lock.LockOperationResponse.lockResult:type_name -> nacos.lock.LockResult
-	7, // 4: nacos.lock.LockInstance.ParamsEntry.value:type_name -> google.protobuf.Value
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	1, // 0: nacos.lock.LockOperationRequest.lockInstance:type_name -> nacos.lock.LockInstance
+	3, // 1: nacos.lock.LockInstance.params:type_name -> nacos.lock.LockInstance.ParamsEntry
+	4, // 2: nacos.lock.LockOperationResponse.result:type_name -> google.protobuf.Value
+	4, // 3: nacos.lock.LockInstance.ParamsEntry.value:type_name -> google.protobuf.Value
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_lock_lock_proto_init() }
@@ -583,7 +304,7 @@ func file_lock_lock_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_lock_lock_proto_rawDesc), len(file_lock_lock_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

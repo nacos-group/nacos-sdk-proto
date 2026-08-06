@@ -413,12 +413,9 @@
         "key" : 1,
         "expiredTime" : 2,
         "params" : 3,
-        "lockType" : 4,
-        "owner" : 5,
-        "waitTime" : 6,
-        "waiterRetry" : 7
+        "lockType" : 4
       },
-      "reserved" : [ ]
+      "reserved" : [ 5, 6, 7 ]
     },
     "LockOperationResponse" : {
       "fields" : {
@@ -426,10 +423,9 @@
         "errorCode" : 2,
         "message" : 3,
         "requestId" : 4,
-        "result" : 5,
-        "lockResult" : 6
+        "result" : 5
       },
-      "reserved" : [ ]
+      "reserved" : [ 6 ]
     },
     "McpServerEndpointRequest" : {
       "fields" : {
@@ -655,9 +651,9 @@
     "AgentProvider" : {
       "fields" : {
         "url" : 2,
-        "name" : 3
+        "organization" : 4
       },
-      "reserved" : [ 1 ]
+      "reserved" : [ 3, 1 ]
     },
     "SecurityScheme" : {
       "fields" : {

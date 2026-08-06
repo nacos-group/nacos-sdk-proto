@@ -119,6 +119,7 @@ npm install @nacos-group/sdk-proto   # 发布到 npm 后可用
 <!-- version-compat:begin -->
 | nacos-sdk-proto | Nacos | Nacos commit | Generated |
 |---|---|---|---|
+| v1.0.0-beta.9 | 3.2.1 | fa05d6e | 2026-08-06 |
 | v1.0.0-beta.8 | 3.2.1 | fa05d6e | 2026-05-22 |
 | v1.0.0-beta.7 | 3.2.1 | fa05d6e | 2026-05-21 |
 | v1.0.0-beta.6 | 3.2.1 | fa05d6e | 2026-05-21 |

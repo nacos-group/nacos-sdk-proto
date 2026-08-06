@@ -23,17 +23,14 @@ _sym_db = _symbol_database.Default()
 
 
 from ai import agentcard_pb2 as ai_dot_agentcard__pb2
-from ai import agentdiscoveryfilter_pb2 as ai_dot_agentdiscoveryfilter__pb2
 from ai import agentendpoint_pb2 as ai_dot_agentendpoint__pb2
-from ai import agentendpointregistrationbatch_pb2 as ai_dot_agentendpointregistrationbatch__pb2
-from ai import agentreference_pb2 as ai_dot_agentreference__pb2
 from ai import mcpendpointspec_pb2 as ai_dot_mcpendpointspec__pb2
 from ai import mcpresourcespecification_pb2 as ai_dot_mcpresourcespecification__pb2
 from ai import mcpserverbasicinfo_pb2 as ai_dot_mcpserverbasicinfo__pb2
 from ai import mcptoolspecification_pb2 as ai_dot_mcptoolspecification__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13\x61i/ai_request.proto\x12\x08nacos.ai\x1a\x12\x61i/agentcard.proto\x1a\x1d\x61i/agentdiscoveryfilter.proto\x1a\x16\x61i/agentendpoint.proto\x1a\'ai/agentendpointregistrationbatch.proto\x1a\x17\x61i/agentreference.proto\x1a\x18\x61i/mcpendpointspec.proto\x1a!ai/mcpresourcespecification.proto\x1a\x1b\x61i/mcpserverbasicinfo.proto\x1a\x1d\x61i/mcptoolspecification.proto\"h\n\x18\x41gentDiscoveryRpcRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x39\n\x10\x64iscoveryRequest\x18\x02 \x01(\x0b\x32\x1f.nacos.ai.AgentDiscoveryRequest\"\x89\x01\n\x15\x41gentDiscoveryRequest\x12\x13\n\x0bnamespaceId\x18\x01 \x01(\t\x12+\n\treference\x18\x02 \x01(\x0b\x32\x18.nacos.ai.AgentReference\x12.\n\x06\x66ilter\x18\x03 \x01(\x0b\x32\x1e.nacos.ai.AgentDiscoveryFilter\"p\n!AgentEndpointDeregisterRpcRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\x11\n\tagentName\x18\x03 \x01(\t\x12\x10\n\x08protocol\x18\x04 \x01(\t\"y\n\x1f\x41gentEndpointRegisterRpcRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x43\n\x11registrationBatch\x18\x02 \x01(\x0b\x32(.nacos.ai.AgentEndpointRegistrationBatch\"\x8a\x01\n\x14\x41gentEndpointRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\x11\n\tagentName\x18\x03 \x01(\t\x12)\n\x08\x65ndpoint\x18\x04 \x01(\x0b\x32\x17.nacos.ai.AgentEndpoint\x12\x0c\n\x04type\x18\x05 \x01(\t\"_\n\x15\x41gentSearchRpcRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x33\n\rsearchRequest\x18\x02 \x01(\x0b\x32\x1c.nacos.ai.AgentSearchRequest\"\x8d\x01\n\x12\x41gentSearchRequest\x12\x13\n\x0bnamespaceId\x18\x01 \x01(\t\x12\x19\n\x11\x61gentNameContains\x18\x02 \x01(\t\x12\x0f\n\x07tagsAll\x18\x03 \x03(\t\x12\x14\n\x0cprotocolsAny\x18\x04 \x03(\t\x12\x0e\n\x06pageNo\x18\x05 \x01(\x05\x12\x10\n\x08pageSize\x18\x06 \x01(\x05\"\x82\x01\n\x19\x42\x61tchAgentEndpointRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\x11\n\tagentName\x18\x03 \x01(\t\x12*\n\tendpoints\x18\x04 \x03(\x0b\x32\x17.nacos.ai.AgentEndpoint\"\xa0\x01\n\x18McpServerEndpointRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\r\n\x05mcpId\x18\x03 \x01(\t\x12\x0f\n\x07mcpName\x18\x04 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x05 \x01(\t\x12\x0c\n\x04port\x18\x06 \x01(\x05\x12\x0f\n\x07version\x18\x07 \x01(\t\x12\x0c\n\x04type\x18\x08 \x01(\t\"}\n\x15QueryAgentCardRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\x11\n\tagentName\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x18\n\x10registrationType\x18\x05 \x01(\t\"p\n\x15QueryMcpServerRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\r\n\x05mcpId\x18\x03 \x01(\t\x12\x0f\n\x07mcpName\x18\x04 \x01(\t\x12\x0f\n\x07version\x18\x05 \x01(\t\"|\n\x12QueryPromptRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\x11\n\tpromptKey\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\r\n\x05label\x18\x05 \x01(\t\x12\x0b\n\x03md5\x18\x06 \x01(\t\"\xab\x01\n\x17ReleaseAgentCardRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\x11\n\tagentName\x18\x03 \x01(\t\x12&\n\tagentCard\x18\x04 \x01(\x0b\x32\x13.nacos.ai.AgentCard\x12\x18\n\x10registrationType\x18\x05 \x01(\t\x12\x13\n\x0bsetAsLatest\x18\x06 \x01(\x08\"\xda\x02\n\x17ReleaseMcpServerRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\r\n\x05mcpId\x18\x03 \x01(\t\x12\x0f\n\x07mcpName\x18\x04 \x01(\t\x12\x39\n\x13serverSpecification\x18\x05 \x01(\x0b\x32\x1c.nacos.ai.McpServerBasicInfo\x12\x39\n\x11toolSpecification\x18\x06 \x01(\x0b\x32\x1e.nacos.ai.McpToolSpecification\x12\x41\n\x15resourceSpecification\x18\t \x01(\x0b\x32\".nacos.ai.McpResourceSpecification\x12\x38\n\x15\x65ndpointSpecification\x18\x07 \x01(\x0b\x32\x19.nacos.ai.McpEndpointSpecJ\x04\x08\x08\x10\tB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13\x61i/ai_request.proto\x12\x08nacos.ai\x1a\x12\x61i/agentcard.proto\x1a\x16\x61i/agentendpoint.proto\x1a\x18\x61i/mcpendpointspec.proto\x1a!ai/mcpresourcespecification.proto\x1a\x1b\x61i/mcpserverbasicinfo.proto\x1a\x1d\x61i/mcptoolspecification.proto\"\x8a\x01\n\x14\x41gentEndpointRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\x11\n\tagentName\x18\x03 \x01(\t\x12)\n\x08\x65ndpoint\x18\x04 \x01(\x0b\x32\x17.nacos.ai.AgentEndpoint\x12\x0c\n\x04type\x18\x05 \x01(\t\"\x82\x01\n\x19\x42\x61tchAgentEndpointRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\x11\n\tagentName\x18\x03 \x01(\t\x12*\n\tendpoints\x18\x04 \x03(\x0b\x32\x17.nacos.ai.AgentEndpoint\"\xa0\x01\n\x18McpServerEndpointRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\r\n\x05mcpId\x18\x03 \x01(\t\x12\x0f\n\x07mcpName\x18\x04 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x05 \x01(\t\x12\x0c\n\x04port\x18\x06 \x01(\x05\x12\x0f\n\x07version\x18\x07 \x01(\t\x12\x0c\n\x04type\x18\x08 \x01(\t\"}\n\x15QueryAgentCardRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\x11\n\tagentName\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x18\n\x10registrationType\x18\x05 \x01(\t\"p\n\x15QueryMcpServerRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\r\n\x05mcpId\x18\x03 \x01(\t\x12\x0f\n\x07mcpName\x18\x04 \x01(\t\x12\x0f\n\x07version\x18\x05 \x01(\t\"|\n\x12QueryPromptRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\x11\n\tpromptKey\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\r\n\x05label\x18\x05 \x01(\t\x12\x0b\n\x03md5\x18\x06 \x01(\t\"\xab\x01\n\x17ReleaseAgentCardRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\x11\n\tagentName\x18\x03 \x01(\t\x12&\n\tagentCard\x18\x04 \x01(\x0b\x32\x13.nacos.ai.AgentCard\x12\x18\n\x10registrationType\x18\x05 \x01(\t\x12\x13\n\x0bsetAsLatest\x18\x06 \x01(\x08\"\xda\x02\n\x17ReleaseMcpServerRequest\x12\x11\n\trequestId\x18\x01 \x01(\t\x12\x13\n\x0bnamespaceId\x18\x02 \x01(\t\x12\r\n\x05mcpId\x18\x03 \x01(\t\x12\x0f\n\x07mcpName\x18\x04 \x01(\t\x12\x39\n\x13serverSpecification\x18\x05 \x01(\x0b\x32\x1c.nacos.ai.McpServerBasicInfo\x12\x39\n\x11toolSpecification\x18\x06 \x01(\x0b\x32\x1e.nacos.ai.McpToolSpecification\x12\x41\n\x15resourceSpecification\x18\t \x01(\x0b\x32\".nacos.ai.McpResourceSpecification\x12\x38\n\x15\x65ndpointSpecification\x18\x07 \x01(\x0b\x32\x19.nacos.ai.McpEndpointSpecJ\x04\x08\x08\x10\tB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -41,32 +38,20 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'ai.ai_request_pb2', _global
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/nacos-group/nacos-sdk-proto/go/ai'
-  _globals['_AGENTDISCOVERYRPCREQUEST']._serialized_start=295
-  _globals['_AGENTDISCOVERYRPCREQUEST']._serialized_end=399
-  _globals['_AGENTDISCOVERYREQUEST']._serialized_start=402
-  _globals['_AGENTDISCOVERYREQUEST']._serialized_end=539
-  _globals['_AGENTENDPOINTDEREGISTERRPCREQUEST']._serialized_start=541
-  _globals['_AGENTENDPOINTDEREGISTERRPCREQUEST']._serialized_end=653
-  _globals['_AGENTENDPOINTREGISTERRPCREQUEST']._serialized_start=655
-  _globals['_AGENTENDPOINTREGISTERRPCREQUEST']._serialized_end=776
-  _globals['_AGENTENDPOINTREQUEST']._serialized_start=779
-  _globals['_AGENTENDPOINTREQUEST']._serialized_end=917
-  _globals['_AGENTSEARCHRPCREQUEST']._serialized_start=919
-  _globals['_AGENTSEARCHRPCREQUEST']._serialized_end=1014
-  _globals['_AGENTSEARCHREQUEST']._serialized_start=1017
-  _globals['_AGENTSEARCHREQUEST']._serialized_end=1158
-  _globals['_BATCHAGENTENDPOINTREQUEST']._serialized_start=1161
-  _globals['_BATCHAGENTENDPOINTREQUEST']._serialized_end=1291
-  _globals['_MCPSERVERENDPOINTREQUEST']._serialized_start=1294
-  _globals['_MCPSERVERENDPOINTREQUEST']._serialized_end=1454
-  _globals['_QUERYAGENTCARDREQUEST']._serialized_start=1456
-  _globals['_QUERYAGENTCARDREQUEST']._serialized_end=1581
-  _globals['_QUERYMCPSERVERREQUEST']._serialized_start=1583
-  _globals['_QUERYMCPSERVERREQUEST']._serialized_end=1695
-  _globals['_QUERYPROMPTREQUEST']._serialized_start=1697
-  _globals['_QUERYPROMPTREQUEST']._serialized_end=1821
-  _globals['_RELEASEAGENTCARDREQUEST']._serialized_start=1824
-  _globals['_RELEASEAGENTCARDREQUEST']._serialized_end=1995
-  _globals['_RELEASEMCPSERVERREQUEST']._serialized_start=1998
-  _globals['_RELEASEMCPSERVERREQUEST']._serialized_end=2344
+  _globals['_AGENTENDPOINTREQUEST']._serialized_start=199
+  _globals['_AGENTENDPOINTREQUEST']._serialized_end=337
+  _globals['_BATCHAGENTENDPOINTREQUEST']._serialized_start=340
+  _globals['_BATCHAGENTENDPOINTREQUEST']._serialized_end=470
+  _globals['_MCPSERVERENDPOINTREQUEST']._serialized_start=473
+  _globals['_MCPSERVERENDPOINTREQUEST']._serialized_end=633
+  _globals['_QUERYAGENTCARDREQUEST']._serialized_start=635
+  _globals['_QUERYAGENTCARDREQUEST']._serialized_end=760
+  _globals['_QUERYMCPSERVERREQUEST']._serialized_start=762
+  _globals['_QUERYMCPSERVERREQUEST']._serialized_end=874
+  _globals['_QUERYPROMPTREQUEST']._serialized_start=876
+  _globals['_QUERYPROMPTREQUEST']._serialized_end=1000
+  _globals['_RELEASEAGENTCARDREQUEST']._serialized_start=1003
+  _globals['_RELEASEAGENTCARDREQUEST']._serialized_end=1174
+  _globals['_RELEASEMCPSERVERREQUEST']._serialized_start=1177
+  _globals['_RELEASEMCPSERVERREQUEST']._serialized_end=1523
 # @@protoc_insertion_point(module_scope)

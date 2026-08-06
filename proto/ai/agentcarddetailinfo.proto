@@ -25,7 +25,7 @@ message AgentCardDetailInfo {
   string preferredTransport = 9;
   repeated AgentInterface additionalInterfaces = 10;
   repeated AgentInterface supportedInterfaces = 23;
-  A2aAgentProvider provider = 11;
+  AgentProvider provider = 11;
   string documentationUrl = 12;
   map<string, SecurityScheme> securitySchemes = 13;
   repeated google.protobuf.Value security = 14;

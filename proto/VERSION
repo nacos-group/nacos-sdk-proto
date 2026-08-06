@@ -1,6 +1,6 @@
 {
-  "source": "branch",
-  "nacos_ref": "develop",
-  "nacos_commit": "2a8809fd446b5426e1fd5ca19cba60aa7aeb62e7",
-  "generated_at": "2026-08-03T03:28:18Z"
+  "source": "tag",
+  "nacos_ref": "3.2.1",
+  "nacos_commit": "fa05d6e62e6bedbdb63b74acb5c7bcb6847d9bd8",
+  "generated_at": "2026-08-06T04:44:16Z"
 }

@@ -121,6 +121,7 @@ Each release is generated from a specific Nacos version. The exact provenance al
 <!-- version-compat:begin -->
 | nacos-sdk-proto | Nacos | Nacos commit | Generated |
 |---|---|---|---|
+| v1.0.0-beta.9 | 3.2.1 | fa05d6e | 2026-08-06 |
 | v1.0.0-beta.8 | 3.2.1 | fa05d6e | 2026-05-22 |
 | v1.0.0-beta.7 | 3.2.1 | fa05d6e | 2026-05-21 |
 | v1.0.0-beta.6 | 3.2.1 | fa05d6e | 2026-05-21 |
