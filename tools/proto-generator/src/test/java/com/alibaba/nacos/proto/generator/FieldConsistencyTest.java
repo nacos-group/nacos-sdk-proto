@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FieldConsistencyTest {
 
     private static final Pattern FIELD_PATTERN = Pattern.compile(
-            "^\\s+.+\\s+(\\w+)\\s*=\\s*\\d+;");
+            "^\\s+.+\\s+(\\w+)\\s*=\\s*\\d+\\s*(?:\\[.*\\])?;");
     private static final Pattern MESSAGE_START = Pattern.compile(
             "^message\\s+(\\w+)\\s*\\{");
 

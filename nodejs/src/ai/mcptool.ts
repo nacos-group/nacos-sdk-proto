@@ -18,7 +18,7 @@ export interface McpTool {
   description: string;
   inputSchema: { [key: string]: any | undefined };
   outputSchema: { [key: string]: any | undefined };
-  meta: { [key: string]: any | undefined };
+  _meta: { [key: string]: any | undefined };
   annotations: McpToolAnnotations | undefined;
 }
 
@@ -38,7 +38,7 @@ export interface McpTool_MetaEntry {
 }
 
 function createBaseMcpTool(): McpTool {
-  return { name: "", description: "", inputSchema: {}, outputSchema: {}, meta: {}, annotations: undefined };
+  return { name: "", description: "", inputSchema: {}, outputSchema: {}, _meta: {}, annotations: undefined };
 }
 
 export const McpTool: MessageFns<McpTool> = {
@@ -64,7 +64,15 @@ export const McpTool: MessageFns<McpTool> = {
           {},
         )
         : {},
-      meta: isObject(object.meta)
+      _meta: isObject(object._meta)
+        ? (globalThis.Object.entries(object._meta) as [string, any][]).reduce(
+          (acc: { [key: string]: any | undefined }, [key, value]: [string, any]) => {
+            acc[key] = value as any | undefined;
+            return acc;
+          },
+          {},
+        )
+        : isObject(object.meta)
         ? (globalThis.Object.entries(object.meta) as [string, any][]).reduce(
           (acc: { [key: string]: any | undefined }, [key, value]: [string, any]) => {
             acc[key] = value as any | undefined;
@@ -103,12 +111,12 @@ export const McpTool: MessageFns<McpTool> = {
         });
       }
     }
-    if (message.meta) {
-      const entries = globalThis.Object.entries(message.meta) as [string, any | undefined][];
+    if (message._meta) {
+      const entries = globalThis.Object.entries(message._meta) as [string, any | undefined][];
       if (entries.length > 0) {
-        obj.meta = {};
+        obj._meta = {};
         entries.forEach(([k, v]) => {
-          obj.meta[k] = v;
+          obj._meta[k] = v;
         });
       }
     }
@@ -143,7 +151,7 @@ export const McpTool: MessageFns<McpTool> = {
       },
       {},
     );
-    message.meta = (globalThis.Object.entries(object.meta ?? {}) as [string, any | undefined][]).reduce(
+    message._meta = (globalThis.Object.entries(object._meta ?? {}) as [string, any | undefined][]).reduce(
       (acc: { [key: string]: any | undefined }, [key, value]: [string, any | undefined]) => {
         if (value !== undefined) {
           acc[key] = value;

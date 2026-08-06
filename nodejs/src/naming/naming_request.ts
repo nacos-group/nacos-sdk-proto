@@ -53,7 +53,7 @@ export interface NamingFuzzyWatchChangeNotifyRequest {
  */
 export interface NamingFuzzyWatchRequest {
   requestId: string;
-  isInitializing: boolean;
+  initializing: boolean;
   namespace: string;
   groupKeyPattern: string;
   receivedGroupKeys: string[];
@@ -311,7 +311,7 @@ export const NamingFuzzyWatchChangeNotifyRequest: MessageFns<NamingFuzzyWatchCha
 function createBaseNamingFuzzyWatchRequest(): NamingFuzzyWatchRequest {
   return {
     requestId: "",
-    isInitializing: false,
+    initializing: false,
     namespace: "",
     groupKeyPattern: "",
     receivedGroupKeys: [],
@@ -323,7 +323,11 @@ export const NamingFuzzyWatchRequest: MessageFns<NamingFuzzyWatchRequest> = {
   fromJSON(object: any): NamingFuzzyWatchRequest {
     return {
       requestId: isSet(object.requestId) ? globalThis.String(object.requestId) : "",
-      isInitializing: isSet(object.isInitializing) ? globalThis.Boolean(object.isInitializing) : false,
+      initializing: isSet(object.initializing)
+        ? globalThis.Boolean(object.initializing)
+        : isSet(object.isInitializing)
+        ? globalThis.Boolean(object.isInitializing)
+        : false,
       namespace: isSet(object.namespace) ? globalThis.String(object.namespace) : "",
       groupKeyPattern: isSet(object.groupKeyPattern) ? globalThis.String(object.groupKeyPattern) : "",
       receivedGroupKeys: globalThis.Array.isArray(object?.receivedGroupKeys)
@@ -338,8 +342,8 @@ export const NamingFuzzyWatchRequest: MessageFns<NamingFuzzyWatchRequest> = {
     if (message.requestId !== "") {
       obj.requestId = message.requestId;
     }
-    if (message.isInitializing !== false) {
-      obj.isInitializing = message.isInitializing;
+    if (message.initializing !== false) {
+      obj.initializing = message.initializing;
     }
     if (message.namespace !== "") {
       obj.namespace = message.namespace;
@@ -362,7 +366,7 @@ export const NamingFuzzyWatchRequest: MessageFns<NamingFuzzyWatchRequest> = {
   fromPartial<I extends Exact<DeepPartial<NamingFuzzyWatchRequest>, I>>(object: I): NamingFuzzyWatchRequest {
     const message = createBaseNamingFuzzyWatchRequest();
     message.requestId = object.requestId ?? "";
-    message.isInitializing = object.isInitializing ?? false;
+    message.initializing = object.initializing ?? false;
     message.namespace = object.namespace ?? "";
     message.groupKeyPattern = object.groupKeyPattern ?? "";
     message.receivedGroupKeys = object.receivedGroupKeys?.map((e) => e) || [];

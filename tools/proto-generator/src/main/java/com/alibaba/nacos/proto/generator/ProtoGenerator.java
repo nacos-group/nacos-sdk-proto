@@ -196,7 +196,7 @@ public class ProtoGenerator {
         for (FieldInfo field : extractor.extract(raw)) {
             Type resolved = substitute(field.genericType(), substitution);
             Class<?> resolvedClass = resolved instanceof Class<?> cls ? cls : field.type();
-            fields.add(new FieldInfo(field.name(), resolvedClass, resolved));
+            fields.add(new FieldInfo(field.name(), resolvedClass, resolved, field.jsonName()));
         }
 
         String fileName = switch (module) {

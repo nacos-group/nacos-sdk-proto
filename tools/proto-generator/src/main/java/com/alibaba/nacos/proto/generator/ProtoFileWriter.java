@@ -81,7 +81,11 @@ public class ProtoFileWriter {
                     String protoType = typeMapper.mapType(field.type(), field.genericType());
                     int number = msg.fieldNumbers().get(field.name());
                     sb.append("  ").append(protoType).append(" ").append(field.name())
-                      .append(" = ").append(number).append(";\n");
+                      .append(" = ").append(number);
+                    if (field.hasCustomJsonName()) {
+                        sb.append(" [json_name = \"").append(field.jsonName()).append("\"]");
+                    }
+                    sb.append(";\n");
                 }
 
                 if (!msg.reserved().isEmpty()) {

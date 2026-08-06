@@ -26,7 +26,7 @@ from ai import mcptoolannotations_pb2 as ai_dot_mcptoolannotations__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10\x61i/mcptool.proto\x12\x08nacos.ai\x1a\x1b\x61i/mcptoolannotations.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xdc\x03\n\x07McpTool\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x37\n\x0binputSchema\x18\x03 \x03(\x0b\x32\".nacos.ai.McpTool.InputSchemaEntry\x12\x39\n\x0coutputSchema\x18\x04 \x03(\x0b\x32#.nacos.ai.McpTool.OutputSchemaEntry\x12)\n\x04meta\x18\x05 \x03(\x0b\x32\x1b.nacos.ai.McpTool.MetaEntry\x12\x31\n\x0b\x61nnotations\x18\x06 \x01(\x0b\x32\x1c.nacos.ai.McpToolAnnotations\x1aJ\n\x10InputSchemaEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12%\n\x05value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.Value:\x02\x38\x01\x1aK\n\x11OutputSchemaEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12%\n\x05value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.Value:\x02\x38\x01\x1a\x43\n\tMetaEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12%\n\x05value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.Value:\x02\x38\x01\x42.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10\x61i/mcptool.proto\x12\x08nacos.ai\x1a\x1b\x61i/mcptoolannotations.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xe3\x03\n\x07McpTool\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x37\n\x0binputSchema\x18\x03 \x03(\x0b\x32\".nacos.ai.McpTool.InputSchemaEntry\x12\x39\n\x0coutputSchema\x18\x04 \x03(\x0b\x32#.nacos.ai.McpTool.OutputSchemaEntry\x12\x30\n\x04meta\x18\x05 \x03(\x0b\x32\x1b.nacos.ai.McpTool.MetaEntryR\x05_meta\x12\x31\n\x0b\x61nnotations\x18\x06 \x01(\x0b\x32\x1c.nacos.ai.McpToolAnnotations\x1aJ\n\x10InputSchemaEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12%\n\x05value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.Value:\x02\x38\x01\x1aK\n\x11OutputSchemaEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12%\n\x05value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.Value:\x02\x38\x01\x1a\x43\n\tMetaEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12%\n\x05value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.Value:\x02\x38\x01\x42.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -41,11 +41,11 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_MCPTOOL_METAENTRY']._loaded_options = None
   _globals['_MCPTOOL_METAENTRY']._serialized_options = b'8\001'
   _globals['_MCPTOOL']._serialized_start=90
-  _globals['_MCPTOOL']._serialized_end=566
-  _globals['_MCPTOOL_INPUTSCHEMAENTRY']._serialized_start=346
-  _globals['_MCPTOOL_INPUTSCHEMAENTRY']._serialized_end=420
-  _globals['_MCPTOOL_OUTPUTSCHEMAENTRY']._serialized_start=422
-  _globals['_MCPTOOL_OUTPUTSCHEMAENTRY']._serialized_end=497
-  _globals['_MCPTOOL_METAENTRY']._serialized_start=499
-  _globals['_MCPTOOL_METAENTRY']._serialized_end=566
+  _globals['_MCPTOOL']._serialized_end=573
+  _globals['_MCPTOOL_INPUTSCHEMAENTRY']._serialized_start=353
+  _globals['_MCPTOOL_INPUTSCHEMAENTRY']._serialized_end=427
+  _globals['_MCPTOOL_OUTPUTSCHEMAENTRY']._serialized_start=429
+  _globals['_MCPTOOL_OUTPUTSCHEMAENTRY']._serialized_end=504
+  _globals['_MCPTOOL_METAENTRY']._serialized_start=506
+  _globals['_MCPTOOL_METAENTRY']._serialized_end=573
 # @@protoc_insertion_point(module_scope)
