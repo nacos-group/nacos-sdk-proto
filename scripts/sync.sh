@@ -37,13 +37,16 @@ echo "Syncing from nacos@${REMOTE_SHA:0:7}..."
 # 3. Build nacos-api
 make setup
 
-# 4. Clean → Generate → Verify
+# 4. Clean → VERSION → Generate → Verify
+# (VERSION must exist before `make generate`: generate-version renders from it)
 make clean
+make update-version
 make generate-proto
 make generate
-make verify
 
-# 5. Update VERSION
-make update-version
+# 5. Verify (stage first: verify's idempotency diff compares against the index,
+# so unstaged legitimate changes would abort the script)
+git add -A
+make verify
 
 echo "Sync complete. Review changes and commit."
