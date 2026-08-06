@@ -169,5 +169,6 @@ jobs:
         if: ${{ inputs.dry_run }}
         run: |
           cd nacos-sdk-proto
+          git add -A
           echo "=== Changes that would be committed ==="
           git diff --cached --stat
