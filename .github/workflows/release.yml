@@ -162,6 +162,7 @@ jobs:
           git commit -m "release: v${VER} (nacos ${{ inputs.nacos_tag }})"
           git push origin "$BRANCH"
           gh pr create \
+            --base main \
             --title "release: v${VER} (nacos ${{ inputs.nacos_tag }})" \
             --body "Update VERSION and package versions for v${VER} release. Merging this PR will trigger package publishing."
 
