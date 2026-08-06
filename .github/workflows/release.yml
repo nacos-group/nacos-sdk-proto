@@ -85,8 +85,8 @@ jobs:
 
       - name: Install Go protoc plugins
         run: |
-          go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-          go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+          go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.36.11
+          go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.6.2
 
       # --- Python toolchain ---
       - name: Setup Python
@@ -95,7 +95,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install grpcio-tools
-        run: pip install grpcio-tools
+        run: pip install grpcio-tools==1.83.0
 
       # --- Node.js toolchain ---
       - name: Setup Node.js
@@ -162,6 +162,7 @@ jobs:
           git commit -m "release: v${VER} (nacos ${{ inputs.nacos_tag }})"
           git push origin "$BRANCH"
           gh pr create \
+            --base main \
             --title "release: v${VER} (nacos ${{ inputs.nacos_tag }})" \
             --body "Update VERSION and package versions for v${VER} release. Merging this PR will trigger package publishing."
 

@@ -96,6 +96,12 @@ make verify            # Go 编译 + tsc --noEmit + 幂等性检查
 go get github.com/nacos-group/nacos-sdk-proto/go@latest
 ```
 
+> **注意：** 序列化 / 反序列化请求或响应的 payload body 时，Go 使用方**必须**使用
+> [`google.golang.org/protobuf/encoding/protojson`](https://pkg.go.dev/google.golang.org/protobuf/encoding/protojson)，
+> 不能使用标准库 `encoding/json`。生成的结构体上的 `json:` tag 为兼容结构体标签保留了原始的 Java
+> 字段名，但只有 `protojson` 才会遵循 proto 的 `json_name` wire mapping（例如 `isBeta` → `beta`）。
+> 使用 `encoding/json` 会产出与 Nacos 服务端在协议上不匹配的字段名。
+
 ### Python
 
 ```bash

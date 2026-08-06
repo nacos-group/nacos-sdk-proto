@@ -98,6 +98,13 @@ make verify            # Go build + tsc --noEmit + idempotency check
 go get github.com/nacos-group/nacos-sdk-proto/go@latest
 ```
 
+> **Note:** When serializing/deserializing request or response payload bodies, Go consumers
+> MUST use [`google.golang.org/protobuf/encoding/protojson`](https://pkg.go.dev/google.golang.org/protobuf/encoding/protojson),
+> not the standard library `encoding/json`. The generated structs' `json:` tags carry the
+> original Java field names for struct-tag compatibility, but only `protojson` honors the
+> proto `json_name` wire mapping (e.g. `isBeta` → `beta`). Using `encoding/json` will produce
+> field names that do not match what the Nacos server expects on the wire.
+
 ### Python
 
 ```bash

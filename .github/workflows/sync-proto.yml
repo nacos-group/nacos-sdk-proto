@@ -110,8 +110,8 @@ jobs:
       - name: Install Go protoc plugins
         if: steps.check.outputs.needed == 'true'
         run: |
-          go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-          go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+          go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.36.11
+          go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.6.2
 
       # --- Python toolchain (generate-python) ---
       - name: Setup Python
@@ -122,7 +122,7 @@ jobs:
 
       - name: Install grpcio-tools
         if: steps.check.outputs.needed == 'true'
-        run: pip install grpcio-tools
+        run: pip install grpcio-tools==1.83.0
 
       # --- Node.js toolchain (generate-nodejs + tsc verify) ---
       - name: Setup Node.js

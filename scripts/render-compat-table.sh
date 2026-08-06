@@ -23,7 +23,8 @@ row_from_json() {
     if [ $# -ge 1 ]; then
         row_from_json "v$1" "$(cat proto/VERSION)"
     fi
-    for TAG in $(git tag -l 'v*' --sort=-v:refname); do
+    for TAG in $(git -c versionsort.suffix=- tag -l 'v*' --sort=-v:refname); do
+        if [ $# -ge 1 ] && [ "$TAG" = "v$1" ]; then continue; fi
         if JSON=$(git show "${TAG}:proto/VERSION" 2>/dev/null); then
             row_from_json "$TAG" "$JSON"
         fi
@@ -33,6 +34,10 @@ row_from_json() {
 for F in README.md README_zh.md; do
     [ -f "$F" ] || continue
     grep -q 'version-compat:begin' "$F" || continue
+    if ! grep -q 'version-compat:end' "$F"; then
+        echo "error: $F has a begin marker but no end marker — refusing to truncate" >&2
+        exit 1
+    fi
     awk -v table="$TMP" '
         /<!-- version-compat:begin -->/ {
             print
