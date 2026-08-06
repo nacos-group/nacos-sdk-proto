@@ -114,6 +114,22 @@ npm install @nacos-group/sdk-proto   # after release to npm
 
 Use `protoc` with the appropriate language plugin. All proto files are under the `proto/` directory.
 
+## Version Compatibility
+
+Each release is generated from a specific Nacos version. The exact provenance also ships inside each package (`go/version.go`, `src/version.ts`, `nacos_sdk_proto/version.py`) and in `proto/VERSION`.
+
+<!-- version-compat:begin -->
+| nacos-sdk-proto | Nacos | Nacos commit | Generated |
+|---|---|---|---|
+| v1.0.0-beta.8 | 3.2.1 | fa05d6e | 2026-05-22 |
+| v1.0.0-beta.7 | 3.2.1 | fa05d6e | 2026-05-21 |
+| v1.0.0-beta.6 | 3.2.1 | fa05d6e | 2026-05-21 |
+| v1.0.0-beta.5 | 3.2.1 | fa05d6e | 2026-05-21 |
+| v1.0.0-beta.4 | 3.2.1 | fa05d6e | 2026-05-21 |
+| v1.0.0-beta.3 | 3.2.1 | fa05d6e | 2026-05-21 |
+| v1.0.0-beta.2 | 3.2.1 | fa05d6e | 2026-05-21 |
+<!-- version-compat:end -->
+
 ## Branch Strategy
 
 - **main** — stable, only updated via release workflow (corresponds to a specific Nacos tag)

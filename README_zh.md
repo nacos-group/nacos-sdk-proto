@@ -112,6 +112,22 @@ npm install @nacos-group/sdk-proto   # 发布到 npm 后可用
 
 使用 `protoc` 配合对应语言插件即可，所有 proto 文件位于 `proto/` 目录下。
 
+## 版本对应
+
+每个发布版本均由特定 Nacos 版本生成，精确溯源随包内元数据（`go/version.go`、`src/version.ts`、`nacos_sdk_proto/version.py`）与 `proto/VERSION` 提供。
+
+<!-- version-compat:begin -->
+| nacos-sdk-proto | Nacos | Nacos commit | Generated |
+|---|---|---|---|
+| v1.0.0-beta.8 | 3.2.1 | fa05d6e | 2026-05-22 |
+| v1.0.0-beta.7 | 3.2.1 | fa05d6e | 2026-05-21 |
+| v1.0.0-beta.6 | 3.2.1 | fa05d6e | 2026-05-21 |
+| v1.0.0-beta.5 | 3.2.1 | fa05d6e | 2026-05-21 |
+| v1.0.0-beta.4 | 3.2.1 | fa05d6e | 2026-05-21 |
+| v1.0.0-beta.3 | 3.2.1 | fa05d6e | 2026-05-21 |
+| v1.0.0-beta.2 | 3.2.1 | fa05d6e | 2026-05-21 |
+<!-- version-compat:end -->
+
 ## 分支策略
 
 - **main** — 稳定分支，仅通过 release 流程更新（对应特定的 Nacos tag）
