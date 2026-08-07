@@ -1,5 +1,5 @@
 .PHONY: generate generate-proto generate-go generate-python generate-nodejs generate-version \
-        clean verify verify-build sync-go-mod migrate sync setup update-version
+        clean verify verify-build sync-go-mod migrate sync setup update-version compat-check
 
 # === 仓库配置（转移时只改这一行） ===
 REPO_OWNER     := nacos-group
@@ -118,6 +118,16 @@ verify: verify-build
 	$(MAKE) generate-version
 	git diff --exit-code -- $(PROTO_DIR)/ ':!$(PROTO_DIR)/VERSION' \
 		go/version.go nodejs/src/version.ts python/nacos_sdk_proto/version.py
+
+# === 兼容性检查（判断某个 Nacos 版本是否需要发版） ===
+# make compat-check NACOS_TAG=3.2.2 [BASELINE=v1.0.0-beta.9]
+# 退出码 0 = 生成结果一致，无需发版；非 0 = 有差异，需要发版
+# （精确的 0/1/2 退出码语义见 scripts/compat-check.sh，需直接调用脚本）
+compat-check:
+	@if [ -z "$(NACOS_TAG)" ]; then \
+		echo "usage: make compat-check NACOS_TAG=<tag> [BASELINE=<ref>]" >&2; exit 2; \
+	fi
+	./scripts/compat-check.sh $(NACOS_TAG) $(BASELINE)
 
 migrate:
 	$(MAKE) generate-proto

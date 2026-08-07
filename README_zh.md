@@ -122,9 +122,18 @@ npm install @nacos-group/sdk-proto   # 发布到 npm 后可用
 
 每个发布版本均由特定 Nacos 版本生成，精确溯源随包内元数据（`go/version.go`、`src/version.ts`、`nacos_sdk_proto/version.py`）与 `proto/VERSION` 提供。
 
+并非每个 Nacos 版本都会有对应的 nacos-sdk-proto 版本——只有生成结果确实发生变化时才发布。**若下表中没有你的 Nacos 版本，请选择不超过你的版本中最高的那一行。** 例如 Nacos 3.2.2、3.2.3 的生成结果与 3.2.1 完全一致，三者均使用 `v1.0.0-beta.9`。
+
+维护者可对任意 Nacos tag 验证（退出码 0 表示一致，即无需发版）：
+
+```bash
+make compat-check NACOS_TAG=3.2.2
+```
+
 <!-- version-compat:begin -->
 | nacos-sdk-proto | Nacos | Nacos commit | Generated |
 |---|---|---|---|
+| v1.0.0-beta.9 | 3.2.1 | fa05d6e | 2026-08-06 |
 | v1.0.0-beta.8 | 3.2.1 | fa05d6e | 2026-05-22 |
 | v1.0.0-beta.7 | 3.2.1 | fa05d6e | 2026-05-21 |
 | v1.0.0-beta.6 | 3.2.1 | fa05d6e | 2026-05-21 |
