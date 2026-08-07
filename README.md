@@ -125,9 +125,18 @@ Use `protoc` with the appropriate language plugin. All proto files are under the
 
 Each release is generated from a specific Nacos version. The exact provenance also ships inside each package (`go/version.go`, `src/version.ts`, `nacos_sdk_proto/version.py`) and in `proto/VERSION`.
 
+Not every Nacos release gets its own nacos-sdk-proto release — we publish only when the generated output actually changes. **If your Nacos version has no row in the table, use the row with the highest Nacos version that does not exceed yours.** For example, Nacos 3.2.2 and 3.2.3 generate output identical to 3.2.1, so all three are served by `v1.0.0-beta.9`.
+
+Maintainers can verify this for any Nacos tag (exit 0 means identical, so no release is needed):
+
+```bash
+make compat-check NACOS_TAG=3.2.2
+```
+
 <!-- version-compat:begin -->
 | nacos-sdk-proto | Nacos | Nacos commit | Generated |
 |---|---|---|---|
+| v1.0.0-beta.9 | 3.2.1 | fa05d6e | 2026-08-06 |
 | v1.0.0-beta.8 | 3.2.1 | fa05d6e | 2026-05-22 |
 | v1.0.0-beta.7 | 3.2.1 | fa05d6e | 2026-05-21 |
 | v1.0.0-beta.6 | 3.2.1 | fa05d6e | 2026-05-21 |
