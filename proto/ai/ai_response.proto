@@ -7,6 +7,7 @@ option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 import "ai/agentcarddetailinfo.proto";
 import "ai/agentcatalogentrypage.proto";
 import "ai/agentdiscoveryresult.proto";
+import "ai/agentversiondetail.proto";
 import "ai/mcpserverdetailinfo.proto";
 import "ai/prompt.proto";
 
@@ -37,6 +38,16 @@ message AgentEndpointResponse {
   string message = 3;
   string requestId = 4;
   string type = 5;
+}
+
+// metadata.type = "AgentPublishRpcResponse"
+// Flattened from: AgentPublishRpcResponse -> Response
+message AgentPublishRpcResponse {
+  int32 resultCode = 1;
+  int32 errorCode = 2;
+  string message = 3;
+  string requestId = 4;
+  AgentVersionDetail versionDetail = 5;
 }
 
 // metadata.type = "AgentSearchResponse"

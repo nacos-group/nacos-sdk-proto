@@ -8,6 +8,7 @@
 import { AgentCardDetailInfo } from "./agentcarddetailinfo";
 import { AgentCatalogEntryPage } from "./agentcatalogentrypage";
 import { AgentDiscoveryResult } from "./agentdiscoveryresult";
+import { AgentVersionDetail } from "./agentversiondetail";
 import { McpServerDetailInfo } from "./mcpserverdetailinfo";
 import { Prompt } from "./prompt";
 
@@ -46,6 +47,18 @@ export interface AgentEndpointResponse {
   message: string;
   requestId: string;
   type: string;
+}
+
+/**
+ * metadata.type = "AgentPublishRpcResponse"
+ * Flattened from: AgentPublishRpcResponse -> Response
+ */
+export interface AgentPublishRpcResponse {
+  resultCode: number;
+  errorCode: number;
+  message: string;
+  requestId: string;
+  versionDetail: AgentVersionDetail | undefined;
 }
 
 /**
@@ -275,6 +288,57 @@ export const AgentEndpointResponse: MessageFns<AgentEndpointResponse> = {
     message.message = object.message ?? "";
     message.requestId = object.requestId ?? "";
     message.type = object.type ?? "";
+    return message;
+  },
+};
+
+function createBaseAgentPublishRpcResponse(): AgentPublishRpcResponse {
+  return { resultCode: 0, errorCode: 0, message: "", requestId: "", versionDetail: undefined };
+}
+
+export const AgentPublishRpcResponse: MessageFns<AgentPublishRpcResponse> = {
+  fromJSON(object: any): AgentPublishRpcResponse {
+    return {
+      resultCode: isSet(object.resultCode) ? globalThis.Number(object.resultCode) : 0,
+      errorCode: isSet(object.errorCode) ? globalThis.Number(object.errorCode) : 0,
+      message: isSet(object.message) ? globalThis.String(object.message) : "",
+      requestId: isSet(object.requestId) ? globalThis.String(object.requestId) : "",
+      versionDetail: isSet(object.versionDetail) ? AgentVersionDetail.fromJSON(object.versionDetail) : undefined,
+    };
+  },
+
+  toJSON(message: AgentPublishRpcResponse): unknown {
+    const obj: any = {};
+    if (message.resultCode !== 0) {
+      obj.resultCode = Math.round(message.resultCode);
+    }
+    if (message.errorCode !== 0) {
+      obj.errorCode = Math.round(message.errorCode);
+    }
+    if (message.message !== "") {
+      obj.message = message.message;
+    }
+    if (message.requestId !== "") {
+      obj.requestId = message.requestId;
+    }
+    if (message.versionDetail !== undefined) {
+      obj.versionDetail = AgentVersionDetail.toJSON(message.versionDetail);
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<AgentPublishRpcResponse>, I>>(base?: I): AgentPublishRpcResponse {
+    return AgentPublishRpcResponse.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<AgentPublishRpcResponse>, I>>(object: I): AgentPublishRpcResponse {
+    const message = createBaseAgentPublishRpcResponse();
+    message.resultCode = object.resultCode ?? 0;
+    message.errorCode = object.errorCode ?? 0;
+    message.message = object.message ?? "";
+    message.requestId = object.requestId ?? "";
+    message.versionDetail = (object.versionDetail !== undefined && object.versionDetail !== null)
+      ? AgentVersionDetail.fromPartial(object.versionDetail)
+      : undefined;
     return message;
   },
 };

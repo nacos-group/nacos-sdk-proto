@@ -249,6 +249,84 @@ func (x *AgentEndpointResponse) GetType() string {
 	return ""
 }
 
+// metadata.type = "AgentPublishRpcResponse"
+// Flattened from: AgentPublishRpcResponse -> Response
+type AgentPublishRpcResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ResultCode    int32                  `protobuf:"varint,1,opt,name=resultCode,proto3" json:"resultCode,omitempty"`
+	ErrorCode     int32                  `protobuf:"varint,2,opt,name=errorCode,proto3" json:"errorCode,omitempty"`
+	Message       string                 `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
+	RequestId     string                 `protobuf:"bytes,4,opt,name=requestId,proto3" json:"requestId,omitempty"`
+	VersionDetail *AgentVersionDetail    `protobuf:"bytes,5,opt,name=versionDetail,proto3" json:"versionDetail,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AgentPublishRpcResponse) Reset() {
+	*x = AgentPublishRpcResponse{}
+	mi := &file_ai_ai_response_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AgentPublishRpcResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AgentPublishRpcResponse) ProtoMessage() {}
+
+func (x *AgentPublishRpcResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_ai_ai_response_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AgentPublishRpcResponse.ProtoReflect.Descriptor instead.
+func (*AgentPublishRpcResponse) Descriptor() ([]byte, []int) {
+	return file_ai_ai_response_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *AgentPublishRpcResponse) GetResultCode() int32 {
+	if x != nil {
+		return x.ResultCode
+	}
+	return 0
+}
+
+func (x *AgentPublishRpcResponse) GetErrorCode() int32 {
+	if x != nil {
+		return x.ErrorCode
+	}
+	return 0
+}
+
+func (x *AgentPublishRpcResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *AgentPublishRpcResponse) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+func (x *AgentPublishRpcResponse) GetVersionDetail() *AgentVersionDetail {
+	if x != nil {
+		return x.VersionDetail
+	}
+	return nil
+}
+
 // metadata.type = "AgentSearchResponse"
 // Flattened from: AgentSearchResponse -> Response
 type AgentSearchResponse struct {
@@ -264,7 +342,7 @@ type AgentSearchResponse struct {
 
 func (x *AgentSearchResponse) Reset() {
 	*x = AgentSearchResponse{}
-	mi := &file_ai_ai_response_proto_msgTypes[3]
+	mi := &file_ai_ai_response_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -276,7 +354,7 @@ func (x *AgentSearchResponse) String() string {
 func (*AgentSearchResponse) ProtoMessage() {}
 
 func (x *AgentSearchResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_ai_response_proto_msgTypes[3]
+	mi := &file_ai_ai_response_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -289,7 +367,7 @@ func (x *AgentSearchResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AgentSearchResponse.ProtoReflect.Descriptor instead.
 func (*AgentSearchResponse) Descriptor() ([]byte, []int) {
-	return file_ai_ai_response_proto_rawDescGZIP(), []int{3}
+	return file_ai_ai_response_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *AgentSearchResponse) GetResultCode() int32 {
@@ -342,7 +420,7 @@ type McpServerEndpointResponse struct {
 
 func (x *McpServerEndpointResponse) Reset() {
 	*x = McpServerEndpointResponse{}
-	mi := &file_ai_ai_response_proto_msgTypes[4]
+	mi := &file_ai_ai_response_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -354,7 +432,7 @@ func (x *McpServerEndpointResponse) String() string {
 func (*McpServerEndpointResponse) ProtoMessage() {}
 
 func (x *McpServerEndpointResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_ai_response_proto_msgTypes[4]
+	mi := &file_ai_ai_response_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -367,7 +445,7 @@ func (x *McpServerEndpointResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use McpServerEndpointResponse.ProtoReflect.Descriptor instead.
 func (*McpServerEndpointResponse) Descriptor() ([]byte, []int) {
-	return file_ai_ai_response_proto_rawDescGZIP(), []int{4}
+	return file_ai_ai_response_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *McpServerEndpointResponse) GetResultCode() int32 {
@@ -420,7 +498,7 @@ type QueryAgentCardResponse struct {
 
 func (x *QueryAgentCardResponse) Reset() {
 	*x = QueryAgentCardResponse{}
-	mi := &file_ai_ai_response_proto_msgTypes[5]
+	mi := &file_ai_ai_response_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -432,7 +510,7 @@ func (x *QueryAgentCardResponse) String() string {
 func (*QueryAgentCardResponse) ProtoMessage() {}
 
 func (x *QueryAgentCardResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_ai_response_proto_msgTypes[5]
+	mi := &file_ai_ai_response_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -445,7 +523,7 @@ func (x *QueryAgentCardResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryAgentCardResponse.ProtoReflect.Descriptor instead.
 func (*QueryAgentCardResponse) Descriptor() ([]byte, []int) {
-	return file_ai_ai_response_proto_rawDescGZIP(), []int{5}
+	return file_ai_ai_response_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *QueryAgentCardResponse) GetResultCode() int32 {
@@ -498,7 +576,7 @@ type QueryMcpServerResponse struct {
 
 func (x *QueryMcpServerResponse) Reset() {
 	*x = QueryMcpServerResponse{}
-	mi := &file_ai_ai_response_proto_msgTypes[6]
+	mi := &file_ai_ai_response_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -510,7 +588,7 @@ func (x *QueryMcpServerResponse) String() string {
 func (*QueryMcpServerResponse) ProtoMessage() {}
 
 func (x *QueryMcpServerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_ai_response_proto_msgTypes[6]
+	mi := &file_ai_ai_response_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -523,7 +601,7 @@ func (x *QueryMcpServerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryMcpServerResponse.ProtoReflect.Descriptor instead.
 func (*QueryMcpServerResponse) Descriptor() ([]byte, []int) {
-	return file_ai_ai_response_proto_rawDescGZIP(), []int{6}
+	return file_ai_ai_response_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *QueryMcpServerResponse) GetResultCode() int32 {
@@ -576,7 +654,7 @@ type QueryPromptResponse struct {
 
 func (x *QueryPromptResponse) Reset() {
 	*x = QueryPromptResponse{}
-	mi := &file_ai_ai_response_proto_msgTypes[7]
+	mi := &file_ai_ai_response_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -588,7 +666,7 @@ func (x *QueryPromptResponse) String() string {
 func (*QueryPromptResponse) ProtoMessage() {}
 
 func (x *QueryPromptResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_ai_response_proto_msgTypes[7]
+	mi := &file_ai_ai_response_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -601,7 +679,7 @@ func (x *QueryPromptResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryPromptResponse.ProtoReflect.Descriptor instead.
 func (*QueryPromptResponse) Descriptor() ([]byte, []int) {
-	return file_ai_ai_response_proto_rawDescGZIP(), []int{7}
+	return file_ai_ai_response_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *QueryPromptResponse) GetResultCode() int32 {
@@ -653,7 +731,7 @@ type ReleaseAgentCardResponse struct {
 
 func (x *ReleaseAgentCardResponse) Reset() {
 	*x = ReleaseAgentCardResponse{}
-	mi := &file_ai_ai_response_proto_msgTypes[8]
+	mi := &file_ai_ai_response_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -665,7 +743,7 @@ func (x *ReleaseAgentCardResponse) String() string {
 func (*ReleaseAgentCardResponse) ProtoMessage() {}
 
 func (x *ReleaseAgentCardResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_ai_response_proto_msgTypes[8]
+	mi := &file_ai_ai_response_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -678,7 +756,7 @@ func (x *ReleaseAgentCardResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseAgentCardResponse.ProtoReflect.Descriptor instead.
 func (*ReleaseAgentCardResponse) Descriptor() ([]byte, []int) {
-	return file_ai_ai_response_proto_rawDescGZIP(), []int{8}
+	return file_ai_ai_response_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ReleaseAgentCardResponse) GetResultCode() int32 {
@@ -724,7 +802,7 @@ type ReleaseMcpServerResponse struct {
 
 func (x *ReleaseMcpServerResponse) Reset() {
 	*x = ReleaseMcpServerResponse{}
-	mi := &file_ai_ai_response_proto_msgTypes[9]
+	mi := &file_ai_ai_response_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -736,7 +814,7 @@ func (x *ReleaseMcpServerResponse) String() string {
 func (*ReleaseMcpServerResponse) ProtoMessage() {}
 
 func (x *ReleaseMcpServerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_ai_response_proto_msgTypes[9]
+	mi := &file_ai_ai_response_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -749,7 +827,7 @@ func (x *ReleaseMcpServerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseMcpServerResponse.ProtoReflect.Descriptor instead.
 func (*ReleaseMcpServerResponse) Descriptor() ([]byte, []int) {
-	return file_ai_ai_response_proto_rawDescGZIP(), []int{9}
+	return file_ai_ai_response_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *ReleaseMcpServerResponse) GetResultCode() int32 {
@@ -791,7 +869,7 @@ var File_ai_ai_response_proto protoreflect.FileDescriptor
 
 const file_ai_ai_response_proto_rawDesc = "" +
 	"\n" +
-	"\x14ai/ai_response.proto\x12\bnacos.ai\x1a\x1cai/agentcarddetailinfo.proto\x1a\x1eai/agentcatalogentrypage.proto\x1a\x1dai/agentdiscoveryresult.proto\x1a\x1cai/mcpserverdetailinfo.proto\x1a\x0fai/prompt.proto\"\xd8\x01\n" +
+	"\x14ai/ai_response.proto\x12\bnacos.ai\x1a\x1cai/agentcarddetailinfo.proto\x1a\x1eai/agentcatalogentrypage.proto\x1a\x1dai/agentdiscoveryresult.proto\x1a\x1bai/agentversiondetail.proto\x1a\x1cai/mcpserverdetailinfo.proto\x1a\x0fai/prompt.proto\"\xd8\x01\n" +
 	"\x16AgentDiscoveryResponse\x12\x1e\n" +
 	"\n" +
 	"resultCode\x18\x01 \x01(\x05R\n" +
@@ -814,7 +892,15 @@ const file_ai_ai_response_proto_rawDesc = "" +
 	"\terrorCode\x18\x02 \x01(\x05R\terrorCode\x12\x18\n" +
 	"\amessage\x18\x03 \x01(\tR\amessage\x12\x1c\n" +
 	"\trequestId\x18\x04 \x01(\tR\trequestId\x12\x12\n" +
-	"\x04type\x18\x05 \x01(\tR\x04type\"\xc0\x01\n" +
+	"\x04type\x18\x05 \x01(\tR\x04type\"\xd3\x01\n" +
+	"\x17AgentPublishRpcResponse\x12\x1e\n" +
+	"\n" +
+	"resultCode\x18\x01 \x01(\x05R\n" +
+	"resultCode\x12\x1c\n" +
+	"\terrorCode\x18\x02 \x01(\x05R\terrorCode\x12\x18\n" +
+	"\amessage\x18\x03 \x01(\tR\amessage\x12\x1c\n" +
+	"\trequestId\x18\x04 \x01(\tR\trequestId\x12B\n" +
+	"\rversionDetail\x18\x05 \x01(\v2\x1c.nacos.ai.AgentVersionDetailR\rversionDetail\"\xc0\x01\n" +
 	"\x13AgentSearchResponse\x12\x1e\n" +
 	"\n" +
 	"resultCode\x18\x01 \x01(\x05R\n" +
@@ -885,35 +971,38 @@ func file_ai_ai_response_proto_rawDescGZIP() []byte {
 	return file_ai_ai_response_proto_rawDescData
 }
 
-var file_ai_ai_response_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_ai_ai_response_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_ai_ai_response_proto_goTypes = []any{
 	(*AgentDiscoveryResponse)(nil),         // 0: nacos.ai.AgentDiscoveryResponse
 	(*AgentEndpointOperationResponse)(nil), // 1: nacos.ai.AgentEndpointOperationResponse
 	(*AgentEndpointResponse)(nil),          // 2: nacos.ai.AgentEndpointResponse
-	(*AgentSearchResponse)(nil),            // 3: nacos.ai.AgentSearchResponse
-	(*McpServerEndpointResponse)(nil),      // 4: nacos.ai.McpServerEndpointResponse
-	(*QueryAgentCardResponse)(nil),         // 5: nacos.ai.QueryAgentCardResponse
-	(*QueryMcpServerResponse)(nil),         // 6: nacos.ai.QueryMcpServerResponse
-	(*QueryPromptResponse)(nil),            // 7: nacos.ai.QueryPromptResponse
-	(*ReleaseAgentCardResponse)(nil),       // 8: nacos.ai.ReleaseAgentCardResponse
-	(*ReleaseMcpServerResponse)(nil),       // 9: nacos.ai.ReleaseMcpServerResponse
-	(*AgentDiscoveryResult)(nil),           // 10: nacos.ai.AgentDiscoveryResult
-	(*AgentCatalogEntryPage)(nil),          // 11: nacos.ai.AgentCatalogEntryPage
-	(*AgentCardDetailInfo)(nil),            // 12: nacos.ai.AgentCardDetailInfo
-	(*McpServerDetailInfo)(nil),            // 13: nacos.ai.McpServerDetailInfo
-	(*Prompt)(nil),                         // 14: nacos.ai.Prompt
+	(*AgentPublishRpcResponse)(nil),        // 3: nacos.ai.AgentPublishRpcResponse
+	(*AgentSearchResponse)(nil),            // 4: nacos.ai.AgentSearchResponse
+	(*McpServerEndpointResponse)(nil),      // 5: nacos.ai.McpServerEndpointResponse
+	(*QueryAgentCardResponse)(nil),         // 6: nacos.ai.QueryAgentCardResponse
+	(*QueryMcpServerResponse)(nil),         // 7: nacos.ai.QueryMcpServerResponse
+	(*QueryPromptResponse)(nil),            // 8: nacos.ai.QueryPromptResponse
+	(*ReleaseAgentCardResponse)(nil),       // 9: nacos.ai.ReleaseAgentCardResponse
+	(*ReleaseMcpServerResponse)(nil),       // 10: nacos.ai.ReleaseMcpServerResponse
+	(*AgentDiscoveryResult)(nil),           // 11: nacos.ai.AgentDiscoveryResult
+	(*AgentVersionDetail)(nil),             // 12: nacos.ai.AgentVersionDetail
+	(*AgentCatalogEntryPage)(nil),          // 13: nacos.ai.AgentCatalogEntryPage
+	(*AgentCardDetailInfo)(nil),            // 14: nacos.ai.AgentCardDetailInfo
+	(*McpServerDetailInfo)(nil),            // 15: nacos.ai.McpServerDetailInfo
+	(*Prompt)(nil),                         // 16: nacos.ai.Prompt
 }
 var file_ai_ai_response_proto_depIdxs = []int32{
-	10, // 0: nacos.ai.AgentDiscoveryResponse.discoveryResult:type_name -> nacos.ai.AgentDiscoveryResult
-	11, // 1: nacos.ai.AgentSearchResponse.page:type_name -> nacos.ai.AgentCatalogEntryPage
-	12, // 2: nacos.ai.QueryAgentCardResponse.agentCardDetailInfo:type_name -> nacos.ai.AgentCardDetailInfo
-	13, // 3: nacos.ai.QueryMcpServerResponse.mcpServerDetailInfo:type_name -> nacos.ai.McpServerDetailInfo
-	14, // 4: nacos.ai.QueryPromptResponse.promptInfo:type_name -> nacos.ai.Prompt
-	5,  // [5:5] is the sub-list for method output_type
-	5,  // [5:5] is the sub-list for method input_type
-	5,  // [5:5] is the sub-list for extension type_name
-	5,  // [5:5] is the sub-list for extension extendee
-	0,  // [0:5] is the sub-list for field type_name
+	11, // 0: nacos.ai.AgentDiscoveryResponse.discoveryResult:type_name -> nacos.ai.AgentDiscoveryResult
+	12, // 1: nacos.ai.AgentPublishRpcResponse.versionDetail:type_name -> nacos.ai.AgentVersionDetail
+	13, // 2: nacos.ai.AgentSearchResponse.page:type_name -> nacos.ai.AgentCatalogEntryPage
+	14, // 3: nacos.ai.QueryAgentCardResponse.agentCardDetailInfo:type_name -> nacos.ai.AgentCardDetailInfo
+	15, // 4: nacos.ai.QueryMcpServerResponse.mcpServerDetailInfo:type_name -> nacos.ai.McpServerDetailInfo
+	16, // 5: nacos.ai.QueryPromptResponse.promptInfo:type_name -> nacos.ai.Prompt
+	6,  // [6:6] is the sub-list for method output_type
+	6,  // [6:6] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_ai_ai_response_proto_init() }
@@ -924,6 +1013,7 @@ func file_ai_ai_response_proto_init() {
 	file_ai_agentcarddetailinfo_proto_init()
 	file_ai_agentcatalogentrypage_proto_init()
 	file_ai_agentdiscoveryresult_proto_init()
+	file_ai_agentversiondetail_proto_init()
 	file_ai_mcpserverdetailinfo_proto_init()
 	file_ai_prompt_proto_init()
 	type x struct{}
@@ -932,7 +1022,7 @@ func file_ai_ai_response_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_ai_ai_response_proto_rawDesc), len(file_ai_ai_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
