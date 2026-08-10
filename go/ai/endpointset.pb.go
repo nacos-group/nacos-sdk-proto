@@ -26,10 +26,10 @@ const (
 // metadata.type = "EndpointSet"
 // Flattened from: EndpointSet
 type EndpointSet struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Source         string                 `protobuf:"bytes,1,opt,name=source,proto3" json:"source,omitempty"`
-	SourceRevision string                 `protobuf:"bytes,2,opt,name=sourceRevision,proto3" json:"sourceRevision,omitempty"`
-	Endpoints      []*Endpoint            `protobuf:"bytes,3,rep,name=endpoints,proto3" json:"endpoints,omitempty"`
+	state          protoimpl.MessageState    `protogen:"open.v1"`
+	Source         string                    `protobuf:"bytes,1,opt,name=source,proto3" json:"source,omitempty"`
+	SourceRevision string                    `protobuf:"bytes,2,opt,name=sourceRevision,proto3" json:"sourceRevision,omitempty"`
+	Endpoints      []*AgentDiscoveryEndpoint `protobuf:"bytes,3,rep,name=endpoints,proto3" json:"endpoints,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -78,7 +78,7 @@ func (x *EndpointSet) GetSourceRevision() string {
 	return ""
 }
 
-func (x *EndpointSet) GetEndpoints() []*Endpoint {
+func (x *EndpointSet) GetEndpoints() []*AgentDiscoveryEndpoint {
 	if x != nil {
 		return x.Endpoints
 	}
@@ -89,11 +89,11 @@ var File_ai_endpointset_proto protoreflect.FileDescriptor
 
 const file_ai_endpointset_proto_rawDesc = "" +
 	"\n" +
-	"\x14ai/endpointset.proto\x12\bnacos.ai\x1a\x11ai/endpoint.proto\"\x7f\n" +
+	"\x14ai/endpointset.proto\x12\bnacos.ai\x1a\x1fai/agentdiscoveryendpoint.proto\"\x8d\x01\n" +
 	"\vEndpointSet\x12\x16\n" +
 	"\x06source\x18\x01 \x01(\tR\x06source\x12&\n" +
-	"\x0esourceRevision\x18\x02 \x01(\tR\x0esourceRevision\x120\n" +
-	"\tendpoints\x18\x03 \x03(\v2\x12.nacos.ai.EndpointR\tendpointsB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3"
+	"\x0esourceRevision\x18\x02 \x01(\tR\x0esourceRevision\x12>\n" +
+	"\tendpoints\x18\x03 \x03(\v2 .nacos.ai.AgentDiscoveryEndpointR\tendpointsB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3"
 
 var (
 	file_ai_endpointset_proto_rawDescOnce sync.Once
@@ -109,11 +109,11 @@ func file_ai_endpointset_proto_rawDescGZIP() []byte {
 
 var file_ai_endpointset_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_ai_endpointset_proto_goTypes = []any{
-	(*EndpointSet)(nil), // 0: nacos.ai.EndpointSet
-	(*Endpoint)(nil),    // 1: nacos.ai.Endpoint
+	(*EndpointSet)(nil),            // 0: nacos.ai.EndpointSet
+	(*AgentDiscoveryEndpoint)(nil), // 1: nacos.ai.AgentDiscoveryEndpoint
 }
 var file_ai_endpointset_proto_depIdxs = []int32{
-	1, // 0: nacos.ai.EndpointSet.endpoints:type_name -> nacos.ai.Endpoint
+	1, // 0: nacos.ai.EndpointSet.endpoints:type_name -> nacos.ai.AgentDiscoveryEndpoint
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -126,7 +126,7 @@ func file_ai_endpointset_proto_init() {
 	if File_ai_endpointset_proto != nil {
 		return
 	}
-	file_ai_endpoint_proto_init()
+	file_ai_agentdiscoveryendpoint_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

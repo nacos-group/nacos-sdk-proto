@@ -5,10 +5,12 @@
 // source: ai/ai_request.proto
 
 /* eslint-disable */
+import { AgentCallInterface } from "./agentcallinterface";
 import { AgentCard } from "./agentcard";
 import { AgentDiscoveryFilter } from "./agentdiscoveryfilter";
 import { AgentEndpoint } from "./agentendpoint";
 import { AgentEndpointRegistrationBatch } from "./agentendpointregistrationbatch";
+import { AgentProvider } from "./agentprovider";
 import { AgentReference } from "./agentreference";
 import { McpEndpointSpec } from "./mcpendpointspec";
 import { McpResourceSpecification } from "./mcpresourcespecification";
@@ -66,6 +68,41 @@ export interface AgentEndpointRequest {
   agentName: string;
   endpoint: AgentEndpoint | undefined;
   type: string;
+}
+
+/**
+ * metadata.type = "AgentPublishRpcRequest"
+ * Flattened from: AgentPublishRpcRequest -> AbstractAgentClientRpcRequest -> Request
+ */
+export interface AgentPublishRpcRequest {
+  requestId: string;
+  namespaceId: string;
+  publishRequest: AgentPublishRequest | undefined;
+}
+
+/**
+ * metadata.type = "AgentPublishRequest"
+ * Flattened from: AgentPublishRequest -> AgentDraftCreateRequest
+ */
+export interface AgentPublishRequest {
+  agentName: string;
+  displayName: string;
+  description: string;
+  iconUrl: string;
+  provider: AgentProvider | undefined;
+  tags: string[];
+  extensions: { [key: string]: any | undefined };
+  version: string;
+  callInterfaces: AgentCallInterface[];
+  author: string;
+  changeDescription: string;
+  basedOnVersion: string;
+  autoSubmit: boolean;
+}
+
+export interface AgentPublishRequest_ExtensionsEntry {
+  key: string;
+  value: any | undefined;
 }
 
 /**
@@ -397,6 +434,214 @@ export const AgentEndpointRequest: MessageFns<AgentEndpointRequest> = {
       ? AgentEndpoint.fromPartial(object.endpoint)
       : undefined;
     message.type = object.type ?? "";
+    return message;
+  },
+};
+
+function createBaseAgentPublishRpcRequest(): AgentPublishRpcRequest {
+  return { requestId: "", namespaceId: "", publishRequest: undefined };
+}
+
+export const AgentPublishRpcRequest: MessageFns<AgentPublishRpcRequest> = {
+  fromJSON(object: any): AgentPublishRpcRequest {
+    return {
+      requestId: isSet(object.requestId) ? globalThis.String(object.requestId) : "",
+      namespaceId: isSet(object.namespaceId) ? globalThis.String(object.namespaceId) : "",
+      publishRequest: isSet(object.publishRequest) ? AgentPublishRequest.fromJSON(object.publishRequest) : undefined,
+    };
+  },
+
+  toJSON(message: AgentPublishRpcRequest): unknown {
+    const obj: any = {};
+    if (message.requestId !== "") {
+      obj.requestId = message.requestId;
+    }
+    if (message.namespaceId !== "") {
+      obj.namespaceId = message.namespaceId;
+    }
+    if (message.publishRequest !== undefined) {
+      obj.publishRequest = AgentPublishRequest.toJSON(message.publishRequest);
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<AgentPublishRpcRequest>, I>>(base?: I): AgentPublishRpcRequest {
+    return AgentPublishRpcRequest.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<AgentPublishRpcRequest>, I>>(object: I): AgentPublishRpcRequest {
+    const message = createBaseAgentPublishRpcRequest();
+    message.requestId = object.requestId ?? "";
+    message.namespaceId = object.namespaceId ?? "";
+    message.publishRequest = (object.publishRequest !== undefined && object.publishRequest !== null)
+      ? AgentPublishRequest.fromPartial(object.publishRequest)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseAgentPublishRequest(): AgentPublishRequest {
+  return {
+    agentName: "",
+    displayName: "",
+    description: "",
+    iconUrl: "",
+    provider: undefined,
+    tags: [],
+    extensions: {},
+    version: "",
+    callInterfaces: [],
+    author: "",
+    changeDescription: "",
+    basedOnVersion: "",
+    autoSubmit: false,
+  };
+}
+
+export const AgentPublishRequest: MessageFns<AgentPublishRequest> = {
+  fromJSON(object: any): AgentPublishRequest {
+    return {
+      agentName: isSet(object.agentName) ? globalThis.String(object.agentName) : "",
+      displayName: isSet(object.displayName) ? globalThis.String(object.displayName) : "",
+      description: isSet(object.description) ? globalThis.String(object.description) : "",
+      iconUrl: isSet(object.iconUrl) ? globalThis.String(object.iconUrl) : "",
+      provider: isSet(object.provider) ? AgentProvider.fromJSON(object.provider) : undefined,
+      tags: globalThis.Array.isArray(object?.tags) ? object.tags.map((e: any) => globalThis.String(e)) : [],
+      extensions: isObject(object.extensions)
+        ? (globalThis.Object.entries(object.extensions) as [string, any][]).reduce(
+          (acc: { [key: string]: any | undefined }, [key, value]: [string, any]) => {
+            acc[key] = value as any | undefined;
+            return acc;
+          },
+          {},
+        )
+        : {},
+      version: isSet(object.version) ? globalThis.String(object.version) : "",
+      callInterfaces: globalThis.Array.isArray(object?.callInterfaces)
+        ? object.callInterfaces.map((e: any) => AgentCallInterface.fromJSON(e))
+        : [],
+      author: isSet(object.author) ? globalThis.String(object.author) : "",
+      changeDescription: isSet(object.changeDescription) ? globalThis.String(object.changeDescription) : "",
+      basedOnVersion: isSet(object.basedOnVersion) ? globalThis.String(object.basedOnVersion) : "",
+      autoSubmit: isSet(object.autoSubmit) ? globalThis.Boolean(object.autoSubmit) : false,
+    };
+  },
+
+  toJSON(message: AgentPublishRequest): unknown {
+    const obj: any = {};
+    if (message.agentName !== "") {
+      obj.agentName = message.agentName;
+    }
+    if (message.displayName !== "") {
+      obj.displayName = message.displayName;
+    }
+    if (message.description !== "") {
+      obj.description = message.description;
+    }
+    if (message.iconUrl !== "") {
+      obj.iconUrl = message.iconUrl;
+    }
+    if (message.provider !== undefined) {
+      obj.provider = AgentProvider.toJSON(message.provider);
+    }
+    if (message.tags?.length) {
+      obj.tags = message.tags;
+    }
+    if (message.extensions) {
+      const entries = globalThis.Object.entries(message.extensions) as [string, any | undefined][];
+      if (entries.length > 0) {
+        obj.extensions = {};
+        entries.forEach(([k, v]) => {
+          obj.extensions[k] = v;
+        });
+      }
+    }
+    if (message.version !== "") {
+      obj.version = message.version;
+    }
+    if (message.callInterfaces?.length) {
+      obj.callInterfaces = message.callInterfaces.map((e) => AgentCallInterface.toJSON(e));
+    }
+    if (message.author !== "") {
+      obj.author = message.author;
+    }
+    if (message.changeDescription !== "") {
+      obj.changeDescription = message.changeDescription;
+    }
+    if (message.basedOnVersion !== "") {
+      obj.basedOnVersion = message.basedOnVersion;
+    }
+    if (message.autoSubmit !== false) {
+      obj.autoSubmit = message.autoSubmit;
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<AgentPublishRequest>, I>>(base?: I): AgentPublishRequest {
+    return AgentPublishRequest.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<AgentPublishRequest>, I>>(object: I): AgentPublishRequest {
+    const message = createBaseAgentPublishRequest();
+    message.agentName = object.agentName ?? "";
+    message.displayName = object.displayName ?? "";
+    message.description = object.description ?? "";
+    message.iconUrl = object.iconUrl ?? "";
+    message.provider = (object.provider !== undefined && object.provider !== null)
+      ? AgentProvider.fromPartial(object.provider)
+      : undefined;
+    message.tags = object.tags?.map((e) => e) || [];
+    message.extensions = (globalThis.Object.entries(object.extensions ?? {}) as [string, any | undefined][]).reduce(
+      (acc: { [key: string]: any | undefined }, [key, value]: [string, any | undefined]) => {
+        if (value !== undefined) {
+          acc[key] = value;
+        }
+        return acc;
+      },
+      {},
+    );
+    message.version = object.version ?? "";
+    message.callInterfaces = object.callInterfaces?.map((e) => AgentCallInterface.fromPartial(e)) || [];
+    message.author = object.author ?? "";
+    message.changeDescription = object.changeDescription ?? "";
+    message.basedOnVersion = object.basedOnVersion ?? "";
+    message.autoSubmit = object.autoSubmit ?? false;
+    return message;
+  },
+};
+
+function createBaseAgentPublishRequest_ExtensionsEntry(): AgentPublishRequest_ExtensionsEntry {
+  return { key: "", value: undefined };
+}
+
+export const AgentPublishRequest_ExtensionsEntry: MessageFns<AgentPublishRequest_ExtensionsEntry> = {
+  fromJSON(object: any): AgentPublishRequest_ExtensionsEntry {
+    return {
+      key: isSet(object.key) ? globalThis.String(object.key) : "",
+      value: isSet(object?.value) ? object.value : undefined,
+    };
+  },
+
+  toJSON(message: AgentPublishRequest_ExtensionsEntry): unknown {
+    const obj: any = {};
+    if (message.key !== "") {
+      obj.key = message.key;
+    }
+    if (message.value !== undefined) {
+      obj.value = message.value;
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<AgentPublishRequest_ExtensionsEntry>, I>>(
+    base?: I,
+  ): AgentPublishRequest_ExtensionsEntry {
+    return AgentPublishRequest_ExtensionsEntry.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<AgentPublishRequest_ExtensionsEntry>, I>>(
+    object: I,
+  ): AgentPublishRequest_ExtensionsEntry {
+    const message = createBaseAgentPublishRequest_ExtensionsEntry();
+    message.key = object.key ?? "";
+    message.value = object.value ?? undefined;
     return message;
   },
 };
@@ -920,6 +1165,10 @@ type DeepPartial<T> = T extends Builtin ? T
 type KeysOfUnion<T> = T extends T ? keyof T : never;
 type Exact<P, I extends P> = P extends Builtin ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
+function isObject(value: any): boolean {
+  return typeof value === "object" && value !== null;
+}
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;

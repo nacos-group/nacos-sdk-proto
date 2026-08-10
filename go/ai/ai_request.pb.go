@@ -11,6 +11,7 @@ package ai
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -341,6 +342,210 @@ func (x *AgentEndpointRequest) GetType() string {
 	return ""
 }
 
+// metadata.type = "AgentPublishRpcRequest"
+// Flattened from: AgentPublishRpcRequest -> AbstractAgentClientRpcRequest -> Request
+type AgentPublishRpcRequest struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	RequestId      string                 `protobuf:"bytes,1,opt,name=requestId,proto3" json:"requestId,omitempty"`
+	NamespaceId    string                 `protobuf:"bytes,2,opt,name=namespaceId,proto3" json:"namespaceId,omitempty"`
+	PublishRequest *AgentPublishRequest   `protobuf:"bytes,3,opt,name=publishRequest,proto3" json:"publishRequest,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *AgentPublishRpcRequest) Reset() {
+	*x = AgentPublishRpcRequest{}
+	mi := &file_ai_ai_request_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AgentPublishRpcRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AgentPublishRpcRequest) ProtoMessage() {}
+
+func (x *AgentPublishRpcRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_ai_ai_request_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AgentPublishRpcRequest.ProtoReflect.Descriptor instead.
+func (*AgentPublishRpcRequest) Descriptor() ([]byte, []int) {
+	return file_ai_ai_request_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *AgentPublishRpcRequest) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+func (x *AgentPublishRpcRequest) GetNamespaceId() string {
+	if x != nil {
+		return x.NamespaceId
+	}
+	return ""
+}
+
+func (x *AgentPublishRpcRequest) GetPublishRequest() *AgentPublishRequest {
+	if x != nil {
+		return x.PublishRequest
+	}
+	return nil
+}
+
+// metadata.type = "AgentPublishRequest"
+// Flattened from: AgentPublishRequest -> AgentDraftCreateRequest
+type AgentPublishRequest struct {
+	state             protoimpl.MessageState     `protogen:"open.v1"`
+	AgentName         string                     `protobuf:"bytes,1,opt,name=agentName,proto3" json:"agentName,omitempty"`
+	DisplayName       string                     `protobuf:"bytes,2,opt,name=displayName,proto3" json:"displayName,omitempty"`
+	Description       string                     `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	IconUrl           string                     `protobuf:"bytes,4,opt,name=iconUrl,proto3" json:"iconUrl,omitempty"`
+	Provider          *AgentProvider             `protobuf:"bytes,5,opt,name=provider,proto3" json:"provider,omitempty"`
+	Tags              []string                   `protobuf:"bytes,6,rep,name=tags,proto3" json:"tags,omitempty"`
+	Extensions        map[string]*structpb.Value `protobuf:"bytes,7,rep,name=extensions,proto3" json:"extensions,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Version           string                     `protobuf:"bytes,8,opt,name=version,proto3" json:"version,omitempty"`
+	CallInterfaces    []*AgentCallInterface      `protobuf:"bytes,9,rep,name=callInterfaces,proto3" json:"callInterfaces,omitempty"`
+	Author            string                     `protobuf:"bytes,10,opt,name=author,proto3" json:"author,omitempty"`
+	ChangeDescription string                     `protobuf:"bytes,11,opt,name=changeDescription,proto3" json:"changeDescription,omitempty"`
+	BasedOnVersion    string                     `protobuf:"bytes,12,opt,name=basedOnVersion,proto3" json:"basedOnVersion,omitempty"`
+	AutoSubmit        bool                       `protobuf:"varint,13,opt,name=autoSubmit,proto3" json:"autoSubmit,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *AgentPublishRequest) Reset() {
+	*x = AgentPublishRequest{}
+	mi := &file_ai_ai_request_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AgentPublishRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AgentPublishRequest) ProtoMessage() {}
+
+func (x *AgentPublishRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_ai_ai_request_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AgentPublishRequest.ProtoReflect.Descriptor instead.
+func (*AgentPublishRequest) Descriptor() ([]byte, []int) {
+	return file_ai_ai_request_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *AgentPublishRequest) GetAgentName() string {
+	if x != nil {
+		return x.AgentName
+	}
+	return ""
+}
+
+func (x *AgentPublishRequest) GetDisplayName() string {
+	if x != nil {
+		return x.DisplayName
+	}
+	return ""
+}
+
+func (x *AgentPublishRequest) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *AgentPublishRequest) GetIconUrl() string {
+	if x != nil {
+		return x.IconUrl
+	}
+	return ""
+}
+
+func (x *AgentPublishRequest) GetProvider() *AgentProvider {
+	if x != nil {
+		return x.Provider
+	}
+	return nil
+}
+
+func (x *AgentPublishRequest) GetTags() []string {
+	if x != nil {
+		return x.Tags
+	}
+	return nil
+}
+
+func (x *AgentPublishRequest) GetExtensions() map[string]*structpb.Value {
+	if x != nil {
+		return x.Extensions
+	}
+	return nil
+}
+
+func (x *AgentPublishRequest) GetVersion() string {
+	if x != nil {
+		return x.Version
+	}
+	return ""
+}
+
+func (x *AgentPublishRequest) GetCallInterfaces() []*AgentCallInterface {
+	if x != nil {
+		return x.CallInterfaces
+	}
+	return nil
+}
+
+func (x *AgentPublishRequest) GetAuthor() string {
+	if x != nil {
+		return x.Author
+	}
+	return ""
+}
+
+func (x *AgentPublishRequest) GetChangeDescription() string {
+	if x != nil {
+		return x.ChangeDescription
+	}
+	return ""
+}
+
+func (x *AgentPublishRequest) GetBasedOnVersion() string {
+	if x != nil {
+		return x.BasedOnVersion
+	}
+	return ""
+}
+
+func (x *AgentPublishRequest) GetAutoSubmit() bool {
+	if x != nil {
+		return x.AutoSubmit
+	}
+	return false
+}
+
 // metadata.type = "AgentSearchRpcRequest"
 // Flattened from: AgentSearchRpcRequest -> AbstractAgentClientRpcRequest -> Request
 type AgentSearchRpcRequest struct {
@@ -353,7 +558,7 @@ type AgentSearchRpcRequest struct {
 
 func (x *AgentSearchRpcRequest) Reset() {
 	*x = AgentSearchRpcRequest{}
-	mi := &file_ai_ai_request_proto_msgTypes[5]
+	mi := &file_ai_ai_request_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -365,7 +570,7 @@ func (x *AgentSearchRpcRequest) String() string {
 func (*AgentSearchRpcRequest) ProtoMessage() {}
 
 func (x *AgentSearchRpcRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_ai_request_proto_msgTypes[5]
+	mi := &file_ai_ai_request_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -378,7 +583,7 @@ func (x *AgentSearchRpcRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AgentSearchRpcRequest.ProtoReflect.Descriptor instead.
 func (*AgentSearchRpcRequest) Descriptor() ([]byte, []int) {
-	return file_ai_ai_request_proto_rawDescGZIP(), []int{5}
+	return file_ai_ai_request_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *AgentSearchRpcRequest) GetRequestId() string {
@@ -411,7 +616,7 @@ type AgentSearchRequest struct {
 
 func (x *AgentSearchRequest) Reset() {
 	*x = AgentSearchRequest{}
-	mi := &file_ai_ai_request_proto_msgTypes[6]
+	mi := &file_ai_ai_request_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -423,7 +628,7 @@ func (x *AgentSearchRequest) String() string {
 func (*AgentSearchRequest) ProtoMessage() {}
 
 func (x *AgentSearchRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_ai_request_proto_msgTypes[6]
+	mi := &file_ai_ai_request_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -436,7 +641,7 @@ func (x *AgentSearchRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AgentSearchRequest.ProtoReflect.Descriptor instead.
 func (*AgentSearchRequest) Descriptor() ([]byte, []int) {
-	return file_ai_ai_request_proto_rawDescGZIP(), []int{6}
+	return file_ai_ai_request_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *AgentSearchRequest) GetNamespaceId() string {
@@ -495,7 +700,7 @@ type BatchAgentEndpointRequest struct {
 
 func (x *BatchAgentEndpointRequest) Reset() {
 	*x = BatchAgentEndpointRequest{}
-	mi := &file_ai_ai_request_proto_msgTypes[7]
+	mi := &file_ai_ai_request_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -507,7 +712,7 @@ func (x *BatchAgentEndpointRequest) String() string {
 func (*BatchAgentEndpointRequest) ProtoMessage() {}
 
 func (x *BatchAgentEndpointRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_ai_request_proto_msgTypes[7]
+	mi := &file_ai_ai_request_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -520,7 +725,7 @@ func (x *BatchAgentEndpointRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BatchAgentEndpointRequest.ProtoReflect.Descriptor instead.
 func (*BatchAgentEndpointRequest) Descriptor() ([]byte, []int) {
-	return file_ai_ai_request_proto_rawDescGZIP(), []int{7}
+	return file_ai_ai_request_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *BatchAgentEndpointRequest) GetRequestId() string {
@@ -569,7 +774,7 @@ type McpServerEndpointRequest struct {
 
 func (x *McpServerEndpointRequest) Reset() {
 	*x = McpServerEndpointRequest{}
-	mi := &file_ai_ai_request_proto_msgTypes[8]
+	mi := &file_ai_ai_request_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -581,7 +786,7 @@ func (x *McpServerEndpointRequest) String() string {
 func (*McpServerEndpointRequest) ProtoMessage() {}
 
 func (x *McpServerEndpointRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_ai_request_proto_msgTypes[8]
+	mi := &file_ai_ai_request_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -594,7 +799,7 @@ func (x *McpServerEndpointRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use McpServerEndpointRequest.ProtoReflect.Descriptor instead.
 func (*McpServerEndpointRequest) Descriptor() ([]byte, []int) {
-	return file_ai_ai_request_proto_rawDescGZIP(), []int{8}
+	return file_ai_ai_request_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *McpServerEndpointRequest) GetRequestId() string {
@@ -668,7 +873,7 @@ type QueryAgentCardRequest struct {
 
 func (x *QueryAgentCardRequest) Reset() {
 	*x = QueryAgentCardRequest{}
-	mi := &file_ai_ai_request_proto_msgTypes[9]
+	mi := &file_ai_ai_request_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -680,7 +885,7 @@ func (x *QueryAgentCardRequest) String() string {
 func (*QueryAgentCardRequest) ProtoMessage() {}
 
 func (x *QueryAgentCardRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_ai_request_proto_msgTypes[9]
+	mi := &file_ai_ai_request_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -693,7 +898,7 @@ func (x *QueryAgentCardRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryAgentCardRequest.ProtoReflect.Descriptor instead.
 func (*QueryAgentCardRequest) Descriptor() ([]byte, []int) {
-	return file_ai_ai_request_proto_rawDescGZIP(), []int{9}
+	return file_ai_ai_request_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *QueryAgentCardRequest) GetRequestId() string {
@@ -746,7 +951,7 @@ type QueryMcpServerRequest struct {
 
 func (x *QueryMcpServerRequest) Reset() {
 	*x = QueryMcpServerRequest{}
-	mi := &file_ai_ai_request_proto_msgTypes[10]
+	mi := &file_ai_ai_request_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -758,7 +963,7 @@ func (x *QueryMcpServerRequest) String() string {
 func (*QueryMcpServerRequest) ProtoMessage() {}
 
 func (x *QueryMcpServerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_ai_request_proto_msgTypes[10]
+	mi := &file_ai_ai_request_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -771,7 +976,7 @@ func (x *QueryMcpServerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryMcpServerRequest.ProtoReflect.Descriptor instead.
 func (*QueryMcpServerRequest) Descriptor() ([]byte, []int) {
-	return file_ai_ai_request_proto_rawDescGZIP(), []int{10}
+	return file_ai_ai_request_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *QueryMcpServerRequest) GetRequestId() string {
@@ -825,7 +1030,7 @@ type QueryPromptRequest struct {
 
 func (x *QueryPromptRequest) Reset() {
 	*x = QueryPromptRequest{}
-	mi := &file_ai_ai_request_proto_msgTypes[11]
+	mi := &file_ai_ai_request_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -837,7 +1042,7 @@ func (x *QueryPromptRequest) String() string {
 func (*QueryPromptRequest) ProtoMessage() {}
 
 func (x *QueryPromptRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_ai_request_proto_msgTypes[11]
+	mi := &file_ai_ai_request_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -850,7 +1055,7 @@ func (x *QueryPromptRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryPromptRequest.ProtoReflect.Descriptor instead.
 func (*QueryPromptRequest) Descriptor() ([]byte, []int) {
-	return file_ai_ai_request_proto_rawDescGZIP(), []int{11}
+	return file_ai_ai_request_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *QueryPromptRequest) GetRequestId() string {
@@ -911,7 +1116,7 @@ type ReleaseAgentCardRequest struct {
 
 func (x *ReleaseAgentCardRequest) Reset() {
 	*x = ReleaseAgentCardRequest{}
-	mi := &file_ai_ai_request_proto_msgTypes[12]
+	mi := &file_ai_ai_request_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -923,7 +1128,7 @@ func (x *ReleaseAgentCardRequest) String() string {
 func (*ReleaseAgentCardRequest) ProtoMessage() {}
 
 func (x *ReleaseAgentCardRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_ai_request_proto_msgTypes[12]
+	mi := &file_ai_ai_request_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -936,7 +1141,7 @@ func (x *ReleaseAgentCardRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseAgentCardRequest.ProtoReflect.Descriptor instead.
 func (*ReleaseAgentCardRequest) Descriptor() ([]byte, []int) {
-	return file_ai_ai_request_proto_rawDescGZIP(), []int{12}
+	return file_ai_ai_request_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *ReleaseAgentCardRequest) GetRequestId() string {
@@ -999,7 +1204,7 @@ type ReleaseMcpServerRequest struct {
 
 func (x *ReleaseMcpServerRequest) Reset() {
 	*x = ReleaseMcpServerRequest{}
-	mi := &file_ai_ai_request_proto_msgTypes[13]
+	mi := &file_ai_ai_request_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1011,7 +1216,7 @@ func (x *ReleaseMcpServerRequest) String() string {
 func (*ReleaseMcpServerRequest) ProtoMessage() {}
 
 func (x *ReleaseMcpServerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_ai_request_proto_msgTypes[13]
+	mi := &file_ai_ai_request_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1024,7 +1229,7 @@ func (x *ReleaseMcpServerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseMcpServerRequest.ProtoReflect.Descriptor instead.
 func (*ReleaseMcpServerRequest) Descriptor() ([]byte, []int) {
-	return file_ai_ai_request_proto_rawDescGZIP(), []int{13}
+	return file_ai_ai_request_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *ReleaseMcpServerRequest) GetRequestId() string {
@@ -1087,7 +1292,7 @@ var File_ai_ai_request_proto protoreflect.FileDescriptor
 
 const file_ai_ai_request_proto_rawDesc = "" +
 	"\n" +
-	"\x13ai/ai_request.proto\x12\bnacos.ai\x1a\x12ai/agentcard.proto\x1a\x1dai/agentdiscoveryfilter.proto\x1a\x16ai/agentendpoint.proto\x1a'ai/agentendpointregistrationbatch.proto\x1a\x17ai/agentreference.proto\x1a\x18ai/mcpendpointspec.proto\x1a!ai/mcpresourcespecification.proto\x1a\x1bai/mcpserverbasicinfo.proto\x1a\x1dai/mcptoolspecification.proto\"\x85\x01\n" +
+	"\x13ai/ai_request.proto\x12\bnacos.ai\x1a\x1bai/agentcallinterface.proto\x1a\x12ai/agentcard.proto\x1a\x1dai/agentdiscoveryfilter.proto\x1a\x16ai/agentendpoint.proto\x1a'ai/agentendpointregistrationbatch.proto\x1a\x16ai/agentprovider.proto\x1a\x17ai/agentreference.proto\x1a\x18ai/mcpendpointspec.proto\x1a!ai/mcpresourcespecification.proto\x1a\x1bai/mcpserverbasicinfo.proto\x1a\x1dai/mcptoolspecification.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x85\x01\n" +
 	"\x18AgentDiscoveryRpcRequest\x12\x1c\n" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12K\n" +
 	"\x10discoveryRequest\x18\x02 \x01(\v2\x1f.nacos.ai.AgentDiscoveryRequestR\x10discoveryRequest\"\xa9\x01\n" +
@@ -1108,7 +1313,33 @@ const file_ai_ai_request_proto_rawDesc = "" +
 	"\vnamespaceId\x18\x02 \x01(\tR\vnamespaceId\x12\x1c\n" +
 	"\tagentName\x18\x03 \x01(\tR\tagentName\x123\n" +
 	"\bendpoint\x18\x04 \x01(\v2\x17.nacos.ai.AgentEndpointR\bendpoint\x12\x12\n" +
-	"\x04type\x18\x05 \x01(\tR\x04type\"y\n" +
+	"\x04type\x18\x05 \x01(\tR\x04type\"\x9f\x01\n" +
+	"\x16AgentPublishRpcRequest\x12\x1c\n" +
+	"\trequestId\x18\x01 \x01(\tR\trequestId\x12 \n" +
+	"\vnamespaceId\x18\x02 \x01(\tR\vnamespaceId\x12E\n" +
+	"\x0epublishRequest\x18\x03 \x01(\v2\x1d.nacos.ai.AgentPublishRequestR\x0epublishRequest\"\xee\x04\n" +
+	"\x13AgentPublishRequest\x12\x1c\n" +
+	"\tagentName\x18\x01 \x01(\tR\tagentName\x12 \n" +
+	"\vdisplayName\x18\x02 \x01(\tR\vdisplayName\x12 \n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\x18\n" +
+	"\aiconUrl\x18\x04 \x01(\tR\aiconUrl\x123\n" +
+	"\bprovider\x18\x05 \x01(\v2\x17.nacos.ai.AgentProviderR\bprovider\x12\x12\n" +
+	"\x04tags\x18\x06 \x03(\tR\x04tags\x12M\n" +
+	"\n" +
+	"extensions\x18\a \x03(\v2-.nacos.ai.AgentPublishRequest.ExtensionsEntryR\n" +
+	"extensions\x12\x18\n" +
+	"\aversion\x18\b \x01(\tR\aversion\x12D\n" +
+	"\x0ecallInterfaces\x18\t \x03(\v2\x1c.nacos.ai.AgentCallInterfaceR\x0ecallInterfaces\x12\x16\n" +
+	"\x06author\x18\n" +
+	" \x01(\tR\x06author\x12,\n" +
+	"\x11changeDescription\x18\v \x01(\tR\x11changeDescription\x12&\n" +
+	"\x0ebasedOnVersion\x18\f \x01(\tR\x0ebasedOnVersion\x12\x1e\n" +
+	"\n" +
+	"autoSubmit\x18\r \x01(\bR\n" +
+	"autoSubmit\x1aU\n" +
+	"\x0fExtensionsEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12,\n" +
+	"\x05value\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x05value:\x028\x01\"y\n" +
 	"\x15AgentSearchRpcRequest\x12\x1c\n" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12B\n" +
 	"\rsearchRequest\x18\x02 \x01(\v2\x1c.nacos.ai.AgentSearchRequestR\rsearchRequest\"\xd6\x01\n" +
@@ -1181,50 +1412,61 @@ func file_ai_ai_request_proto_rawDescGZIP() []byte {
 	return file_ai_ai_request_proto_rawDescData
 }
 
-var file_ai_ai_request_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
+var file_ai_ai_request_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
 var file_ai_ai_request_proto_goTypes = []any{
 	(*AgentDiscoveryRpcRequest)(nil),          // 0: nacos.ai.AgentDiscoveryRpcRequest
 	(*AgentDiscoveryRequest)(nil),             // 1: nacos.ai.AgentDiscoveryRequest
 	(*AgentEndpointDeregisterRpcRequest)(nil), // 2: nacos.ai.AgentEndpointDeregisterRpcRequest
 	(*AgentEndpointRegisterRpcRequest)(nil),   // 3: nacos.ai.AgentEndpointRegisterRpcRequest
 	(*AgentEndpointRequest)(nil),              // 4: nacos.ai.AgentEndpointRequest
-	(*AgentSearchRpcRequest)(nil),             // 5: nacos.ai.AgentSearchRpcRequest
-	(*AgentSearchRequest)(nil),                // 6: nacos.ai.AgentSearchRequest
-	(*BatchAgentEndpointRequest)(nil),         // 7: nacos.ai.BatchAgentEndpointRequest
-	(*McpServerEndpointRequest)(nil),          // 8: nacos.ai.McpServerEndpointRequest
-	(*QueryAgentCardRequest)(nil),             // 9: nacos.ai.QueryAgentCardRequest
-	(*QueryMcpServerRequest)(nil),             // 10: nacos.ai.QueryMcpServerRequest
-	(*QueryPromptRequest)(nil),                // 11: nacos.ai.QueryPromptRequest
-	(*ReleaseAgentCardRequest)(nil),           // 12: nacos.ai.ReleaseAgentCardRequest
-	(*ReleaseMcpServerRequest)(nil),           // 13: nacos.ai.ReleaseMcpServerRequest
-	(*AgentReference)(nil),                    // 14: nacos.ai.AgentReference
-	(*AgentDiscoveryFilter)(nil),              // 15: nacos.ai.AgentDiscoveryFilter
-	(*AgentEndpointRegistrationBatch)(nil),    // 16: nacos.ai.AgentEndpointRegistrationBatch
-	(*AgentEndpoint)(nil),                     // 17: nacos.ai.AgentEndpoint
-	(*AgentCard)(nil),                         // 18: nacos.ai.AgentCard
-	(*McpServerBasicInfo)(nil),                // 19: nacos.ai.McpServerBasicInfo
-	(*McpToolSpecification)(nil),              // 20: nacos.ai.McpToolSpecification
-	(*McpResourceSpecification)(nil),          // 21: nacos.ai.McpResourceSpecification
-	(*McpEndpointSpec)(nil),                   // 22: nacos.ai.McpEndpointSpec
+	(*AgentPublishRpcRequest)(nil),            // 5: nacos.ai.AgentPublishRpcRequest
+	(*AgentPublishRequest)(nil),               // 6: nacos.ai.AgentPublishRequest
+	(*AgentSearchRpcRequest)(nil),             // 7: nacos.ai.AgentSearchRpcRequest
+	(*AgentSearchRequest)(nil),                // 8: nacos.ai.AgentSearchRequest
+	(*BatchAgentEndpointRequest)(nil),         // 9: nacos.ai.BatchAgentEndpointRequest
+	(*McpServerEndpointRequest)(nil),          // 10: nacos.ai.McpServerEndpointRequest
+	(*QueryAgentCardRequest)(nil),             // 11: nacos.ai.QueryAgentCardRequest
+	(*QueryMcpServerRequest)(nil),             // 12: nacos.ai.QueryMcpServerRequest
+	(*QueryPromptRequest)(nil),                // 13: nacos.ai.QueryPromptRequest
+	(*ReleaseAgentCardRequest)(nil),           // 14: nacos.ai.ReleaseAgentCardRequest
+	(*ReleaseMcpServerRequest)(nil),           // 15: nacos.ai.ReleaseMcpServerRequest
+	nil,                                       // 16: nacos.ai.AgentPublishRequest.ExtensionsEntry
+	(*AgentReference)(nil),                    // 17: nacos.ai.AgentReference
+	(*AgentDiscoveryFilter)(nil),              // 18: nacos.ai.AgentDiscoveryFilter
+	(*AgentEndpointRegistrationBatch)(nil),    // 19: nacos.ai.AgentEndpointRegistrationBatch
+	(*AgentEndpoint)(nil),                     // 20: nacos.ai.AgentEndpoint
+	(*AgentProvider)(nil),                     // 21: nacos.ai.AgentProvider
+	(*AgentCallInterface)(nil),                // 22: nacos.ai.AgentCallInterface
+	(*AgentCard)(nil),                         // 23: nacos.ai.AgentCard
+	(*McpServerBasicInfo)(nil),                // 24: nacos.ai.McpServerBasicInfo
+	(*McpToolSpecification)(nil),              // 25: nacos.ai.McpToolSpecification
+	(*McpResourceSpecification)(nil),          // 26: nacos.ai.McpResourceSpecification
+	(*McpEndpointSpec)(nil),                   // 27: nacos.ai.McpEndpointSpec
+	(*structpb.Value)(nil),                    // 28: google.protobuf.Value
 }
 var file_ai_ai_request_proto_depIdxs = []int32{
 	1,  // 0: nacos.ai.AgentDiscoveryRpcRequest.discoveryRequest:type_name -> nacos.ai.AgentDiscoveryRequest
-	14, // 1: nacos.ai.AgentDiscoveryRequest.reference:type_name -> nacos.ai.AgentReference
-	15, // 2: nacos.ai.AgentDiscoveryRequest.filter:type_name -> nacos.ai.AgentDiscoveryFilter
-	16, // 3: nacos.ai.AgentEndpointRegisterRpcRequest.registrationBatch:type_name -> nacos.ai.AgentEndpointRegistrationBatch
-	17, // 4: nacos.ai.AgentEndpointRequest.endpoint:type_name -> nacos.ai.AgentEndpoint
-	6,  // 5: nacos.ai.AgentSearchRpcRequest.searchRequest:type_name -> nacos.ai.AgentSearchRequest
-	17, // 6: nacos.ai.BatchAgentEndpointRequest.endpoints:type_name -> nacos.ai.AgentEndpoint
-	18, // 7: nacos.ai.ReleaseAgentCardRequest.agentCard:type_name -> nacos.ai.AgentCard
-	19, // 8: nacos.ai.ReleaseMcpServerRequest.serverSpecification:type_name -> nacos.ai.McpServerBasicInfo
-	20, // 9: nacos.ai.ReleaseMcpServerRequest.toolSpecification:type_name -> nacos.ai.McpToolSpecification
-	21, // 10: nacos.ai.ReleaseMcpServerRequest.resourceSpecification:type_name -> nacos.ai.McpResourceSpecification
-	22, // 11: nacos.ai.ReleaseMcpServerRequest.endpointSpecification:type_name -> nacos.ai.McpEndpointSpec
-	12, // [12:12] is the sub-list for method output_type
-	12, // [12:12] is the sub-list for method input_type
-	12, // [12:12] is the sub-list for extension type_name
-	12, // [12:12] is the sub-list for extension extendee
-	0,  // [0:12] is the sub-list for field type_name
+	17, // 1: nacos.ai.AgentDiscoveryRequest.reference:type_name -> nacos.ai.AgentReference
+	18, // 2: nacos.ai.AgentDiscoveryRequest.filter:type_name -> nacos.ai.AgentDiscoveryFilter
+	19, // 3: nacos.ai.AgentEndpointRegisterRpcRequest.registrationBatch:type_name -> nacos.ai.AgentEndpointRegistrationBatch
+	20, // 4: nacos.ai.AgentEndpointRequest.endpoint:type_name -> nacos.ai.AgentEndpoint
+	6,  // 5: nacos.ai.AgentPublishRpcRequest.publishRequest:type_name -> nacos.ai.AgentPublishRequest
+	21, // 6: nacos.ai.AgentPublishRequest.provider:type_name -> nacos.ai.AgentProvider
+	16, // 7: nacos.ai.AgentPublishRequest.extensions:type_name -> nacos.ai.AgentPublishRequest.ExtensionsEntry
+	22, // 8: nacos.ai.AgentPublishRequest.callInterfaces:type_name -> nacos.ai.AgentCallInterface
+	8,  // 9: nacos.ai.AgentSearchRpcRequest.searchRequest:type_name -> nacos.ai.AgentSearchRequest
+	20, // 10: nacos.ai.BatchAgentEndpointRequest.endpoints:type_name -> nacos.ai.AgentEndpoint
+	23, // 11: nacos.ai.ReleaseAgentCardRequest.agentCard:type_name -> nacos.ai.AgentCard
+	24, // 12: nacos.ai.ReleaseMcpServerRequest.serverSpecification:type_name -> nacos.ai.McpServerBasicInfo
+	25, // 13: nacos.ai.ReleaseMcpServerRequest.toolSpecification:type_name -> nacos.ai.McpToolSpecification
+	26, // 14: nacos.ai.ReleaseMcpServerRequest.resourceSpecification:type_name -> nacos.ai.McpResourceSpecification
+	27, // 15: nacos.ai.ReleaseMcpServerRequest.endpointSpecification:type_name -> nacos.ai.McpEndpointSpec
+	28, // 16: nacos.ai.AgentPublishRequest.ExtensionsEntry.value:type_name -> google.protobuf.Value
+	17, // [17:17] is the sub-list for method output_type
+	17, // [17:17] is the sub-list for method input_type
+	17, // [17:17] is the sub-list for extension type_name
+	17, // [17:17] is the sub-list for extension extendee
+	0,  // [0:17] is the sub-list for field type_name
 }
 
 func init() { file_ai_ai_request_proto_init() }
@@ -1232,10 +1474,12 @@ func file_ai_ai_request_proto_init() {
 	if File_ai_ai_request_proto != nil {
 		return
 	}
+	file_ai_agentcallinterface_proto_init()
 	file_ai_agentcard_proto_init()
 	file_ai_agentdiscoveryfilter_proto_init()
 	file_ai_agentendpoint_proto_init()
 	file_ai_agentendpointregistrationbatch_proto_init()
+	file_ai_agentprovider_proto_init()
 	file_ai_agentreference_proto_init()
 	file_ai_mcpendpointspec_proto_init()
 	file_ai_mcpresourcespecification_proto_init()
@@ -1247,7 +1491,7 @@ func file_ai_ai_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_ai_ai_request_proto_rawDesc), len(file_ai_ai_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   14,
+			NumMessages:   17,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

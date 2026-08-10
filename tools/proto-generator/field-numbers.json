@@ -1407,6 +1407,87 @@
         "url" : 2
       },
       "reserved" : [ ]
+    },
+    "AgentDiscoveryEndpoint" : {
+      "fields" : {
+        "uri" : 1,
+        "transport" : 2,
+        "priority" : 3,
+        "weight" : 4,
+        "metadata" : 5,
+        "healthy" : 6,
+        "bindings" : 7
+      },
+      "reserved" : [ ]
+    },
+    "RuntimeVersionBinding" : {
+      "fields" : {
+        "runtimeVersion" : 1,
+        "versionRange" : 2
+      },
+      "reserved" : [ ]
+    },
+    "AgentPublishRpcRequest" : {
+      "fields" : {
+        "requestId" : 1,
+        "namespaceId" : 2,
+        "publishRequest" : 3
+      },
+      "reserved" : [ ]
+    },
+    "AgentPublishRequest" : {
+      "fields" : {
+        "agentName" : 1,
+        "displayName" : 2,
+        "description" : 3,
+        "iconUrl" : 4,
+        "provider" : 5,
+        "tags" : 6,
+        "extensions" : 7,
+        "version" : 8,
+        "callInterfaces" : 9,
+        "author" : 10,
+        "changeDescription" : 11,
+        "basedOnVersion" : 12,
+        "autoSubmit" : 13
+      },
+      "reserved" : [ ]
+    },
+    "AgentCallInterface" : {
+      "fields" : {
+        "protocol" : 1,
+        "protocolVersion" : 2,
+        "descriptorMediaType" : 3,
+        "nativeDescriptor" : 4,
+        "endpointSourceOrder" : 5,
+        "declaredEndpoints" : 6
+      },
+      "reserved" : [ ]
+    },
+    "AgentPublishRpcResponse" : {
+      "fields" : {
+        "resultCode" : 1,
+        "errorCode" : 2,
+        "message" : 3,
+        "requestId" : 4,
+        "versionDetail" : 5
+      },
+      "reserved" : [ ]
+    },
+    "AgentVersionDetail" : {
+      "fields" : {
+        "namespaceId" : 1,
+        "agentName" : 2,
+        "version" : 3,
+        "status" : 4,
+        "callInterfaces" : 5,
+        "author" : 6,
+        "changeDescription" : 7,
+        "contentDigest" : 8,
+        "createTime" : 9,
+        "updateTime" : 10
+      },
+      "reserved" : [ ]
     }
   }
 }
