@@ -759,15 +759,18 @@ func (x *BatchAgentEndpointRequest) GetEndpoints() []*AgentEndpoint {
 // metadata.type = "McpServerEndpointRequest"
 // Flattened from: McpServerEndpointRequest -> AbstractMcpRequest -> Request
 type McpServerEndpointRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequestId     string                 `protobuf:"bytes,1,opt,name=requestId,proto3" json:"requestId,omitempty"`
-	NamespaceId   string                 `protobuf:"bytes,2,opt,name=namespaceId,proto3" json:"namespaceId,omitempty"`
-	McpId         string                 `protobuf:"bytes,3,opt,name=mcpId,proto3" json:"mcpId,omitempty"`
-	McpName       string                 `protobuf:"bytes,4,opt,name=mcpName,proto3" json:"mcpName,omitempty"`
-	Address       string                 `protobuf:"bytes,5,opt,name=address,proto3" json:"address,omitempty"`
-	Port          int32                  `protobuf:"varint,6,opt,name=port,proto3" json:"port,omitempty"`
-	Version       string                 `protobuf:"bytes,7,opt,name=version,proto3" json:"version,omitempty"`
-	Type          string                 `protobuf:"bytes,8,opt,name=type,proto3" json:"type,omitempty"`
+	state       protoimpl.MessageState `protogen:"open.v1"`
+	RequestId   string                 `protobuf:"bytes,1,opt,name=requestId,proto3" json:"requestId,omitempty"`
+	NamespaceId string                 `protobuf:"bytes,2,opt,name=namespaceId,proto3" json:"namespaceId,omitempty"`
+	// Deprecated: ignored by the Nacos server; use mcpName for resource identity.
+	//
+	// Deprecated: Marked as deprecated in ai/ai_request.proto.
+	McpId         string `protobuf:"bytes,3,opt,name=mcpId,proto3" json:"mcpId,omitempty"`
+	McpName       string `protobuf:"bytes,4,opt,name=mcpName,proto3" json:"mcpName,omitempty"`
+	Address       string `protobuf:"bytes,5,opt,name=address,proto3" json:"address,omitempty"`
+	Port          int32  `protobuf:"varint,6,opt,name=port,proto3" json:"port,omitempty"`
+	Version       string `protobuf:"bytes,7,opt,name=version,proto3" json:"version,omitempty"`
+	Type          string `protobuf:"bytes,8,opt,name=type,proto3" json:"type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -816,6 +819,7 @@ func (x *McpServerEndpointRequest) GetNamespaceId() string {
 	return ""
 }
 
+// Deprecated: Marked as deprecated in ai/ai_request.proto.
 func (x *McpServerEndpointRequest) GetMcpId() string {
 	if x != nil {
 		return x.McpId
@@ -939,12 +943,15 @@ func (x *QueryAgentCardRequest) GetRegistrationType() string {
 // metadata.type = "QueryMcpServerRequest"
 // Flattened from: QueryMcpServerRequest -> AbstractMcpRequest -> Request
 type QueryMcpServerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	RequestId     string                 `protobuf:"bytes,1,opt,name=requestId,proto3" json:"requestId,omitempty"`
-	NamespaceId   string                 `protobuf:"bytes,2,opt,name=namespaceId,proto3" json:"namespaceId,omitempty"`
-	McpId         string                 `protobuf:"bytes,3,opt,name=mcpId,proto3" json:"mcpId,omitempty"`
-	McpName       string                 `protobuf:"bytes,4,opt,name=mcpName,proto3" json:"mcpName,omitempty"`
-	Version       string                 `protobuf:"bytes,5,opt,name=version,proto3" json:"version,omitempty"`
+	state       protoimpl.MessageState `protogen:"open.v1"`
+	RequestId   string                 `protobuf:"bytes,1,opt,name=requestId,proto3" json:"requestId,omitempty"`
+	NamespaceId string                 `protobuf:"bytes,2,opt,name=namespaceId,proto3" json:"namespaceId,omitempty"`
+	// Deprecated: ignored by the Nacos server; use mcpName for resource identity.
+	//
+	// Deprecated: Marked as deprecated in ai/ai_request.proto.
+	McpId         string `protobuf:"bytes,3,opt,name=mcpId,proto3" json:"mcpId,omitempty"`
+	McpName       string `protobuf:"bytes,4,opt,name=mcpName,proto3" json:"mcpName,omitempty"`
+	Version       string `protobuf:"bytes,5,opt,name=version,proto3" json:"version,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -993,6 +1000,7 @@ func (x *QueryMcpServerRequest) GetNamespaceId() string {
 	return ""
 }
 
+// Deprecated: Marked as deprecated in ai/ai_request.proto.
 func (x *QueryMcpServerRequest) GetMcpId() string {
 	if x != nil {
 		return x.McpId
@@ -1189,9 +1197,12 @@ func (x *ReleaseAgentCardRequest) GetSetAsLatest() bool {
 // metadata.type = "ReleaseMcpServerRequest"
 // Flattened from: ReleaseMcpServerRequest -> AbstractMcpRequest -> Request
 type ReleaseMcpServerRequest struct {
-	state                 protoimpl.MessageState    `protogen:"open.v1"`
-	RequestId             string                    `protobuf:"bytes,1,opt,name=requestId,proto3" json:"requestId,omitempty"`
-	NamespaceId           string                    `protobuf:"bytes,2,opt,name=namespaceId,proto3" json:"namespaceId,omitempty"`
+	state       protoimpl.MessageState `protogen:"open.v1"`
+	RequestId   string                 `protobuf:"bytes,1,opt,name=requestId,proto3" json:"requestId,omitempty"`
+	NamespaceId string                 `protobuf:"bytes,2,opt,name=namespaceId,proto3" json:"namespaceId,omitempty"`
+	// Deprecated: ignored by the Nacos server; use mcpName for resource identity.
+	//
+	// Deprecated: Marked as deprecated in ai/ai_request.proto.
 	McpId                 string                    `protobuf:"bytes,3,opt,name=mcpId,proto3" json:"mcpId,omitempty"`
 	McpName               string                    `protobuf:"bytes,4,opt,name=mcpName,proto3" json:"mcpName,omitempty"`
 	ServerSpecification   *McpServerBasicInfo       `protobuf:"bytes,5,opt,name=serverSpecification,proto3" json:"serverSpecification,omitempty"`
@@ -1246,6 +1257,7 @@ func (x *ReleaseMcpServerRequest) GetNamespaceId() string {
 	return ""
 }
 
+// Deprecated: Marked as deprecated in ai/ai_request.proto.
 func (x *ReleaseMcpServerRequest) GetMcpId() string {
 	if x != nil {
 		return x.McpId
@@ -1354,11 +1366,11 @@ const file_ai_ai_request_proto_rawDesc = "" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12 \n" +
 	"\vnamespaceId\x18\x02 \x01(\tR\vnamespaceId\x12\x1c\n" +
 	"\tagentName\x18\x03 \x01(\tR\tagentName\x125\n" +
-	"\tendpoints\x18\x04 \x03(\v2\x17.nacos.ai.AgentEndpointR\tendpoints\"\xe6\x01\n" +
+	"\tendpoints\x18\x04 \x03(\v2\x17.nacos.ai.AgentEndpointR\tendpoints\"\xea\x01\n" +
 	"\x18McpServerEndpointRequest\x12\x1c\n" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12 \n" +
-	"\vnamespaceId\x18\x02 \x01(\tR\vnamespaceId\x12\x14\n" +
-	"\x05mcpId\x18\x03 \x01(\tR\x05mcpId\x12\x18\n" +
+	"\vnamespaceId\x18\x02 \x01(\tR\vnamespaceId\x12\x18\n" +
+	"\x05mcpId\x18\x03 \x01(\tB\x02\x18\x01R\x05mcpId\x12\x18\n" +
 	"\amcpName\x18\x04 \x01(\tR\amcpName\x12\x18\n" +
 	"\aaddress\x18\x05 \x01(\tR\aaddress\x12\x12\n" +
 	"\x04port\x18\x06 \x01(\x05R\x04port\x12\x18\n" +
@@ -1369,11 +1381,11 @@ const file_ai_ai_request_proto_rawDesc = "" +
 	"\vnamespaceId\x18\x02 \x01(\tR\vnamespaceId\x12\x1c\n" +
 	"\tagentName\x18\x03 \x01(\tR\tagentName\x12\x18\n" +
 	"\aversion\x18\x04 \x01(\tR\aversion\x12*\n" +
-	"\x10registrationType\x18\x05 \x01(\tR\x10registrationType\"\xa1\x01\n" +
+	"\x10registrationType\x18\x05 \x01(\tR\x10registrationType\"\xa5\x01\n" +
 	"\x15QueryMcpServerRequest\x12\x1c\n" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12 \n" +
-	"\vnamespaceId\x18\x02 \x01(\tR\vnamespaceId\x12\x14\n" +
-	"\x05mcpId\x18\x03 \x01(\tR\x05mcpId\x12\x18\n" +
+	"\vnamespaceId\x18\x02 \x01(\tR\vnamespaceId\x12\x18\n" +
+	"\x05mcpId\x18\x03 \x01(\tB\x02\x18\x01R\x05mcpId\x12\x18\n" +
 	"\amcpName\x18\x04 \x01(\tR\amcpName\x12\x18\n" +
 	"\aversion\x18\x05 \x01(\tR\aversion\"\xb4\x01\n" +
 	"\x12QueryPromptRequest\x12\x1c\n" +
@@ -1389,11 +1401,11 @@ const file_ai_ai_request_proto_rawDesc = "" +
 	"\tagentName\x18\x03 \x01(\tR\tagentName\x121\n" +
 	"\tagentCard\x18\x04 \x01(\v2\x13.nacos.ai.AgentCardR\tagentCard\x12*\n" +
 	"\x10registrationType\x18\x05 \x01(\tR\x10registrationType\x12 \n" +
-	"\vsetAsLatest\x18\x06 \x01(\bR\vsetAsLatest\"\xd8\x03\n" +
+	"\vsetAsLatest\x18\x06 \x01(\bR\vsetAsLatest\"\xdc\x03\n" +
 	"\x17ReleaseMcpServerRequest\x12\x1c\n" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12 \n" +
-	"\vnamespaceId\x18\x02 \x01(\tR\vnamespaceId\x12\x14\n" +
-	"\x05mcpId\x18\x03 \x01(\tR\x05mcpId\x12\x18\n" +
+	"\vnamespaceId\x18\x02 \x01(\tR\vnamespaceId\x12\x18\n" +
+	"\x05mcpId\x18\x03 \x01(\tB\x02\x18\x01R\x05mcpId\x12\x18\n" +
 	"\amcpName\x18\x04 \x01(\tR\amcpName\x12N\n" +
 	"\x13serverSpecification\x18\x05 \x01(\v2\x1c.nacos.ai.McpServerBasicInfoR\x13serverSpecification\x12L\n" +
 	"\x11toolSpecification\x18\x06 \x01(\v2\x1e.nacos.ai.McpToolSpecificationR\x11toolSpecification\x12X\n" +

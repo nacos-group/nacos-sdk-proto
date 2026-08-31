@@ -145,6 +145,11 @@ export interface BatchAgentEndpointRequest {
 export interface McpServerEndpointRequest {
   requestId: string;
   namespaceId: string;
+  /**
+   * Deprecated: ignored by the Nacos server; use mcpName for resource identity.
+   *
+   * @deprecated
+   */
   mcpId: string;
   mcpName: string;
   address: string;
@@ -172,6 +177,11 @@ export interface QueryAgentCardRequest {
 export interface QueryMcpServerRequest {
   requestId: string;
   namespaceId: string;
+  /**
+   * Deprecated: ignored by the Nacos server; use mcpName for resource identity.
+   *
+   * @deprecated
+   */
   mcpId: string;
   mcpName: string;
   version: string;
@@ -210,6 +220,11 @@ export interface ReleaseAgentCardRequest {
 export interface ReleaseMcpServerRequest {
   requestId: string;
   namespaceId: string;
+  /**
+   * Deprecated: ignored by the Nacos server; use mcpName for resource identity.
+   *
+   * @deprecated
+   */
   mcpId: string;
   mcpName: string;
   serverSpecification: McpServerBasicInfo | undefined;
