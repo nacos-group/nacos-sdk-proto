@@ -116,7 +116,8 @@ message BatchAgentEndpointRequest {
 message McpServerEndpointRequest {
   string requestId = 1;
   string namespaceId = 2;
-  string mcpId = 3;
+  // Deprecated: ignored by the Nacos server; use mcpName for resource identity.
+  string mcpId = 3 [deprecated = true];
   string mcpName = 4;
   string address = 5;
   int32 port = 6;
@@ -139,7 +140,8 @@ message QueryAgentCardRequest {
 message QueryMcpServerRequest {
   string requestId = 1;
   string namespaceId = 2;
-  string mcpId = 3;
+  // Deprecated: ignored by the Nacos server; use mcpName for resource identity.
+  string mcpId = 3 [deprecated = true];
   string mcpName = 4;
   string version = 5;
 }
@@ -171,7 +173,8 @@ message ReleaseAgentCardRequest {
 message ReleaseMcpServerRequest {
   string requestId = 1;
   string namespaceId = 2;
-  string mcpId = 3;
+  // Deprecated: ignored by the Nacos server; use mcpName for resource identity.
+  string mcpId = 3 [deprecated = true];
   string mcpName = 4;
   McpServerBasicInfo serverSpecification = 5;
   McpToolSpecification toolSpecification = 6;
