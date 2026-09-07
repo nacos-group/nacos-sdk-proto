@@ -30,7 +30,7 @@ from ai import mcpserverdetailinfo_pb2 as ai_dot_mcpserverdetailinfo__pb2
 from ai import prompt_pb2 as ai_dot_prompt__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14\x61i/ai_response.proto\x12\x08nacos.ai\x1a\x1c\x61i/agentcarddetailinfo.proto\x1a\x1e\x61i/agentcatalogentrypage.proto\x1a\x1d\x61i/agentdiscoveryresult.proto\x1a\x1b\x61i/agentversiondetail.proto\x1a\x1c\x61i/mcpserverdetailinfo.proto\x1a\x0f\x61i/prompt.proto\"\x9c\x01\n\x16\x41gentDiscoveryResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12\x37\n\x0f\x64iscoveryResult\x18\x05 \x01(\x0b\x32\x1e.nacos.ai.AgentDiscoveryResult\"k\n\x1e\x41gentEndpointOperationResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\"p\n\x15\x41gentEndpointResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12\x0c\n\x04type\x18\x05 \x01(\t\"\x99\x01\n\x17\x41gentPublishRpcResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12\x33\n\rversionDetail\x18\x05 \x01(\x0b\x32\x1c.nacos.ai.AgentVersionDetail\"\x8f\x01\n\x13\x41gentSearchResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12-\n\x04page\x18\x05 \x01(\x0b\x32\x1f.nacos.ai.AgentCatalogEntryPage\"t\n\x19McpServerEndpointResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12\x0c\n\x04type\x18\x05 \x01(\t\"\x9f\x01\n\x16QueryAgentCardResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12:\n\x13\x61gentCardDetailInfo\x18\x05 \x01(\x0b\x32\x1d.nacos.ai.AgentCardDetailInfo\"\x9f\x01\n\x16QueryMcpServerResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12:\n\x13mcpServerDetailInfo\x18\x05 \x01(\x0b\x32\x1d.nacos.ai.McpServerDetailInfo\"\x86\x01\n\x13QueryPromptResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12$\n\npromptInfo\x18\x05 \x01(\x0b\x32\x10.nacos.ai.Prompt\"e\n\x18ReleaseAgentCardResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\"t\n\x18ReleaseMcpServerResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12\r\n\x05mcpId\x18\x05 \x01(\tB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14\x61i/ai_response.proto\x12\x08nacos.ai\x1a\x1c\x61i/agentcarddetailinfo.proto\x1a\x1e\x61i/agentcatalogentrypage.proto\x1a\x1d\x61i/agentdiscoveryresult.proto\x1a\x1b\x61i/agentversiondetail.proto\x1a\x1c\x61i/mcpserverdetailinfo.proto\x1a\x0f\x61i/prompt.proto\"\x8d\x01\n\x1c\x41gentDiscoveryNotifyResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12\x10\n\x08watchKey\x18\x05 \x01(\t\x12\x10\n\x08\x61\x63\x63\x65pted\x18\x06 \x01(\x08\"\x9c\x01\n\x16\x41gentDiscoveryResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12\x37\n\x0f\x64iscoveryResult\x18\x05 \x01(\x0b\x32\x1e.nacos.ai.AgentDiscoveryResult\"k\n\x1e\x41gentEndpointOperationResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\"p\n\x15\x41gentEndpointResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12\x0c\n\x04type\x18\x05 \x01(\t\"\x99\x01\n\x17\x41gentPublishRpcResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12\x33\n\rversionDetail\x18\x05 \x01(\x0b\x32\x1c.nacos.ai.AgentVersionDetail\"\x8f\x01\n\x13\x41gentSearchResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12-\n\x04page\x18\x05 \x01(\x0b\x32\x1f.nacos.ai.AgentCatalogEntryPage\"\xae\x01\n\x19\x41gentSubscribeRpcResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12\x10\n\x08watchKey\x18\x05 \x01(\t\x12\x1b\n\x13observedFingerprint\x18\x06 \x01(\t\x12\x17\n\x0frefreshRequired\x18\x07 \x01(\x08\"h\n\x1b\x41gentUnsubscribeRpcResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\"l\n\x1f\x41iResourceChangeClusterResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\"t\n\x19McpServerEndpointResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12\x0c\n\x04type\x18\x05 \x01(\t\"\x9f\x01\n\x16QueryAgentCardResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12:\n\x13\x61gentCardDetailInfo\x18\x05 \x01(\x0b\x32\x1d.nacos.ai.AgentCardDetailInfo\"\x9f\x01\n\x16QueryMcpServerResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12:\n\x13mcpServerDetailInfo\x18\x05 \x01(\x0b\x32\x1d.nacos.ai.McpServerDetailInfo\"\x86\x01\n\x13QueryPromptResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12$\n\npromptInfo\x18\x05 \x01(\x0b\x32\x10.nacos.ai.Prompt\"e\n\x18ReleaseAgentCardResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\"t\n\x18ReleaseMcpServerResponse\x12\x12\n\nresultCode\x18\x01 \x01(\x05\x12\x11\n\terrorCode\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x11\n\trequestId\x18\x04 \x01(\t\x12\r\n\x05mcpId\x18\x05 \x01(\tB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -38,26 +38,34 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'ai.ai_response_pb2', _globa
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/nacos-group/nacos-sdk-proto/go/ai'
-  _globals['_AGENTDISCOVERYRESPONSE']._serialized_start=204
-  _globals['_AGENTDISCOVERYRESPONSE']._serialized_end=360
-  _globals['_AGENTENDPOINTOPERATIONRESPONSE']._serialized_start=362
-  _globals['_AGENTENDPOINTOPERATIONRESPONSE']._serialized_end=469
-  _globals['_AGENTENDPOINTRESPONSE']._serialized_start=471
-  _globals['_AGENTENDPOINTRESPONSE']._serialized_end=583
-  _globals['_AGENTPUBLISHRPCRESPONSE']._serialized_start=586
-  _globals['_AGENTPUBLISHRPCRESPONSE']._serialized_end=739
-  _globals['_AGENTSEARCHRESPONSE']._serialized_start=742
-  _globals['_AGENTSEARCHRESPONSE']._serialized_end=885
-  _globals['_MCPSERVERENDPOINTRESPONSE']._serialized_start=887
-  _globals['_MCPSERVERENDPOINTRESPONSE']._serialized_end=1003
-  _globals['_QUERYAGENTCARDRESPONSE']._serialized_start=1006
-  _globals['_QUERYAGENTCARDRESPONSE']._serialized_end=1165
-  _globals['_QUERYMCPSERVERRESPONSE']._serialized_start=1168
-  _globals['_QUERYMCPSERVERRESPONSE']._serialized_end=1327
-  _globals['_QUERYPROMPTRESPONSE']._serialized_start=1330
-  _globals['_QUERYPROMPTRESPONSE']._serialized_end=1464
-  _globals['_RELEASEAGENTCARDRESPONSE']._serialized_start=1466
-  _globals['_RELEASEAGENTCARDRESPONSE']._serialized_end=1567
-  _globals['_RELEASEMCPSERVERRESPONSE']._serialized_start=1569
-  _globals['_RELEASEMCPSERVERRESPONSE']._serialized_end=1685
+  _globals['_AGENTDISCOVERYNOTIFYRESPONSE']._serialized_start=204
+  _globals['_AGENTDISCOVERYNOTIFYRESPONSE']._serialized_end=345
+  _globals['_AGENTDISCOVERYRESPONSE']._serialized_start=348
+  _globals['_AGENTDISCOVERYRESPONSE']._serialized_end=504
+  _globals['_AGENTENDPOINTOPERATIONRESPONSE']._serialized_start=506
+  _globals['_AGENTENDPOINTOPERATIONRESPONSE']._serialized_end=613
+  _globals['_AGENTENDPOINTRESPONSE']._serialized_start=615
+  _globals['_AGENTENDPOINTRESPONSE']._serialized_end=727
+  _globals['_AGENTPUBLISHRPCRESPONSE']._serialized_start=730
+  _globals['_AGENTPUBLISHRPCRESPONSE']._serialized_end=883
+  _globals['_AGENTSEARCHRESPONSE']._serialized_start=886
+  _globals['_AGENTSEARCHRESPONSE']._serialized_end=1029
+  _globals['_AGENTSUBSCRIBERPCRESPONSE']._serialized_start=1032
+  _globals['_AGENTSUBSCRIBERPCRESPONSE']._serialized_end=1206
+  _globals['_AGENTUNSUBSCRIBERPCRESPONSE']._serialized_start=1208
+  _globals['_AGENTUNSUBSCRIBERPCRESPONSE']._serialized_end=1312
+  _globals['_AIRESOURCECHANGECLUSTERRESPONSE']._serialized_start=1314
+  _globals['_AIRESOURCECHANGECLUSTERRESPONSE']._serialized_end=1422
+  _globals['_MCPSERVERENDPOINTRESPONSE']._serialized_start=1424
+  _globals['_MCPSERVERENDPOINTRESPONSE']._serialized_end=1540
+  _globals['_QUERYAGENTCARDRESPONSE']._serialized_start=1543
+  _globals['_QUERYAGENTCARDRESPONSE']._serialized_end=1702
+  _globals['_QUERYMCPSERVERRESPONSE']._serialized_start=1705
+  _globals['_QUERYMCPSERVERRESPONSE']._serialized_end=1864
+  _globals['_QUERYPROMPTRESPONSE']._serialized_start=1867
+  _globals['_QUERYPROMPTRESPONSE']._serialized_end=2001
+  _globals['_RELEASEAGENTCARDRESPONSE']._serialized_start=2003
+  _globals['_RELEASEAGENTCARDRESPONSE']._serialized_end=2104
+  _globals['_RELEASEMCPSERVERRESPONSE']._serialized_start=2106
+  _globals['_RELEASEMCPSERVERRESPONSE']._serialized_end=2222
 # @@protoc_insertion_point(module_scope)

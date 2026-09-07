@@ -17,6 +17,16 @@ import "ai/mcpserverbasicinfo.proto";
 import "ai/mcptoolspecification.proto";
 import "google/protobuf/struct.proto";
 
+// metadata.type = "AgentDiscoveryNotifyRequest"
+// Flattened from: AgentDiscoveryNotifyRequest -> ServerRequest -> Request
+message AgentDiscoveryNotifyRequest {
+  string requestId = 1;
+  string watchKey = 2;
+  string eventType = 3;
+  string observedFingerprint = 4;
+  int32 errorCode = 5;
+}
+
 // metadata.type = "AgentDiscoveryRpcRequest"
 // Flattened from: AgentDiscoveryRpcRequest -> AbstractAgentClientRpcRequest -> Request
 message AgentDiscoveryRpcRequest {
@@ -102,6 +112,33 @@ message AgentSearchRequest {
   int32 pageSize = 6;
 }
 
+// metadata.type = "AgentSubscribeRpcRequest"
+// Flattened from: AgentSubscribeRpcRequest -> AbstractAgentClientRpcRequest -> Request
+message AgentSubscribeRpcRequest {
+  string requestId = 1;
+  string clientWatchId = 2;
+  AgentDiscoveryRequest discoveryRequest = 3;
+  string materializedFingerprint = 4;
+}
+
+// metadata.type = "AgentUnsubscribeRpcRequest"
+// Flattened from: AgentUnsubscribeRpcRequest -> AbstractAgentClientRpcRequest -> Request
+message AgentUnsubscribeRpcRequest {
+  string requestId = 1;
+  string watchKey = 2;
+}
+
+// metadata.type = "AiResourceChangeClusterRequest"
+// Flattened from: AiResourceChangeClusterRequest -> Request
+message AiResourceChangeClusterRequest {
+  string requestId = 1;
+  string namespaceId = 2;
+  string resourceType = 3;
+  string resourceName = 4;
+  string operation = 5;
+  bool storageChanged = 6;
+}
+
 // metadata.type = "BatchAgentEndpointRequest"
 // Flattened from: BatchAgentEndpointRequest -> AbstractAgentRequest -> Request
 message BatchAgentEndpointRequest {
@@ -180,5 +217,6 @@ message ReleaseMcpServerRequest {
   McpToolSpecification toolSpecification = 6;
   McpResourceSpecification resourceSpecification = 9;
   McpEndpointSpec endpointSpecification = 7;
+  bool createDraft = 10;
   reserved 8;
 }
