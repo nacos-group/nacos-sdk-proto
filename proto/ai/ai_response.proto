@@ -11,6 +11,17 @@ import "ai/agentversiondetail.proto";
 import "ai/mcpserverdetailinfo.proto";
 import "ai/prompt.proto";
 
+// metadata.type = "AgentDiscoveryNotifyResponse"
+// Flattened from: AgentDiscoveryNotifyResponse -> Response
+message AgentDiscoveryNotifyResponse {
+  int32 resultCode = 1;
+  int32 errorCode = 2;
+  string message = 3;
+  string requestId = 4;
+  string watchKey = 5;
+  bool accepted = 6;
+}
+
 // metadata.type = "AgentDiscoveryResponse"
 // Flattened from: AgentDiscoveryResponse -> Response
 message AgentDiscoveryResponse {
@@ -58,6 +69,36 @@ message AgentSearchResponse {
   string message = 3;
   string requestId = 4;
   AgentCatalogEntryPage page = 5;
+}
+
+// metadata.type = "AgentSubscribeRpcResponse"
+// Flattened from: AgentSubscribeRpcResponse -> Response
+message AgentSubscribeRpcResponse {
+  int32 resultCode = 1;
+  int32 errorCode = 2;
+  string message = 3;
+  string requestId = 4;
+  string watchKey = 5;
+  string observedFingerprint = 6;
+  bool refreshRequired = 7;
+}
+
+// metadata.type = "AgentUnsubscribeRpcResponse"
+// Flattened from: AgentUnsubscribeRpcResponse -> Response
+message AgentUnsubscribeRpcResponse {
+  int32 resultCode = 1;
+  int32 errorCode = 2;
+  string message = 3;
+  string requestId = 4;
+}
+
+// metadata.type = "AiResourceChangeClusterResponse"
+// Flattened from: AiResourceChangeClusterResponse -> Response
+message AiResourceChangeClusterResponse {
+  int32 resultCode = 1;
+  int32 errorCode = 2;
+  string message = 3;
+  string requestId = 4;
 }
 
 // metadata.type = "McpServerEndpointResponse"

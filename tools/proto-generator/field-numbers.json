@@ -983,7 +983,8 @@
         "serverSpecification" : 5,
         "toolSpecification" : 6,
         "endpointSpecification" : 7,
-        "resourceSpecification" : 9
+        "resourceSpecification" : 9,
+        "createDraft" : 10
       },
       "reserved" : [ 8 ]
     },
@@ -1486,6 +1487,84 @@
         "contentDigest" : 8,
         "createTime" : 9,
         "updateTime" : 10
+      },
+      "reserved" : [ ]
+    },
+    "AgentDiscoveryNotifyRequest" : {
+      "fields" : {
+        "requestId" : 1,
+        "watchKey" : 2,
+        "eventType" : 3,
+        "observedFingerprint" : 4,
+        "errorCode" : 5
+      },
+      "reserved" : [ ]
+    },
+    "AgentDiscoveryNotifyResponse" : {
+      "fields" : {
+        "resultCode" : 1,
+        "errorCode" : 2,
+        "message" : 3,
+        "requestId" : 4,
+        "watchKey" : 5,
+        "accepted" : 6
+      },
+      "reserved" : [ ]
+    },
+    "AgentSubscribeRpcRequest" : {
+      "fields" : {
+        "requestId" : 1,
+        "clientWatchId" : 2,
+        "discoveryRequest" : 3,
+        "materializedFingerprint" : 4
+      },
+      "reserved" : [ ]
+    },
+    "AgentSubscribeRpcResponse" : {
+      "fields" : {
+        "resultCode" : 1,
+        "errorCode" : 2,
+        "message" : 3,
+        "requestId" : 4,
+        "watchKey" : 5,
+        "observedFingerprint" : 6,
+        "refreshRequired" : 7
+      },
+      "reserved" : [ ]
+    },
+    "AgentUnsubscribeRpcRequest" : {
+      "fields" : {
+        "requestId" : 1,
+        "watchKey" : 2
+      },
+      "reserved" : [ ]
+    },
+    "AgentUnsubscribeRpcResponse" : {
+      "fields" : {
+        "resultCode" : 1,
+        "errorCode" : 2,
+        "message" : 3,
+        "requestId" : 4
+      },
+      "reserved" : [ ]
+    },
+    "AiResourceChangeClusterRequest" : {
+      "fields" : {
+        "requestId" : 1,
+        "namespaceId" : 2,
+        "resourceType" : 3,
+        "resourceName" : 4,
+        "operation" : 5,
+        "storageChanged" : 6
+      },
+      "reserved" : [ ]
+    },
+    "AiResourceChangeClusterResponse" : {
+      "fields" : {
+        "resultCode" : 1,
+        "errorCode" : 2,
+        "message" : 3,
+        "requestId" : 4
       },
       "reserved" : [ ]
     }

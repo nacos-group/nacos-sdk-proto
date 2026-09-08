@@ -4,4 +4,4 @@
 export const NACOS_REF = "develop";
 
 /** The exact alibaba/nacos commit the protos were generated from. */
-export const NACOS_COMMIT = "308bb56c204fc00c20e678fdb511d818ee8d5be6";
+export const NACOS_COMMIT = "2e52bf46d20506bb108307fa6929dfb9af32f4a1";
