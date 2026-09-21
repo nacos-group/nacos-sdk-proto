@@ -4,7 +4,7 @@ package nacos.ai;
 
 option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 
-import "ai/endpoint.proto";
+import "ai/endpointset.proto";
 import "google/protobuf/struct.proto";
 
 // metadata.type = "AgentCallInterface"
@@ -15,5 +15,6 @@ message AgentCallInterface {
   string descriptorMediaType = 3;
   google.protobuf.Value nativeDescriptor = 4;
   repeated string endpointSourceOrder = 5;
-  repeated Endpoint declaredEndpoints = 6;
+  repeated EndpointSet endpointSets = 7;
+  reserved 6;
 }

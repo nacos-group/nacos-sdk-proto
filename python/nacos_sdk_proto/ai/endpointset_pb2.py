@@ -22,10 +22,10 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from ai import agentdiscoveryendpoint_pb2 as ai_dot_agentdiscoveryendpoint__pb2
+from ai import endpoint_pb2 as ai_dot_endpoint__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14\x61i/endpointset.proto\x12\x08nacos.ai\x1a\x1f\x61i/agentdiscoveryendpoint.proto\"j\n\x0b\x45ndpointSet\x12\x0e\n\x06source\x18\x01 \x01(\t\x12\x16\n\x0esourceRevision\x18\x02 \x01(\t\x12\x33\n\tendpoints\x18\x03 \x03(\x0b\x32 .nacos.ai.AgentDiscoveryEndpointB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14\x61i/endpointset.proto\x12\x08nacos.ai\x1a\x11\x61i/endpoint.proto\"u\n\x0b\x45ndpointSet\x12\x0e\n\x06source\x18\x01 \x01(\t\x12\x16\n\x0esourceRevision\x18\x02 \x01(\t\x12\x17\n\x0flastUpdatedTime\x18\x04 \x01(\x03\x12%\n\tendpoints\x18\x03 \x03(\x0b\x32\x12.nacos.ai.EndpointB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,6 +33,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'ai.endpointset_pb2', _globa
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/nacos-group/nacos-sdk-proto/go/ai'
-  _globals['_ENDPOINTSET']._serialized_start=67
-  _globals['_ENDPOINTSET']._serialized_end=173
+  _globals['_ENDPOINTSET']._serialized_start=53
+  _globals['_ENDPOINTSET']._serialized_end=170
 # @@protoc_insertion_point(module_scope)

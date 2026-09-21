@@ -4,6 +4,8 @@ package nacos.ai;
 
 option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 
+import "ai/runtimeversionbinding.proto";
+
 // metadata.type = "Endpoint"
 // Flattened from: Endpoint
 message Endpoint {
@@ -13,4 +15,6 @@ message Endpoint {
   double weight = 4;
   map<string, string> metadata = 5;
   bool healthy = 6;
+  repeated RuntimeVersionBinding bindings = 7;
+  bool enabled = 8;
 }

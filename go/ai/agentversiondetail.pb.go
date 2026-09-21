@@ -24,21 +24,24 @@ const (
 )
 
 // metadata.type = "AgentVersionDetail"
-// Flattened from: AgentVersionDetail
+// Flattened from: AgentVersionDetail -> AgentVersionSummary
 type AgentVersionDetail struct {
-	state             protoimpl.MessageState `protogen:"open.v1"`
-	NamespaceId       string                 `protobuf:"bytes,1,opt,name=namespaceId,proto3" json:"namespaceId,omitempty"`
-	AgentName         string                 `protobuf:"bytes,2,opt,name=agentName,proto3" json:"agentName,omitempty"`
-	Version           string                 `protobuf:"bytes,3,opt,name=version,proto3" json:"version,omitempty"`
-	Status            string                 `protobuf:"bytes,4,opt,name=status,proto3" json:"status,omitempty"`
-	CallInterfaces    []*AgentCallInterface  `protobuf:"bytes,5,rep,name=callInterfaces,proto3" json:"callInterfaces,omitempty"`
-	Author            string                 `protobuf:"bytes,6,opt,name=author,proto3" json:"author,omitempty"`
-	ChangeDescription string                 `protobuf:"bytes,7,opt,name=changeDescription,proto3" json:"changeDescription,omitempty"`
-	ContentDigest     string                 `protobuf:"bytes,8,opt,name=contentDigest,proto3" json:"contentDigest,omitempty"`
-	CreateTime        int64                  `protobuf:"varint,9,opt,name=createTime,proto3" json:"createTime,omitempty"`
-	UpdateTime        int64                  `protobuf:"varint,10,opt,name=updateTime,proto3" json:"updateTime,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state               protoimpl.MessageState `protogen:"open.v1"`
+	Version             string                 `protobuf:"bytes,3,opt,name=version,proto3" json:"version,omitempty"`
+	Labels              []string               `protobuf:"bytes,11,rep,name=labels,proto3" json:"labels,omitempty"`
+	Protocols           []string               `protobuf:"bytes,12,rep,name=protocols,proto3" json:"protocols,omitempty"`
+	Status              string                 `protobuf:"bytes,4,opt,name=status,proto3" json:"status,omitempty"`
+	PublishPipelineInfo string                 `protobuf:"bytes,13,opt,name=publishPipelineInfo,proto3" json:"publishPipelineInfo,omitempty"`
+	Author              string                 `protobuf:"bytes,6,opt,name=author,proto3" json:"author,omitempty"`
+	ChangeDescription   string                 `protobuf:"bytes,7,opt,name=changeDescription,proto3" json:"changeDescription,omitempty"`
+	ContentDigest       string                 `protobuf:"bytes,8,opt,name=contentDigest,proto3" json:"contentDigest,omitempty"`
+	CreateTime          int64                  `protobuf:"varint,9,opt,name=createTime,proto3" json:"createTime,omitempty"`
+	UpdateTime          int64                  `protobuf:"varint,10,opt,name=updateTime,proto3" json:"updateTime,omitempty"`
+	NamespaceId         string                 `protobuf:"bytes,1,opt,name=namespaceId,proto3" json:"namespaceId,omitempty"`
+	AgentName           string                 `protobuf:"bytes,2,opt,name=agentName,proto3" json:"agentName,omitempty"`
+	CallInterfaces      []*AgentCallInterface  `protobuf:"bytes,5,rep,name=callInterfaces,proto3" json:"callInterfaces,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
 }
 
 func (x *AgentVersionDetail) Reset() {
@@ -71,25 +74,25 @@ func (*AgentVersionDetail) Descriptor() ([]byte, []int) {
 	return file_ai_agentversiondetail_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *AgentVersionDetail) GetNamespaceId() string {
-	if x != nil {
-		return x.NamespaceId
-	}
-	return ""
-}
-
-func (x *AgentVersionDetail) GetAgentName() string {
-	if x != nil {
-		return x.AgentName
-	}
-	return ""
-}
-
 func (x *AgentVersionDetail) GetVersion() string {
 	if x != nil {
 		return x.Version
 	}
 	return ""
+}
+
+func (x *AgentVersionDetail) GetLabels() []string {
+	if x != nil {
+		return x.Labels
+	}
+	return nil
+}
+
+func (x *AgentVersionDetail) GetProtocols() []string {
+	if x != nil {
+		return x.Protocols
+	}
+	return nil
 }
 
 func (x *AgentVersionDetail) GetStatus() string {
@@ -99,11 +102,11 @@ func (x *AgentVersionDetail) GetStatus() string {
 	return ""
 }
 
-func (x *AgentVersionDetail) GetCallInterfaces() []*AgentCallInterface {
+func (x *AgentVersionDetail) GetPublishPipelineInfo() string {
 	if x != nil {
-		return x.CallInterfaces
+		return x.PublishPipelineInfo
 	}
-	return nil
+	return ""
 }
 
 func (x *AgentVersionDetail) GetAuthor() string {
@@ -141,17 +144,38 @@ func (x *AgentVersionDetail) GetUpdateTime() int64 {
 	return 0
 }
 
+func (x *AgentVersionDetail) GetNamespaceId() string {
+	if x != nil {
+		return x.NamespaceId
+	}
+	return ""
+}
+
+func (x *AgentVersionDetail) GetAgentName() string {
+	if x != nil {
+		return x.AgentName
+	}
+	return ""
+}
+
+func (x *AgentVersionDetail) GetCallInterfaces() []*AgentCallInterface {
+	if x != nil {
+		return x.CallInterfaces
+	}
+	return nil
+}
+
 var File_ai_agentversiondetail_proto protoreflect.FileDescriptor
 
 const file_ai_agentversiondetail_proto_rawDesc = "" +
 	"\n" +
-	"\x1bai/agentversiondetail.proto\x12\bnacos.ai\x1a\x1bai/agentcallinterface.proto\"\xf8\x02\n" +
-	"\x12AgentVersionDetail\x12 \n" +
-	"\vnamespaceId\x18\x01 \x01(\tR\vnamespaceId\x12\x1c\n" +
-	"\tagentName\x18\x02 \x01(\tR\tagentName\x12\x18\n" +
+	"\x1bai/agentversiondetail.proto\x12\bnacos.ai\x1a\x1bai/agentcallinterface.proto\"\xe0\x03\n" +
+	"\x12AgentVersionDetail\x12\x18\n" +
 	"\aversion\x18\x03 \x01(\tR\aversion\x12\x16\n" +
-	"\x06status\x18\x04 \x01(\tR\x06status\x12D\n" +
-	"\x0ecallInterfaces\x18\x05 \x03(\v2\x1c.nacos.ai.AgentCallInterfaceR\x0ecallInterfaces\x12\x16\n" +
+	"\x06labels\x18\v \x03(\tR\x06labels\x12\x1c\n" +
+	"\tprotocols\x18\f \x03(\tR\tprotocols\x12\x16\n" +
+	"\x06status\x18\x04 \x01(\tR\x06status\x120\n" +
+	"\x13publishPipelineInfo\x18\r \x01(\tR\x13publishPipelineInfo\x12\x16\n" +
 	"\x06author\x18\x06 \x01(\tR\x06author\x12,\n" +
 	"\x11changeDescription\x18\a \x01(\tR\x11changeDescription\x12$\n" +
 	"\rcontentDigest\x18\b \x01(\tR\rcontentDigest\x12\x1e\n" +
@@ -161,7 +185,10 @@ const file_ai_agentversiondetail_proto_rawDesc = "" +
 	"\n" +
 	"updateTime\x18\n" +
 	" \x01(\x03R\n" +
-	"updateTimeB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3"
+	"updateTime\x12 \n" +
+	"\vnamespaceId\x18\x01 \x01(\tR\vnamespaceId\x12\x1c\n" +
+	"\tagentName\x18\x02 \x01(\tR\tagentName\x12D\n" +
+	"\x0ecallInterfaces\x18\x05 \x03(\v2\x1c.nacos.ai.AgentCallInterfaceR\x0ecallInterfacesB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3"
 
 var (
 	file_ai_agentversiondetail_proto_rawDescOnce sync.Once

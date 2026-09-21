@@ -6,4 +6,4 @@ package _go
 const NacosRef = "develop"
 
 // NacosCommit is the exact alibaba/nacos commit the protos were generated from.
-const NacosCommit = "2e52bf46d20506bb108307fa6929dfb9af32f4a1"
+const NacosCommit = "2fb031a62e7a8a2a58ffc61f297ca23caab5ff17"

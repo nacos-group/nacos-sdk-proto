@@ -22,11 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from ai import endpoint_pb2 as ai_dot_endpoint__pb2
+from ai import endpointset_pb2 as ai_dot_endpointset__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1b\x61i/agentcallinterface.proto\x12\x08nacos.ai\x1a\x11\x61i/endpoint.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xda\x01\n\x12\x41gentCallInterface\x12\x10\n\x08protocol\x18\x01 \x01(\t\x12\x17\n\x0fprotocolVersion\x18\x02 \x01(\t\x12\x1b\n\x13\x64\x65scriptorMediaType\x18\x03 \x01(\t\x12\x30\n\x10nativeDescriptor\x18\x04 \x01(\x0b\x32\x16.google.protobuf.Value\x12\x1b\n\x13\x65ndpointSourceOrder\x18\x05 \x03(\t\x12-\n\x11\x64\x65\x63laredEndpoints\x18\x06 \x03(\x0b\x32\x12.nacos.ai.EndpointB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1b\x61i/agentcallinterface.proto\x12\x08nacos.ai\x1a\x14\x61i/endpointset.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xde\x01\n\x12\x41gentCallInterface\x12\x10\n\x08protocol\x18\x01 \x01(\t\x12\x17\n\x0fprotocolVersion\x18\x02 \x01(\t\x12\x1b\n\x13\x64\x65scriptorMediaType\x18\x03 \x01(\t\x12\x30\n\x10nativeDescriptor\x18\x04 \x01(\x0b\x32\x16.google.protobuf.Value\x12\x1b\n\x13\x65ndpointSourceOrder\x18\x05 \x03(\t\x12+\n\x0c\x65ndpointSets\x18\x07 \x03(\x0b\x32\x15.nacos.ai.EndpointSetJ\x04\x08\x06\x10\x07\x42.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,6 +34,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'ai.agentcallinterface_pb2',
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/nacos-group/nacos-sdk-proto/go/ai'
-  _globals['_AGENTCALLINTERFACE']._serialized_start=91
-  _globals['_AGENTCALLINTERFACE']._serialized_end=309
+  _globals['_AGENTCALLINTERFACE']._serialized_start=94
+  _globals['_AGENTCALLINTERFACE']._serialized_end=316
 # @@protoc_insertion_point(module_scope)

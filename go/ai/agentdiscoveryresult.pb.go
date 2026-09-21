@@ -26,12 +26,14 @@ const (
 // metadata.type = "AgentDiscoveryResult"
 // Flattened from: AgentDiscoveryResult
 type AgentDiscoveryResult struct {
-	state          protoimpl.MessageState         `protogen:"open.v1"`
-	NamespaceId    string                         `protobuf:"bytes,1,opt,name=namespaceId,proto3" json:"namespaceId,omitempty"`
-	AgentName      string                         `protobuf:"bytes,2,opt,name=agentName,proto3" json:"agentName,omitempty"`
-	Version        string                         `protobuf:"bytes,3,opt,name=version,proto3" json:"version,omitempty"`
-	ContentDigest  string                         `protobuf:"bytes,4,opt,name=contentDigest,proto3" json:"contentDigest,omitempty"`
-	CallInterfaces []*AgentDiscoveryCallInterface `protobuf:"bytes,5,rep,name=callInterfaces,proto3" json:"callInterfaces,omitempty"`
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	NamespaceId    string                 `protobuf:"bytes,1,opt,name=namespaceId,proto3" json:"namespaceId,omitempty"`
+	AgentName      string                 `protobuf:"bytes,2,opt,name=agentName,proto3" json:"agentName,omitempty"`
+	Description    string                 `protobuf:"bytes,6,opt,name=description,proto3" json:"description,omitempty"`
+	Tags           []string               `protobuf:"bytes,7,rep,name=tags,proto3" json:"tags,omitempty"`
+	Version        string                 `protobuf:"bytes,3,opt,name=version,proto3" json:"version,omitempty"`
+	ContentDigest  string                 `protobuf:"bytes,4,opt,name=contentDigest,proto3" json:"contentDigest,omitempty"`
+	CallInterfaces []*AgentCallInterface  `protobuf:"bytes,5,rep,name=callInterfaces,proto3" json:"callInterfaces,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -80,6 +82,20 @@ func (x *AgentDiscoveryResult) GetAgentName() string {
 	return ""
 }
 
+func (x *AgentDiscoveryResult) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *AgentDiscoveryResult) GetTags() []string {
+	if x != nil {
+		return x.Tags
+	}
+	return nil
+}
+
 func (x *AgentDiscoveryResult) GetVersion() string {
 	if x != nil {
 		return x.Version
@@ -94,7 +110,7 @@ func (x *AgentDiscoveryResult) GetContentDigest() string {
 	return ""
 }
 
-func (x *AgentDiscoveryResult) GetCallInterfaces() []*AgentDiscoveryCallInterface {
+func (x *AgentDiscoveryResult) GetCallInterfaces() []*AgentCallInterface {
 	if x != nil {
 		return x.CallInterfaces
 	}
@@ -105,13 +121,15 @@ var File_ai_agentdiscoveryresult_proto protoreflect.FileDescriptor
 
 const file_ai_agentdiscoveryresult_proto_rawDesc = "" +
 	"\n" +
-	"\x1dai/agentdiscoveryresult.proto\x12\bnacos.ai\x1a$ai/agentdiscoverycallinterface.proto\"\xe5\x01\n" +
+	"\x1dai/agentdiscoveryresult.proto\x12\bnacos.ai\x1a\x1bai/agentcallinterface.proto\"\x92\x02\n" +
 	"\x14AgentDiscoveryResult\x12 \n" +
 	"\vnamespaceId\x18\x01 \x01(\tR\vnamespaceId\x12\x1c\n" +
-	"\tagentName\x18\x02 \x01(\tR\tagentName\x12\x18\n" +
+	"\tagentName\x18\x02 \x01(\tR\tagentName\x12 \n" +
+	"\vdescription\x18\x06 \x01(\tR\vdescription\x12\x12\n" +
+	"\x04tags\x18\a \x03(\tR\x04tags\x12\x18\n" +
 	"\aversion\x18\x03 \x01(\tR\aversion\x12$\n" +
-	"\rcontentDigest\x18\x04 \x01(\tR\rcontentDigest\x12M\n" +
-	"\x0ecallInterfaces\x18\x05 \x03(\v2%.nacos.ai.AgentDiscoveryCallInterfaceR\x0ecallInterfacesB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3"
+	"\rcontentDigest\x18\x04 \x01(\tR\rcontentDigest\x12D\n" +
+	"\x0ecallInterfaces\x18\x05 \x03(\v2\x1c.nacos.ai.AgentCallInterfaceR\x0ecallInterfacesB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3"
 
 var (
 	file_ai_agentdiscoveryresult_proto_rawDescOnce sync.Once
@@ -127,11 +145,11 @@ func file_ai_agentdiscoveryresult_proto_rawDescGZIP() []byte {
 
 var file_ai_agentdiscoveryresult_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_ai_agentdiscoveryresult_proto_goTypes = []any{
-	(*AgentDiscoveryResult)(nil),        // 0: nacos.ai.AgentDiscoveryResult
-	(*AgentDiscoveryCallInterface)(nil), // 1: nacos.ai.AgentDiscoveryCallInterface
+	(*AgentDiscoveryResult)(nil), // 0: nacos.ai.AgentDiscoveryResult
+	(*AgentCallInterface)(nil),   // 1: nacos.ai.AgentCallInterface
 }
 var file_ai_agentdiscoveryresult_proto_depIdxs = []int32{
-	1, // 0: nacos.ai.AgentDiscoveryResult.callInterfaces:type_name -> nacos.ai.AgentDiscoveryCallInterface
+	1, // 0: nacos.ai.AgentDiscoveryResult.callInterfaces:type_name -> nacos.ai.AgentCallInterface
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -144,7 +162,7 @@ func file_ai_agentdiscoveryresult_proto_init() {
 	if File_ai_agentdiscoveryresult_proto != nil {
 		return
 	}
-	file_ai_agentdiscoverycallinterface_proto_init()
+	file_ai_agentcallinterface_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

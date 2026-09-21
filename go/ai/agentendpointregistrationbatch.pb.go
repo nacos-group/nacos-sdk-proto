@@ -27,12 +27,11 @@ const (
 // Flattened from: AgentEndpointRegistrationBatch
 type AgentEndpointRegistrationBatch struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
-	NamespaceId    string                 `protobuf:"bytes,1,opt,name=namespaceId,proto3" json:"namespaceId,omitempty"`
 	AgentName      string                 `protobuf:"bytes,2,opt,name=agentName,proto3" json:"agentName,omitempty"`
-	RuntimeVersion string                 `protobuf:"bytes,3,opt,name=runtimeVersion,proto3" json:"runtimeVersion,omitempty"`
-	VersionRange   string                 `protobuf:"bytes,4,opt,name=versionRange,proto3" json:"versionRange,omitempty"`
 	Protocol       string                 `protobuf:"bytes,5,opt,name=protocol,proto3" json:"protocol,omitempty"`
 	Endpoints      []*Endpoint            `protobuf:"bytes,6,rep,name=endpoints,proto3" json:"endpoints,omitempty"`
+	RuntimeVersion string                 `protobuf:"bytes,3,opt,name=runtimeVersion,proto3" json:"runtimeVersion,omitempty"`
+	VersionRange   string                 `protobuf:"bytes,4,opt,name=versionRange,proto3" json:"versionRange,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -67,30 +66,9 @@ func (*AgentEndpointRegistrationBatch) Descriptor() ([]byte, []int) {
 	return file_ai_agentendpointregistrationbatch_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *AgentEndpointRegistrationBatch) GetNamespaceId() string {
-	if x != nil {
-		return x.NamespaceId
-	}
-	return ""
-}
-
 func (x *AgentEndpointRegistrationBatch) GetAgentName() string {
 	if x != nil {
 		return x.AgentName
-	}
-	return ""
-}
-
-func (x *AgentEndpointRegistrationBatch) GetRuntimeVersion() string {
-	if x != nil {
-		return x.RuntimeVersion
-	}
-	return ""
-}
-
-func (x *AgentEndpointRegistrationBatch) GetVersionRange() string {
-	if x != nil {
-		return x.VersionRange
 	}
 	return ""
 }
@@ -109,18 +87,31 @@ func (x *AgentEndpointRegistrationBatch) GetEndpoints() []*Endpoint {
 	return nil
 }
 
+func (x *AgentEndpointRegistrationBatch) GetRuntimeVersion() string {
+	if x != nil {
+		return x.RuntimeVersion
+	}
+	return ""
+}
+
+func (x *AgentEndpointRegistrationBatch) GetVersionRange() string {
+	if x != nil {
+		return x.VersionRange
+	}
+	return ""
+}
+
 var File_ai_agentendpointregistrationbatch_proto protoreflect.FileDescriptor
 
 const file_ai_agentendpointregistrationbatch_proto_rawDesc = "" +
 	"\n" +
-	"'ai/agentendpointregistrationbatch.proto\x12\bnacos.ai\x1a\x11ai/endpoint.proto\"\xfa\x01\n" +
-	"\x1eAgentEndpointRegistrationBatch\x12 \n" +
-	"\vnamespaceId\x18\x01 \x01(\tR\vnamespaceId\x12\x1c\n" +
-	"\tagentName\x18\x02 \x01(\tR\tagentName\x12&\n" +
-	"\x0eruntimeVersion\x18\x03 \x01(\tR\x0eruntimeVersion\x12\"\n" +
-	"\fversionRange\x18\x04 \x01(\tR\fversionRange\x12\x1a\n" +
+	"'ai/agentendpointregistrationbatch.proto\x12\bnacos.ai\x1a\x11ai/endpoint.proto\"\xde\x01\n" +
+	"\x1eAgentEndpointRegistrationBatch\x12\x1c\n" +
+	"\tagentName\x18\x02 \x01(\tR\tagentName\x12\x1a\n" +
 	"\bprotocol\x18\x05 \x01(\tR\bprotocol\x120\n" +
-	"\tendpoints\x18\x06 \x03(\v2\x12.nacos.ai.EndpointR\tendpointsB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3"
+	"\tendpoints\x18\x06 \x03(\v2\x12.nacos.ai.EndpointR\tendpoints\x12&\n" +
+	"\x0eruntimeVersion\x18\x03 \x01(\tR\x0eruntimeVersion\x12\"\n" +
+	"\fversionRange\x18\x04 \x01(\tR\fversionRangeJ\x04\b\x01\x10\x02B.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3"
 
 var (
 	file_ai_agentendpointregistrationbatch_proto_rawDescOnce sync.Once

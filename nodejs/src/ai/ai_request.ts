@@ -67,6 +67,7 @@ export interface AgentEndpointDeregisterRpcRequest {
  */
 export interface AgentEndpointRegisterRpcRequest {
   requestId: string;
+  namespaceId: string;
   registrationBatch: AgentEndpointRegistrationBatch | undefined;
 }
 
@@ -94,7 +95,7 @@ export interface AgentPublishRpcRequest {
 
 /**
  * metadata.type = "AgentPublishRequest"
- * Flattened from: AgentPublishRequest -> AgentDraftCreateRequest
+ * Flattened from: AgentPublishRequest -> AbstractAgentDraftRequest -> AbstractAgentMetadata
  */
 export interface AgentPublishRequest {
   agentName: string;
@@ -123,6 +124,7 @@ export interface AgentPublishRequest_ExtensionsEntry {
  */
 export interface AgentSearchRpcRequest {
   requestId: string;
+  namespaceId: string;
   searchRequest: AgentSearchRequest | undefined;
 }
 
@@ -131,7 +133,6 @@ export interface AgentSearchRpcRequest {
  * Flattened from: AgentSearchRequest
  */
 export interface AgentSearchRequest {
-  namespaceId: string;
   agentNameContains: string;
   tagsAll: string[];
   protocolsAny: string[];
@@ -458,13 +459,14 @@ export const AgentEndpointDeregisterRpcRequest: MessageFns<AgentEndpointDeregist
 };
 
 function createBaseAgentEndpointRegisterRpcRequest(): AgentEndpointRegisterRpcRequest {
-  return { requestId: "", registrationBatch: undefined };
+  return { requestId: "", namespaceId: "", registrationBatch: undefined };
 }
 
 export const AgentEndpointRegisterRpcRequest: MessageFns<AgentEndpointRegisterRpcRequest> = {
   fromJSON(object: any): AgentEndpointRegisterRpcRequest {
     return {
       requestId: isSet(object.requestId) ? globalThis.String(object.requestId) : "",
+      namespaceId: isSet(object.namespaceId) ? globalThis.String(object.namespaceId) : "",
       registrationBatch: isSet(object.registrationBatch)
         ? AgentEndpointRegistrationBatch.fromJSON(object.registrationBatch)
         : undefined,
@@ -475,6 +477,9 @@ export const AgentEndpointRegisterRpcRequest: MessageFns<AgentEndpointRegisterRp
     const obj: any = {};
     if (message.requestId !== "") {
       obj.requestId = message.requestId;
+    }
+    if (message.namespaceId !== "") {
+      obj.namespaceId = message.namespaceId;
     }
     if (message.registrationBatch !== undefined) {
       obj.registrationBatch = AgentEndpointRegistrationBatch.toJSON(message.registrationBatch);
@@ -490,6 +495,7 @@ export const AgentEndpointRegisterRpcRequest: MessageFns<AgentEndpointRegisterRp
   ): AgentEndpointRegisterRpcRequest {
     const message = createBaseAgentEndpointRegisterRpcRequest();
     message.requestId = object.requestId ?? "";
+    message.namespaceId = object.namespaceId ?? "";
     message.registrationBatch = (object.registrationBatch !== undefined && object.registrationBatch !== null)
       ? AgentEndpointRegistrationBatch.fromPartial(object.registrationBatch)
       : undefined;
@@ -757,13 +763,14 @@ export const AgentPublishRequest_ExtensionsEntry: MessageFns<AgentPublishRequest
 };
 
 function createBaseAgentSearchRpcRequest(): AgentSearchRpcRequest {
-  return { requestId: "", searchRequest: undefined };
+  return { requestId: "", namespaceId: "", searchRequest: undefined };
 }
 
 export const AgentSearchRpcRequest: MessageFns<AgentSearchRpcRequest> = {
   fromJSON(object: any): AgentSearchRpcRequest {
     return {
       requestId: isSet(object.requestId) ? globalThis.String(object.requestId) : "",
+      namespaceId: isSet(object.namespaceId) ? globalThis.String(object.namespaceId) : "",
       searchRequest: isSet(object.searchRequest) ? AgentSearchRequest.fromJSON(object.searchRequest) : undefined,
     };
   },
@@ -772,6 +779,9 @@ export const AgentSearchRpcRequest: MessageFns<AgentSearchRpcRequest> = {
     const obj: any = {};
     if (message.requestId !== "") {
       obj.requestId = message.requestId;
+    }
+    if (message.namespaceId !== "") {
+      obj.namespaceId = message.namespaceId;
     }
     if (message.searchRequest !== undefined) {
       obj.searchRequest = AgentSearchRequest.toJSON(message.searchRequest);
@@ -785,6 +795,7 @@ export const AgentSearchRpcRequest: MessageFns<AgentSearchRpcRequest> = {
   fromPartial<I extends Exact<DeepPartial<AgentSearchRpcRequest>, I>>(object: I): AgentSearchRpcRequest {
     const message = createBaseAgentSearchRpcRequest();
     message.requestId = object.requestId ?? "";
+    message.namespaceId = object.namespaceId ?? "";
     message.searchRequest = (object.searchRequest !== undefined && object.searchRequest !== null)
       ? AgentSearchRequest.fromPartial(object.searchRequest)
       : undefined;
@@ -793,13 +804,12 @@ export const AgentSearchRpcRequest: MessageFns<AgentSearchRpcRequest> = {
 };
 
 function createBaseAgentSearchRequest(): AgentSearchRequest {
-  return { namespaceId: "", agentNameContains: "", tagsAll: [], protocolsAny: [], pageNo: 0, pageSize: 0 };
+  return { agentNameContains: "", tagsAll: [], protocolsAny: [], pageNo: 0, pageSize: 0 };
 }
 
 export const AgentSearchRequest: MessageFns<AgentSearchRequest> = {
   fromJSON(object: any): AgentSearchRequest {
     return {
-      namespaceId: isSet(object.namespaceId) ? globalThis.String(object.namespaceId) : "",
       agentNameContains: isSet(object.agentNameContains) ? globalThis.String(object.agentNameContains) : "",
       tagsAll: globalThis.Array.isArray(object?.tagsAll) ? object.tagsAll.map((e: any) => globalThis.String(e)) : [],
       protocolsAny: globalThis.Array.isArray(object?.protocolsAny)
@@ -812,9 +822,6 @@ export const AgentSearchRequest: MessageFns<AgentSearchRequest> = {
 
   toJSON(message: AgentSearchRequest): unknown {
     const obj: any = {};
-    if (message.namespaceId !== "") {
-      obj.namespaceId = message.namespaceId;
-    }
     if (message.agentNameContains !== "") {
       obj.agentNameContains = message.agentNameContains;
     }
@@ -838,7 +845,6 @@ export const AgentSearchRequest: MessageFns<AgentSearchRequest> = {
   },
   fromPartial<I extends Exact<DeepPartial<AgentSearchRequest>, I>>(object: I): AgentSearchRequest {
     const message = createBaseAgentSearchRequest();
-    message.namespaceId = object.namespaceId ?? "";
     message.agentNameContains = object.agentNameContains ?? "";
     message.tagsAll = object.tagsAll?.map((e) => e) || [];
     message.protocolsAny = object.protocolsAny?.map((e) => e) || [];

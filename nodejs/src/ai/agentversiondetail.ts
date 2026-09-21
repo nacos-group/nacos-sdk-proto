@@ -11,70 +11,81 @@ import { AgentCallInterface } from "./agentcallinterface";
 
 /**
  * metadata.type = "AgentVersionDetail"
- * Flattened from: AgentVersionDetail
+ * Flattened from: AgentVersionDetail -> AgentVersionSummary
  */
 export interface AgentVersionDetail {
-  namespaceId: string;
-  agentName: string;
   version: string;
+  labels: string[];
+  protocols: string[];
   status: string;
-  callInterfaces: AgentCallInterface[];
+  publishPipelineInfo: string;
   author: string;
   changeDescription: string;
   contentDigest: string;
   createTime: number;
   updateTime: number;
+  namespaceId: string;
+  agentName: string;
+  callInterfaces: AgentCallInterface[];
 }
 
 function createBaseAgentVersionDetail(): AgentVersionDetail {
   return {
-    namespaceId: "",
-    agentName: "",
     version: "",
+    labels: [],
+    protocols: [],
     status: "",
-    callInterfaces: [],
+    publishPipelineInfo: "",
     author: "",
     changeDescription: "",
     contentDigest: "",
     createTime: 0,
     updateTime: 0,
+    namespaceId: "",
+    agentName: "",
+    callInterfaces: [],
   };
 }
 
 export const AgentVersionDetail: MessageFns<AgentVersionDetail> = {
   fromJSON(object: any): AgentVersionDetail {
     return {
-      namespaceId: isSet(object.namespaceId) ? globalThis.String(object.namespaceId) : "",
-      agentName: isSet(object.agentName) ? globalThis.String(object.agentName) : "",
       version: isSet(object.version) ? globalThis.String(object.version) : "",
-      status: isSet(object.status) ? globalThis.String(object.status) : "",
-      callInterfaces: globalThis.Array.isArray(object?.callInterfaces)
-        ? object.callInterfaces.map((e: any) => AgentCallInterface.fromJSON(e))
+      labels: globalThis.Array.isArray(object?.labels) ? object.labels.map((e: any) => globalThis.String(e)) : [],
+      protocols: globalThis.Array.isArray(object?.protocols)
+        ? object.protocols.map((e: any) => globalThis.String(e))
         : [],
+      status: isSet(object.status) ? globalThis.String(object.status) : "",
+      publishPipelineInfo: isSet(object.publishPipelineInfo) ? globalThis.String(object.publishPipelineInfo) : "",
       author: isSet(object.author) ? globalThis.String(object.author) : "",
       changeDescription: isSet(object.changeDescription) ? globalThis.String(object.changeDescription) : "",
       contentDigest: isSet(object.contentDigest) ? globalThis.String(object.contentDigest) : "",
       createTime: isSet(object.createTime) ? globalThis.Number(object.createTime) : 0,
       updateTime: isSet(object.updateTime) ? globalThis.Number(object.updateTime) : 0,
+      namespaceId: isSet(object.namespaceId) ? globalThis.String(object.namespaceId) : "",
+      agentName: isSet(object.agentName) ? globalThis.String(object.agentName) : "",
+      callInterfaces: globalThis.Array.isArray(object?.callInterfaces)
+        ? object.callInterfaces.map((e: any) => AgentCallInterface.fromJSON(e))
+        : [],
     };
   },
 
   toJSON(message: AgentVersionDetail): unknown {
     const obj: any = {};
-    if (message.namespaceId !== "") {
-      obj.namespaceId = message.namespaceId;
-    }
-    if (message.agentName !== "") {
-      obj.agentName = message.agentName;
-    }
     if (message.version !== "") {
       obj.version = message.version;
+    }
+    if (message.labels?.length) {
+      obj.labels = message.labels;
+    }
+    if (message.protocols?.length) {
+      obj.protocols = message.protocols;
     }
     if (message.status !== "") {
       obj.status = message.status;
     }
-    if (message.callInterfaces?.length) {
-      obj.callInterfaces = message.callInterfaces.map((e) => AgentCallInterface.toJSON(e));
+    if (message.publishPipelineInfo !== "") {
+      obj.publishPipelineInfo = message.publishPipelineInfo;
     }
     if (message.author !== "") {
       obj.author = message.author;
@@ -91,6 +102,15 @@ export const AgentVersionDetail: MessageFns<AgentVersionDetail> = {
     if (message.updateTime !== 0) {
       obj.updateTime = Math.round(message.updateTime);
     }
+    if (message.namespaceId !== "") {
+      obj.namespaceId = message.namespaceId;
+    }
+    if (message.agentName !== "") {
+      obj.agentName = message.agentName;
+    }
+    if (message.callInterfaces?.length) {
+      obj.callInterfaces = message.callInterfaces.map((e) => AgentCallInterface.toJSON(e));
+    }
     return obj;
   },
 
@@ -99,16 +119,19 @@ export const AgentVersionDetail: MessageFns<AgentVersionDetail> = {
   },
   fromPartial<I extends Exact<DeepPartial<AgentVersionDetail>, I>>(object: I): AgentVersionDetail {
     const message = createBaseAgentVersionDetail();
-    message.namespaceId = object.namespaceId ?? "";
-    message.agentName = object.agentName ?? "";
     message.version = object.version ?? "";
+    message.labels = object.labels?.map((e) => e) || [];
+    message.protocols = object.protocols?.map((e) => e) || [];
     message.status = object.status ?? "";
-    message.callInterfaces = object.callInterfaces?.map((e) => AgentCallInterface.fromPartial(e)) || [];
+    message.publishPipelineInfo = object.publishPipelineInfo ?? "";
     message.author = object.author ?? "";
     message.changeDescription = object.changeDescription ?? "";
     message.contentDigest = object.contentDigest ?? "";
     message.createTime = object.createTime ?? 0;
     message.updateTime = object.updateTime ?? 0;
+    message.namespaceId = object.namespaceId ?? "";
+    message.agentName = object.agentName ?? "";
+    message.callInterfaces = object.callInterfaces?.map((e) => AgentCallInterface.fromPartial(e)) || [];
     return message;
   },
 };

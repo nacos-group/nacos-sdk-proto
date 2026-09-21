@@ -4,13 +4,13 @@ package nacos.ai;
 
 option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 
-import "ai/agentcatalogentry.proto";
+import "ai/agentsummary.proto";
 
-// metadata.type = "AgentCatalogEntryPage"
-// Flattened from: Page<AgentCatalogEntry>
-message AgentCatalogEntryPage {
+// metadata.type = "AgentSummaryPage"
+// Flattened from: Page<AgentSummary>
+message AgentSummaryPage {
   int32 totalCount = 1;
   int32 pageNumber = 2;
   int32 pagesAvailable = 3;
-  repeated AgentCatalogEntry pageItems = 4;
+  repeated AgentSummary pageItems = 4;
 }

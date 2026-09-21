@@ -4,14 +4,16 @@ package nacos.ai;
 
 option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 
-import "ai/agentdiscoverycallinterface.proto";
+import "ai/agentcallinterface.proto";
 
 // metadata.type = "AgentDiscoveryResult"
 // Flattened from: AgentDiscoveryResult
 message AgentDiscoveryResult {
   string namespaceId = 1;
   string agentName = 2;
+  string description = 6;
+  repeated string tags = 7;
   string version = 3;
   string contentDigest = 4;
-  repeated AgentDiscoveryCallInterface callInterfaces = 5;
+  repeated AgentCallInterface callInterfaces = 5;
 }

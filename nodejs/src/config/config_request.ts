@@ -149,6 +149,7 @@ export interface ConfigQueryRequest {
   group: string;
   tenant: string;
   tag: string;
+  localMd5: string;
 }
 
 /**
@@ -770,7 +771,7 @@ export const ConfigPublishRequest_AdditionMapEntry: MessageFns<ConfigPublishRequ
 };
 
 function createBaseConfigQueryRequest(): ConfigQueryRequest {
-  return { requestId: "", dataId: "", group: "", tenant: "", tag: "" };
+  return { requestId: "", dataId: "", group: "", tenant: "", tag: "", localMd5: "" };
 }
 
 export const ConfigQueryRequest: MessageFns<ConfigQueryRequest> = {
@@ -781,6 +782,7 @@ export const ConfigQueryRequest: MessageFns<ConfigQueryRequest> = {
       group: isSet(object.group) ? globalThis.String(object.group) : "",
       tenant: isSet(object.tenant) ? globalThis.String(object.tenant) : "",
       tag: isSet(object.tag) ? globalThis.String(object.tag) : "",
+      localMd5: isSet(object.localMd5) ? globalThis.String(object.localMd5) : "",
     };
   },
 
@@ -801,6 +803,9 @@ export const ConfigQueryRequest: MessageFns<ConfigQueryRequest> = {
     if (message.tag !== "") {
       obj.tag = message.tag;
     }
+    if (message.localMd5 !== "") {
+      obj.localMd5 = message.localMd5;
+    }
     return obj;
   },
 
@@ -814,6 +819,7 @@ export const ConfigQueryRequest: MessageFns<ConfigQueryRequest> = {
     message.group = object.group ?? "";
     message.tenant = object.tenant ?? "";
     message.tag = object.tag ?? "";
+    message.localMd5 = object.localMd5 ?? "";
     return message;
   },
 };

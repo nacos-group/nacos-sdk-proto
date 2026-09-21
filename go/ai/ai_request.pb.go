@@ -293,6 +293,7 @@ func (x *AgentEndpointDeregisterRpcRequest) GetProtocol() string {
 type AgentEndpointRegisterRpcRequest struct {
 	state             protoimpl.MessageState          `protogen:"open.v1"`
 	RequestId         string                          `protobuf:"bytes,1,opt,name=requestId,proto3" json:"requestId,omitempty"`
+	NamespaceId       string                          `protobuf:"bytes,3,opt,name=namespaceId,proto3" json:"namespaceId,omitempty"`
 	RegistrationBatch *AgentEndpointRegistrationBatch `protobuf:"bytes,2,opt,name=registrationBatch,proto3" json:"registrationBatch,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
@@ -331,6 +332,13 @@ func (*AgentEndpointRegisterRpcRequest) Descriptor() ([]byte, []int) {
 func (x *AgentEndpointRegisterRpcRequest) GetRequestId() string {
 	if x != nil {
 		return x.RequestId
+	}
+	return ""
+}
+
+func (x *AgentEndpointRegisterRpcRequest) GetNamespaceId() string {
+	if x != nil {
+		return x.NamespaceId
 	}
 	return ""
 }
@@ -483,7 +491,7 @@ func (x *AgentPublishRpcRequest) GetPublishRequest() *AgentPublishRequest {
 }
 
 // metadata.type = "AgentPublishRequest"
-// Flattened from: AgentPublishRequest -> AgentDraftCreateRequest
+// Flattened from: AgentPublishRequest -> AbstractAgentDraftRequest -> AbstractAgentMetadata
 type AgentPublishRequest struct {
 	state             protoimpl.MessageState     `protogen:"open.v1"`
 	AgentName         string                     `protobuf:"bytes,1,opt,name=agentName,proto3" json:"agentName,omitempty"`
@@ -629,6 +637,7 @@ func (x *AgentPublishRequest) GetAutoSubmit() bool {
 type AgentSearchRpcRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RequestId     string                 `protobuf:"bytes,1,opt,name=requestId,proto3" json:"requestId,omitempty"`
+	NamespaceId   string                 `protobuf:"bytes,3,opt,name=namespaceId,proto3" json:"namespaceId,omitempty"`
 	SearchRequest *AgentSearchRequest    `protobuf:"bytes,2,opt,name=searchRequest,proto3" json:"searchRequest,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -671,6 +680,13 @@ func (x *AgentSearchRpcRequest) GetRequestId() string {
 	return ""
 }
 
+func (x *AgentSearchRpcRequest) GetNamespaceId() string {
+	if x != nil {
+		return x.NamespaceId
+	}
+	return ""
+}
+
 func (x *AgentSearchRpcRequest) GetSearchRequest() *AgentSearchRequest {
 	if x != nil {
 		return x.SearchRequest
@@ -682,7 +698,6 @@ func (x *AgentSearchRpcRequest) GetSearchRequest() *AgentSearchRequest {
 // Flattened from: AgentSearchRequest
 type AgentSearchRequest struct {
 	state             protoimpl.MessageState `protogen:"open.v1"`
-	NamespaceId       string                 `protobuf:"bytes,1,opt,name=namespaceId,proto3" json:"namespaceId,omitempty"`
 	AgentNameContains string                 `protobuf:"bytes,2,opt,name=agentNameContains,proto3" json:"agentNameContains,omitempty"`
 	TagsAll           []string               `protobuf:"bytes,3,rep,name=tagsAll,proto3" json:"tagsAll,omitempty"`
 	ProtocolsAny      []string               `protobuf:"bytes,4,rep,name=protocolsAny,proto3" json:"protocolsAny,omitempty"`
@@ -720,13 +735,6 @@ func (x *AgentSearchRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use AgentSearchRequest.ProtoReflect.Descriptor instead.
 func (*AgentSearchRequest) Descriptor() ([]byte, []int) {
 	return file_ai_ai_request_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *AgentSearchRequest) GetNamespaceId() string {
-	if x != nil {
-		return x.NamespaceId
-	}
-	return ""
 }
 
 func (x *AgentSearchRequest) GetAgentNameContains() string {
@@ -1618,9 +1626,10 @@ const file_ai_ai_request_proto_rawDesc = "" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12 \n" +
 	"\vnamespaceId\x18\x02 \x01(\tR\vnamespaceId\x12\x1c\n" +
 	"\tagentName\x18\x03 \x01(\tR\tagentName\x12\x1a\n" +
-	"\bprotocol\x18\x04 \x01(\tR\bprotocol\"\x97\x01\n" +
+	"\bprotocol\x18\x04 \x01(\tR\bprotocol\"\xb9\x01\n" +
 	"\x1fAgentEndpointRegisterRpcRequest\x12\x1c\n" +
-	"\trequestId\x18\x01 \x01(\tR\trequestId\x12V\n" +
+	"\trequestId\x18\x01 \x01(\tR\trequestId\x12 \n" +
+	"\vnamespaceId\x18\x03 \x01(\tR\vnamespaceId\x12V\n" +
 	"\x11registrationBatch\x18\x02 \x01(\v2(.nacos.ai.AgentEndpointRegistrationBatchR\x11registrationBatch\"\xbd\x01\n" +
 	"\x14AgentEndpointRequest\x12\x1c\n" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12 \n" +
@@ -1653,17 +1662,17 @@ const file_ai_ai_request_proto_rawDesc = "" +
 	"autoSubmit\x1aU\n" +
 	"\x0fExtensionsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12,\n" +
-	"\x05value\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x05value:\x028\x01\"y\n" +
+	"\x05value\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x05value:\x028\x01\"\x9b\x01\n" +
 	"\x15AgentSearchRpcRequest\x12\x1c\n" +
-	"\trequestId\x18\x01 \x01(\tR\trequestId\x12B\n" +
-	"\rsearchRequest\x18\x02 \x01(\v2\x1c.nacos.ai.AgentSearchRequestR\rsearchRequest\"\xd6\x01\n" +
-	"\x12AgentSearchRequest\x12 \n" +
-	"\vnamespaceId\x18\x01 \x01(\tR\vnamespaceId\x12,\n" +
+	"\trequestId\x18\x01 \x01(\tR\trequestId\x12 \n" +
+	"\vnamespaceId\x18\x03 \x01(\tR\vnamespaceId\x12B\n" +
+	"\rsearchRequest\x18\x02 \x01(\v2\x1c.nacos.ai.AgentSearchRequestR\rsearchRequest\"\xba\x01\n" +
+	"\x12AgentSearchRequest\x12,\n" +
 	"\x11agentNameContains\x18\x02 \x01(\tR\x11agentNameContains\x12\x18\n" +
 	"\atagsAll\x18\x03 \x03(\tR\atagsAll\x12\"\n" +
 	"\fprotocolsAny\x18\x04 \x03(\tR\fprotocolsAny\x12\x16\n" +
 	"\x06pageNo\x18\x05 \x01(\x05R\x06pageNo\x12\x1a\n" +
-	"\bpageSize\x18\x06 \x01(\x05R\bpageSize\"\xe5\x01\n" +
+	"\bpageSize\x18\x06 \x01(\x05R\bpageSizeJ\x04\b\x01\x10\x02\"\xe5\x01\n" +
 	"\x18AgentSubscribeRpcRequest\x12\x1c\n" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12$\n" +
 	"\rclientWatchId\x18\x02 \x01(\tR\rclientWatchId\x12K\n" +
