@@ -22,10 +22,10 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from ai import agentdiscoverycallinterface_pb2 as ai_dot_agentdiscoverycallinterface__pb2
+from ai import agentcallinterface_pb2 as ai_dot_agentcallinterface__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1d\x61i/agentdiscoveryresult.proto\x12\x08nacos.ai\x1a$ai/agentdiscoverycallinterface.proto\"\xa5\x01\n\x14\x41gentDiscoveryResult\x12\x13\n\x0bnamespaceId\x18\x01 \x01(\t\x12\x11\n\tagentName\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\x12\x15\n\rcontentDigest\x18\x04 \x01(\t\x12=\n\x0e\x63\x61llInterfaces\x18\x05 \x03(\x0b\x32%.nacos.ai.AgentDiscoveryCallInterfaceB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1d\x61i/agentdiscoveryresult.proto\x12\x08nacos.ai\x1a\x1b\x61i/agentcallinterface.proto\"\xbf\x01\n\x14\x41gentDiscoveryResult\x12\x13\n\x0bnamespaceId\x18\x01 \x01(\t\x12\x11\n\tagentName\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\x12\x0c\n\x04tags\x18\x07 \x03(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\x12\x15\n\rcontentDigest\x18\x04 \x01(\t\x12\x34\n\x0e\x63\x61llInterfaces\x18\x05 \x03(\x0b\x32\x1c.nacos.ai.AgentCallInterfaceB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,6 +33,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'ai.agentdiscoveryresult_pb2
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/nacos-group/nacos-sdk-proto/go/ai'
-  _globals['_AGENTDISCOVERYRESULT']._serialized_start=82
-  _globals['_AGENTDISCOVERYRESULT']._serialized_end=247
+  _globals['_AGENTDISCOVERYRESULT']._serialized_start=73
+  _globals['_AGENTDISCOVERYRESULT']._serialized_end=264
 # @@protoc_insertion_point(module_scope)

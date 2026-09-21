@@ -14,51 +14,46 @@ import { Endpoint } from "./endpoint";
  * Flattened from: AgentEndpointRegistrationBatch
  */
 export interface AgentEndpointRegistrationBatch {
-  namespaceId: string;
   agentName: string;
-  runtimeVersion: string;
-  versionRange: string;
   protocol: string;
   endpoints: Endpoint[];
+  runtimeVersion: string;
+  versionRange: string;
 }
 
 function createBaseAgentEndpointRegistrationBatch(): AgentEndpointRegistrationBatch {
-  return { namespaceId: "", agentName: "", runtimeVersion: "", versionRange: "", protocol: "", endpoints: [] };
+  return { agentName: "", protocol: "", endpoints: [], runtimeVersion: "", versionRange: "" };
 }
 
 export const AgentEndpointRegistrationBatch: MessageFns<AgentEndpointRegistrationBatch> = {
   fromJSON(object: any): AgentEndpointRegistrationBatch {
     return {
-      namespaceId: isSet(object.namespaceId) ? globalThis.String(object.namespaceId) : "",
       agentName: isSet(object.agentName) ? globalThis.String(object.agentName) : "",
-      runtimeVersion: isSet(object.runtimeVersion) ? globalThis.String(object.runtimeVersion) : "",
-      versionRange: isSet(object.versionRange) ? globalThis.String(object.versionRange) : "",
       protocol: isSet(object.protocol) ? globalThis.String(object.protocol) : "",
       endpoints: globalThis.Array.isArray(object?.endpoints)
         ? object.endpoints.map((e: any) => Endpoint.fromJSON(e))
         : [],
+      runtimeVersion: isSet(object.runtimeVersion) ? globalThis.String(object.runtimeVersion) : "",
+      versionRange: isSet(object.versionRange) ? globalThis.String(object.versionRange) : "",
     };
   },
 
   toJSON(message: AgentEndpointRegistrationBatch): unknown {
     const obj: any = {};
-    if (message.namespaceId !== "") {
-      obj.namespaceId = message.namespaceId;
-    }
     if (message.agentName !== "") {
       obj.agentName = message.agentName;
-    }
-    if (message.runtimeVersion !== "") {
-      obj.runtimeVersion = message.runtimeVersion;
-    }
-    if (message.versionRange !== "") {
-      obj.versionRange = message.versionRange;
     }
     if (message.protocol !== "") {
       obj.protocol = message.protocol;
     }
     if (message.endpoints?.length) {
       obj.endpoints = message.endpoints.map((e) => Endpoint.toJSON(e));
+    }
+    if (message.runtimeVersion !== "") {
+      obj.runtimeVersion = message.runtimeVersion;
+    }
+    if (message.versionRange !== "") {
+      obj.versionRange = message.versionRange;
     }
     return obj;
   },
@@ -70,12 +65,11 @@ export const AgentEndpointRegistrationBatch: MessageFns<AgentEndpointRegistratio
     object: I,
   ): AgentEndpointRegistrationBatch {
     const message = createBaseAgentEndpointRegistrationBatch();
-    message.namespaceId = object.namespaceId ?? "";
     message.agentName = object.agentName ?? "";
-    message.runtimeVersion = object.runtimeVersion ?? "";
-    message.versionRange = object.versionRange ?? "";
     message.protocol = object.protocol ?? "";
     message.endpoints = object.endpoints?.map((e) => Endpoint.fromPartial(e)) || [];
+    message.runtimeVersion = object.runtimeVersion ?? "";
+    message.versionRange = object.versionRange ?? "";
     return message;
   },
 };

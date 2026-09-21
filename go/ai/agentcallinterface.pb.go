@@ -33,7 +33,7 @@ type AgentCallInterface struct {
 	DescriptorMediaType string                 `protobuf:"bytes,3,opt,name=descriptorMediaType,proto3" json:"descriptorMediaType,omitempty"`
 	NativeDescriptor    *structpb.Value        `protobuf:"bytes,4,opt,name=nativeDescriptor,proto3" json:"nativeDescriptor,omitempty"`
 	EndpointSourceOrder []string               `protobuf:"bytes,5,rep,name=endpointSourceOrder,proto3" json:"endpointSourceOrder,omitempty"`
-	DeclaredEndpoints   []*Endpoint            `protobuf:"bytes,6,rep,name=declaredEndpoints,proto3" json:"declaredEndpoints,omitempty"`
+	EndpointSets        []*EndpointSet         `protobuf:"bytes,7,rep,name=endpointSets,proto3" json:"endpointSets,omitempty"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -103,9 +103,9 @@ func (x *AgentCallInterface) GetEndpointSourceOrder() []string {
 	return nil
 }
 
-func (x *AgentCallInterface) GetDeclaredEndpoints() []*Endpoint {
+func (x *AgentCallInterface) GetEndpointSets() []*EndpointSet {
 	if x != nil {
-		return x.DeclaredEndpoints
+		return x.EndpointSets
 	}
 	return nil
 }
@@ -114,14 +114,14 @@ var File_ai_agentcallinterface_proto protoreflect.FileDescriptor
 
 const file_ai_agentcallinterface_proto_rawDesc = "" +
 	"\n" +
-	"\x1bai/agentcallinterface.proto\x12\bnacos.ai\x1a\x11ai/endpoint.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xc4\x02\n" +
+	"\x1bai/agentcallinterface.proto\x12\bnacos.ai\x1a\x14ai/endpointset.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xc3\x02\n" +
 	"\x12AgentCallInterface\x12\x1a\n" +
 	"\bprotocol\x18\x01 \x01(\tR\bprotocol\x12(\n" +
 	"\x0fprotocolVersion\x18\x02 \x01(\tR\x0fprotocolVersion\x120\n" +
 	"\x13descriptorMediaType\x18\x03 \x01(\tR\x13descriptorMediaType\x12B\n" +
 	"\x10nativeDescriptor\x18\x04 \x01(\v2\x16.google.protobuf.ValueR\x10nativeDescriptor\x120\n" +
-	"\x13endpointSourceOrder\x18\x05 \x03(\tR\x13endpointSourceOrder\x12@\n" +
-	"\x11declaredEndpoints\x18\x06 \x03(\v2\x12.nacos.ai.EndpointR\x11declaredEndpointsB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3"
+	"\x13endpointSourceOrder\x18\x05 \x03(\tR\x13endpointSourceOrder\x129\n" +
+	"\fendpointSets\x18\a \x03(\v2\x15.nacos.ai.EndpointSetR\fendpointSetsJ\x04\b\x06\x10\aB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3"
 
 var (
 	file_ai_agentcallinterface_proto_rawDescOnce sync.Once
@@ -139,11 +139,11 @@ var file_ai_agentcallinterface_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_ai_agentcallinterface_proto_goTypes = []any{
 	(*AgentCallInterface)(nil), // 0: nacos.ai.AgentCallInterface
 	(*structpb.Value)(nil),     // 1: google.protobuf.Value
-	(*Endpoint)(nil),           // 2: nacos.ai.Endpoint
+	(*EndpointSet)(nil),        // 2: nacos.ai.EndpointSet
 }
 var file_ai_agentcallinterface_proto_depIdxs = []int32{
 	1, // 0: nacos.ai.AgentCallInterface.nativeDescriptor:type_name -> google.protobuf.Value
-	2, // 1: nacos.ai.AgentCallInterface.declaredEndpoints:type_name -> nacos.ai.Endpoint
+	2, // 1: nacos.ai.AgentCallInterface.endpointSets:type_name -> nacos.ai.EndpointSet
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -156,7 +156,7 @@ func file_ai_agentcallinterface_proto_init() {
 	if File_ai_agentcallinterface_proto != nil {
 		return
 	}
-	file_ai_endpoint_proto_init()
+	file_ai_endpointset_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

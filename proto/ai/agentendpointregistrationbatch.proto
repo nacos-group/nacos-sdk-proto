@@ -9,10 +9,10 @@ import "ai/endpoint.proto";
 // metadata.type = "AgentEndpointRegistrationBatch"
 // Flattened from: AgentEndpointRegistrationBatch
 message AgentEndpointRegistrationBatch {
-  string namespaceId = 1;
   string agentName = 2;
-  string runtimeVersion = 3;
-  string versionRange = 4;
   string protocol = 5;
   repeated Endpoint endpoints = 6;
+  string runtimeVersion = 3;
+  string versionRange = 4;
+  reserved 1;
 }

@@ -4,12 +4,13 @@ package nacos.ai;
 
 option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 
-import "ai/agentdiscoveryendpoint.proto";
+import "ai/endpoint.proto";
 
 // metadata.type = "EndpointSet"
 // Flattened from: EndpointSet
 message EndpointSet {
   string source = 1;
   string sourceRevision = 2;
-  repeated AgentDiscoveryEndpoint endpoints = 3;
+  int64 lastUpdatedTime = 4;
+  repeated Endpoint endpoints = 3;
 }

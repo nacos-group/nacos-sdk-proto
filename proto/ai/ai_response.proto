@@ -5,8 +5,8 @@ package nacos.ai;
 option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 
 import "ai/agentcarddetailinfo.proto";
-import "ai/agentcatalogentrypage.proto";
 import "ai/agentdiscoveryresult.proto";
+import "ai/agentsummarypage.proto";
 import "ai/agentversiondetail.proto";
 import "ai/mcpserverdetailinfo.proto";
 import "ai/prompt.proto";
@@ -68,7 +68,7 @@ message AgentSearchResponse {
   int32 errorCode = 2;
   string message = 3;
   string requestId = 4;
-  AgentCatalogEntryPage page = 5;
+  AgentSummaryPage page = 5;
 }
 
 // metadata.type = "AgentSubscribeRpcResponse"

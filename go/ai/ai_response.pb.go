@@ -421,7 +421,7 @@ type AgentSearchResponse struct {
 	ErrorCode     int32                  `protobuf:"varint,2,opt,name=errorCode,proto3" json:"errorCode,omitempty"`
 	Message       string                 `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
 	RequestId     string                 `protobuf:"bytes,4,opt,name=requestId,proto3" json:"requestId,omitempty"`
-	Page          *AgentCatalogEntryPage `protobuf:"bytes,5,opt,name=page,proto3" json:"page,omitempty"`
+	Page          *AgentSummaryPage      `protobuf:"bytes,5,opt,name=page,proto3" json:"page,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -484,7 +484,7 @@ func (x *AgentSearchResponse) GetRequestId() string {
 	return ""
 }
 
-func (x *AgentSearchResponse) GetPage() *AgentCatalogEntryPage {
+func (x *AgentSearchResponse) GetPage() *AgentSummaryPage {
 	if x != nil {
 		return x.Page
 	}
@@ -1189,7 +1189,7 @@ var File_ai_ai_response_proto protoreflect.FileDescriptor
 
 const file_ai_ai_response_proto_rawDesc = "" +
 	"\n" +
-	"\x14ai/ai_response.proto\x12\bnacos.ai\x1a\x1cai/agentcarddetailinfo.proto\x1a\x1eai/agentcatalogentrypage.proto\x1a\x1dai/agentdiscoveryresult.proto\x1a\x1bai/agentversiondetail.proto\x1a\x1cai/mcpserverdetailinfo.proto\x1a\x0fai/prompt.proto\"\xcc\x01\n" +
+	"\x14ai/ai_response.proto\x12\bnacos.ai\x1a\x1cai/agentcarddetailinfo.proto\x1a\x1dai/agentdiscoveryresult.proto\x1a\x19ai/agentsummarypage.proto\x1a\x1bai/agentversiondetail.proto\x1a\x1cai/mcpserverdetailinfo.proto\x1a\x0fai/prompt.proto\"\xcc\x01\n" +
 	"\x1cAgentDiscoveryNotifyResponse\x12\x1e\n" +
 	"\n" +
 	"resultCode\x18\x01 \x01(\x05R\n" +
@@ -1229,15 +1229,15 @@ const file_ai_ai_response_proto_rawDesc = "" +
 	"\terrorCode\x18\x02 \x01(\x05R\terrorCode\x12\x18\n" +
 	"\amessage\x18\x03 \x01(\tR\amessage\x12\x1c\n" +
 	"\trequestId\x18\x04 \x01(\tR\trequestId\x12B\n" +
-	"\rversionDetail\x18\x05 \x01(\v2\x1c.nacos.ai.AgentVersionDetailR\rversionDetail\"\xc0\x01\n" +
+	"\rversionDetail\x18\x05 \x01(\v2\x1c.nacos.ai.AgentVersionDetailR\rversionDetail\"\xbb\x01\n" +
 	"\x13AgentSearchResponse\x12\x1e\n" +
 	"\n" +
 	"resultCode\x18\x01 \x01(\x05R\n" +
 	"resultCode\x12\x1c\n" +
 	"\terrorCode\x18\x02 \x01(\x05R\terrorCode\x12\x18\n" +
 	"\amessage\x18\x03 \x01(\tR\amessage\x12\x1c\n" +
-	"\trequestId\x18\x04 \x01(\tR\trequestId\x123\n" +
-	"\x04page\x18\x05 \x01(\v2\x1f.nacos.ai.AgentCatalogEntryPageR\x04page\"\x89\x02\n" +
+	"\trequestId\x18\x04 \x01(\tR\trequestId\x12.\n" +
+	"\x04page\x18\x05 \x01(\v2\x1a.nacos.ai.AgentSummaryPageR\x04page\"\x89\x02\n" +
 	"\x19AgentSubscribeRpcResponse\x12\x1e\n" +
 	"\n" +
 	"resultCode\x18\x01 \x01(\x05R\n" +
@@ -1343,7 +1343,7 @@ var file_ai_ai_response_proto_goTypes = []any{
 	(*ReleaseMcpServerResponse)(nil),        // 14: nacos.ai.ReleaseMcpServerResponse
 	(*AgentDiscoveryResult)(nil),            // 15: nacos.ai.AgentDiscoveryResult
 	(*AgentVersionDetail)(nil),              // 16: nacos.ai.AgentVersionDetail
-	(*AgentCatalogEntryPage)(nil),           // 17: nacos.ai.AgentCatalogEntryPage
+	(*AgentSummaryPage)(nil),                // 17: nacos.ai.AgentSummaryPage
 	(*AgentCardDetailInfo)(nil),             // 18: nacos.ai.AgentCardDetailInfo
 	(*McpServerDetailInfo)(nil),             // 19: nacos.ai.McpServerDetailInfo
 	(*Prompt)(nil),                          // 20: nacos.ai.Prompt
@@ -1351,7 +1351,7 @@ var file_ai_ai_response_proto_goTypes = []any{
 var file_ai_ai_response_proto_depIdxs = []int32{
 	15, // 0: nacos.ai.AgentDiscoveryResponse.discoveryResult:type_name -> nacos.ai.AgentDiscoveryResult
 	16, // 1: nacos.ai.AgentPublishRpcResponse.versionDetail:type_name -> nacos.ai.AgentVersionDetail
-	17, // 2: nacos.ai.AgentSearchResponse.page:type_name -> nacos.ai.AgentCatalogEntryPage
+	17, // 2: nacos.ai.AgentSearchResponse.page:type_name -> nacos.ai.AgentSummaryPage
 	18, // 3: nacos.ai.QueryAgentCardResponse.agentCardDetailInfo:type_name -> nacos.ai.AgentCardDetailInfo
 	19, // 4: nacos.ai.QueryMcpServerResponse.mcpServerDetailInfo:type_name -> nacos.ai.McpServerDetailInfo
 	20, // 5: nacos.ai.QueryPromptResponse.promptInfo:type_name -> nacos.ai.Prompt
@@ -1368,8 +1368,8 @@ func file_ai_ai_response_proto_init() {
 		return
 	}
 	file_ai_agentcarddetailinfo_proto_init()
-	file_ai_agentcatalogentrypage_proto_init()
 	file_ai_agentdiscoveryresult_proto_init()
+	file_ai_agentsummarypage_proto_init()
 	file_ai_agentversiondetail_proto_init()
 	file_ai_mcpserverdetailinfo_proto_init()
 	file_ai_prompt_proto_init()

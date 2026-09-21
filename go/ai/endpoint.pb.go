@@ -26,13 +26,15 @@ const (
 // metadata.type = "Endpoint"
 // Flattened from: Endpoint
 type Endpoint struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Uri           string                 `protobuf:"bytes,1,opt,name=uri,proto3" json:"uri,omitempty"`
-	Transport     string                 `protobuf:"bytes,2,opt,name=transport,proto3" json:"transport,omitempty"`
-	Priority      int32                  `protobuf:"varint,3,opt,name=priority,proto3" json:"priority,omitempty"`
-	Weight        float64                `protobuf:"fixed64,4,opt,name=weight,proto3" json:"weight,omitempty"`
-	Metadata      map[string]string      `protobuf:"bytes,5,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Healthy       bool                   `protobuf:"varint,6,opt,name=healthy,proto3" json:"healthy,omitempty"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Uri           string                   `protobuf:"bytes,1,opt,name=uri,proto3" json:"uri,omitempty"`
+	Transport     string                   `protobuf:"bytes,2,opt,name=transport,proto3" json:"transport,omitempty"`
+	Priority      int32                    `protobuf:"varint,3,opt,name=priority,proto3" json:"priority,omitempty"`
+	Weight        float64                  `protobuf:"fixed64,4,opt,name=weight,proto3" json:"weight,omitempty"`
+	Metadata      map[string]string        `protobuf:"bytes,5,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Healthy       bool                     `protobuf:"varint,6,opt,name=healthy,proto3" json:"healthy,omitempty"`
+	Bindings      []*RuntimeVersionBinding `protobuf:"bytes,7,rep,name=bindings,proto3" json:"bindings,omitempty"`
+	Enabled       bool                     `protobuf:"varint,8,opt,name=enabled,proto3" json:"enabled,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -109,18 +111,34 @@ func (x *Endpoint) GetHealthy() bool {
 	return false
 }
 
+func (x *Endpoint) GetBindings() []*RuntimeVersionBinding {
+	if x != nil {
+		return x.Bindings
+	}
+	return nil
+}
+
+func (x *Endpoint) GetEnabled() bool {
+	if x != nil {
+		return x.Enabled
+	}
+	return false
+}
+
 var File_ai_endpoint_proto protoreflect.FileDescriptor
 
 const file_ai_endpoint_proto_rawDesc = "" +
 	"\n" +
-	"\x11ai/endpoint.proto\x12\bnacos.ai\"\x83\x02\n" +
+	"\x11ai/endpoint.proto\x12\bnacos.ai\x1a\x1eai/runtimeversionbinding.proto\"\xda\x02\n" +
 	"\bEndpoint\x12\x10\n" +
 	"\x03uri\x18\x01 \x01(\tR\x03uri\x12\x1c\n" +
 	"\ttransport\x18\x02 \x01(\tR\ttransport\x12\x1a\n" +
 	"\bpriority\x18\x03 \x01(\x05R\bpriority\x12\x16\n" +
 	"\x06weight\x18\x04 \x01(\x01R\x06weight\x12<\n" +
 	"\bmetadata\x18\x05 \x03(\v2 .nacos.ai.Endpoint.MetadataEntryR\bmetadata\x12\x18\n" +
-	"\ahealthy\x18\x06 \x01(\bR\ahealthy\x1a;\n" +
+	"\ahealthy\x18\x06 \x01(\bR\ahealthy\x12;\n" +
+	"\bbindings\x18\a \x03(\v2\x1f.nacos.ai.RuntimeVersionBindingR\bbindings\x12\x18\n" +
+	"\aenabled\x18\b \x01(\bR\aenabled\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3"
@@ -139,16 +157,18 @@ func file_ai_endpoint_proto_rawDescGZIP() []byte {
 
 var file_ai_endpoint_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_ai_endpoint_proto_goTypes = []any{
-	(*Endpoint)(nil), // 0: nacos.ai.Endpoint
-	nil,              // 1: nacos.ai.Endpoint.MetadataEntry
+	(*Endpoint)(nil),              // 0: nacos.ai.Endpoint
+	nil,                           // 1: nacos.ai.Endpoint.MetadataEntry
+	(*RuntimeVersionBinding)(nil), // 2: nacos.ai.RuntimeVersionBinding
 }
 var file_ai_endpoint_proto_depIdxs = []int32{
 	1, // 0: nacos.ai.Endpoint.metadata:type_name -> nacos.ai.Endpoint.MetadataEntry
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 1: nacos.ai.Endpoint.bindings:type_name -> nacos.ai.RuntimeVersionBinding
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_ai_endpoint_proto_init() }
@@ -156,6 +176,7 @@ func file_ai_endpoint_proto_init() {
 	if File_ai_endpoint_proto != nil {
 		return
 	}
+	file_ai_runtimeversionbinding_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

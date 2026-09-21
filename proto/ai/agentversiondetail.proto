@@ -7,16 +7,19 @@ option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 import "ai/agentcallinterface.proto";
 
 // metadata.type = "AgentVersionDetail"
-// Flattened from: AgentVersionDetail
+// Flattened from: AgentVersionDetail -> AgentVersionSummary
 message AgentVersionDetail {
-  string namespaceId = 1;
-  string agentName = 2;
   string version = 3;
+  repeated string labels = 11;
+  repeated string protocols = 12;
   string status = 4;
-  repeated AgentCallInterface callInterfaces = 5;
+  string publishPipelineInfo = 13;
   string author = 6;
   string changeDescription = 7;
   string contentDigest = 8;
   int64 createTime = 9;
   int64 updateTime = 10;
+  string namespaceId = 1;
+  string agentName = 2;
+  repeated AgentCallInterface callInterfaces = 5;
 }

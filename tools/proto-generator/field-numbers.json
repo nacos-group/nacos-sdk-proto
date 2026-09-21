@@ -288,7 +288,8 @@
         "dataId" : 2,
         "group" : 3,
         "tenant" : 4,
-        "tag" : 5
+        "tag" : 5,
+        "localMd5" : 6
       },
       "reserved" : [ ]
     },
@@ -1242,7 +1243,9 @@
         "agentName" : 2,
         "version" : 3,
         "contentDigest" : 4,
-        "callInterfaces" : 5
+        "callInterfaces" : 5,
+        "description" : 6,
+        "tags" : 7
       },
       "reserved" : [ ]
     },
@@ -1260,7 +1263,8 @@
       "fields" : {
         "source" : 1,
         "sourceRevision" : 2,
-        "endpoints" : 3
+        "endpoints" : 3,
+        "lastUpdatedTime" : 4
       },
       "reserved" : [ ]
     },
@@ -1271,7 +1275,9 @@
         "priority" : 3,
         "weight" : 4,
         "metadata" : 5,
-        "healthy" : 6
+        "healthy" : 6,
+        "bindings" : 7,
+        "enabled" : 8
       },
       "reserved" : [ ]
     },
@@ -1329,20 +1335,20 @@
     "AgentEndpointRegisterRpcRequest" : {
       "fields" : {
         "requestId" : 1,
-        "registrationBatch" : 2
+        "registrationBatch" : 2,
+        "namespaceId" : 3
       },
       "reserved" : [ ]
     },
     "AgentEndpointRegistrationBatch" : {
       "fields" : {
-        "namespaceId" : 1,
         "agentName" : 2,
         "runtimeVersion" : 3,
         "versionRange" : 4,
         "protocol" : 5,
         "endpoints" : 6
       },
-      "reserved" : [ ]
+      "reserved" : [ 1 ]
     },
     "AgentSearchResponse" : {
       "fields" : {
@@ -1387,20 +1393,20 @@
     "AgentSearchRpcRequest" : {
       "fields" : {
         "requestId" : 1,
-        "searchRequest" : 2
+        "searchRequest" : 2,
+        "namespaceId" : 3
       },
       "reserved" : [ ]
     },
     "AgentSearchRequest" : {
       "fields" : {
-        "namespaceId" : 1,
         "agentNameContains" : 2,
         "tagsAll" : 3,
         "protocolsAny" : 4,
         "pageNo" : 5,
         "pageSize" : 6
       },
-      "reserved" : [ ]
+      "reserved" : [ 1 ]
     },
     "A2aAgentProvider" : {
       "fields" : {
@@ -1461,9 +1467,9 @@
         "descriptorMediaType" : 3,
         "nativeDescriptor" : 4,
         "endpointSourceOrder" : 5,
-        "declaredEndpoints" : 6
+        "endpointSets" : 7
       },
-      "reserved" : [ ]
+      "reserved" : [ 6 ]
     },
     "AgentPublishRpcResponse" : {
       "fields" : {
@@ -1486,7 +1492,10 @@
         "changeDescription" : 7,
         "contentDigest" : 8,
         "createTime" : 9,
-        "updateTime" : 10
+        "updateTime" : 10,
+        "labels" : 11,
+        "protocols" : 12,
+        "publishPipelineInfo" : 13
       },
       "reserved" : [ ]
     },
@@ -1565,6 +1574,59 @@
         "errorCode" : 2,
         "message" : 3,
         "requestId" : 4
+      },
+      "reserved" : [ ]
+    },
+    "AgentSummaryPage" : {
+      "fields" : {
+        "totalCount" : 1,
+        "pageNumber" : 2,
+        "pagesAvailable" : 3,
+        "pageItems" : 4
+      },
+      "reserved" : [ ]
+    },
+    "AgentSummary" : {
+      "fields" : {
+        "agentName" : 1,
+        "displayName" : 2,
+        "description" : 3,
+        "iconUrl" : 4,
+        "provider" : 5,
+        "tags" : 6,
+        "extensions" : 7,
+        "namespaceId" : 8,
+        "status" : 9,
+        "owner" : 10,
+        "scope" : 11,
+        "versionInfo" : 12,
+        "metaVersion" : 13,
+        "createTime" : 14,
+        "updateTime" : 15
+      },
+      "reserved" : [ ]
+    },
+    "AgentVersionInfo" : {
+      "fields" : {
+        "editingVersion" : 1,
+        "reviewingVersion" : 2,
+        "onlineVersions" : 3,
+        "labels" : 4
+      },
+      "reserved" : [ ]
+    },
+    "AgentVersionSummary" : {
+      "fields" : {
+        "version" : 1,
+        "labels" : 2,
+        "protocols" : 3,
+        "status" : 4,
+        "publishPipelineInfo" : 5,
+        "author" : 6,
+        "changeDescription" : 7,
+        "contentDigest" : 8,
+        "createTime" : 9,
+        "updateTime" : 10
       },
       "reserved" : [ ]
     }

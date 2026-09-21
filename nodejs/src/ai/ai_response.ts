@@ -6,8 +6,8 @@
 
 /* eslint-disable */
 import { AgentCardDetailInfo } from "./agentcarddetailinfo";
-import { AgentCatalogEntryPage } from "./agentcatalogentrypage";
 import { AgentDiscoveryResult } from "./agentdiscoveryresult";
+import { AgentSummaryPage } from "./agentsummarypage";
 import { AgentVersionDetail } from "./agentversiondetail";
 import { McpServerDetailInfo } from "./mcpserverdetailinfo";
 import { Prompt } from "./prompt";
@@ -83,7 +83,7 @@ export interface AgentSearchResponse {
   errorCode: number;
   message: string;
   requestId: string;
-  page: AgentCatalogEntryPage | undefined;
+  page: AgentSummaryPage | undefined;
 }
 
 /**
@@ -457,7 +457,7 @@ export const AgentSearchResponse: MessageFns<AgentSearchResponse> = {
       errorCode: isSet(object.errorCode) ? globalThis.Number(object.errorCode) : 0,
       message: isSet(object.message) ? globalThis.String(object.message) : "",
       requestId: isSet(object.requestId) ? globalThis.String(object.requestId) : "",
-      page: isSet(object.page) ? AgentCatalogEntryPage.fromJSON(object.page) : undefined,
+      page: isSet(object.page) ? AgentSummaryPage.fromJSON(object.page) : undefined,
     };
   },
 
@@ -476,7 +476,7 @@ export const AgentSearchResponse: MessageFns<AgentSearchResponse> = {
       obj.requestId = message.requestId;
     }
     if (message.page !== undefined) {
-      obj.page = AgentCatalogEntryPage.toJSON(message.page);
+      obj.page = AgentSummaryPage.toJSON(message.page);
     }
     return obj;
   },
@@ -491,7 +491,7 @@ export const AgentSearchResponse: MessageFns<AgentSearchResponse> = {
     message.message = object.message ?? "";
     message.requestId = object.requestId ?? "";
     message.page = (object.page !== undefined && object.page !== null)
-      ? AgentCatalogEntryPage.fromPartial(object.page)
+      ? AgentSummaryPage.fromPartial(object.page)
       : undefined;
     return message;
   },

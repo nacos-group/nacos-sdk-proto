@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from ai import endpoint_pb2 as ai_dot_endpoint__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'ai/agentendpointregistrationbatch.proto\x12\x08nacos.ai\x1a\x11\x61i/endpoint.proto\"\xaf\x01\n\x1e\x41gentEndpointRegistrationBatch\x12\x13\n\x0bnamespaceId\x18\x01 \x01(\t\x12\x11\n\tagentName\x18\x02 \x01(\t\x12\x16\n\x0eruntimeVersion\x18\x03 \x01(\t\x12\x14\n\x0cversionRange\x18\x04 \x01(\t\x12\x10\n\x08protocol\x18\x05 \x01(\t\x12%\n\tendpoints\x18\x06 \x03(\x0b\x32\x12.nacos.ai.EndpointB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'ai/agentendpointregistrationbatch.proto\x12\x08nacos.ai\x1a\x11\x61i/endpoint.proto\"\xa0\x01\n\x1e\x41gentEndpointRegistrationBatch\x12\x11\n\tagentName\x18\x02 \x01(\t\x12\x10\n\x08protocol\x18\x05 \x01(\t\x12%\n\tendpoints\x18\x06 \x03(\x0b\x32\x12.nacos.ai.Endpoint\x12\x16\n\x0eruntimeVersion\x18\x03 \x01(\t\x12\x14\n\x0cversionRange\x18\x04 \x01(\tJ\x04\x08\x01\x10\x02\x42.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,5 +34,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/nacos-group/nacos-sdk-proto/go/ai'
   _globals['_AGENTENDPOINTREGISTRATIONBATCH']._serialized_start=73
-  _globals['_AGENTENDPOINTREGISTRATIONBATCH']._serialized_end=248
+  _globals['_AGENTENDPOINTREGISTRATIONBATCH']._serialized_end=233
 # @@protoc_insertion_point(module_scope)
