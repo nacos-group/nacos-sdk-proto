@@ -133,6 +133,7 @@ make compat-check NACOS_TAG=3.2.2
 <!-- version-compat:begin -->
 | nacos-sdk-proto | Nacos | Nacos commit | Generated |
 |---|---|---|---|
+| v1.0.0-beta.10 | 3.3.0 | e61ba82 | 2026-11-04 |
 | v1.0.0-beta.9 | 3.2.1 | fa05d6e | 2026-08-06 |
 | v1.0.0-beta.8 | 3.2.1 | fa05d6e | 2026-05-22 |
 | v1.0.0-beta.7 | 3.2.1 | fa05d6e | 2026-05-21 |
