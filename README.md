@@ -185,6 +185,20 @@ Example: `requestId`, `dataId`, `clientVersion`, `abilityTable`
 
 > Note: This deviates from the proto3 convention of `snake_case` field names. The `buf.yaml` config excludes `FIELD_LOWER_SNAKE_CASE` lint rule for this reason.
 
+### Default Values
+
+proto3 cannot tell an unset field from a zero value, but these fields have non-zero Java defaults, so the Nacos server uses `true` or `1.0` when the JSON key is absent:
+
+`ConfigBatchListenRequest.listen`, `Instance.enabled`, `Instance.healthy`, `Instance.weight`, `Instance.ephemeral`, `Endpoint.enabled`, `Endpoint.healthy`, `Endpoint.weight`, `McpServerBasicInfo.enabled`, `McpToolMeta.enabled`
+
+Serialize request bodies so that `false` and `0` are kept:
+
+| Language | Requirement |
+|---|---|
+| Go | Use `protojson.MarshalOptions{EmitDefaultValues: true}` and set these fields explicitly |
+| Python | Use `always_print_fields_with_no_presence=True` and set these fields explicitly |
+| Node.js | `toJSON` keeps explicit `false` and `0`. `create()` and `fromPartial()` fill unset fields with zero values, which are then sent, so build requests from plain objects or set these fields explicitly |
+
 ### Flattened Inheritance
 
 Java Nacos uses class inheritance (e.g., `ConfigQueryRequest extends ConfigRequest extends Request`). Proto3 does not support inheritance, so all fields from the class hierarchy are flattened into a single message. Common fields like `requestId`, `resultCode`, `errorCode`, and `message` are repeated in each message where they appear.
