@@ -116,6 +116,7 @@ message ConfigQueryRequest {
   string group = 3;
   string tenant = 4;
   string tag = 5;
+  string localMd5 = 6;
 }
 
 // metadata.type = "ConfigRemoveRequest"

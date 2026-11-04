@@ -22,7 +22,7 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from ai import agentextension_pb2 as ai_dot_agentextension__pb2
+from nacos_sdk_proto.ai import agentextension_pb2 as ai_dot_agentextension__pb2
 
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1a\x61i/agentcapabilities.proto\x12\x08nacos.ai\x1a\x17\x61i/agentextension.proto\"\xb0\x01\n\x11\x41gentCapabilities\x12\x11\n\tstreaming\x18\x01 \x01(\x08\x12\x19\n\x11pushNotifications\x18\x02 \x01(\x08\x12\x1e\n\x16stateTransitionHistory\x18\x03 \x01(\x08\x12\x19\n\x11\x65xtendedAgentCard\x18\x06 \x01(\x08\x12,\n\nextensions\x18\x04 \x03(\x0b\x32\x18.nacos.ai.AgentExtensionJ\x04\x08\x05\x10\x06\x42.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')

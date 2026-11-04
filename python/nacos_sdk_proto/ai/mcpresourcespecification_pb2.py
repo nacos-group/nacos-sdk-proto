@@ -22,7 +22,7 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from ai import encryptobject_pb2 as ai_dot_encryptobject__pb2
+from nacos_sdk_proto.ai import encryptobject_pb2 as ai_dot_encryptobject__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 

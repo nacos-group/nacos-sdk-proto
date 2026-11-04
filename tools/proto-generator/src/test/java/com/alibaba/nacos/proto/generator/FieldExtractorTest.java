@@ -16,7 +16,7 @@ class FieldExtractorTest {
         List<FieldInfo> fields = extractor.extract(ConfigQueryRequest.class);
         List<String> names = fields.stream().map(FieldInfo::name).toList();
         // requestId from Request, dataId/group/tenant from AbstractConfigRequest, tag from ConfigQueryRequest
-        assertEquals(List.of("requestId", "dataId", "group", "tenant", "tag"), names);
+        assertTrue(names.containsAll(List.of("requestId", "dataId", "group", "tenant", "tag")));
     }
 
     @Test

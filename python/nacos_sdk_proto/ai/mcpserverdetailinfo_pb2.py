@@ -22,14 +22,14 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from ai import icon_pb2 as ai_dot_icon__pb2
-from ai import mcpendpointinfo_pb2 as ai_dot_mcpendpointinfo__pb2
-from ai import mcpresourcespecification_pb2 as ai_dot_mcpresourcespecification__pb2
-from ai import mcpserverremoteserviceconfig_pb2 as ai_dot_mcpserverremoteserviceconfig__pb2
-from ai import mcptoolspecification_pb2 as ai_dot_mcptoolspecification__pb2
-from ai import package_pb2 as ai_dot_package__pb2
-from ai import repository_pb2 as ai_dot_repository__pb2
-from ai import serverversiondetail_pb2 as ai_dot_serverversiondetail__pb2
+from nacos_sdk_proto.ai import icon_pb2 as ai_dot_icon__pb2
+from nacos_sdk_proto.ai import mcpendpointinfo_pb2 as ai_dot_mcpendpointinfo__pb2
+from nacos_sdk_proto.ai import mcpresourcespecification_pb2 as ai_dot_mcpresourcespecification__pb2
+from nacos_sdk_proto.ai import mcpserverremoteserviceconfig_pb2 as ai_dot_mcpserverremoteserviceconfig__pb2
+from nacos_sdk_proto.ai import mcptoolspecification_pb2 as ai_dot_mcptoolspecification__pb2
+from nacos_sdk_proto.ai import package_pb2 as ai_dot_package__pb2
+from nacos_sdk_proto.ai import repository_pb2 as ai_dot_repository__pb2
+from nacos_sdk_proto.ai import serverversiondetail_pb2 as ai_dot_serverversiondetail__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 

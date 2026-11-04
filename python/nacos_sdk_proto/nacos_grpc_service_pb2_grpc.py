@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import nacos_grpc_service_pb2 as nacos__grpc__service__pb2
+from nacos_sdk_proto import nacos_grpc_service_pb2 as nacos__grpc__service__pb2
 
 GRPC_GENERATED_VERSION = '1.83.0'
 GRPC_VERSION = grpc.__version__

@@ -842,6 +842,7 @@ type ConfigQueryRequest struct {
 	Group         string                 `protobuf:"bytes,3,opt,name=group,proto3" json:"group,omitempty"`
 	Tenant        string                 `protobuf:"bytes,4,opt,name=tenant,proto3" json:"tenant,omitempty"`
 	Tag           string                 `protobuf:"bytes,5,opt,name=tag,proto3" json:"tag,omitempty"`
+	LocalMd5      string                 `protobuf:"bytes,6,opt,name=localMd5,proto3" json:"localMd5,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -907,6 +908,13 @@ func (x *ConfigQueryRequest) GetTenant() string {
 func (x *ConfigQueryRequest) GetTag() string {
 	if x != nil {
 		return x.Tag
+	}
+	return ""
+}
+
+func (x *ConfigQueryRequest) GetLocalMd5() string {
+	if x != nil {
+		return x.LocalMd5
 	}
 	return ""
 }
@@ -1060,13 +1068,14 @@ const file_config_config_request_proto_rawDesc = "" +
 	"\vadditionMap\x18\a \x03(\v23.nacos.config.ConfigPublishRequest.AdditionMapEntryR\vadditionMap\x1a>\n" +
 	"\x10AdditionMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x8a\x01\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xa6\x01\n" +
 	"\x12ConfigQueryRequest\x12\x1c\n" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12\x16\n" +
 	"\x06dataId\x18\x02 \x01(\tR\x06dataId\x12\x14\n" +
 	"\x05group\x18\x03 \x01(\tR\x05group\x12\x16\n" +
 	"\x06tenant\x18\x04 \x01(\tR\x06tenant\x12\x10\n" +
-	"\x03tag\x18\x05 \x01(\tR\x03tag\"\x8b\x01\n" +
+	"\x03tag\x18\x05 \x01(\tR\x03tag\x12\x1a\n" +
+	"\blocalMd5\x18\x06 \x01(\tR\blocalMd5\"\x8b\x01\n" +
 	"\x13ConfigRemoveRequest\x12\x1c\n" +
 	"\trequestId\x18\x01 \x01(\tR\trequestId\x12\x16\n" +
 	"\x06dataId\x18\x02 \x01(\tR\x06dataId\x12\x14\n" +

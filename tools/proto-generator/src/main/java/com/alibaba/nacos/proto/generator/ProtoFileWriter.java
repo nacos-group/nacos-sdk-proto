@@ -10,6 +10,15 @@ import java.util.stream.Collectors;
 
 public class ProtoFileWriter {
 
+    private static final Set<String> DEPRECATED_MCP_ID_REQUEST_FIELDS = Set.of(
+        "McpServerEndpointRequest#mcpId",
+        "QueryMcpServerRequest#mcpId",
+        "ReleaseMcpServerRequest#mcpId"
+    );
+
+    private static final String DEPRECATED_MCP_ID_COMMENT =
+        "Deprecated: ignored by the Nacos server; use mcpName for resource identity.";
+
     private static final Map<String, String> MODULE_PACKAGES = Map.of(
         "common", "nacos.common",
         "config", "nacos.config",
@@ -80,10 +89,22 @@ public class ProtoFileWriter {
                 for (FieldInfo field : msg.fields()) {
                     String protoType = typeMapper.mapType(field.type(), field.genericType());
                     int number = msg.fieldNumbers().get(field.name());
+                    boolean deprecated = DEPRECATED_MCP_ID_REQUEST_FIELDS.contains(
+                        msg.name() + "#" + field.name());
+                    if (deprecated) {
+                        sb.append("  // ").append(DEPRECATED_MCP_ID_COMMENT).append("\n");
+                    }
                     sb.append("  ").append(protoType).append(" ").append(field.name())
                       .append(" = ").append(number);
+                    List<String> fieldOptions = new ArrayList<>();
                     if (field.hasCustomJsonName()) {
-                        sb.append(" [json_name = \"").append(field.jsonName()).append("\"]");
+                        fieldOptions.add("json_name = \"" + field.jsonName() + "\"");
+                    }
+                    if (deprecated) {
+                        fieldOptions.add("deprecated = true");
+                    }
+                    if (!fieldOptions.isEmpty()) {
+                        sb.append(" [").append(String.join(", ", fieldOptions)).append("]");
                     }
                     sb.append(";\n");
                 }

@@ -96,6 +96,12 @@ make verify            # Go 编译 + tsc --noEmit + 幂等性检查
 go get github.com/nacos-group/nacos-sdk-proto/go@latest
 ```
 
+> **注意：** 序列化 / 反序列化请求或响应的 payload body 时，Go 使用方**必须**使用
+> [`google.golang.org/protobuf/encoding/protojson`](https://pkg.go.dev/google.golang.org/protobuf/encoding/protojson)，
+> 不能使用标准库 `encoding/json`。生成的结构体上的 `json:` tag 为兼容结构体标签保留了原始的 Java
+> 字段名，但只有 `protojson` 才会遵循 proto 的 `json_name` wire mapping（例如 `isBeta` → `beta`）。
+> 使用 `encoding/json` 会产出与 Nacos 服务端在协议上不匹配的字段名。
+
 ### Python
 
 ```bash
@@ -116,9 +122,18 @@ npm install @nacos-group/sdk-proto   # 发布到 npm 后可用
 
 每个发布版本均由特定 Nacos 版本生成，精确溯源随包内元数据（`go/version.go`、`src/version.ts`、`nacos_sdk_proto/version.py`）与 `proto/VERSION` 提供。
 
+并非每个 Nacos 版本都会有对应的 nacos-sdk-proto 版本——只有生成结果确实发生变化时才发布。**若下表中没有你的 Nacos 版本，请选择不超过你的版本中最高的那一行。** 例如 Nacos 3.2.2、3.2.3 的生成结果与 3.2.1 完全一致，三者均使用 `v1.0.0-beta.9`。
+
+维护者可对任意 Nacos tag 验证（退出码 0 表示一致，即无需发版）：
+
+```bash
+make compat-check NACOS_TAG=3.2.2
+```
+
 <!-- version-compat:begin -->
 | nacos-sdk-proto | Nacos | Nacos commit | Generated |
 |---|---|---|---|
+| v1.0.0-beta.10 | 3.3.0 | e61ba82 | 2026-11-04 |
 | v1.0.0-beta.9 | 3.2.1 | fa05d6e | 2026-08-06 |
 | v1.0.0-beta.8 | 3.2.1 | fa05d6e | 2026-05-22 |
 | v1.0.0-beta.7 | 3.2.1 | fa05d6e | 2026-05-21 |

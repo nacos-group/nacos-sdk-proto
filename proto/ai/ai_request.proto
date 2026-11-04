@@ -4,12 +4,60 @@ package nacos.ai;
 
 option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 
+import "ai/agentcallinterface.proto";
 import "ai/agentcard.proto";
+import "ai/agentdiscoveryfilter.proto";
 import "ai/agentendpoint.proto";
+import "ai/agentendpointregistrationbatch.proto";
+import "ai/agentprovider.proto";
+import "ai/agentreference.proto";
 import "ai/mcpendpointspec.proto";
 import "ai/mcpresourcespecification.proto";
 import "ai/mcpserverbasicinfo.proto";
 import "ai/mcptoolspecification.proto";
+import "google/protobuf/struct.proto";
+
+// metadata.type = "AgentDiscoveryNotifyRequest"
+// Flattened from: AgentDiscoveryNotifyRequest -> ServerRequest -> Request
+message AgentDiscoveryNotifyRequest {
+  string requestId = 1;
+  string watchKey = 2;
+  string eventType = 3;
+  string observedFingerprint = 4;
+  int32 errorCode = 5;
+}
+
+// metadata.type = "AgentDiscoveryRpcRequest"
+// Flattened from: AgentDiscoveryRpcRequest -> AbstractAgentClientRpcRequest -> Request
+message AgentDiscoveryRpcRequest {
+  string requestId = 1;
+  AgentDiscoveryRequest discoveryRequest = 2;
+}
+
+// metadata.type = "AgentDiscoveryRequest"
+// Flattened from: AgentDiscoveryRequest
+message AgentDiscoveryRequest {
+  string namespaceId = 1;
+  AgentReference reference = 2;
+  AgentDiscoveryFilter filter = 3;
+}
+
+// metadata.type = "AgentEndpointDeregisterRpcRequest"
+// Flattened from: AgentEndpointDeregisterRpcRequest -> AbstractAgentClientRpcRequest -> Request
+message AgentEndpointDeregisterRpcRequest {
+  string requestId = 1;
+  string namespaceId = 2;
+  string agentName = 3;
+  string protocol = 4;
+}
+
+// metadata.type = "AgentEndpointRegisterRpcRequest"
+// Flattened from: AgentEndpointRegisterRpcRequest -> AbstractAgentClientRpcRequest -> Request
+message AgentEndpointRegisterRpcRequest {
+  string requestId = 1;
+  string namespaceId = 3;
+  AgentEndpointRegistrationBatch registrationBatch = 2;
+}
 
 // metadata.type = "AgentEndpointRequest"
 // Flattened from: AgentEndpointRequest -> AbstractAgentRequest -> Request
@@ -19,6 +67,78 @@ message AgentEndpointRequest {
   string agentName = 3;
   AgentEndpoint endpoint = 4;
   string type = 5;
+}
+
+// metadata.type = "AgentPublishRpcRequest"
+// Flattened from: AgentPublishRpcRequest -> AbstractAgentClientRpcRequest -> Request
+message AgentPublishRpcRequest {
+  string requestId = 1;
+  string namespaceId = 2;
+  AgentPublishRequest publishRequest = 3;
+}
+
+// metadata.type = "AgentPublishRequest"
+// Flattened from: AgentPublishRequest -> AbstractAgentDraftRequest -> AbstractAgentMetadata
+message AgentPublishRequest {
+  string agentName = 1;
+  string displayName = 2;
+  string description = 3;
+  string iconUrl = 4;
+  AgentProvider provider = 5;
+  repeated string tags = 6;
+  map<string, google.protobuf.Value> extensions = 7;
+  string version = 8;
+  repeated AgentCallInterface callInterfaces = 9;
+  string author = 10;
+  string changeDescription = 11;
+  string basedOnVersion = 12;
+  bool autoSubmit = 13;
+}
+
+// metadata.type = "AgentSearchRpcRequest"
+// Flattened from: AgentSearchRpcRequest -> AbstractAgentClientRpcRequest -> Request
+message AgentSearchRpcRequest {
+  string requestId = 1;
+  string namespaceId = 3;
+  AgentSearchRequest searchRequest = 2;
+}
+
+// metadata.type = "AgentSearchRequest"
+// Flattened from: AgentSearchRequest
+message AgentSearchRequest {
+  string agentNameContains = 2;
+  repeated string tagsAll = 3;
+  repeated string protocolsAny = 4;
+  int32 pageNo = 5;
+  int32 pageSize = 6;
+  reserved 1;
+}
+
+// metadata.type = "AgentSubscribeRpcRequest"
+// Flattened from: AgentSubscribeRpcRequest -> AbstractAgentClientRpcRequest -> Request
+message AgentSubscribeRpcRequest {
+  string requestId = 1;
+  string clientWatchId = 2;
+  AgentDiscoveryRequest discoveryRequest = 3;
+  string materializedFingerprint = 4;
+}
+
+// metadata.type = "AgentUnsubscribeRpcRequest"
+// Flattened from: AgentUnsubscribeRpcRequest -> AbstractAgentClientRpcRequest -> Request
+message AgentUnsubscribeRpcRequest {
+  string requestId = 1;
+  string watchKey = 2;
+}
+
+// metadata.type = "AiResourceChangeClusterRequest"
+// Flattened from: AiResourceChangeClusterRequest -> Request
+message AiResourceChangeClusterRequest {
+  string requestId = 1;
+  string namespaceId = 2;
+  string resourceType = 3;
+  string resourceName = 4;
+  string operation = 5;
+  bool storageChanged = 6;
 }
 
 // metadata.type = "BatchAgentEndpointRequest"
@@ -35,7 +155,8 @@ message BatchAgentEndpointRequest {
 message McpServerEndpointRequest {
   string requestId = 1;
   string namespaceId = 2;
-  string mcpId = 3;
+  // Deprecated: ignored by the Nacos server; use mcpName for resource identity.
+  string mcpId = 3 [deprecated = true];
   string mcpName = 4;
   string address = 5;
   int32 port = 6;
@@ -58,7 +179,8 @@ message QueryAgentCardRequest {
 message QueryMcpServerRequest {
   string requestId = 1;
   string namespaceId = 2;
-  string mcpId = 3;
+  // Deprecated: ignored by the Nacos server; use mcpName for resource identity.
+  string mcpId = 3 [deprecated = true];
   string mcpName = 4;
   string version = 5;
 }
@@ -90,11 +212,13 @@ message ReleaseAgentCardRequest {
 message ReleaseMcpServerRequest {
   string requestId = 1;
   string namespaceId = 2;
-  string mcpId = 3;
+  // Deprecated: ignored by the Nacos server; use mcpName for resource identity.
+  string mcpId = 3 [deprecated = true];
   string mcpName = 4;
   McpServerBasicInfo serverSpecification = 5;
   McpToolSpecification toolSpecification = 6;
   McpResourceSpecification resourceSpecification = 9;
   McpEndpointSpec endpointSpecification = 7;
+  bool createDraft = 10;
   reserved 8;
 }
