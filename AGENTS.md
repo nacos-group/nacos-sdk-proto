@@ -23,11 +23,13 @@ make generate          # protoc → Go + Node.js + Python
 make generate-go       # Go only
 make generate-nodejs   # Node.js only
 make generate-python   # Python only
+make build-nodejs      # compile nodejs/src to nodejs/dist
+make check-nodejs-package  # build, pack, install and load the npm package
 ```
 
 ### Verification
 ```bash
-make verify-build   # Java unit tests + Go build + tsc --noEmit
+make verify-build   # Java unit tests + Go build + tsc --noEmit + Python import check + Node package check
 make verify         # verify-build + idempotency check (re-generate, expect no diff)
 ```
 
@@ -75,7 +77,7 @@ All business messages are wrapped in a `Payload` envelope. The `body` field is `
 
 ## CI
 
-- PR to main triggers `ci.yml`: runs `make verify-build` (Java tests + Go build + tsc)
+- PR to main or develop triggers `ci.yml`: runs `make verify-build` (Java tests + Go build + tsc + Python import check + Node package check)
 - `sync-proto.yml`: weekly cron syncs from nacos develop → develop branch
 - `release.yml` + `publish.yml`: two-phase release (prepare PR → publish on merge to main, pushes tags, publishes to PyPI and npm)
 

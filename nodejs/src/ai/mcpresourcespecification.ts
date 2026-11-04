@@ -51,7 +51,7 @@ export const McpResourceSpecification: MessageFns<McpResourceSpecification> = {
 
   toJSON(message: McpResourceSpecification): unknown {
     const obj: any = {};
-    if (message.specificationType !== "") {
+    if (message.specificationType !== undefined) {
       obj.specificationType = message.specificationType;
     }
     if (message.encryptData !== undefined) {
@@ -113,7 +113,7 @@ export const McpResourceSpecification_ExtensionsEntry: MessageFns<McpResourceSpe
 
   toJSON(message: McpResourceSpecification_ExtensionsEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     if (message.value !== undefined) {

@@ -44,7 +44,7 @@ export const McpEndpointSpec: MessageFns<McpEndpointSpec> = {
 
   toJSON(message: McpEndpointSpec): unknown {
     const obj: any = {};
-    if (message.type !== "") {
+    if (message.type !== undefined) {
       obj.type = message.type;
     }
     if (message.data) {
@@ -92,10 +92,10 @@ export const McpEndpointSpec_DataEntry: MessageFns<McpEndpointSpec_DataEntry> = 
 
   toJSON(message: McpEndpointSpec_DataEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
-    if (message.value !== "") {
+    if (message.value !== undefined) {
       obj.value = message.value;
     }
     return obj;

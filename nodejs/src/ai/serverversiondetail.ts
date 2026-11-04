@@ -41,13 +41,13 @@ export const ServerVersionDetail: MessageFns<ServerVersionDetail> = {
 
   toJSON(message: ServerVersionDetail): unknown {
     const obj: any = {};
-    if (message.version !== "") {
+    if (message.version !== undefined) {
       obj.version = message.version;
     }
-    if (message.releaseDate !== "") {
+    if (message.releaseDate !== undefined) {
       obj.releaseDate = message.releaseDate;
     }
-    if (message.isLatest !== false) {
+    if (message.isLatest !== undefined) {
       obj.isLatest = message.isLatest;
     }
     return obj;

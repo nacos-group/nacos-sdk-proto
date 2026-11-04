@@ -40,3 +40,10 @@ jobs:
 
       - name: Verify
         run: make verify-build
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Check package on Node 18
+        run: node scripts/check-node-package.js

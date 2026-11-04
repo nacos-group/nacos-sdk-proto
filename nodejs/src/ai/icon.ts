@@ -35,16 +35,16 @@ export const Icon: MessageFns<Icon> = {
 
   toJSON(message: Icon): unknown {
     const obj: any = {};
-    if (message.src !== "") {
+    if (message.src !== undefined) {
       obj.src = message.src;
     }
-    if (message.mimeType !== "") {
+    if (message.mimeType !== undefined) {
       obj.mimeType = message.mimeType;
     }
     if (message.sizes?.length) {
       obj.sizes = message.sizes;
     }
-    if (message.theme !== "") {
+    if (message.theme !== undefined) {
       obj.theme = message.theme;
     }
     return obj;

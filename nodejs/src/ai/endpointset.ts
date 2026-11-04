@@ -38,13 +38,13 @@ export const EndpointSet: MessageFns<EndpointSet> = {
 
   toJSON(message: EndpointSet): unknown {
     const obj: any = {};
-    if (message.source !== "") {
+    if (message.source !== undefined) {
       obj.source = message.source;
     }
-    if (message.sourceRevision !== "") {
+    if (message.sourceRevision !== undefined) {
       obj.sourceRevision = message.sourceRevision;
     }
-    if (message.lastUpdatedTime !== 0) {
+    if (message.lastUpdatedTime !== undefined) {
       obj.lastUpdatedTime = Math.round(message.lastUpdatedTime);
     }
     if (message.endpoints?.length) {

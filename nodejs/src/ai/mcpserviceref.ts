@@ -35,16 +35,16 @@ export const McpServiceRef: MessageFns<McpServiceRef> = {
 
   toJSON(message: McpServiceRef): unknown {
     const obj: any = {};
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
-    if (message.groupName !== "") {
+    if (message.groupName !== undefined) {
       obj.groupName = message.groupName;
     }
-    if (message.serviceName !== "") {
+    if (message.serviceName !== undefined) {
       obj.serviceName = message.serviceName;
     }
-    if (message.transportProtocol !== "") {
+    if (message.transportProtocol !== undefined) {
       obj.transportProtocol = message.transportProtocol;
     }
     return obj;

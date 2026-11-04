@@ -48,16 +48,16 @@ export const AgentCapabilities: MessageFns<AgentCapabilities> = {
 
   toJSON(message: AgentCapabilities): unknown {
     const obj: any = {};
-    if (message.streaming !== false) {
+    if (message.streaming !== undefined) {
       obj.streaming = message.streaming;
     }
-    if (message.pushNotifications !== false) {
+    if (message.pushNotifications !== undefined) {
       obj.pushNotifications = message.pushNotifications;
     }
-    if (message.stateTransitionHistory !== false) {
+    if (message.stateTransitionHistory !== undefined) {
       obj.stateTransitionHistory = message.stateTransitionHistory;
     }
-    if (message.extendedAgentCard !== false) {
+    if (message.extendedAgentCard !== undefined) {
       obj.extendedAgentCard = message.extendedAgentCard;
     }
     if (message.extensions?.length) {

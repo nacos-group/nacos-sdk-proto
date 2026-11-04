@@ -68,7 +68,7 @@ export const McpToolMeta: MessageFns<McpToolMeta> = {
         });
       }
     }
-    if (message.enabled !== false) {
+    if (message.enabled !== undefined) {
       obj.enabled = message.enabled;
     }
     if (message.templates) {
@@ -125,10 +125,10 @@ export const McpToolMeta_InvokeContextEntry: MessageFns<McpToolMeta_InvokeContex
 
   toJSON(message: McpToolMeta_InvokeContextEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
-    if (message.value !== "") {
+    if (message.value !== undefined) {
       obj.value = message.value;
     }
     return obj;
@@ -161,7 +161,7 @@ export const McpToolMeta_TemplatesEntry: MessageFns<McpToolMeta_TemplatesEntry> 
 
   toJSON(message: McpToolMeta_TemplatesEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     if (message.value !== undefined) {

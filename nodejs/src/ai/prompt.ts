@@ -40,16 +40,16 @@ export const Prompt: MessageFns<Prompt> = {
 
   toJSON(message: Prompt): unknown {
     const obj: any = {};
-    if (message.promptKey !== "") {
+    if (message.promptKey !== undefined) {
       obj.promptKey = message.promptKey;
     }
-    if (message.version !== "") {
+    if (message.version !== undefined) {
       obj.version = message.version;
     }
-    if (message.template !== "") {
+    if (message.template !== undefined) {
       obj.template = message.template;
     }
-    if (message.md5 !== "") {
+    if (message.md5 !== undefined) {
       obj.md5 = message.md5;
     }
     if (message.variables?.length) {

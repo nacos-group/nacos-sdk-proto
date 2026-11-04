@@ -76,16 +76,18 @@ jobs:
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
+      - name: Build and check package
+        run: |
+          npm install
+          make check-nodejs-package
       - name: Publish
         run: |
           echo "node $(node -v), npm $(npm -v)"
           cd nodejs
-          VER=$(node -p "require('./package.json').version")
-          if echo "$VER" | grep -q '-'; then
-            npm publish --tag beta
-          else
-            npm publish
-          fi
+          # No GA exists yet, so each beta is the recommended version. npm
+          # rejects prereleases without an explicit tag. After 1.0.0 GA, publish
+          # prereleases with --tag beta again so they cannot replace a stable latest.
+          npm publish --tag latest
 
   github-release:
     needs: [check, push-tags, release-python, release-nodejs]

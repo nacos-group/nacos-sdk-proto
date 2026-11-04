@@ -136,6 +136,7 @@ make compat-check NACOS_TAG=3.2.2
 <!-- version-compat:begin -->
 | nacos-sdk-proto | Nacos | Nacos commit | Generated |
 |---|---|---|---|
+| v1.0.0-beta.11 | 3.3.0 | e61ba82 | 2026-11-04 |
 | v1.0.0-beta.10 | 3.3.0 | e61ba82 | 2026-11-04 |
 | v1.0.0-beta.9 | 3.2.1 | fa05d6e | 2026-08-06 |
 | v1.0.0-beta.8 | 3.2.1 | fa05d6e | 2026-05-22 |
@@ -185,6 +186,27 @@ Field names use **camelCase** to match Java field names exactly. This is intenti
 Example: `requestId`, `dataId`, `clientVersion`, `abilityTable`
 
 > Note: This deviates from the proto3 convention of `snake_case` field names. The `buf.yaml` config excludes `FIELD_LOWER_SNAKE_CASE` lint rule for this reason.
+
+### Default Values
+
+proto3 cannot tell an unset field from a zero value, but these fields have non-zero Java defaults as of Nacos 3.3.0. When the JSON key is absent, the Nacos server uses the Java default:
+
+- `resultCode` on every response, default `200`. A response sent with `0` is treated as a failure, so always set it when acknowledging a server push
+- `ConfigBatchListenRequest.listen`
+- `Instance.enabled`, `Instance.healthy`, `Instance.weight`, `Instance.ephemeral`
+- `Endpoint.enabled`, `Endpoint.healthy`, `Endpoint.weight`
+- `McpServerBasicInfo.enabled`, `McpServerBasicInfo.status`, `McpToolMeta.enabled`
+- `AgentEndpoint.protocol`, `AgentEndpoint.transport`
+- `ReleaseAgentCardRequest.registrationType`, `AgentCardDetailInfo.registrationType`
+- `LockInstance.waitTime`
+
+Serialize message bodies so that `false` and `0` are kept:
+
+| Language | Requirement |
+|---|---|
+| Go | Use `protojson.MarshalOptions{EmitDefaultValues: true}` and set these fields explicitly |
+| Python | Use `always_print_fields_with_no_presence=True` and set these fields explicitly |
+| Node.js | `toJSON` keeps explicit `false` and `0`. `create()`, `fromPartial()` and `fromJSON()` fill unset fields with zero values, which are then sent. Build messages from plain objects (in TypeScript, `Instance.toJSON({ ip, port } as Instance)`) or set these fields explicitly |
 
 ### Flattened Inheritance
 

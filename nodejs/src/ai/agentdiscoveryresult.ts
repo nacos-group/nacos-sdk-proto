@@ -52,22 +52,22 @@ export const AgentDiscoveryResult: MessageFns<AgentDiscoveryResult> = {
 
   toJSON(message: AgentDiscoveryResult): unknown {
     const obj: any = {};
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
-    if (message.agentName !== "") {
+    if (message.agentName !== undefined) {
       obj.agentName = message.agentName;
     }
-    if (message.description !== "") {
+    if (message.description !== undefined) {
       obj.description = message.description;
     }
     if (message.tags?.length) {
       obj.tags = message.tags;
     }
-    if (message.version !== "") {
+    if (message.version !== undefined) {
       obj.version = message.version;
     }
-    if (message.contentDigest !== "") {
+    if (message.contentDigest !== undefined) {
       obj.contentDigest = message.contentDigest;
     }
     if (message.callInterfaces?.length) {
