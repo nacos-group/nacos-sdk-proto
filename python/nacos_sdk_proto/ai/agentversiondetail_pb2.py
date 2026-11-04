@@ -22,7 +22,7 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from ai import agentcallinterface_pb2 as ai_dot_agentcallinterface__pb2
+from nacos_sdk_proto.ai import agentcallinterface_pb2 as ai_dot_agentcallinterface__pb2
 
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1b\x61i/agentversiondetail.proto\x12\x08nacos.ai\x1a\x1b\x61i/agentcallinterface.proto\"\xbd\x02\n\x12\x41gentVersionDetail\x12\x0f\n\x07version\x18\x03 \x01(\t\x12\x0e\n\x06labels\x18\x0b \x03(\t\x12\x11\n\tprotocols\x18\x0c \x03(\t\x12\x0e\n\x06status\x18\x04 \x01(\t\x12\x1b\n\x13publishPipelineInfo\x18\r \x01(\t\x12\x0e\n\x06\x61uthor\x18\x06 \x01(\t\x12\x19\n\x11\x63hangeDescription\x18\x07 \x01(\t\x12\x15\n\rcontentDigest\x18\x08 \x01(\t\x12\x12\n\ncreateTime\x18\t \x01(\x03\x12\x12\n\nupdateTime\x18\n \x01(\x03\x12\x13\n\x0bnamespaceId\x18\x01 \x01(\t\x12\x11\n\tagentName\x18\x02 \x01(\t\x12\x34\n\x0e\x63\x61llInterfaces\x18\x05 \x03(\x0b\x32\x1c.nacos.ai.AgentCallInterfaceB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')

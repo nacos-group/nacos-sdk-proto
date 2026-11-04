@@ -65,6 +65,7 @@ generate-python:
 		--grpc_python_out=$(PYTHON_OUT)/nacos_sdk_proto \
 		$$(find $(PROTO_DIR) -name '*.proto')
 	find $(PYTHON_OUT)/nacos_sdk_proto -type d -exec touch {}/__init__.py \;
+	python scripts/fix-python-imports.py $(PYTHON_OUT)/nacos_sdk_proto
 
 generate-nodejs: generate-version
 	mkdir -p $(NODEJS_OUT)/src
@@ -111,6 +112,8 @@ verify-build:
 	cd $(GO_OUT) && go build ./...
 	# Node.js TypeScript 编译
 	cd $(NODEJS_OUT) && npx tsc --noEmit
+	# Python 全模块 import
+	python scripts/check-python-imports.py $(PYTHON_OUT)
 
 verify: verify-build
 	# 幂等性检查：重新生成 proto 与 version 元数据，不应有 diff

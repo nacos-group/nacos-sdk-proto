@@ -22,7 +22,7 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from ai import endpoint_pb2 as ai_dot_endpoint__pb2
+from nacos_sdk_proto.ai import endpoint_pb2 as ai_dot_endpoint__pb2
 
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14\x61i/endpointset.proto\x12\x08nacos.ai\x1a\x11\x61i/endpoint.proto\"u\n\x0b\x45ndpointSet\x12\x0e\n\x06source\x18\x01 \x01(\t\x12\x16\n\x0esourceRevision\x18\x02 \x01(\t\x12\x17\n\x0flastUpdatedTime\x18\x04 \x01(\x03\x12%\n\tendpoints\x18\x03 \x03(\x0b\x32\x12.nacos.ai.EndpointB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')

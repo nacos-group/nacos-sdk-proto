@@ -22,7 +22,7 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from ai import runtimeversionbinding_pb2 as ai_dot_runtimeversionbinding__pb2
+from nacos_sdk_proto.ai import runtimeversionbinding_pb2 as ai_dot_runtimeversionbinding__pb2
 
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11\x61i/endpoint.proto\x12\x08nacos.ai\x1a\x1e\x61i/runtimeversionbinding.proto\"\x86\x02\n\x08\x45ndpoint\x12\x0b\n\x03uri\x18\x01 \x01(\t\x12\x11\n\ttransport\x18\x02 \x01(\t\x12\x10\n\x08priority\x18\x03 \x01(\x05\x12\x0e\n\x06weight\x18\x04 \x01(\x01\x12\x32\n\x08metadata\x18\x05 \x03(\x0b\x32 .nacos.ai.Endpoint.MetadataEntry\x12\x0f\n\x07healthy\x18\x06 \x01(\x08\x12\x31\n\x08\x62indings\x18\x07 \x03(\x0b\x32\x1f.nacos.ai.RuntimeVersionBinding\x12\x0f\n\x07\x65nabled\x18\x08 \x01(\x08\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')

@@ -22,7 +22,7 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from ai import promptvariable_pb2 as ai_dot_promptvariable__pb2
+from nacos_sdk_proto.ai import promptvariable_pb2 as ai_dot_promptvariable__pb2
 
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0f\x61i/prompt.proto\x12\x08nacos.ai\x1a\x17\x61i/promptvariable.proto\"x\n\x06Prompt\x12\x11\n\tpromptKey\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x10\n\x08template\x18\x03 \x01(\t\x12\x0b\n\x03md5\x18\x04 \x01(\t\x12+\n\tvariables\x18\x05 \x03(\x0b\x32\x18.nacos.ai.PromptVariableB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')

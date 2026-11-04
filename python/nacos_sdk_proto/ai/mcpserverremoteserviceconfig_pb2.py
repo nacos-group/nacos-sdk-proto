@@ -22,8 +22,8 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from ai import frontendpointconfig_pb2 as ai_dot_frontendpointconfig__pb2
-from ai import mcpserviceref_pb2 as ai_dot_mcpserviceref__pb2
+from nacos_sdk_proto.ai import frontendpointconfig_pb2 as ai_dot_frontendpointconfig__pb2
+from nacos_sdk_proto.ai import mcpserviceref_pb2 as ai_dot_mcpserviceref__pb2
 
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%ai/mcpserverremoteserviceconfig.proto\x12\x08nacos.ai\x1a\x1c\x61i/frontendpointconfig.proto\x1a\x16\x61i/mcpserviceref.proto\"\x9f\x01\n\x1cMcpServerRemoteServiceConfig\x12+\n\nserviceRef\x18\x01 \x01(\x0b\x32\x17.nacos.ai.McpServiceRef\x12\x12\n\nexportPath\x18\x02 \x01(\t\x12>\n\x17\x66rontEndpointConfigList\x18\x03 \x03(\x0b\x32\x1d.nacos.ai.FrontEndpointConfigB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')

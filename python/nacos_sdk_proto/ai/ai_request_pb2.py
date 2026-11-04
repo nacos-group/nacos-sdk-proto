@@ -22,17 +22,17 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from ai import agentcallinterface_pb2 as ai_dot_agentcallinterface__pb2
-from ai import agentcard_pb2 as ai_dot_agentcard__pb2
-from ai import agentdiscoveryfilter_pb2 as ai_dot_agentdiscoveryfilter__pb2
-from ai import agentendpoint_pb2 as ai_dot_agentendpoint__pb2
-from ai import agentendpointregistrationbatch_pb2 as ai_dot_agentendpointregistrationbatch__pb2
-from ai import agentprovider_pb2 as ai_dot_agentprovider__pb2
-from ai import agentreference_pb2 as ai_dot_agentreference__pb2
-from ai import mcpendpointspec_pb2 as ai_dot_mcpendpointspec__pb2
-from ai import mcpresourcespecification_pb2 as ai_dot_mcpresourcespecification__pb2
-from ai import mcpserverbasicinfo_pb2 as ai_dot_mcpserverbasicinfo__pb2
-from ai import mcptoolspecification_pb2 as ai_dot_mcptoolspecification__pb2
+from nacos_sdk_proto.ai import agentcallinterface_pb2 as ai_dot_agentcallinterface__pb2
+from nacos_sdk_proto.ai import agentcard_pb2 as ai_dot_agentcard__pb2
+from nacos_sdk_proto.ai import agentdiscoveryfilter_pb2 as ai_dot_agentdiscoveryfilter__pb2
+from nacos_sdk_proto.ai import agentendpoint_pb2 as ai_dot_agentendpoint__pb2
+from nacos_sdk_proto.ai import agentendpointregistrationbatch_pb2 as ai_dot_agentendpointregistrationbatch__pb2
+from nacos_sdk_proto.ai import agentprovider_pb2 as ai_dot_agentprovider__pb2
+from nacos_sdk_proto.ai import agentreference_pb2 as ai_dot_agentreference__pb2
+from nacos_sdk_proto.ai import mcpendpointspec_pb2 as ai_dot_mcpendpointspec__pb2
+from nacos_sdk_proto.ai import mcpresourcespecification_pb2 as ai_dot_mcpresourcespecification__pb2
+from nacos_sdk_proto.ai import mcpserverbasicinfo_pb2 as ai_dot_mcpserverbasicinfo__pb2
+from nacos_sdk_proto.ai import mcptoolspecification_pb2 as ai_dot_mcptoolspecification__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
