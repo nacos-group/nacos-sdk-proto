@@ -76,6 +76,10 @@ jobs:
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
+      - name: Build and check package
+        run: |
+          npm install
+          make check-nodejs-package
       - name: Publish
         run: |
           echo "node $(node -v), npm $(npm -v)"
