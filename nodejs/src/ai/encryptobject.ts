@@ -44,7 +44,7 @@ export const EncryptObject: MessageFns<EncryptObject> = {
 
   toJSON(message: EncryptObject): unknown {
     const obj: any = {};
-    if (message.data !== "") {
+    if (message.data !== undefined) {
       obj.data = message.data;
     }
     if (message.encryptInfo) {
@@ -92,10 +92,10 @@ export const EncryptObject_EncryptInfoEntry: MessageFns<EncryptObject_EncryptInf
 
   toJSON(message: EncryptObject_EncryptInfoEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
-    if (message.value !== "") {
+    if (message.value !== undefined) {
       obj.value = message.value;
     }
     return obj;

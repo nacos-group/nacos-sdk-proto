@@ -48,13 +48,13 @@ export const AgentExtension: MessageFns<AgentExtension> = {
 
   toJSON(message: AgentExtension): unknown {
     const obj: any = {};
-    if (message.uri !== "") {
+    if (message.uri !== undefined) {
       obj.uri = message.uri;
     }
-    if (message.description !== "") {
+    if (message.description !== undefined) {
       obj.description = message.description;
     }
-    if (message.required !== false) {
+    if (message.required !== undefined) {
       obj.required = message.required;
     }
     if (message.params) {
@@ -104,7 +104,7 @@ export const AgentExtension_ParamsEntry: MessageFns<AgentExtension_ParamsEntry> 
 
   toJSON(message: AgentExtension_ParamsEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     if (message.value !== undefined) {

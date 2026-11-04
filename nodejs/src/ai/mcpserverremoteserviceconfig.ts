@@ -40,7 +40,7 @@ export const McpServerRemoteServiceConfig: MessageFns<McpServerRemoteServiceConf
     if (message.serviceRef !== undefined) {
       obj.serviceRef = McpServiceRef.toJSON(message.serviceRef);
     }
-    if (message.exportPath !== "") {
+    if (message.exportPath !== undefined) {
       obj.exportPath = message.exportPath;
     }
     if (message.frontEndpointConfigList?.length) {

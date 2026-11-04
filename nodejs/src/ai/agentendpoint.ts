@@ -58,34 +58,34 @@ export const AgentEndpoint: MessageFns<AgentEndpoint> = {
 
   toJSON(message: AgentEndpoint): unknown {
     const obj: any = {};
-    if (message.transport !== "") {
+    if (message.transport !== undefined) {
       obj.transport = message.transport;
     }
-    if (message.address !== "") {
+    if (message.address !== undefined) {
       obj.address = message.address;
     }
-    if (message.port !== 0) {
+    if (message.port !== undefined) {
       obj.port = Math.round(message.port);
     }
-    if (message.path !== "") {
+    if (message.path !== undefined) {
       obj.path = message.path;
     }
-    if (message.supportTls !== false) {
+    if (message.supportTls !== undefined) {
       obj.supportTls = message.supportTls;
     }
-    if (message.version !== "") {
+    if (message.version !== undefined) {
       obj.version = message.version;
     }
-    if (message.protocolVersion !== "") {
+    if (message.protocolVersion !== undefined) {
       obj.protocolVersion = message.protocolVersion;
     }
-    if (message.tenant !== "") {
+    if (message.tenant !== undefined) {
       obj.tenant = message.tenant;
     }
-    if (message.protocol !== "") {
+    if (message.protocol !== undefined) {
       obj.protocol = message.protocol;
     }
-    if (message.query !== "") {
+    if (message.query !== undefined) {
       obj.query = message.query;
     }
     return obj;

@@ -59,16 +59,16 @@ export const Endpoint: MessageFns<Endpoint> = {
 
   toJSON(message: Endpoint): unknown {
     const obj: any = {};
-    if (message.uri !== "") {
+    if (message.uri !== undefined) {
       obj.uri = message.uri;
     }
-    if (message.transport !== "") {
+    if (message.transport !== undefined) {
       obj.transport = message.transport;
     }
-    if (message.priority !== 0) {
+    if (message.priority !== undefined) {
       obj.priority = Math.round(message.priority);
     }
-    if (message.weight !== 0) {
+    if (message.weight !== undefined) {
       obj.weight = message.weight;
     }
     if (message.metadata) {
@@ -80,13 +80,13 @@ export const Endpoint: MessageFns<Endpoint> = {
         });
       }
     }
-    if (message.healthy !== false) {
+    if (message.healthy !== undefined) {
       obj.healthy = message.healthy;
     }
     if (message.bindings?.length) {
       obj.bindings = message.bindings.map((e) => RuntimeVersionBinding.toJSON(e));
     }
-    if (message.enabled !== false) {
+    if (message.enabled !== undefined) {
       obj.enabled = message.enabled;
     }
     return obj;
@@ -131,10 +131,10 @@ export const Endpoint_MetadataEntry: MessageFns<Endpoint_MetadataEntry> = {
 
   toJSON(message: Endpoint_MetadataEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
-    if (message.value !== "") {
+    if (message.value !== undefined) {
       obj.value = message.value;
     }
     return obj;

@@ -125,22 +125,22 @@ export const McpServerDetailInfo: MessageFns<McpServerDetailInfo> = {
 
   toJSON(message: McpServerDetailInfo): unknown {
     const obj: any = {};
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
-    if (message.id !== "") {
+    if (message.id !== undefined) {
       obj.id = message.id;
     }
-    if (message.name !== "") {
+    if (message.name !== undefined) {
       obj.name = message.name;
     }
-    if (message.protocol !== "") {
+    if (message.protocol !== undefined) {
       obj.protocol = message.protocol;
     }
-    if (message.frontProtocol !== "") {
+    if (message.frontProtocol !== undefined) {
       obj.frontProtocol = message.frontProtocol;
     }
-    if (message.description !== "") {
+    if (message.description !== undefined) {
       obj.description = message.description;
     }
     if (message.repository !== undefined) {
@@ -152,13 +152,13 @@ export const McpServerDetailInfo: MessageFns<McpServerDetailInfo> = {
     if (message.icons?.length) {
       obj.icons = message.icons.map((e) => Icon.toJSON(e));
     }
-    if (message.websiteUrl !== "") {
+    if (message.websiteUrl !== undefined) {
       obj.websiteUrl = message.websiteUrl;
     }
     if (message.versionDetail !== undefined) {
       obj.versionDetail = ServerVersionDetail.toJSON(message.versionDetail);
     }
-    if (message.version !== "") {
+    if (message.version !== undefined) {
       obj.version = message.version;
     }
     if (message.remoteServerConfig !== undefined) {
@@ -173,10 +173,10 @@ export const McpServerDetailInfo: MessageFns<McpServerDetailInfo> = {
         });
       }
     }
-    if (message.enabled !== false) {
+    if (message.enabled !== undefined) {
       obj.enabled = message.enabled;
     }
-    if (message.status !== "") {
+    if (message.status !== undefined) {
       obj.status = message.status;
     }
     if (message.capabilities?.length) {
@@ -264,7 +264,7 @@ export const McpServerDetailInfo_LocalServerConfigEntry: MessageFns<McpServerDet
 
   toJSON(message: McpServerDetailInfo_LocalServerConfigEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     if (message.value !== undefined) {

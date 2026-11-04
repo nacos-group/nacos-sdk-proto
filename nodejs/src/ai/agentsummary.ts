@@ -88,16 +88,16 @@ export const AgentSummary: MessageFns<AgentSummary> = {
 
   toJSON(message: AgentSummary): unknown {
     const obj: any = {};
-    if (message.agentName !== "") {
+    if (message.agentName !== undefined) {
       obj.agentName = message.agentName;
     }
-    if (message.displayName !== "") {
+    if (message.displayName !== undefined) {
       obj.displayName = message.displayName;
     }
-    if (message.description !== "") {
+    if (message.description !== undefined) {
       obj.description = message.description;
     }
-    if (message.iconUrl !== "") {
+    if (message.iconUrl !== undefined) {
       obj.iconUrl = message.iconUrl;
     }
     if (message.provider !== undefined) {
@@ -115,28 +115,28 @@ export const AgentSummary: MessageFns<AgentSummary> = {
         });
       }
     }
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
-    if (message.status !== "") {
+    if (message.status !== undefined) {
       obj.status = message.status;
     }
-    if (message.owner !== "") {
+    if (message.owner !== undefined) {
       obj.owner = message.owner;
     }
-    if (message.scope !== "") {
+    if (message.scope !== undefined) {
       obj.scope = message.scope;
     }
     if (message.versionInfo !== undefined) {
       obj.versionInfo = AgentVersionInfo.toJSON(message.versionInfo);
     }
-    if (message.metaVersion !== 0) {
+    if (message.metaVersion !== undefined) {
       obj.metaVersion = Math.round(message.metaVersion);
     }
-    if (message.createTime !== 0) {
+    if (message.createTime !== undefined) {
       obj.createTime = Math.round(message.createTime);
     }
-    if (message.updateTime !== 0) {
+    if (message.updateTime !== undefined) {
       obj.updateTime = Math.round(message.updateTime);
     }
     return obj;
@@ -192,7 +192,7 @@ export const AgentSummary_ExtensionsEntry: MessageFns<AgentSummary_ExtensionsEnt
 
   toJSON(message: AgentSummary_ExtensionsEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     if (message.value !== undefined) {

@@ -35,16 +35,16 @@ export const McpEndpointInfo: MessageFns<McpEndpointInfo> = {
 
   toJSON(message: McpEndpointInfo): unknown {
     const obj: any = {};
-    if (message.protocol !== "") {
+    if (message.protocol !== undefined) {
       obj.protocol = message.protocol;
     }
-    if (message.address !== "") {
+    if (message.address !== undefined) {
       obj.address = message.address;
     }
-    if (message.port !== 0) {
+    if (message.port !== undefined) {
       obj.port = Math.round(message.port);
     }
-    if (message.path !== "") {
+    if (message.path !== undefined) {
       obj.path = message.path;
     }
     return obj;

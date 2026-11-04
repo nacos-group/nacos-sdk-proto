@@ -180,7 +180,7 @@ export const ClientConfigMetricRequest: MessageFns<ClientConfigMetricRequest> = 
 
   toJSON(message: ClientConfigMetricRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     if (message.metricsKeys?.length) {
@@ -214,10 +214,10 @@ export const ClientConfigMetricRequestMetricsKey: MessageFns<ClientConfigMetricR
 
   toJSON(message: ClientConfigMetricRequestMetricsKey): unknown {
     const obj: any = {};
-    if (message.type !== "") {
+    if (message.type !== undefined) {
       obj.type = message.type;
     }
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     return obj;
@@ -258,19 +258,19 @@ export const ConfigBatchListenRequest: MessageFns<ConfigBatchListenRequest> = {
 
   toJSON(message: ConfigBatchListenRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.dataId !== "") {
+    if (message.dataId !== undefined) {
       obj.dataId = message.dataId;
     }
-    if (message.group !== "") {
+    if (message.group !== undefined) {
       obj.group = message.group;
     }
-    if (message.tenant !== "") {
+    if (message.tenant !== undefined) {
       obj.tenant = message.tenant;
     }
-    if (message.listen !== false) {
+    if (message.listen !== undefined) {
       obj.listen = message.listen;
     }
     if (message.configListenContexts?.length) {
@@ -313,16 +313,16 @@ export const ConfigBatchListenRequestConfigListenContext: MessageFns<ConfigBatch
 
   toJSON(message: ConfigBatchListenRequestConfigListenContext): unknown {
     const obj: any = {};
-    if (message.group !== "") {
+    if (message.group !== undefined) {
       obj.group = message.group;
     }
-    if (message.md5 !== "") {
+    if (message.md5 !== undefined) {
       obj.md5 = message.md5;
     }
-    if (message.dataId !== "") {
+    if (message.dataId !== undefined) {
       obj.dataId = message.dataId;
     }
-    if (message.tenant !== "") {
+    if (message.tenant !== undefined) {
       obj.tenant = message.tenant;
     }
     return obj;
@@ -369,28 +369,28 @@ export const ConfigChangeClusterSyncRequest: MessageFns<ConfigChangeClusterSyncR
 
   toJSON(message: ConfigChangeClusterSyncRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.dataId !== "") {
+    if (message.dataId !== undefined) {
       obj.dataId = message.dataId;
     }
-    if (message.group !== "") {
+    if (message.group !== undefined) {
       obj.group = message.group;
     }
-    if (message.tenant !== "") {
+    if (message.tenant !== undefined) {
       obj.tenant = message.tenant;
     }
-    if (message.lastModified !== 0) {
+    if (message.lastModified !== undefined) {
       obj.lastModified = Math.round(message.lastModified);
     }
-    if (message.grayName !== "") {
+    if (message.grayName !== undefined) {
       obj.grayName = message.grayName;
     }
-    if (message.beta !== false) {
+    if (message.beta !== undefined) {
       obj.beta = message.beta;
     }
-    if (message.tag !== "") {
+    if (message.tag !== undefined) {
       obj.tag = message.tag;
     }
     return obj;
@@ -431,16 +431,16 @@ export const ConfigChangeNotifyRequest: MessageFns<ConfigChangeNotifyRequest> = 
 
   toJSON(message: ConfigChangeNotifyRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.dataId !== "") {
+    if (message.dataId !== undefined) {
       obj.dataId = message.dataId;
     }
-    if (message.group !== "") {
+    if (message.group !== undefined) {
       obj.group = message.group;
     }
-    if (message.tenant !== "") {
+    if (message.tenant !== undefined) {
       obj.tenant = message.tenant;
     }
     return obj;
@@ -474,13 +474,13 @@ export const ConfigFuzzyWatchChangeNotifyRequest: MessageFns<ConfigFuzzyWatchCha
 
   toJSON(message: ConfigFuzzyWatchChangeNotifyRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.groupKey !== "") {
+    if (message.groupKey !== undefined) {
       obj.groupKey = message.groupKey;
     }
-    if (message.changeType !== "") {
+    if (message.changeType !== undefined) {
       obj.changeType = message.changeType;
     }
     return obj;
@@ -525,19 +525,19 @@ export const ConfigFuzzyWatchRequest: MessageFns<ConfigFuzzyWatchRequest> = {
 
   toJSON(message: ConfigFuzzyWatchRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.groupKeyPattern !== "") {
+    if (message.groupKeyPattern !== undefined) {
       obj.groupKeyPattern = message.groupKeyPattern;
     }
     if (message.receivedGroupKeys?.length) {
       obj.receivedGroupKeys = message.receivedGroupKeys;
     }
-    if (message.watchType !== "") {
+    if (message.watchType !== undefined) {
       obj.watchType = message.watchType;
     }
-    if (message.initializing !== false) {
+    if (message.initializing !== undefined) {
       obj.initializing = message.initializing;
     }
     return obj;
@@ -577,22 +577,22 @@ export const ConfigFuzzyWatchSyncRequest: MessageFns<ConfigFuzzyWatchSyncRequest
 
   toJSON(message: ConfigFuzzyWatchSyncRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.groupKeyPattern !== "") {
+    if (message.groupKeyPattern !== undefined) {
       obj.groupKeyPattern = message.groupKeyPattern;
     }
     if (message.contexts?.length) {
       obj.contexts = message.contexts.map((e) => ConfigFuzzyWatchSyncRequestContext.toJSON(e));
     }
-    if (message.syncType !== "") {
+    if (message.syncType !== undefined) {
       obj.syncType = message.syncType;
     }
-    if (message.totalBatch !== 0) {
+    if (message.totalBatch !== undefined) {
       obj.totalBatch = Math.round(message.totalBatch);
     }
-    if (message.currentBatch !== 0) {
+    if (message.currentBatch !== undefined) {
       obj.currentBatch = Math.round(message.currentBatch);
     }
     return obj;
@@ -627,10 +627,10 @@ export const ConfigFuzzyWatchSyncRequestContext: MessageFns<ConfigFuzzyWatchSync
 
   toJSON(message: ConfigFuzzyWatchSyncRequestContext): unknown {
     const obj: any = {};
-    if (message.groupKey !== "") {
+    if (message.groupKey !== undefined) {
       obj.groupKey = message.groupKey;
     }
-    if (message.changedType !== "") {
+    if (message.changedType !== undefined) {
       obj.changedType = message.changedType;
     }
     return obj;
@@ -678,22 +678,22 @@ export const ConfigPublishRequest: MessageFns<ConfigPublishRequest> = {
 
   toJSON(message: ConfigPublishRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.dataId !== "") {
+    if (message.dataId !== undefined) {
       obj.dataId = message.dataId;
     }
-    if (message.group !== "") {
+    if (message.group !== undefined) {
       obj.group = message.group;
     }
-    if (message.tenant !== "") {
+    if (message.tenant !== undefined) {
       obj.tenant = message.tenant;
     }
-    if (message.content !== "") {
+    if (message.content !== undefined) {
       obj.content = message.content;
     }
-    if (message.casMd5 !== "") {
+    if (message.casMd5 !== undefined) {
       obj.casMd5 = message.casMd5;
     }
     if (message.additionMap) {
@@ -746,10 +746,10 @@ export const ConfigPublishRequest_AdditionMapEntry: MessageFns<ConfigPublishRequ
 
   toJSON(message: ConfigPublishRequest_AdditionMapEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
-    if (message.value !== "") {
+    if (message.value !== undefined) {
       obj.value = message.value;
     }
     return obj;
@@ -788,22 +788,22 @@ export const ConfigQueryRequest: MessageFns<ConfigQueryRequest> = {
 
   toJSON(message: ConfigQueryRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.dataId !== "") {
+    if (message.dataId !== undefined) {
       obj.dataId = message.dataId;
     }
-    if (message.group !== "") {
+    if (message.group !== undefined) {
       obj.group = message.group;
     }
-    if (message.tenant !== "") {
+    if (message.tenant !== undefined) {
       obj.tenant = message.tenant;
     }
-    if (message.tag !== "") {
+    if (message.tag !== undefined) {
       obj.tag = message.tag;
     }
-    if (message.localMd5 !== "") {
+    if (message.localMd5 !== undefined) {
       obj.localMd5 = message.localMd5;
     }
     return obj;
@@ -841,19 +841,19 @@ export const ConfigRemoveRequest: MessageFns<ConfigRemoveRequest> = {
 
   toJSON(message: ConfigRemoveRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.dataId !== "") {
+    if (message.dataId !== undefined) {
       obj.dataId = message.dataId;
     }
-    if (message.group !== "") {
+    if (message.group !== undefined) {
       obj.group = message.group;
     }
-    if (message.tenant !== "") {
+    if (message.tenant !== undefined) {
       obj.tenant = message.tenant;
     }
-    if (message.tag !== "") {
+    if (message.tag !== undefined) {
       obj.tag = message.tag;
     }
     return obj;

@@ -51,13 +51,13 @@ export const AgentCallInterface: MessageFns<AgentCallInterface> = {
 
   toJSON(message: AgentCallInterface): unknown {
     const obj: any = {};
-    if (message.protocol !== "") {
+    if (message.protocol !== undefined) {
       obj.protocol = message.protocol;
     }
-    if (message.protocolVersion !== "") {
+    if (message.protocolVersion !== undefined) {
       obj.protocolVersion = message.protocolVersion;
     }
-    if (message.descriptorMediaType !== "") {
+    if (message.descriptorMediaType !== undefined) {
       obj.descriptorMediaType = message.descriptorMediaType;
     }
     if (message.nativeDescriptor !== undefined) {

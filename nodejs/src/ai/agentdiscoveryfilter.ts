@@ -59,7 +59,7 @@ export const AgentDiscoveryFilter: MessageFns<AgentDiscoveryFilter> = {
     if (message.protocols?.length) {
       obj.protocols = message.protocols;
     }
-    if (message.protocolVersion !== "") {
+    if (message.protocolVersion !== undefined) {
       obj.protocolVersion = message.protocolVersion;
     }
     if (message.transports?.length) {
@@ -116,10 +116,10 @@ export const AgentDiscoveryFilter_MetadataSelectorEntry: MessageFns<AgentDiscove
 
   toJSON(message: AgentDiscoveryFilter_MetadataSelectorEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
-    if (message.value !== "") {
+    if (message.value !== undefined) {
       obj.value = message.value;
     }
     return obj;

@@ -51,10 +51,10 @@ export const AgentVersionInfo: MessageFns<AgentVersionInfo> = {
 
   toJSON(message: AgentVersionInfo): unknown {
     const obj: any = {};
-    if (message.editingVersion !== "") {
+    if (message.editingVersion !== undefined) {
       obj.editingVersion = message.editingVersion;
     }
-    if (message.reviewingVersion !== "") {
+    if (message.reviewingVersion !== undefined) {
       obj.reviewingVersion = message.reviewingVersion;
     }
     if (message.onlineVersions?.length) {
@@ -107,10 +107,10 @@ export const AgentVersionInfo_LabelsEntry: MessageFns<AgentVersionInfo_LabelsEnt
 
   toJSON(message: AgentVersionInfo_LabelsEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
-    if (message.value !== "") {
+    if (message.value !== undefined) {
       obj.value = message.value;
     }
     return obj;

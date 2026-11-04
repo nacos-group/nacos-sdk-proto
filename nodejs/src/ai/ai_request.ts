@@ -297,19 +297,19 @@ export const AgentDiscoveryNotifyRequest: MessageFns<AgentDiscoveryNotifyRequest
 
   toJSON(message: AgentDiscoveryNotifyRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.watchKey !== "") {
+    if (message.watchKey !== undefined) {
       obj.watchKey = message.watchKey;
     }
-    if (message.eventType !== "") {
+    if (message.eventType !== undefined) {
       obj.eventType = message.eventType;
     }
-    if (message.observedFingerprint !== "") {
+    if (message.observedFingerprint !== undefined) {
       obj.observedFingerprint = message.observedFingerprint;
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
     return obj;
@@ -345,7 +345,7 @@ export const AgentDiscoveryRpcRequest: MessageFns<AgentDiscoveryRpcRequest> = {
 
   toJSON(message: AgentDiscoveryRpcRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     if (message.discoveryRequest !== undefined) {
@@ -382,7 +382,7 @@ export const AgentDiscoveryRequest: MessageFns<AgentDiscoveryRequest> = {
 
   toJSON(message: AgentDiscoveryRequest): unknown {
     const obj: any = {};
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
     if (message.reference !== undefined) {
@@ -426,16 +426,16 @@ export const AgentEndpointDeregisterRpcRequest: MessageFns<AgentEndpointDeregist
 
   toJSON(message: AgentEndpointDeregisterRpcRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
-    if (message.agentName !== "") {
+    if (message.agentName !== undefined) {
       obj.agentName = message.agentName;
     }
-    if (message.protocol !== "") {
+    if (message.protocol !== undefined) {
       obj.protocol = message.protocol;
     }
     return obj;
@@ -475,10 +475,10 @@ export const AgentEndpointRegisterRpcRequest: MessageFns<AgentEndpointRegisterRp
 
   toJSON(message: AgentEndpointRegisterRpcRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
     if (message.registrationBatch !== undefined) {
@@ -520,19 +520,19 @@ export const AgentEndpointRequest: MessageFns<AgentEndpointRequest> = {
 
   toJSON(message: AgentEndpointRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
-    if (message.agentName !== "") {
+    if (message.agentName !== undefined) {
       obj.agentName = message.agentName;
     }
     if (message.endpoint !== undefined) {
       obj.endpoint = AgentEndpoint.toJSON(message.endpoint);
     }
-    if (message.type !== "") {
+    if (message.type !== undefined) {
       obj.type = message.type;
     }
     return obj;
@@ -569,10 +569,10 @@ export const AgentPublishRpcRequest: MessageFns<AgentPublishRpcRequest> = {
 
   toJSON(message: AgentPublishRpcRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
     if (message.publishRequest !== undefined) {
@@ -644,16 +644,16 @@ export const AgentPublishRequest: MessageFns<AgentPublishRequest> = {
 
   toJSON(message: AgentPublishRequest): unknown {
     const obj: any = {};
-    if (message.agentName !== "") {
+    if (message.agentName !== undefined) {
       obj.agentName = message.agentName;
     }
-    if (message.displayName !== "") {
+    if (message.displayName !== undefined) {
       obj.displayName = message.displayName;
     }
-    if (message.description !== "") {
+    if (message.description !== undefined) {
       obj.description = message.description;
     }
-    if (message.iconUrl !== "") {
+    if (message.iconUrl !== undefined) {
       obj.iconUrl = message.iconUrl;
     }
     if (message.provider !== undefined) {
@@ -671,22 +671,22 @@ export const AgentPublishRequest: MessageFns<AgentPublishRequest> = {
         });
       }
     }
-    if (message.version !== "") {
+    if (message.version !== undefined) {
       obj.version = message.version;
     }
     if (message.callInterfaces?.length) {
       obj.callInterfaces = message.callInterfaces.map((e) => AgentCallInterface.toJSON(e));
     }
-    if (message.author !== "") {
+    if (message.author !== undefined) {
       obj.author = message.author;
     }
-    if (message.changeDescription !== "") {
+    if (message.changeDescription !== undefined) {
       obj.changeDescription = message.changeDescription;
     }
-    if (message.basedOnVersion !== "") {
+    if (message.basedOnVersion !== undefined) {
       obj.basedOnVersion = message.basedOnVersion;
     }
-    if (message.autoSubmit !== false) {
+    if (message.autoSubmit !== undefined) {
       obj.autoSubmit = message.autoSubmit;
     }
     return obj;
@@ -738,7 +738,7 @@ export const AgentPublishRequest_ExtensionsEntry: MessageFns<AgentPublishRequest
 
   toJSON(message: AgentPublishRequest_ExtensionsEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     if (message.value !== undefined) {
@@ -777,10 +777,10 @@ export const AgentSearchRpcRequest: MessageFns<AgentSearchRpcRequest> = {
 
   toJSON(message: AgentSearchRpcRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
     if (message.searchRequest !== undefined) {
@@ -822,7 +822,7 @@ export const AgentSearchRequest: MessageFns<AgentSearchRequest> = {
 
   toJSON(message: AgentSearchRequest): unknown {
     const obj: any = {};
-    if (message.agentNameContains !== "") {
+    if (message.agentNameContains !== undefined) {
       obj.agentNameContains = message.agentNameContains;
     }
     if (message.tagsAll?.length) {
@@ -831,10 +831,10 @@ export const AgentSearchRequest: MessageFns<AgentSearchRequest> = {
     if (message.protocolsAny?.length) {
       obj.protocolsAny = message.protocolsAny;
     }
-    if (message.pageNo !== 0) {
+    if (message.pageNo !== undefined) {
       obj.pageNo = Math.round(message.pageNo);
     }
-    if (message.pageSize !== 0) {
+    if (message.pageSize !== undefined) {
       obj.pageSize = Math.round(message.pageSize);
     }
     return obj;
@@ -874,16 +874,16 @@ export const AgentSubscribeRpcRequest: MessageFns<AgentSubscribeRpcRequest> = {
 
   toJSON(message: AgentSubscribeRpcRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.clientWatchId !== "") {
+    if (message.clientWatchId !== undefined) {
       obj.clientWatchId = message.clientWatchId;
     }
     if (message.discoveryRequest !== undefined) {
       obj.discoveryRequest = AgentDiscoveryRequest.toJSON(message.discoveryRequest);
     }
-    if (message.materializedFingerprint !== "") {
+    if (message.materializedFingerprint !== undefined) {
       obj.materializedFingerprint = message.materializedFingerprint;
     }
     return obj;
@@ -918,10 +918,10 @@ export const AgentUnsubscribeRpcRequest: MessageFns<AgentUnsubscribeRpcRequest> 
 
   toJSON(message: AgentUnsubscribeRpcRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.watchKey !== "") {
+    if (message.watchKey !== undefined) {
       obj.watchKey = message.watchKey;
     }
     return obj;
@@ -956,22 +956,22 @@ export const AiResourceChangeClusterRequest: MessageFns<AiResourceChangeClusterR
 
   toJSON(message: AiResourceChangeClusterRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
-    if (message.resourceType !== "") {
+    if (message.resourceType !== undefined) {
       obj.resourceType = message.resourceType;
     }
-    if (message.resourceName !== "") {
+    if (message.resourceName !== undefined) {
       obj.resourceName = message.resourceName;
     }
-    if (message.operation !== "") {
+    if (message.operation !== undefined) {
       obj.operation = message.operation;
     }
-    if (message.storageChanged !== false) {
+    if (message.storageChanged !== undefined) {
       obj.storageChanged = message.storageChanged;
     }
     return obj;
@@ -1012,13 +1012,13 @@ export const BatchAgentEndpointRequest: MessageFns<BatchAgentEndpointRequest> = 
 
   toJSON(message: BatchAgentEndpointRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
-    if (message.agentName !== "") {
+    if (message.agentName !== undefined) {
       obj.agentName = message.agentName;
     }
     if (message.endpoints?.length) {
@@ -1060,28 +1060,28 @@ export const McpServerEndpointRequest: MessageFns<McpServerEndpointRequest> = {
 
   toJSON(message: McpServerEndpointRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
-    if (message.mcpId !== "") {
+    if (message.mcpId !== undefined) {
       obj.mcpId = message.mcpId;
     }
-    if (message.mcpName !== "") {
+    if (message.mcpName !== undefined) {
       obj.mcpName = message.mcpName;
     }
-    if (message.address !== "") {
+    if (message.address !== undefined) {
       obj.address = message.address;
     }
-    if (message.port !== 0) {
+    if (message.port !== undefined) {
       obj.port = Math.round(message.port);
     }
-    if (message.version !== "") {
+    if (message.version !== undefined) {
       obj.version = message.version;
     }
-    if (message.type !== "") {
+    if (message.type !== undefined) {
       obj.type = message.type;
     }
     return obj;
@@ -1121,19 +1121,19 @@ export const QueryAgentCardRequest: MessageFns<QueryAgentCardRequest> = {
 
   toJSON(message: QueryAgentCardRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
-    if (message.agentName !== "") {
+    if (message.agentName !== undefined) {
       obj.agentName = message.agentName;
     }
-    if (message.version !== "") {
+    if (message.version !== undefined) {
       obj.version = message.version;
     }
-    if (message.registrationType !== "") {
+    if (message.registrationType !== undefined) {
       obj.registrationType = message.registrationType;
     }
     return obj;
@@ -1170,19 +1170,19 @@ export const QueryMcpServerRequest: MessageFns<QueryMcpServerRequest> = {
 
   toJSON(message: QueryMcpServerRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
-    if (message.mcpId !== "") {
+    if (message.mcpId !== undefined) {
       obj.mcpId = message.mcpId;
     }
-    if (message.mcpName !== "") {
+    if (message.mcpName !== undefined) {
       obj.mcpName = message.mcpName;
     }
-    if (message.version !== "") {
+    if (message.version !== undefined) {
       obj.version = message.version;
     }
     return obj;
@@ -1220,22 +1220,22 @@ export const QueryPromptRequest: MessageFns<QueryPromptRequest> = {
 
   toJSON(message: QueryPromptRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
-    if (message.promptKey !== "") {
+    if (message.promptKey !== undefined) {
       obj.promptKey = message.promptKey;
     }
-    if (message.version !== "") {
+    if (message.version !== undefined) {
       obj.version = message.version;
     }
-    if (message.label !== "") {
+    if (message.label !== undefined) {
       obj.label = message.label;
     }
-    if (message.md5 !== "") {
+    if (message.md5 !== undefined) {
       obj.md5 = message.md5;
     }
     return obj;
@@ -1281,22 +1281,22 @@ export const ReleaseAgentCardRequest: MessageFns<ReleaseAgentCardRequest> = {
 
   toJSON(message: ReleaseAgentCardRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
-    if (message.agentName !== "") {
+    if (message.agentName !== undefined) {
       obj.agentName = message.agentName;
     }
     if (message.agentCard !== undefined) {
       obj.agentCard = AgentCard.toJSON(message.agentCard);
     }
-    if (message.registrationType !== "") {
+    if (message.registrationType !== undefined) {
       obj.registrationType = message.registrationType;
     }
-    if (message.setAsLatest !== false) {
+    if (message.setAsLatest !== undefined) {
       obj.setAsLatest = message.setAsLatest;
     }
     return obj;
@@ -1358,16 +1358,16 @@ export const ReleaseMcpServerRequest: MessageFns<ReleaseMcpServerRequest> = {
 
   toJSON(message: ReleaseMcpServerRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
-    if (message.mcpId !== "") {
+    if (message.mcpId !== undefined) {
       obj.mcpId = message.mcpId;
     }
-    if (message.mcpName !== "") {
+    if (message.mcpName !== undefined) {
       obj.mcpName = message.mcpName;
     }
     if (message.serverSpecification !== undefined) {
@@ -1382,7 +1382,7 @@ export const ReleaseMcpServerRequest: MessageFns<ReleaseMcpServerRequest> = {
     if (message.endpointSpecification !== undefined) {
       obj.endpointSpecification = McpEndpointSpec.toJSON(message.endpointSpecification);
     }
-    if (message.createDraft !== false) {
+    if (message.createDraft !== undefined) {
       obj.createDraft = message.createDraft;
     }
     return obj;

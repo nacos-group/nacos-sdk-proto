@@ -168,19 +168,19 @@ export const BatchInstanceRequest: MessageFns<BatchInstanceRequest> = {
 
   toJSON(message: BatchInstanceRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespace !== "") {
+    if (message.namespace !== undefined) {
       obj.namespace = message.namespace;
     }
-    if (message.serviceName !== "") {
+    if (message.serviceName !== undefined) {
       obj.serviceName = message.serviceName;
     }
-    if (message.groupName !== "") {
+    if (message.groupName !== undefined) {
       obj.groupName = message.groupName;
     }
-    if (message.type !== "") {
+    if (message.type !== undefined) {
       obj.type = message.type;
     }
     if (message.instances?.length) {
@@ -222,19 +222,19 @@ export const InstanceRequest: MessageFns<InstanceRequest> = {
 
   toJSON(message: InstanceRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespace !== "") {
+    if (message.namespace !== undefined) {
       obj.namespace = message.namespace;
     }
-    if (message.serviceName !== "") {
+    if (message.serviceName !== undefined) {
       obj.serviceName = message.serviceName;
     }
-    if (message.groupName !== "") {
+    if (message.groupName !== undefined) {
       obj.groupName = message.groupName;
     }
-    if (message.type !== "") {
+    if (message.type !== undefined) {
       obj.type = message.type;
     }
     if (message.instance !== undefined) {
@@ -276,16 +276,16 @@ export const NamingFuzzyWatchChangeNotifyRequest: MessageFns<NamingFuzzyWatchCha
 
   toJSON(message: NamingFuzzyWatchChangeNotifyRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.syncType !== "") {
+    if (message.syncType !== undefined) {
       obj.syncType = message.syncType;
     }
-    if (message.serviceKey !== "") {
+    if (message.serviceKey !== undefined) {
       obj.serviceKey = message.serviceKey;
     }
-    if (message.changedType !== "") {
+    if (message.changedType !== undefined) {
       obj.changedType = message.changedType;
     }
     return obj;
@@ -339,22 +339,22 @@ export const NamingFuzzyWatchRequest: MessageFns<NamingFuzzyWatchRequest> = {
 
   toJSON(message: NamingFuzzyWatchRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.initializing !== false) {
+    if (message.initializing !== undefined) {
       obj.initializing = message.initializing;
     }
-    if (message.namespace !== "") {
+    if (message.namespace !== undefined) {
       obj.namespace = message.namespace;
     }
-    if (message.groupKeyPattern !== "") {
+    if (message.groupKeyPattern !== undefined) {
       obj.groupKeyPattern = message.groupKeyPattern;
     }
     if (message.receivedGroupKeys?.length) {
       obj.receivedGroupKeys = message.receivedGroupKeys;
     }
-    if (message.watchType !== "") {
+    if (message.watchType !== undefined) {
       obj.watchType = message.watchType;
     }
     return obj;
@@ -395,22 +395,22 @@ export const NamingFuzzyWatchSyncRequest: MessageFns<NamingFuzzyWatchSyncRequest
 
   toJSON(message: NamingFuzzyWatchSyncRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.syncType !== "") {
+    if (message.syncType !== undefined) {
       obj.syncType = message.syncType;
     }
-    if (message.groupKeyPattern !== "") {
+    if (message.groupKeyPattern !== undefined) {
       obj.groupKeyPattern = message.groupKeyPattern;
     }
     if (message.contexts?.length) {
       obj.contexts = message.contexts.map((e) => NamingFuzzyWatchSyncRequestContext.toJSON(e));
     }
-    if (message.totalBatch !== 0) {
+    if (message.totalBatch !== undefined) {
       obj.totalBatch = Math.round(message.totalBatch);
     }
-    if (message.currentBatch !== 0) {
+    if (message.currentBatch !== undefined) {
       obj.currentBatch = Math.round(message.currentBatch);
     }
     return obj;
@@ -445,10 +445,10 @@ export const NamingFuzzyWatchSyncRequestContext: MessageFns<NamingFuzzyWatchSync
 
   toJSON(message: NamingFuzzyWatchSyncRequestContext): unknown {
     const obj: any = {};
-    if (message.serviceKey !== "") {
+    if (message.serviceKey !== undefined) {
       obj.serviceKey = message.serviceKey;
     }
-    if (message.changedType !== "") {
+    if (message.changedType !== undefined) {
       obj.changedType = message.changedType;
     }
     return obj;
@@ -486,16 +486,16 @@ export const NotifySubscriberRequest: MessageFns<NotifySubscriberRequest> = {
 
   toJSON(message: NotifySubscriberRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespace !== "") {
+    if (message.namespace !== undefined) {
       obj.namespace = message.namespace;
     }
-    if (message.serviceName !== "") {
+    if (message.serviceName !== undefined) {
       obj.serviceName = message.serviceName;
     }
-    if (message.groupName !== "") {
+    if (message.groupName !== undefined) {
       obj.groupName = message.groupName;
     }
     if (message.serviceInfo !== undefined) {
@@ -538,19 +538,19 @@ export const PersistentInstanceRequest: MessageFns<PersistentInstanceRequest> = 
 
   toJSON(message: PersistentInstanceRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespace !== "") {
+    if (message.namespace !== undefined) {
       obj.namespace = message.namespace;
     }
-    if (message.serviceName !== "") {
+    if (message.serviceName !== undefined) {
       obj.serviceName = message.serviceName;
     }
-    if (message.groupName !== "") {
+    if (message.groupName !== undefined) {
       obj.groupName = message.groupName;
     }
-    if (message.type !== "") {
+    if (message.type !== undefined) {
       obj.type = message.type;
     }
     if (message.instance !== undefined) {
@@ -595,25 +595,25 @@ export const ServiceListRequest: MessageFns<ServiceListRequest> = {
 
   toJSON(message: ServiceListRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespace !== "") {
+    if (message.namespace !== undefined) {
       obj.namespace = message.namespace;
     }
-    if (message.serviceName !== "") {
+    if (message.serviceName !== undefined) {
       obj.serviceName = message.serviceName;
     }
-    if (message.groupName !== "") {
+    if (message.groupName !== undefined) {
       obj.groupName = message.groupName;
     }
-    if (message.pageNo !== 0) {
+    if (message.pageNo !== undefined) {
       obj.pageNo = Math.round(message.pageNo);
     }
-    if (message.pageSize !== 0) {
+    if (message.pageSize !== undefined) {
       obj.pageSize = Math.round(message.pageSize);
     }
-    if (message.selector !== "") {
+    if (message.selector !== undefined) {
       obj.selector = message.selector;
     }
     return obj;
@@ -654,25 +654,25 @@ export const ServiceQueryRequest: MessageFns<ServiceQueryRequest> = {
 
   toJSON(message: ServiceQueryRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespace !== "") {
+    if (message.namespace !== undefined) {
       obj.namespace = message.namespace;
     }
-    if (message.serviceName !== "") {
+    if (message.serviceName !== undefined) {
       obj.serviceName = message.serviceName;
     }
-    if (message.groupName !== "") {
+    if (message.groupName !== undefined) {
       obj.groupName = message.groupName;
     }
-    if (message.cluster !== "") {
+    if (message.cluster !== undefined) {
       obj.cluster = message.cluster;
     }
-    if (message.healthyOnly !== false) {
+    if (message.healthyOnly !== undefined) {
       obj.healthyOnly = message.healthyOnly;
     }
-    if (message.udpPort !== 0) {
+    if (message.udpPort !== undefined) {
       obj.udpPort = Math.round(message.udpPort);
     }
     return obj;
@@ -712,22 +712,22 @@ export const SubscribeServiceRequest: MessageFns<SubscribeServiceRequest> = {
 
   toJSON(message: SubscribeServiceRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.namespace !== "") {
+    if (message.namespace !== undefined) {
       obj.namespace = message.namespace;
     }
-    if (message.serviceName !== "") {
+    if (message.serviceName !== undefined) {
       obj.serviceName = message.serviceName;
     }
-    if (message.groupName !== "") {
+    if (message.groupName !== undefined) {
       obj.groupName = message.groupName;
     }
-    if (message.subscribe !== false) {
+    if (message.subscribe !== undefined) {
       obj.subscribe = message.subscribe;
     }
-    if (message.clusters !== "") {
+    if (message.clusters !== undefined) {
       obj.clusters = message.clusters;
     }
     return obj;

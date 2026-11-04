@@ -101,19 +101,19 @@ export const LockNotificationRequest: MessageFns<LockNotificationRequest> = {
 
   toJSON(message: LockNotificationRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.lockKey !== "") {
+    if (message.lockKey !== undefined) {
       obj.lockKey = message.lockKey;
     }
-    if (message.lockType !== "") {
+    if (message.lockType !== undefined) {
       obj.lockType = message.lockType;
     }
-    if (message.owner !== "") {
+    if (message.owner !== undefined) {
       obj.owner = message.owner;
     }
-    if (message.notificationType !== "") {
+    if (message.notificationType !== undefined) {
       obj.notificationType = message.notificationType;
     }
     return obj;
@@ -149,16 +149,16 @@ export const LockNotificationResponse: MessageFns<LockNotificationResponse> = {
 
   toJSON(message: LockNotificationResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -192,13 +192,13 @@ export const LockOperationRequest: MessageFns<LockOperationRequest> = {
 
   toJSON(message: LockOperationRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     if (message.lockInstance !== undefined) {
       obj.lockInstance = LockInstance.toJSON(message.lockInstance);
     }
-    if (message.lockOperationEnum !== "") {
+    if (message.lockOperationEnum !== undefined) {
       obj.lockOperationEnum = message.lockOperationEnum;
     }
     return obj;
@@ -245,10 +245,10 @@ export const LockInstance: MessageFns<LockInstance> = {
 
   toJSON(message: LockInstance): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
-    if (message.expiredTime !== 0) {
+    if (message.expiredTime !== undefined) {
       obj.expiredTime = Math.round(message.expiredTime);
     }
     if (message.params) {
@@ -260,16 +260,16 @@ export const LockInstance: MessageFns<LockInstance> = {
         });
       }
     }
-    if (message.lockType !== "") {
+    if (message.lockType !== undefined) {
       obj.lockType = message.lockType;
     }
-    if (message.owner !== "") {
+    if (message.owner !== undefined) {
       obj.owner = message.owner;
     }
-    if (message.waitTime !== 0) {
+    if (message.waitTime !== undefined) {
       obj.waitTime = Math.round(message.waitTime);
     }
-    if (message.waiterRetry !== false) {
+    if (message.waiterRetry !== undefined) {
       obj.waiterRetry = message.waiterRetry;
     }
     return obj;
@@ -313,7 +313,7 @@ export const LockInstance_ParamsEntry: MessageFns<LockInstance_ParamsEntry> = {
 
   toJSON(message: LockInstance_ParamsEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     if (message.value !== undefined) {
@@ -351,16 +351,16 @@ export const LockOperationResponse: MessageFns<LockOperationResponse> = {
 
   toJSON(message: LockOperationResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     if (message.result !== undefined) {
@@ -405,16 +405,16 @@ export const LockResult: MessageFns<LockResult> = {
 
   toJSON(message: LockResult): unknown {
     const obj: any = {};
-    if (message.success !== false) {
+    if (message.success !== undefined) {
       obj.success = message.success;
     }
-    if (message.reentrantCount !== 0) {
+    if (message.reentrantCount !== undefined) {
       obj.reentrantCount = Math.round(message.reentrantCount);
     }
-    if (message.waitPosition !== 0) {
+    if (message.waitPosition !== undefined) {
       obj.waitPosition = Math.round(message.waitPosition);
     }
-    if (message.errorMessage !== "") {
+    if (message.errorMessage !== undefined) {
       obj.errorMessage = message.errorMessage;
     }
     return obj;

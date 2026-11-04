@@ -66,22 +66,22 @@ export const Package: MessageFns<Package> = {
 
   toJSON(message: Package): unknown {
     const obj: any = {};
-    if (message.registryType !== "") {
+    if (message.registryType !== undefined) {
       obj.registryType = message.registryType;
     }
-    if (message.registryBaseUrl !== "") {
+    if (message.registryBaseUrl !== undefined) {
       obj.registryBaseUrl = message.registryBaseUrl;
     }
-    if (message.identifier !== "") {
+    if (message.identifier !== undefined) {
       obj.identifier = message.identifier;
     }
-    if (message.version !== "") {
+    if (message.version !== undefined) {
       obj.version = message.version;
     }
-    if (message.fileSha256 !== "") {
+    if (message.fileSha256 !== undefined) {
       obj.fileSha256 = message.fileSha256;
     }
-    if (message.runtimeHint !== "") {
+    if (message.runtimeHint !== undefined) {
       obj.runtimeHint = message.runtimeHint;
     }
     if (message.runtimeArguments?.length) {

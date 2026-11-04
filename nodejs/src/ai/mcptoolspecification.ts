@@ -78,7 +78,7 @@ export const McpToolSpecification: MessageFns<McpToolSpecification> = {
 
   toJSON(message: McpToolSpecification): unknown {
     const obj: any = {};
-    if (message.specificationType !== "") {
+    if (message.specificationType !== undefined) {
       obj.specificationType = message.specificationType;
     }
     if (message.encryptData !== undefined) {
@@ -158,7 +158,7 @@ export const McpToolSpecification_ToolsMetaEntry: MessageFns<McpToolSpecificatio
 
   toJSON(message: McpToolSpecification_ToolsMetaEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     if (message.value !== undefined) {
@@ -198,7 +198,7 @@ export const McpToolSpecification_ExtensionsEntry: MessageFns<McpToolSpecificati
 
   toJSON(message: McpToolSpecification_ExtensionsEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     if (message.value !== undefined) {

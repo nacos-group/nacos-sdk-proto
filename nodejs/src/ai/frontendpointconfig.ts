@@ -37,19 +37,19 @@ export const FrontEndpointConfig: MessageFns<FrontEndpointConfig> = {
 
   toJSON(message: FrontEndpointConfig): unknown {
     const obj: any = {};
-    if (message.type !== "") {
+    if (message.type !== undefined) {
       obj.type = message.type;
     }
-    if (message.protocol !== "") {
+    if (message.protocol !== undefined) {
       obj.protocol = message.protocol;
     }
-    if (message.endpointType !== "") {
+    if (message.endpointType !== undefined) {
       obj.endpointType = message.endpointType;
     }
     if (message.endpointData !== undefined) {
       obj.endpointData = message.endpointData;
     }
-    if (message.path !== "") {
+    if (message.path !== undefined) {
       obj.path = message.path;
     }
     return obj;

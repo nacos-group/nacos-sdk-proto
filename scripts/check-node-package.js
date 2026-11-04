@@ -74,6 +74,29 @@ function checkLoading(installDir) {
     assert.strictEqual(manifest.dependencies, undefined, 'package must not declare dependencies');
 }
 
+function checkFieldValues(installDir) {
+    const { ConfigBatchListenRequest, Instance, InstanceRequest } = require(
+        require.resolve(PACKAGE_NAME, { paths: [installDir] }),
+    );
+    const ip = '1.1.1.1';
+    const port = 8848;
+
+    // Java defaults for these are true or 1.0, so dropping them changes the request.
+    const zeroValues = { weight: 0, healthy: false, enabled: false, ephemeral: false };
+    assert.deepStrictEqual(Instance.toJSON({ ip, port, ...zeroValues }), { ip, port, ...zeroValues });
+    assert.deepStrictEqual(
+        ConfigBatchListenRequest.toJSON({ listen: false, configListenContexts: [] }),
+        { listen: false },
+    );
+    assert.deepStrictEqual(
+        InstanceRequest.toJSON({ type: 'registerInstance', instance: { ip, port, enabled: false } }).instance,
+        { ip, port, enabled: false },
+    );
+
+    // Unset fields must stay absent so that the server falls back to the Java defaults.
+    assert.deepStrictEqual(Instance.toJSON({ ip, port }), { ip, port });
+}
+
 function main() {
     assert.ok(
         fs.existsSync(path.join(PACKAGE_DIR, 'dist', 'index.js')),
@@ -84,7 +107,9 @@ function main() {
     try {
         const tarball = packTarball(workDir);
         checkPackedFiles(tarball, workDir);
-        checkLoading(installTarball(tarball, workDir));
+        const installDir = installTarball(tarball, workDir);
+        checkLoading(installDir);
+        checkFieldValues(installDir);
     } finally {
         fs.rmSync(workDir, { recursive: true, force: true });
     }

@@ -215,7 +215,7 @@ export const ClientDetectionRequest: MessageFns<ClientDetectionRequest> = {
 
   toJSON(message: ClientDetectionRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -247,16 +247,16 @@ export const ClientDetectionResponse: MessageFns<ClientDetectionResponse> = {
 
   toJSON(message: ClientDetectionResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -291,16 +291,16 @@ export const ConnectResetRequest: MessageFns<ConnectResetRequest> = {
 
   toJSON(message: ConnectResetRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.serverIp !== "") {
+    if (message.serverIp !== undefined) {
       obj.serverIp = message.serverIp;
     }
-    if (message.serverPort !== "") {
+    if (message.serverPort !== undefined) {
       obj.serverPort = message.serverPort;
     }
-    if (message.connectionId !== "") {
+    if (message.connectionId !== undefined) {
       obj.connectionId = message.connectionId;
     }
     return obj;
@@ -335,16 +335,16 @@ export const ConnectResetResponse: MessageFns<ConnectResetResponse> = {
 
   toJSON(message: ConnectResetResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -396,13 +396,13 @@ export const ConnectionSetupRequest: MessageFns<ConnectionSetupRequest> = {
 
   toJSON(message: ConnectionSetupRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.clientVersion !== "") {
+    if (message.clientVersion !== undefined) {
       obj.clientVersion = message.clientVersion;
     }
-    if (message.tenant !== "") {
+    if (message.tenant !== undefined) {
       obj.tenant = message.tenant;
     }
     if (message.labels) {
@@ -470,10 +470,10 @@ export const ConnectionSetupRequest_LabelsEntry: MessageFns<ConnectionSetupReque
 
   toJSON(message: ConnectionSetupRequest_LabelsEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
-    if (message.value !== "") {
+    if (message.value !== undefined) {
       obj.value = message.value;
     }
     return obj;
@@ -508,10 +508,10 @@ export const ConnectionSetupRequest_AbilityTableEntry: MessageFns<ConnectionSetu
 
   toJSON(message: ConnectionSetupRequest_AbilityTableEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
-    if (message.value !== false) {
+    if (message.value !== undefined) {
       obj.value = message.value;
     }
     return obj;
@@ -548,16 +548,16 @@ export const ErrorResponse: MessageFns<ErrorResponse> = {
 
   toJSON(message: ErrorResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -587,7 +587,7 @@ export const HealthCheckRequest: MessageFns<HealthCheckRequest> = {
 
   toJSON(message: HealthCheckRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -619,16 +619,16 @@ export const HealthCheckResponse: MessageFns<HealthCheckResponse> = {
 
   toJSON(message: HealthCheckResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -662,13 +662,13 @@ export const PushAckRequest: MessageFns<PushAckRequest> = {
 
   toJSON(message: PushAckRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.success !== false) {
+    if (message.success !== undefined) {
       obj.success = message.success;
     }
-    if (message.exception !== "") {
+    if (message.exception !== undefined) {
       obj.exception = message.exception;
     }
     return obj;
@@ -697,7 +697,7 @@ export const ServerCheckRequest: MessageFns<ServerCheckRequest> = {
 
   toJSON(message: ServerCheckRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -740,22 +740,22 @@ export const ServerCheckResponse: MessageFns<ServerCheckResponse> = {
 
   toJSON(message: ServerCheckResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.connectionId !== "") {
+    if (message.connectionId !== undefined) {
       obj.connectionId = message.connectionId;
     }
-    if (message.supportAbilityNegotiation !== false) {
+    if (message.supportAbilityNegotiation !== undefined) {
       obj.supportAbilityNegotiation = message.supportAbilityNegotiation;
     }
     return obj;
@@ -787,7 +787,7 @@ export const ServerLoaderInfoRequest: MessageFns<ServerLoaderInfoRequest> = {
 
   toJSON(message: ServerLoaderInfoRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -829,19 +829,19 @@ export const ServerLoaderInfoResponse: MessageFns<ServerLoaderInfoResponse> = {
 
   toJSON(message: ServerLoaderInfoResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.address !== "") {
+    if (message.address !== undefined) {
       obj.address = message.address;
     }
     if (message.loaderMetrics) {
@@ -893,10 +893,10 @@ export const ServerLoaderInfoResponse_LoaderMetricsEntry: MessageFns<ServerLoade
 
   toJSON(message: ServerLoaderInfoResponse_LoaderMetricsEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
-    if (message.value !== "") {
+    if (message.value !== undefined) {
       obj.value = message.value;
     }
     return obj;
@@ -932,13 +932,13 @@ export const ServerReloadRequest: MessageFns<ServerReloadRequest> = {
 
   toJSON(message: ServerReloadRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.reloadCount !== 0) {
+    if (message.reloadCount !== undefined) {
       obj.reloadCount = Math.round(message.reloadCount);
     }
-    if (message.reloadServer !== "") {
+    if (message.reloadServer !== undefined) {
       obj.reloadServer = message.reloadServer;
     }
     return obj;
@@ -972,16 +972,16 @@ export const ServerReloadResponse: MessageFns<ServerReloadResponse> = {
 
   toJSON(message: ServerReloadResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -1022,7 +1022,7 @@ export const SetupAckRequest: MessageFns<SetupAckRequest> = {
 
   toJSON(message: SetupAckRequest): unknown {
     const obj: any = {};
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     if (message.abilityTable) {
@@ -1070,10 +1070,10 @@ export const SetupAckRequest_AbilityTableEntry: MessageFns<SetupAckRequest_Abili
 
   toJSON(message: SetupAckRequest_AbilityTableEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
-    if (message.value !== false) {
+    if (message.value !== undefined) {
       obj.value = message.value;
     }
     return obj;
@@ -1110,16 +1110,16 @@ export const SetupAckResponse: MessageFns<SetupAckResponse> = {
 
   toJSON(message: SetupAckResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
