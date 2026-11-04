@@ -184,17 +184,24 @@ make migrate
 
 ### 默认值
 
-proto3 无法区分“没设置”和零值，而下面这些字段的 Java 默认值不是零值，JSON 里缺少这个 key 时，Nacos 服务端会使用 `true` 或 `1.0`：
+proto3 无法区分“没设置”和零值，而截至 Nacos 3.3.0，下面这些字段的 Java 默认值不是零值。JSON 里缺少这个 key 时，Nacos 服务端会使用 Java 默认值：
 
-`ConfigBatchListenRequest.listen`、`Instance.enabled`、`Instance.healthy`、`Instance.weight`、`Instance.ephemeral`、`Endpoint.enabled`、`Endpoint.healthy`、`Endpoint.weight`、`McpServerBasicInfo.enabled`、`McpToolMeta.enabled`
+- 所有响应的 `resultCode`，默认 `200`。响应发送 `0` 会被当作失败，所以回复服务端推送时必须设置
+- `ConfigBatchListenRequest.listen`
+- `Instance.enabled`、`Instance.healthy`、`Instance.weight`、`Instance.ephemeral`
+- `Endpoint.enabled`、`Endpoint.healthy`、`Endpoint.weight`
+- `McpServerBasicInfo.enabled`、`McpServerBasicInfo.status`、`McpToolMeta.enabled`
+- `AgentEndpoint.protocol`、`AgentEndpoint.transport`
+- `ReleaseAgentCardRequest.registrationType`、`AgentCardDetailInfo.registrationType`
+- `LockInstance.waitTime`
 
-序列化请求体时要保留 `false` 和 `0`：
+序列化消息体时要保留 `false` 和 `0`：
 
 | 语言 | 要求 |
 |---|---|
 | Go | 使用 `protojson.MarshalOptions{EmitDefaultValues: true}`，并显式设置这些字段 |
 | Python | 使用 `always_print_fields_with_no_presence=True`，并显式设置这些字段 |
-| Node.js | `toJSON` 会保留显式的 `false` 和 `0`。`create()` 和 `fromPartial()` 会把没设置的字段填成零值并发送，所以请用普通对象构造请求，或显式设置这些字段 |
+| Node.js | `toJSON` 会保留显式的 `false` 和 `0`。`create()`、`fromPartial()` 和 `fromJSON()` 会把没设置的字段填成零值并发送。请用普通对象构造消息（TypeScript 下写成 `Instance.toJSON({ ip, port } as Instance)`），或显式设置这些字段 |
 
 ### 继承扁平化
 

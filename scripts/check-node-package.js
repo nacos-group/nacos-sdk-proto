@@ -15,6 +15,7 @@ const path = require('path');
 const PACKAGE_NAME = '@nacos-group/sdk-proto';
 const PACKAGE_DIR = path.resolve(__dirname, '..', 'nodejs');
 const MIN_JS_FILES = 50;
+const TSC = path.resolve(__dirname, '..', 'node_modules', 'typescript', 'bin', 'tsc');
 
 function run(command, args, cwd) {
     return execFileSync(command, args, { cwd, encoding: 'utf8', stdio: 'pipe' });
@@ -97,6 +98,31 @@ function checkFieldValues(installDir) {
     assert.deepStrictEqual(Instance.toJSON({ ip, port }), { ip, port });
 }
 
+function checkTypes(installDir) {
+    fs.writeFileSync(path.join(installDir, 'consumer.ts'), [
+        `import { Instance } from '${PACKAGE_NAME}';`,
+        `import { ConnectionSetupRequest } from '${PACKAGE_NAME}/src/common/common';`,
+        "export const body = Instance.toJSON({ ip: '1.1.1.1', port: 8848 } as Instance);",
+        'export const setup = ConnectionSetupRequest;',
+        '',
+    ].join('\n'));
+
+    // node10 ignores exports, so deep-path typings need their own check.
+    for (const [module, moduleResolution] of [['commonjs', 'node10'], ['node16', 'node16']]) {
+        fs.writeFileSync(path.join(installDir, 'tsconfig.json'), JSON.stringify({
+            compilerOptions: {
+                noEmit: true, strict: true, types: [], ignoreDeprecations: '6.0', module, moduleResolution,
+            },
+            files: ['consumer.ts'],
+        }));
+        try {
+            run(process.execPath, [TSC, '-p', 'tsconfig.json'], installDir);
+        } catch (error) {
+            throw new Error(`type check failed with ${moduleResolution}: ${error.stdout}`);
+        }
+    }
+}
+
 function main() {
     assert.ok(
         fs.existsSync(path.join(PACKAGE_DIR, 'dist', 'index.js')),
@@ -110,6 +136,7 @@ function main() {
         const installDir = installTarball(tarball, workDir);
         checkLoading(installDir);
         checkFieldValues(installDir);
+        checkTypes(installDir);
     } finally {
         fs.rmSync(workDir, { recursive: true, force: true });
     }
