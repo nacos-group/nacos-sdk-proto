@@ -37,19 +37,19 @@ export const AgentInterface: MessageFns<AgentInterface> = {
 
   toJSON(message: AgentInterface): unknown {
     const obj: any = {};
-    if (message.url !== "") {
+    if (message.url !== undefined) {
       obj.url = message.url;
     }
-    if (message.transport !== "") {
+    if (message.transport !== undefined) {
       obj.transport = message.transport;
     }
-    if (message.protocolBinding !== "") {
+    if (message.protocolBinding !== undefined) {
       obj.protocolBinding = message.protocolBinding;
     }
-    if (message.protocolVersion !== "") {
+    if (message.protocolVersion !== undefined) {
       obj.protocolVersion = message.protocolVersion;
     }
-    if (message.tenant !== "") {
+    if (message.tenant !== undefined) {
       obj.tenant = message.tenant;
     }
     return obj;

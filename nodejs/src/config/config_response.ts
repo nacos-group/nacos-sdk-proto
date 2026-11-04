@@ -167,16 +167,16 @@ export const ClientConfigMetricResponse: MessageFns<ClientConfigMetricResponse> 
 
   toJSON(message: ClientConfigMetricResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     if (message.metrics) {
@@ -227,7 +227,7 @@ export const ClientConfigMetricResponse_MetricsEntry: MessageFns<ClientConfigMet
 
   toJSON(message: ClientConfigMetricResponse_MetricsEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     if (message.value !== undefined) {
@@ -270,16 +270,16 @@ export const ConfigChangeBatchListenResponse: MessageFns<ConfigChangeBatchListen
 
   toJSON(message: ConfigChangeBatchListenResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     if (message.changedConfigs?.length) {
@@ -320,13 +320,13 @@ export const ConfigChangeBatchListenResponseConfigContext: MessageFns<ConfigChan
 
   toJSON(message: ConfigChangeBatchListenResponseConfigContext): unknown {
     const obj: any = {};
-    if (message.group !== "") {
+    if (message.group !== undefined) {
       obj.group = message.group;
     }
-    if (message.dataId !== "") {
+    if (message.dataId !== undefined) {
       obj.dataId = message.dataId;
     }
-    if (message.tenant !== "") {
+    if (message.tenant !== undefined) {
       obj.tenant = message.tenant;
     }
     return obj;
@@ -364,16 +364,16 @@ export const ConfigChangeClusterSyncResponse: MessageFns<ConfigChangeClusterSync
 
   toJSON(message: ConfigChangeClusterSyncResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -410,16 +410,16 @@ export const ConfigChangeNotifyResponse: MessageFns<ConfigChangeNotifyResponse> 
 
   toJSON(message: ConfigChangeNotifyResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -454,16 +454,16 @@ export const ConfigFuzzyWatchChangeNotifyResponse: MessageFns<ConfigFuzzyWatchCh
 
   toJSON(message: ConfigFuzzyWatchChangeNotifyResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -502,16 +502,16 @@ export const ConfigFuzzyWatchResponse: MessageFns<ConfigFuzzyWatchResponse> = {
 
   toJSON(message: ConfigFuzzyWatchResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -546,16 +546,16 @@ export const ConfigFuzzyWatchSyncResponse: MessageFns<ConfigFuzzyWatchSyncRespon
 
   toJSON(message: ConfigFuzzyWatchSyncResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -590,16 +590,16 @@ export const ConfigPublishResponse: MessageFns<ConfigPublishResponse> = {
 
   toJSON(message: ConfigPublishResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -657,37 +657,37 @@ export const ConfigQueryResponse: MessageFns<ConfigQueryResponse> = {
 
   toJSON(message: ConfigQueryResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.content !== "") {
+    if (message.content !== undefined) {
       obj.content = message.content;
     }
-    if (message.encryptedDataKey !== "") {
+    if (message.encryptedDataKey !== undefined) {
       obj.encryptedDataKey = message.encryptedDataKey;
     }
-    if (message.contentType !== "") {
+    if (message.contentType !== undefined) {
       obj.contentType = message.contentType;
     }
-    if (message.md5 !== "") {
+    if (message.md5 !== undefined) {
       obj.md5 = message.md5;
     }
-    if (message.lastModified !== 0) {
+    if (message.lastModified !== undefined) {
       obj.lastModified = Math.round(message.lastModified);
     }
-    if (message.beta !== false) {
+    if (message.beta !== undefined) {
       obj.beta = message.beta;
     }
-    if (message.tag !== "") {
+    if (message.tag !== undefined) {
       obj.tag = message.tag;
     }
     return obj;
@@ -729,16 +729,16 @@ export const ConfigRemoveResponse: MessageFns<ConfigRemoveResponse> = {
 
   toJSON(message: ConfigRemoveResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;

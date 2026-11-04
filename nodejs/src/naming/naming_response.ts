@@ -131,19 +131,19 @@ export const BatchInstanceResponse: MessageFns<BatchInstanceResponse> = {
 
   toJSON(message: BatchInstanceResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.type !== "") {
+    if (message.type !== undefined) {
       obj.type = message.type;
     }
     return obj;
@@ -180,19 +180,19 @@ export const InstanceResponse: MessageFns<InstanceResponse> = {
 
   toJSON(message: InstanceResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.type !== "") {
+    if (message.type !== undefined) {
       obj.type = message.type;
     }
     return obj;
@@ -228,16 +228,16 @@ export const NamingFuzzyWatchChangeNotifyResponse: MessageFns<NamingFuzzyWatchCh
 
   toJSON(message: NamingFuzzyWatchChangeNotifyResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -276,16 +276,16 @@ export const NamingFuzzyWatchResponse: MessageFns<NamingFuzzyWatchResponse> = {
 
   toJSON(message: NamingFuzzyWatchResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -320,16 +320,16 @@ export const NamingFuzzyWatchSyncResponse: MessageFns<NamingFuzzyWatchSyncRespon
 
   toJSON(message: NamingFuzzyWatchSyncResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -364,16 +364,16 @@ export const NotifySubscriberResponse: MessageFns<NotifySubscriberResponse> = {
 
   toJSON(message: NotifySubscriberResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -409,16 +409,16 @@ export const QueryServiceResponse: MessageFns<QueryServiceResponse> = {
 
   toJSON(message: QueryServiceResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     if (message.serviceInfo !== undefined) {
@@ -463,19 +463,19 @@ export const ServiceListResponse: MessageFns<ServiceListResponse> = {
 
   toJSON(message: ServiceListResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.count !== 0) {
+    if (message.count !== undefined) {
       obj.count = Math.round(message.count);
     }
     if (message.serviceNames?.length) {
@@ -516,16 +516,16 @@ export const SubscribeServiceResponse: MessageFns<SubscribeServiceResponse> = {
 
   toJSON(message: SubscribeServiceResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     if (message.serviceInfo !== undefined) {

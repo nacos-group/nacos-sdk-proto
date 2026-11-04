@@ -52,28 +52,28 @@ export const Input: MessageFns<Input> = {
 
   toJSON(message: Input): unknown {
     const obj: any = {};
-    if (message.description !== "") {
+    if (message.description !== undefined) {
       obj.description = message.description;
     }
-    if (message.isRequired !== false) {
+    if (message.isRequired !== undefined) {
       obj.isRequired = message.isRequired;
     }
-    if (message.format !== "") {
+    if (message.format !== undefined) {
       obj.format = message.format;
     }
-    if (message.value !== "") {
+    if (message.value !== undefined) {
       obj.value = message.value;
     }
-    if (message.isSecret !== false) {
+    if (message.isSecret !== undefined) {
       obj.isSecret = message.isSecret;
     }
-    if (message.defaultValue !== "") {
+    if (message.defaultValue !== undefined) {
       obj.defaultValue = message.defaultValue;
     }
     if (message.choices?.length) {
       obj.choices = message.choices;
     }
-    if (message.placeholder !== "") {
+    if (message.placeholder !== undefined) {
       obj.placeholder = message.placeholder;
     }
     return obj;

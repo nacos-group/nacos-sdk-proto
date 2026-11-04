@@ -72,7 +72,7 @@ export const AgentVersionDetail: MessageFns<AgentVersionDetail> = {
 
   toJSON(message: AgentVersionDetail): unknown {
     const obj: any = {};
-    if (message.version !== "") {
+    if (message.version !== undefined) {
       obj.version = message.version;
     }
     if (message.labels?.length) {
@@ -81,31 +81,31 @@ export const AgentVersionDetail: MessageFns<AgentVersionDetail> = {
     if (message.protocols?.length) {
       obj.protocols = message.protocols;
     }
-    if (message.status !== "") {
+    if (message.status !== undefined) {
       obj.status = message.status;
     }
-    if (message.publishPipelineInfo !== "") {
+    if (message.publishPipelineInfo !== undefined) {
       obj.publishPipelineInfo = message.publishPipelineInfo;
     }
-    if (message.author !== "") {
+    if (message.author !== undefined) {
       obj.author = message.author;
     }
-    if (message.changeDescription !== "") {
+    if (message.changeDescription !== undefined) {
       obj.changeDescription = message.changeDescription;
     }
-    if (message.contentDigest !== "") {
+    if (message.contentDigest !== undefined) {
       obj.contentDigest = message.contentDigest;
     }
-    if (message.createTime !== 0) {
+    if (message.createTime !== undefined) {
       obj.createTime = Math.round(message.createTime);
     }
-    if (message.updateTime !== 0) {
+    if (message.updateTime !== undefined) {
       obj.updateTime = Math.round(message.updateTime);
     }
-    if (message.namespaceId !== "") {
+    if (message.namespaceId !== undefined) {
       obj.namespaceId = message.namespaceId;
     }
-    if (message.agentName !== "") {
+    if (message.agentName !== undefined) {
       obj.agentName = message.agentName;
     }
     if (message.callInterfaces?.length) {

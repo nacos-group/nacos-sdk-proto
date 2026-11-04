@@ -58,31 +58,31 @@ export const ServiceInfo: MessageFns<ServiceInfo> = {
 
   toJSON(message: ServiceInfo): unknown {
     const obj: any = {};
-    if (message.name !== "") {
+    if (message.name !== undefined) {
       obj.name = message.name;
     }
-    if (message.groupName !== "") {
+    if (message.groupName !== undefined) {
       obj.groupName = message.groupName;
     }
-    if (message.clusters !== "") {
+    if (message.clusters !== undefined) {
       obj.clusters = message.clusters;
     }
-    if (message.cacheMillis !== 0) {
+    if (message.cacheMillis !== undefined) {
       obj.cacheMillis = Math.round(message.cacheMillis);
     }
     if (message.hosts?.length) {
       obj.hosts = message.hosts.map((e) => Instance.toJSON(e));
     }
-    if (message.lastRefTime !== 0) {
+    if (message.lastRefTime !== undefined) {
       obj.lastRefTime = Math.round(message.lastRefTime);
     }
-    if (message.checksum !== "") {
+    if (message.checksum !== undefined) {
       obj.checksum = message.checksum;
     }
-    if (message.allIps !== false) {
+    if (message.allIps !== undefined) {
       obj.allIps = message.allIps;
     }
-    if (message.reachProtectionThreshold !== false) {
+    if (message.reachProtectionThreshold !== undefined) {
       obj.reachProtectionThreshold = message.reachProtectionThreshold;
     }
     return obj;

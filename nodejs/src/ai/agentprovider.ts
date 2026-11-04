@@ -40,10 +40,10 @@ export const AgentProvider: MessageFns<AgentProvider> = {
 
   toJSON(message: AgentProvider): unknown {
     const obj: any = {};
-    if (message.name !== "") {
+    if (message.name !== undefined) {
       obj.name = message.name;
     }
-    if (message.url !== "") {
+    if (message.url !== undefined) {
       obj.url = message.url;
     }
     return obj;
@@ -74,10 +74,10 @@ export const A2aAgentProvider: MessageFns<A2aAgentProvider> = {
 
   toJSON(message: A2aAgentProvider): unknown {
     const obj: any = {};
-    if (message.organization !== "") {
+    if (message.organization !== undefined) {
       obj.organization = message.organization;
     }
-    if (message.url !== "") {
+    if (message.url !== undefined) {
       obj.url = message.url;
     }
     return obj;

@@ -87,10 +87,10 @@ export const McpTool: MessageFns<McpTool> = {
 
   toJSON(message: McpTool): unknown {
     const obj: any = {};
-    if (message.name !== "") {
+    if (message.name !== undefined) {
       obj.name = message.name;
     }
-    if (message.description !== "") {
+    if (message.description !== undefined) {
       obj.description = message.description;
     }
     if (message.inputSchema) {
@@ -181,7 +181,7 @@ export const McpTool_InputSchemaEntry: MessageFns<McpTool_InputSchemaEntry> = {
 
   toJSON(message: McpTool_InputSchemaEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     if (message.value !== undefined) {
@@ -215,7 +215,7 @@ export const McpTool_OutputSchemaEntry: MessageFns<McpTool_OutputSchemaEntry> = 
 
   toJSON(message: McpTool_OutputSchemaEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     if (message.value !== undefined) {
@@ -249,7 +249,7 @@ export const McpTool_MetaEntry: MessageFns<McpTool_MetaEntry> = {
 
   toJSON(message: McpTool_MetaEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     if (message.value !== undefined) {

@@ -118,19 +118,19 @@ export const AgentCard: MessageFns<AgentCard> = {
 
   toJSON(message: AgentCard): unknown {
     const obj: any = {};
-    if (message.protocolVersion !== "") {
+    if (message.protocolVersion !== undefined) {
       obj.protocolVersion = message.protocolVersion;
     }
-    if (message.name !== "") {
+    if (message.name !== undefined) {
       obj.name = message.name;
     }
-    if (message.description !== "") {
+    if (message.description !== undefined) {
       obj.description = message.description;
     }
-    if (message.version !== "") {
+    if (message.version !== undefined) {
       obj.version = message.version;
     }
-    if (message.iconUrl !== "") {
+    if (message.iconUrl !== undefined) {
       obj.iconUrl = message.iconUrl;
     }
     if (message.capabilities !== undefined) {
@@ -139,10 +139,10 @@ export const AgentCard: MessageFns<AgentCard> = {
     if (message.skills?.length) {
       obj.skills = message.skills.map((e) => AgentSkill.toJSON(e));
     }
-    if (message.url !== "") {
+    if (message.url !== undefined) {
       obj.url = message.url;
     }
-    if (message.preferredTransport !== "") {
+    if (message.preferredTransport !== undefined) {
       obj.preferredTransport = message.preferredTransport;
     }
     if (message.additionalInterfaces?.length) {
@@ -154,7 +154,7 @@ export const AgentCard: MessageFns<AgentCard> = {
     if (message.provider !== undefined) {
       obj.provider = A2aAgentProvider.toJSON(message.provider);
     }
-    if (message.documentationUrl !== "") {
+    if (message.documentationUrl !== undefined) {
       obj.documentationUrl = message.documentationUrl;
     }
     if (message.securitySchemes) {
@@ -178,7 +178,7 @@ export const AgentCard: MessageFns<AgentCard> = {
     if (message.defaultOutputModes?.length) {
       obj.defaultOutputModes = message.defaultOutputModes;
     }
-    if (message.supportsAuthenticatedExtendedCard !== false) {
+    if (message.supportsAuthenticatedExtendedCard !== undefined) {
       obj.supportsAuthenticatedExtendedCard = message.supportsAuthenticatedExtendedCard;
     }
     if (message.signatures?.length) {
@@ -240,7 +240,7 @@ export const AgentCard_SecuritySchemesEntry: MessageFns<AgentCard_SecurityScheme
 
   toJSON(message: AgentCard_SecuritySchemesEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     if (message.value !== undefined) {

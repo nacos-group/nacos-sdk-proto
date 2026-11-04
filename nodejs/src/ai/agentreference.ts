@@ -33,13 +33,13 @@ export const AgentReference: MessageFns<AgentReference> = {
 
   toJSON(message: AgentReference): unknown {
     const obj: any = {};
-    if (message.agentName !== "") {
+    if (message.agentName !== undefined) {
       obj.agentName = message.agentName;
     }
-    if (message.version !== "") {
+    if (message.version !== undefined) {
       obj.version = message.version;
     }
-    if (message.label !== "") {
+    if (message.label !== undefined) {
       obj.label = message.label;
     }
     return obj;

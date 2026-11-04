@@ -44,10 +44,10 @@ export const SecurityScheme: MessageFns<SecurityScheme> = {
 
   toJSON(message: SecurityScheme): unknown {
     const obj: any = {};
-    if (message.threshold !== 0) {
+    if (message.threshold !== undefined) {
       obj.threshold = Math.round(message.threshold);
     }
-    if (message.loadFactor !== 0) {
+    if (message.loadFactor !== undefined) {
       obj.loadFactor = message.loadFactor;
     }
     return obj;
@@ -82,22 +82,22 @@ export const McpSecurityScheme: MessageFns<McpSecurityScheme> = {
 
   toJSON(message: McpSecurityScheme): unknown {
     const obj: any = {};
-    if (message.id !== "") {
+    if (message.id !== undefined) {
       obj.id = message.id;
     }
-    if (message.type !== "") {
+    if (message.type !== undefined) {
       obj.type = message.type;
     }
-    if (message.scheme !== "") {
+    if (message.scheme !== undefined) {
       obj.scheme = message.scheme;
     }
-    if (message.in !== "") {
+    if (message.in !== undefined) {
       obj.in = message.in;
     }
-    if (message.name !== "") {
+    if (message.name !== undefined) {
       obj.name = message.name;
     }
-    if (message.defaultCredential !== "") {
+    if (message.defaultCredential !== undefined) {
       obj.defaultCredential = message.defaultCredential;
     }
     return obj;

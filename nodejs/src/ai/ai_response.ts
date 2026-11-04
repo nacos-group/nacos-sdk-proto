@@ -211,22 +211,22 @@ export const AgentDiscoveryNotifyResponse: MessageFns<AgentDiscoveryNotifyRespon
 
   toJSON(message: AgentDiscoveryNotifyResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.watchKey !== "") {
+    if (message.watchKey !== undefined) {
       obj.watchKey = message.watchKey;
     }
-    if (message.accepted !== false) {
+    if (message.accepted !== undefined) {
       obj.accepted = message.accepted;
     }
     return obj;
@@ -266,16 +266,16 @@ export const AgentDiscoveryResponse: MessageFns<AgentDiscoveryResponse> = {
 
   toJSON(message: AgentDiscoveryResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     if (message.discoveryResult !== undefined) {
@@ -316,16 +316,16 @@ export const AgentEndpointOperationResponse: MessageFns<AgentEndpointOperationRe
 
   toJSON(message: AgentEndpointOperationResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -363,19 +363,19 @@ export const AgentEndpointResponse: MessageFns<AgentEndpointResponse> = {
 
   toJSON(message: AgentEndpointResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.type !== "") {
+    if (message.type !== undefined) {
       obj.type = message.type;
     }
     return obj;
@@ -412,16 +412,16 @@ export const AgentPublishRpcResponse: MessageFns<AgentPublishRpcResponse> = {
 
   toJSON(message: AgentPublishRpcResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     if (message.versionDetail !== undefined) {
@@ -463,16 +463,16 @@ export const AgentSearchResponse: MessageFns<AgentSearchResponse> = {
 
   toJSON(message: AgentSearchResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     if (message.page !== undefined) {
@@ -524,25 +524,25 @@ export const AgentSubscribeRpcResponse: MessageFns<AgentSubscribeRpcResponse> = 
 
   toJSON(message: AgentSubscribeRpcResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.watchKey !== "") {
+    if (message.watchKey !== undefined) {
       obj.watchKey = message.watchKey;
     }
-    if (message.observedFingerprint !== "") {
+    if (message.observedFingerprint !== undefined) {
       obj.observedFingerprint = message.observedFingerprint;
     }
-    if (message.refreshRequired !== false) {
+    if (message.refreshRequired !== undefined) {
       obj.refreshRequired = message.refreshRequired;
     }
     return obj;
@@ -580,16 +580,16 @@ export const AgentUnsubscribeRpcResponse: MessageFns<AgentUnsubscribeRpcResponse
 
   toJSON(message: AgentUnsubscribeRpcResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -624,16 +624,16 @@ export const AiResourceChangeClusterResponse: MessageFns<AiResourceChangeCluster
 
   toJSON(message: AiResourceChangeClusterResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -671,19 +671,19 @@ export const McpServerEndpointResponse: MessageFns<McpServerEndpointResponse> = 
 
   toJSON(message: McpServerEndpointResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.type !== "") {
+    if (message.type !== undefined) {
       obj.type = message.type;
     }
     return obj;
@@ -722,16 +722,16 @@ export const QueryAgentCardResponse: MessageFns<QueryAgentCardResponse> = {
 
   toJSON(message: QueryAgentCardResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     if (message.agentCardDetailInfo !== undefined) {
@@ -775,16 +775,16 @@ export const QueryMcpServerResponse: MessageFns<QueryMcpServerResponse> = {
 
   toJSON(message: QueryMcpServerResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     if (message.mcpServerDetailInfo !== undefined) {
@@ -826,16 +826,16 @@ export const QueryPromptResponse: MessageFns<QueryPromptResponse> = {
 
   toJSON(message: QueryPromptResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     if (message.promptInfo !== undefined) {
@@ -876,16 +876,16 @@ export const ReleaseAgentCardResponse: MessageFns<ReleaseAgentCardResponse> = {
 
   toJSON(message: ReleaseAgentCardResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
     return obj;
@@ -921,19 +921,19 @@ export const ReleaseMcpServerResponse: MessageFns<ReleaseMcpServerResponse> = {
 
   toJSON(message: ReleaseMcpServerResponse): unknown {
     const obj: any = {};
-    if (message.resultCode !== 0) {
+    if (message.resultCode !== undefined) {
       obj.resultCode = Math.round(message.resultCode);
     }
-    if (message.errorCode !== 0) {
+    if (message.errorCode !== undefined) {
       obj.errorCode = Math.round(message.errorCode);
     }
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
-    if (message.requestId !== "") {
+    if (message.requestId !== undefined) {
       obj.requestId = message.requestId;
     }
-    if (message.mcpId !== "") {
+    if (message.mcpId !== undefined) {
       obj.mcpId = message.mcpId;
     }
     return obj;

@@ -40,19 +40,19 @@ export const AgentEndpointRegistrationBatch: MessageFns<AgentEndpointRegistratio
 
   toJSON(message: AgentEndpointRegistrationBatch): unknown {
     const obj: any = {};
-    if (message.agentName !== "") {
+    if (message.agentName !== undefined) {
       obj.agentName = message.agentName;
     }
-    if (message.protocol !== "") {
+    if (message.protocol !== undefined) {
       obj.protocol = message.protocol;
     }
     if (message.endpoints?.length) {
       obj.endpoints = message.endpoints.map((e) => Endpoint.toJSON(e));
     }
-    if (message.runtimeVersion !== "") {
+    if (message.runtimeVersion !== undefined) {
       obj.runtimeVersion = message.runtimeVersion;
     }
-    if (message.versionRange !== "") {
+    if (message.versionRange !== undefined) {
       obj.versionRange = message.versionRange;
     }
     return obj;

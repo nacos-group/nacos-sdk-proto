@@ -45,13 +45,13 @@ export const AgentSkill: MessageFns<AgentSkill> = {
 
   toJSON(message: AgentSkill): unknown {
     const obj: any = {};
-    if (message.id !== "") {
+    if (message.id !== undefined) {
       obj.id = message.id;
     }
-    if (message.name !== "") {
+    if (message.name !== undefined) {
       obj.name = message.name;
     }
-    if (message.description !== "") {
+    if (message.description !== undefined) {
       obj.description = message.description;
     }
     if (message.tags?.length) {

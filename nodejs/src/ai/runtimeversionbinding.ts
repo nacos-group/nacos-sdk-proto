@@ -31,10 +31,10 @@ export const RuntimeVersionBinding: MessageFns<RuntimeVersionBinding> = {
 
   toJSON(message: RuntimeVersionBinding): unknown {
     const obj: any = {};
-    if (message.runtimeVersion !== "") {
+    if (message.runtimeVersion !== undefined) {
       obj.runtimeVersion = message.runtimeVersion;
     }
-    if (message.versionRange !== "") {
+    if (message.versionRange !== undefined) {
       obj.versionRange = message.versionRange;
     }
     return obj;

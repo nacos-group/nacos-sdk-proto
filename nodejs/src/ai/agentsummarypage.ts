@@ -38,13 +38,13 @@ export const AgentSummaryPage: MessageFns<AgentSummaryPage> = {
 
   toJSON(message: AgentSummaryPage): unknown {
     const obj: any = {};
-    if (message.totalCount !== 0) {
+    if (message.totalCount !== undefined) {
       obj.totalCount = Math.round(message.totalCount);
     }
-    if (message.pageNumber !== 0) {
+    if (message.pageNumber !== undefined) {
       obj.pageNumber = Math.round(message.pageNumber);
     }
-    if (message.pagesAvailable !== 0) {
+    if (message.pagesAvailable !== undefined) {
       obj.pagesAvailable = Math.round(message.pagesAvailable);
     }
     if (message.pageItems?.length) {

@@ -71,31 +71,31 @@ export const Instance: MessageFns<Instance> = {
 
   toJSON(message: Instance): unknown {
     const obj: any = {};
-    if (message.instanceId !== "") {
+    if (message.instanceId !== undefined) {
       obj.instanceId = message.instanceId;
     }
-    if (message.ip !== "") {
+    if (message.ip !== undefined) {
       obj.ip = message.ip;
     }
-    if (message.port !== 0) {
+    if (message.port !== undefined) {
       obj.port = Math.round(message.port);
     }
-    if (message.weight !== 0) {
+    if (message.weight !== undefined) {
       obj.weight = message.weight;
     }
-    if (message.healthy !== false) {
+    if (message.healthy !== undefined) {
       obj.healthy = message.healthy;
     }
-    if (message.enabled !== false) {
+    if (message.enabled !== undefined) {
       obj.enabled = message.enabled;
     }
-    if (message.ephemeral !== false) {
+    if (message.ephemeral !== undefined) {
       obj.ephemeral = message.ephemeral;
     }
-    if (message.clusterName !== "") {
+    if (message.clusterName !== undefined) {
       obj.clusterName = message.clusterName;
     }
-    if (message.serviceName !== "") {
+    if (message.serviceName !== undefined) {
       obj.serviceName = message.serviceName;
     }
     if (message.metadata) {
@@ -151,10 +151,10 @@ export const Instance_MetadataEntry: MessageFns<Instance_MetadataEntry> = {
 
   toJSON(message: Instance_MetadataEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
-    if (message.value !== "") {
+    if (message.value !== undefined) {
       obj.value = message.value;
     }
     return obj;

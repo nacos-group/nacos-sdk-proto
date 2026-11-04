@@ -72,28 +72,28 @@ export const KeyValueInput: MessageFns<KeyValueInput> = {
 
   toJSON(message: KeyValueInput): unknown {
     const obj: any = {};
-    if (message.description !== "") {
+    if (message.description !== undefined) {
       obj.description = message.description;
     }
-    if (message.isRequired !== false) {
+    if (message.isRequired !== undefined) {
       obj.isRequired = message.isRequired;
     }
-    if (message.format !== "") {
+    if (message.format !== undefined) {
       obj.format = message.format;
     }
-    if (message.value !== "") {
+    if (message.value !== undefined) {
       obj.value = message.value;
     }
-    if (message.isSecret !== false) {
+    if (message.isSecret !== undefined) {
       obj.isSecret = message.isSecret;
     }
-    if (message.defaultValue !== "") {
+    if (message.defaultValue !== undefined) {
       obj.defaultValue = message.defaultValue;
     }
     if (message.choices?.length) {
       obj.choices = message.choices;
     }
-    if (message.placeholder !== "") {
+    if (message.placeholder !== undefined) {
       obj.placeholder = message.placeholder;
     }
     if (message.variables) {
@@ -105,7 +105,7 @@ export const KeyValueInput: MessageFns<KeyValueInput> = {
         });
       }
     }
-    if (message.name !== "") {
+    if (message.name !== undefined) {
       obj.name = message.name;
     }
     return obj;
@@ -152,7 +152,7 @@ export const KeyValueInput_VariablesEntry: MessageFns<KeyValueInput_VariablesEnt
 
   toJSON(message: KeyValueInput_VariablesEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     if (message.value !== undefined) {

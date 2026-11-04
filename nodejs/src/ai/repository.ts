@@ -35,16 +35,16 @@ export const Repository: MessageFns<Repository> = {
 
   toJSON(message: Repository): unknown {
     const obj: any = {};
-    if (message.url !== "") {
+    if (message.url !== undefined) {
       obj.url = message.url;
     }
-    if (message.source !== "") {
+    if (message.source !== undefined) {
       obj.source = message.source;
     }
-    if (message.id !== "") {
+    if (message.id !== undefined) {
       obj.id = message.id;
     }
-    if (message.subfolder !== "") {
+    if (message.subfolder !== undefined) {
       obj.subfolder = message.subfolder;
     }
     return obj;

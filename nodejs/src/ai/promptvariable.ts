@@ -33,13 +33,13 @@ export const PromptVariable: MessageFns<PromptVariable> = {
 
   toJSON(message: PromptVariable): unknown {
     const obj: any = {};
-    if (message.name !== "") {
+    if (message.name !== undefined) {
       obj.name = message.name;
     }
-    if (message.defaultValue !== "") {
+    if (message.defaultValue !== undefined) {
       obj.defaultValue = message.defaultValue;
     }
-    if (message.description !== "") {
+    if (message.description !== undefined) {
       obj.description = message.description;
     }
     return obj;

@@ -37,19 +37,19 @@ export const McpToolAnnotations: MessageFns<McpToolAnnotations> = {
 
   toJSON(message: McpToolAnnotations): unknown {
     const obj: any = {};
-    if (message.title !== "") {
+    if (message.title !== undefined) {
       obj.title = message.title;
     }
-    if (message.readOnlyHint !== false) {
+    if (message.readOnlyHint !== undefined) {
       obj.readOnlyHint = message.readOnlyHint;
     }
-    if (message.destructiveHint !== false) {
+    if (message.destructiveHint !== undefined) {
       obj.destructiveHint = message.destructiveHint;
     }
-    if (message.idempotentHint !== false) {
+    if (message.idempotentHint !== undefined) {
       obj.idempotentHint = message.idempotentHint;
     }
-    if (message.openWorldHint !== false) {
+    if (message.openWorldHint !== undefined) {
       obj.openWorldHint = message.openWorldHint;
     }
     return obj;

@@ -189,7 +189,7 @@ export const Struct_FieldsEntry: MessageFns<Struct_FieldsEntry> = {
 
   toJSON(message: Struct_FieldsEntry): unknown {
     const obj: any = {};
-    if (message.key !== "") {
+    if (message.key !== undefined) {
       obj.key = message.key;
     }
     if (message.value !== undefined) {
