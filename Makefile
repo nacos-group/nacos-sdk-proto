@@ -1,5 +1,6 @@
 .PHONY: generate generate-proto generate-go generate-python generate-nodejs generate-version \
-        clean verify verify-build sync-go-mod migrate sync setup update-version compat-check
+        clean verify verify-build sync-go-mod migrate sync setup update-version compat-check \
+        build-nodejs check-nodejs-package
 
 # === 仓库配置（转移时只改这一行） ===
 REPO_OWNER     := nacos-group
@@ -77,6 +78,13 @@ generate-nodejs: generate-version
 	cd $(NODEJS_OUT)/src && find . -name '*.ts' -not -name 'index.ts' | sort | \
 		sed 's|^\./||; s|\.ts$$||; s|^|export * from "./|; s|$$|";|' > index.ts
 
+build-nodejs:
+	rm -rf $(NODEJS_OUT)/dist
+	cd $(NODEJS_OUT) && npx tsc -p tsconfig.json
+
+check-nodejs-package: build-nodejs
+	node scripts/check-node-package.js
+
 clean:
 	# Proto（保留手写文件，删除 VERSION 使 skip check 失效）
 	find $(PROTO_DIR) -name '*.proto' -not -name 'nacos_grpc_service.proto' -delete 2>/dev/null || true
@@ -85,7 +93,7 @@ clean:
 	# Go
 	find $(GO_OUT) -name '*.pb.go' -delete
 	# Node.js
-	rm -rf $(NODEJS_OUT)/src/*
+	rm -rf $(NODEJS_OUT)/src/* $(NODEJS_OUT)/dist
 	# Python
 	if [ -d $(PYTHON_OUT)/nacos_sdk_proto ]; then \
 		find $(PYTHON_OUT)/nacos_sdk_proto -name '*_pb2*.py' -delete; \
@@ -114,6 +122,8 @@ verify-build:
 	cd $(NODEJS_OUT) && npx tsc --noEmit
 	# Python 全模块 import
 	python scripts/check-python-imports.py $(PYTHON_OUT)
+	# Node.js 打包、安装与加载
+	$(MAKE) check-nodejs-package
 
 verify: verify-build
 	# 幂等性检查：重新生成 proto 与 version 元数据，不应有 diff
