@@ -22,11 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from ai import agentcapabilities_pb2 as ai_dot_agentcapabilities__pb2
-from ai import agentinterface_pb2 as ai_dot_agentinterface__pb2
-from ai import agentprovider_pb2 as ai_dot_agentprovider__pb2
-from ai import agentskill_pb2 as ai_dot_agentskill__pb2
-from ai import securityscheme_pb2 as ai_dot_securityscheme__pb2
+from nacos_sdk_proto.ai import agentcapabilities_pb2 as ai_dot_agentcapabilities__pb2
+from nacos_sdk_proto.ai import agentinterface_pb2 as ai_dot_agentinterface__pb2
+from nacos_sdk_proto.ai import agentprovider_pb2 as ai_dot_agentprovider__pb2
+from nacos_sdk_proto.ai import agentskill_pb2 as ai_dot_agentskill__pb2
+from nacos_sdk_proto.ai import securityscheme_pb2 as ai_dot_securityscheme__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 

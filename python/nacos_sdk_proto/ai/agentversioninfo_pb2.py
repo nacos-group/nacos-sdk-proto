@@ -22,7 +22,7 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from ai import agentversionsummary_pb2 as ai_dot_agentversionsummary__pb2
+from nacos_sdk_proto.ai import agentversionsummary_pb2 as ai_dot_agentversionsummary__pb2
 
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19\x61i/agentversioninfo.proto\x12\x08nacos.ai\x1a\x1c\x61i/agentversionsummary.proto\"\xe2\x01\n\x10\x41gentVersionInfo\x12\x16\n\x0e\x65\x64itingVersion\x18\x01 \x01(\t\x12\x18\n\x10reviewingVersion\x18\x02 \x01(\t\x12\x35\n\x0eonlineVersions\x18\x03 \x03(\x0b\x32\x1d.nacos.ai.AgentVersionSummary\x12\x36\n\x06labels\x18\x04 \x03(\x0b\x32&.nacos.ai.AgentVersionInfo.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')

@@ -22,7 +22,7 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from naming import instance_pb2 as naming_dot_instance__pb2
+from nacos_sdk_proto.naming import instance_pb2 as naming_dot_instance__pb2
 
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18naming/serviceinfo.proto\x12\x0cnacos.naming\x1a\x15naming/instance.proto\"\xd5\x01\n\x0bServiceInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tgroupName\x18\x02 \x01(\t\x12\x10\n\x08\x63lusters\x18\x03 \x01(\t\x12\x13\n\x0b\x63\x61\x63heMillis\x18\x04 \x01(\x03\x12%\n\x05hosts\x18\x05 \x03(\x0b\x32\x16.nacos.naming.Instance\x12\x13\n\x0blastRefTime\x18\x06 \x01(\x03\x12\x10\n\x08\x63hecksum\x18\x07 \x01(\t\x12\x0e\n\x06\x61llIps\x18\x08 \x01(\x08\x12 \n\x18reachProtectionThreshold\x18\t \x01(\x08\x42\x32Z0github.com/nacos-group/nacos-sdk-proto/go/namingb\x06proto3')

@@ -22,7 +22,7 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from ai import agentsummary_pb2 as ai_dot_agentsummary__pb2
+from nacos_sdk_proto.ai import agentsummary_pb2 as ai_dot_agentsummary__pb2
 
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19\x61i/agentsummarypage.proto\x12\x08nacos.ai\x1a\x15\x61i/agentsummary.proto\"}\n\x10\x41gentSummaryPage\x12\x12\n\ntotalCount\x18\x01 \x01(\x05\x12\x12\n\npageNumber\x18\x02 \x01(\x05\x12\x16\n\x0epagesAvailable\x18\x03 \x01(\x05\x12)\n\tpageItems\x18\x04 \x03(\x0b\x32\x16.nacos.ai.AgentSummaryB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
