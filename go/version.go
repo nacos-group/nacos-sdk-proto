@@ -3,7 +3,7 @@
 package _go
 
 // NacosRef is the nacos ref (tag or branch) the protos were generated from.
-const NacosRef = "develop"
+const NacosRef = "3.3.0"
 
 // NacosCommit is the exact alibaba/nacos commit the protos were generated from.
 const NacosCommit = "e61ba821e025d713fc02d2020a338d4ce4251912"
