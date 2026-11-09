@@ -8,6 +8,7 @@ import "ai/agentcapabilities.proto";
 import "ai/agentinterface.proto";
 import "ai/agentprovider.proto";
 import "ai/agentskill.proto";
+import "ai/securityrequirement.proto";
 import "ai/securityscheme.proto";
 import "google/protobuf/struct.proto";
 
@@ -29,7 +30,7 @@ message AgentCard {
   string documentationUrl = 12;
   map<string, SecurityScheme> securitySchemes = 13;
   repeated google.protobuf.Value security = 14;
-  repeated google.protobuf.Value securityRequirements = 22;
+  repeated SecurityRequirement securityRequirements = 22;
   repeated string defaultInputModes = 15;
   repeated string defaultOutputModes = 16;
   bool supportsAuthenticatedExtendedCard = 17;

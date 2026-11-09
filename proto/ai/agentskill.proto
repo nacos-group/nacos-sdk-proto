@@ -4,6 +4,8 @@ package nacos.ai;
 
 option go_package = "github.com/nacos-group/nacos-sdk-proto/go/ai";
 
+import "ai/securityrequirement.proto";
+
 // metadata.type = "AgentSkill"
 // Flattened from: AgentSkill
 message AgentSkill {
@@ -14,4 +16,5 @@ message AgentSkill {
   repeated string examples = 5;
   repeated string inputModes = 6;
   repeated string outputModes = 7;
+  repeated SecurityRequirement securityRequirements = 8;
 }

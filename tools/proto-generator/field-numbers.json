@@ -639,7 +639,8 @@
         "tags" : 4,
         "examples" : 5,
         "inputModes" : 6,
-        "outputModes" : 7
+        "outputModes" : 7,
+        "securityRequirements" : 8
       },
       "reserved" : [ ]
     },
@@ -1627,6 +1628,18 @@
         "contentDigest" : 8,
         "createTime" : 9,
         "updateTime" : 10
+      },
+      "reserved" : [ ]
+    },
+    "SecurityRequirement" : {
+      "fields" : {
+        "schemes" : 1
+      },
+      "reserved" : [ ]
+    },
+    "StringList" : {
+      "fields" : {
+        "list" : 1
       },
       "reserved" : [ ]
     }

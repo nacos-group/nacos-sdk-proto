@@ -22,9 +22,10 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
+from nacos_sdk_proto.ai import securityrequirement_pb2 as ai_dot_securityrequirement__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13\x61i/agentskill.proto\x12\x08nacos.ai\"\x84\x01\n\nAgentSkill\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0c\n\x04tags\x18\x04 \x03(\t\x12\x10\n\x08\x65xamples\x18\x05 \x03(\t\x12\x12\n\ninputModes\x18\x06 \x03(\t\x12\x13\n\x0boutputModes\x18\x07 \x03(\tB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13\x61i/agentskill.proto\x12\x08nacos.ai\x1a\x1c\x61i/securityrequirement.proto\"\xc1\x01\n\nAgentSkill\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0c\n\x04tags\x18\x04 \x03(\t\x12\x10\n\x08\x65xamples\x18\x05 \x03(\t\x12\x12\n\ninputModes\x18\x06 \x03(\t\x12\x13\n\x0boutputModes\x18\x07 \x03(\t\x12;\n\x14securityRequirements\x18\x08 \x03(\x0b\x32\x1d.nacos.ai.SecurityRequirementB.Z,github.com/nacos-group/nacos-sdk-proto/go/aib\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,6 +33,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'ai.agentskill_pb2', _global
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/nacos-group/nacos-sdk-proto/go/ai'
-  _globals['_AGENTSKILL']._serialized_start=34
-  _globals['_AGENTSKILL']._serialized_end=166
+  _globals['_AGENTSKILL']._serialized_start=64
+  _globals['_AGENTSKILL']._serialized_end=257
 # @@protoc_insertion_point(module_scope)
